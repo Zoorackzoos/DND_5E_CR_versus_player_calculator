@@ -27,3 +27,5 @@ def get_XP_from_single_enemy_CR(CR, tab_amount):
             return 25000
         case 30:
             return 155000
+        case _:
+            return 0
