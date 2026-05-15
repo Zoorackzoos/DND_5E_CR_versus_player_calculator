@@ -29,6 +29,7 @@ def get_encounter_difficulty(player_levels, monster_xp_values,tab_amount="\t"):
     :return:
     """
     print(tab_amount,"get_encounter_difficulty")
+    tab_amount += "\t"
 
     total_monster_xp = sum(monster_xp_values)
 

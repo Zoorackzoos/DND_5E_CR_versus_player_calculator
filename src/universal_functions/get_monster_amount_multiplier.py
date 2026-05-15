@@ -1,4 +1,7 @@
-def get_monster_amount_multiplier(monster_count):
+def get_monster_amount_multiplier(monster_count,tab_amount="\t"):
+    print(tab_amount,"get_monster_amount_multiplier")
+    tab_amount += "\t"
+
     if monster_count == 1:
         return 1
     elif monster_count == 2:

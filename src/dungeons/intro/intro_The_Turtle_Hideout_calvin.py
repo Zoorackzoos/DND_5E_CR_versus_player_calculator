@@ -53,7 +53,7 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
             "regeneration_per_second": 0,
             "multiattack_count": 0,
             "ability_count": 1,
-            "average_damage": get_average_damage(dice_string="5d4 + 2")
+            "average_damage": get_average_damage(dice_string="5d4 + 2",tab_amount=tab_amount)
         }
     hoopmaster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=hoopmaster_stockman_stat_block,tab_amount=tab_amount)
     print(tab_amount,"hoopmaster_cr = ",hoopmaster_cr)
