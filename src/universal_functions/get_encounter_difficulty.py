@@ -8,6 +8,8 @@ A = M * k
 calculate party threshold
 T = sigma_p_j=1( t_j )
 """
+from src.universal_functions.display.print_2d_list import print_2d_list
+from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
 from src.universal_functions.get_monster_amount_multiplier import get_monster_amount_multiplier
 from src.universal_functions.vars.player_threshold_var import player_threshold_var
 
@@ -65,3 +67,14 @@ def get_encounter_difficulty(player_levels, monster_xp_values,tab_amount="\t"):
         "thresholds": party_thresholds,
         "difficulty": difficulty
     }
+
+if __name__ == "__main__":
+    tab_amount = "\t"
+
+    players = [5, 5, 5, 5]
+
+    # Three CR 2 monsters = 450 XP each
+    monsters = [450, 450, 450]
+
+    encounter_difficulty = get_encounter_difficulty(players, monsters,tab_amount=tab_amount)
+    print_dictionary_nicely(dict=encounter_difficulty,tab_amount=tab_amount)
