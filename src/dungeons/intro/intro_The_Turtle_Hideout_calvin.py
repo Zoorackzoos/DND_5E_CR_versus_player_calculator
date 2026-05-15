@@ -4,6 +4,8 @@ from src.universal_functions.spreadsheet_stuff.get_row_from_array_based_on_searc
 from src.universal_functions.spreadsheet_stuff.get_row_from_dict_on_param_type_and_string import \
     get_row_from_dict_on_param_type_and_string
 from src.universal_functions.vars.monter_sheet_vars import monsters_all_stats_dict
+from src.universal_functions.get_cr_from_monster import get_average_damage, get_cr_from_monster
+
 
 def search_database(tab_amount="\t"):
     all_humanoids = get_row_from_dict_on_param_type_and_string(dict_in_question=monsters_all_stats_dict,
@@ -29,7 +31,7 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
     player_levels = [3,3,3,3]
     baxster_stockman_stat_block = \
     {
-        "hp" : 80,
+        "hp" : 90,
         "ac" : 11,
         "speed, flight" : 60,
         "speed, ground" : 30,
@@ -41,6 +43,7 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
         "cha" : -3,
         "attack_bonus" : 5,
         "has_legendary_action" : False,
+        "has_flight": True,
         "resistance_count" : 0,
         "immunity_count": 0,
         "save_dc": 13,
@@ -48,33 +51,26 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
         "regeneration_per_second": 0,
         "multiattack_count":0,
         "ability_count":0,
+        "average_damage":get_average_damage(dice_string="5d4")
     }
-    """
-    def get_cr_from_monster(
-        hit_points,
-        armor_class,
-        damage_per_round,
-        attack_bonus,
-        has_legendary_action,
-        has_flight,
-        resistance_count,
-        immunity_count,
-        save_dc,
-        is_spellcaster,
-        regeneration_per_round,
-        multiattack_count,
-        ability_count,
-        tab_amount="\t"
-    ):
-    
-    print(average_damage("2d6"))
-    # 7.0
 
-    print(average_damage("2d4 + 1d8"))
-    # 9.5
-    
-    """
-
+    baxster_cr = get_cr_from_monster(
+        hit_points=baxster_stockman_stat_block["hp"],
+        armor_class=baxster_stockman_stat_block["ac"],
+        damage_per_round=baxster_stockman_stat_block["average_damage"],
+        attack_bonus=baxster_stockman_stat_block["attack_bonus"],
+        has_legendary_action=baxster_stockman_stat_block["has_legendary_action"],
+        has_flight=baxster_stockman_stat_block["has_flight"],
+        resistance_count=baxster_stockman_stat_block["resistance_count"],
+        immunity_count=baxster_stockman_stat_block["immunity_count"],
+        save_dc=baxster_stockman_stat_block["save_dc"],
+        is_spellcaster=baxster_stockman_stat_block["is_spellcaster"],
+        regeneration_per_round=baxster_stockman_stat_block["regeneration_per_second"],
+        multiattack_count=baxster_stockman_stat_block["multiattack_count"],
+        ability_count=baxster_stockman_stat_block["ability_count"],
+        tab_amount=tab_amount
+                        )
+    print(baxster_cr)
 
 if __name__ == "__main__":
     tab_amount = "\t"

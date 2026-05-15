@@ -254,6 +254,24 @@ def get_cr_from_monster(
 
 import re
 
+def plug_monster_var_values_into_get_cr_from_monster(monster_var,tab_amount="\t"):
+    print(tab_amount,"plug_monster_var_values_into_get_cr")
+    return get_cr_from_monster(
+        hit_points=monster_var["hp"],
+        armor_class=monster_var["ac"],
+        damage_per_round=monster_var["average_damage"],
+        attack_bonus=monster_var["attack_bonus"],
+        has_legendary_action=monster_var["has_legendary_action"],
+        has_flight=monster_var["has_flight"],
+        resistance_count=monster_var["resistance_count"],
+        immunity_count=monster_var["immunity_count"],
+        save_dc=monster_var["save_dc"],
+        is_spellcaster=monster_var["is_spellcaster"],
+        regeneration_per_round=monster_var["regeneration_per_second"],
+        multiattack_count=monster_var["multiattack_count"],
+        ability_count=monster_var["ability_count"],
+        tab_amount=tab_amount
+                        )
 
 def get_average_damage(dice_string):
     """
@@ -275,7 +293,6 @@ def get_average_damage(dice_string):
         total += dice_count * average_die
 
     return total
-
 
 # =====================================================
 # Example Usage
