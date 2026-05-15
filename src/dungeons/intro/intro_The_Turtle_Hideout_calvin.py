@@ -4,7 +4,8 @@ from src.universal_functions.spreadsheet_stuff.get_row_from_array_based_on_searc
 from src.universal_functions.spreadsheet_stuff.get_row_from_dict_on_param_type_and_string import \
     get_row_from_dict_on_param_type_and_string
 from src.universal_functions.vars.monter_sheet_vars import monsters_all_stats_dict
-from src.universal_functions.get_cr_from_monster import get_average_damage, get_cr_from_monster
+from src.universal_functions.get_cr_from_monster import get_average_damage, get_cr_from_monster, \
+    plug_monster_var_values_into_get_cr_from_monster
 
 
 def search_database(tab_amount="\t"):
@@ -29,6 +30,34 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
     tab_amount += "\t"
 
     player_levels = [3,3,3,3]
+
+    print(tab_amount,"getting hoopmaster's cr...")
+    hoopmaster_stockman_stat_block = \
+        {
+            "hp": 30,
+            "ac": 13,
+            "speed, ground": 30,
+            "str": 1,
+            "dex": 1,
+            "con": 1,
+            "inl": 0,
+            "wis": 0,
+            "cha": 0,
+            "attack_bonus": 3,
+            "has_legendary_action": False,
+            "has_flight": False,
+            "resistance_count": 0,
+            "immunity_count": 0,
+            "save_dc": 0,
+            "is_spellcaster": False,
+            "regeneration_per_second": 0,
+            "multiattack_count": 0,
+            "ability_count": 1,
+            "average_damage": get_average_damage(dice_string="5d4 + 2")
+        }
+    hoopmaster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=hoopmaster_stockman_stat_block,tab_amount=tab_amount)
+    print(tab_amount,"hoopmaster_cr = ",hoopmaster_cr)
+
     baxster_stockman_stat_block = \
     {
         "hp" : 90,
@@ -53,24 +82,8 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
         "ability_count":0,
         "average_damage":get_average_damage(dice_string="5d4")
     }
-
-    baxster_cr = get_cr_from_monster(
-        hit_points=baxster_stockman_stat_block["hp"],
-        armor_class=baxster_stockman_stat_block["ac"],
-        damage_per_round=baxster_stockman_stat_block["average_damage"],
-        attack_bonus=baxster_stockman_stat_block["attack_bonus"],
-        has_legendary_action=baxster_stockman_stat_block["has_legendary_action"],
-        has_flight=baxster_stockman_stat_block["has_flight"],
-        resistance_count=baxster_stockman_stat_block["resistance_count"],
-        immunity_count=baxster_stockman_stat_block["immunity_count"],
-        save_dc=baxster_stockman_stat_block["save_dc"],
-        is_spellcaster=baxster_stockman_stat_block["is_spellcaster"],
-        regeneration_per_round=baxster_stockman_stat_block["regeneration_per_second"],
-        multiattack_count=baxster_stockman_stat_block["multiattack_count"],
-        ability_count=baxster_stockman_stat_block["ability_count"],
-        tab_amount=tab_amount
-                        )
-    print(baxster_cr)
+    print(tab_amount,"getting baxster's cr...")
+    baxster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=baxster_stockman_stat_block,tab_amount=tab_amount)
 
 if __name__ == "__main__":
     tab_amount = "\t"

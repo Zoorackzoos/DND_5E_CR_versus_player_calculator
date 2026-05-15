@@ -147,6 +147,8 @@ CR_TABLE = [
 
 def get_defensive_cr(hit_points,tab_amount="\t"):
     print(tab_amount,"get_defensive_cr")
+    tab_amount += "\t"
+
     for row in CR_TABLE:
         if row["hp_min"] <= hit_points <= row["hp_max"]:
             return row["cr"]
@@ -157,6 +159,8 @@ def get_defensive_cr(hit_points,tab_amount="\t"):
 
 def get_offensive_cr(damage_per_round,tab_amount="\t"):
     print(tab_amount,"get_offensive_cr")
+    tab_amount += "\t"
+
     for row in CR_TABLE:
         if row["dpr_min"] <= damage_per_round <= row["dpr_max"]:
             return row["cr"]
@@ -167,6 +171,8 @@ def get_offensive_cr(damage_per_round,tab_amount="\t"):
 
 def get_expected_values_from_cr(cr,tab_amount="\t"):
     print(tab_amount,"get_expected_values_from_cr")
+    tab_amount += "\t"
+
     for row in CR_TABLE:
         if row["cr"] == cr:
             return row
@@ -197,21 +203,40 @@ def get_cr_from_monster(
 ):
     print(tab_amount,"calculate_cr")
     tab_amount += "\t"
+
     # -------------------------------
     # Defensive CR
     # -------------------------------
-
     if resistance_count > 0:
+        print(tab_amount,"resistance count =",resistance_count)
+        print(tab_amount,"before: hit_points =",hit_points)
         hit_points *= 1.5 * resistance_count
+        print(tab_amount,"after: hit_points =",hit_points)
+
     if immunity_count > 0:
+        print(tab_amount,"immunity_count = ",immunity_count)
+        print(tab_amount,"before: hit_points =",hit_points)
         hit_points *= 2 * immunity_count
+        print(tab_amount,"after: hit_points =",hit_points)
+
     if has_flight == true:
+        print(tab_amount,"has_flight = ",has_flight)
+        print(tab_amount,"before: hit_points =",hit_points)
         hit_points *= 1.25
+        print(tab_amount,"after: hit_points =",hit_points)
+
     if regeneration_per_round > 0:
+        print(tab_amount,"regeneration_per_round = ",regeneration_per_round)
+        print(tab_amount,"before: hit_points =",hit_points)
         hit_points *= regeneration_per_round * 3
+        print(tab_amount,"after: hit_points =",hit_points)
 
     defensive_cr = get_defensive_cr(hit_points=hit_points,tab_amount=tab_amount)
+    print(tab_amount,"defensive_cr = ",defensive_cr)
+
     defensive_stats = get_expected_values_from_cr(cr=defensive_cr,tab_amount=tab_amount)
+    print(tab_amount,"defensive_stats = ",defensive_stats)
+
     expected_ac = defensive_stats["ac"]
     ac_difference = armor_class - expected_ac
     defensive_cr += ac_difference / 2
@@ -221,15 +246,34 @@ def get_cr_from_monster(
     # Offensive CR
     # -------------------------------
     if save_dc > 0:
+        print(tab_amount,"save_dc = ",save_dc)
+        print(tab_amount,"before: damage_per_round =",damage_per_round)
         damage_per_round *= 1.15
+        print(tab_amount,"after: damage_per_round =",damage_per_round)
+
     if is_spellcaster:
+        print(tab_amount,"is_spellcaster = ",is_spellcaster)
+        print(tab_amount,"before: damage_per_round =",damage_per_round)
         damage_per_round *= 1.3
+        print(tab_amount,"after: damage_per_round =",damage_per_round)
+
     if has_legendary_action:
+        print(tab_amount,"has_legendary_action = ",has_legendary_action)
+        print(tab_amount,"before: damage_per_round =",damage_per_round)
         damage_per_round *= 1.5
+        print(tab_amount,"after: damage_per_round =",damage_per_round)
+
     if multiattack_count > 0:
+        print(tab_amount,"multiattack_count = ",multiattack_count)
+        print(tab_amount,"before: damage_per_round =",damage_per_round)
         damage_per_round *= multiattack_count
+        print(tab_amount, "after: damage_per_round =", damage_per_round)
+
     if ability_count > 0:
+        print(tab_amount,"ability_count = ",ability_count)
+        print(tab_amount,"before: damage_per_round =",damage_per_round)
         damage_per_round += ability_count
+        print(tab_amount,"after: damage_per_round =",damage_per_round)
 
     offensive_cr = get_offensive_cr(damage_per_round=damage_per_round,tab_amount=tab_amount)
     offensive_stats = get_expected_values_from_cr(cr=offensive_cr,tab_amount=tab_amount)
@@ -256,6 +300,8 @@ import re
 
 def plug_monster_var_values_into_get_cr_from_monster(monster_var,tab_amount="\t"):
     print(tab_amount,"plug_monster_var_values_into_get_cr")
+    tab_amount += "\t"
+
     return get_cr_from_monster(
         hit_points=monster_var["hp"],
         armor_class=monster_var["ac"],
@@ -273,7 +319,7 @@ def plug_monster_var_values_into_get_cr_from_monster(monster_var,tab_amount="\t"
         tab_amount=tab_amount
                         )
 
-def get_average_damage(dice_string):
+def get_average_damage(dice_string,tab_amount="\t"):
     """
     print(average_damage("2d6"))
     # 7.0
@@ -284,6 +330,9 @@ def get_average_damage(dice_string):
     :param dice_string:
     :return:
     """
+    print(tab_amount,"get_average_damage")
+    tab_amount += "\t"
+
     total = 0
     matches = re.findall(r"(\\d+)d(\\d+)", dice_string)
     for dice_count, dice_sides in matches:
