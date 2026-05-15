@@ -5,13 +5,10 @@ from src.universal_functions.spreadsheet_stuff.get_row_from_dict_on_param_type_a
     get_row_from_dict_on_param_type_and_string
 from src.universal_functions.vars.monter_sheet_vars import monsters_all_stats_dict
 
-
-def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
-    print(tab_amount,"intro_the_Turtle_Hideout_calvin")
-    tab_amount += "\t"
-
-    player_levels = [3,3,3,3]
-    all_humanoids = get_row_from_dict_on_param_type_and_string(dict_in_question=monsters_all_stats_dict,param_type="Type",string="humanoid",tab_amount=tab_amount)
+def example_database_code(tab_amount="\t"):
+    all_humanoids = get_row_from_dict_on_param_type_and_string(dict_in_question=monsters_all_stats_dict,
+                                                               param_type="Type", string="humanoid",
+                                                               tab_amount=tab_amount)
 
     """
     how to sort lists of dicts
@@ -24,6 +21,13 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
     )
 
     print_2d_list(list_in_question=all_humanoids, tab_amount=tab_amount)
+
+def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
+    print(tab_amount,"intro_the_Turtle_Hideout_calvin")
+    tab_amount += "\t"
+
+    player_levels = [3,3,3,3]
+
 
 
 if __name__ == "__main__":
