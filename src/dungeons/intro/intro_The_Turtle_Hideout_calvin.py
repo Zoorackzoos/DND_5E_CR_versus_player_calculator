@@ -21,7 +21,6 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
     """
     all_humanoids.sort(
         key=lambda row: float(row["CR"]),
-        reverse=True
     )
 
     print_2d_list(list_in_question=all_humanoids, tab_amount=tab_amount)
