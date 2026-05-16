@@ -56,7 +56,7 @@ def get_hoopmaster_CR(tab_amount="\t"):
             "immunity_count": 0,
             "save_dc": 0,
             "is_spellcaster": False,
-            "regeneration_per_second": 0,
+            "regeneration_per_round": 0,
             "multiattack_count": 0,
             "ability_count": 1,
             "average_damage": get_damage_per_round(dice_dict=hoopmaster_dice_dict, tab_amount=tab_amount + "\t")
@@ -72,7 +72,7 @@ def get_baxster_CR(tab_amount="\t"):
 
     baxster_dice_dict = \
         {
-            4: 5
+            4: 3
         }
     baxster_stockman_stat_block = \
         {
@@ -93,7 +93,7 @@ def get_baxster_CR(tab_amount="\t"):
             "immunity_count": 0,
             "save_dc": 13,
             "is_spellcaster": False,
-            "regeneration_per_second": 0,
+            "regeneration_per_round": 0,
             "multiattack_count": 0,
             "ability_count": 0,
             "average_damage": get_damage_per_round(dice_dict=baxster_dice_dict, tab_amount=tab_amount + "\t")

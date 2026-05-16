@@ -177,8 +177,6 @@ def get_expected_values_from_CR(CR,tab_amount="\t"):
 # =====================================================
 # Main CR Calculator
 # =====================================================
-
-
 def get_CR_from_monster(
         hit_points,
         armor_class,
@@ -195,7 +193,7 @@ def get_CR_from_monster(
         ability_count,
         tab_amount="\t"
 ):
-    print(tab_amount,"calculate_CR")
+    print(tab_amount,"get_CR_from_monster")
     tab_amount += "\t"
 
     # -------------------------------
@@ -270,18 +268,30 @@ def get_CR_from_monster(
         print(tab_amount+"\t","after: damage_per_round =",damage_per_round)
 
     offensive_CR = get_offensive_CR(damage_per_round=damage_per_round,tab_amount=tab_amount)
+    print(tab_amount,"offensive_CR =",offensive_CR)
+
     offensive_stats = get_expected_values_from_CR(CR=offensive_CR,tab_amount=tab_amount)
+    print(tab_amount,"offensive_stats =",offensive_stats)
+
     expected_attack_bonus = offensive_stats["attack_bonus"]
+    print(tab_amount,"expected_attack_bonus =",expected_attack_bonus)
 
     attack_difference = attack_bonus - expected_attack_bonus
-    offensive_CR += attack_difference / 2
+    print(tab_amount,"attack_difference =",attack_difference)
 
+    offensive_CR += attack_difference / 2
+    print(tab_amount,"offensive_CR =",offensive_CR)
+    print()
 
     # -------------------------------
     # Final CR
     # -------------------------------
 
     final_CR = (defensive_CR + offensive_CR) / 2
+
+    print(tab_amount,"defensive_CR =",defensive_CR)
+    print(tab_amount,"offensive_CR =",offensive_CR)
+    print(tab_amount,"final_CR =",final_CR)
 
     if final_CR >= 1:
         final_CR = int(round(final_CR, 0))
@@ -306,17 +316,8 @@ def plug_monster_var_values_into_get_CR_from_monster(monster_var,tab_amount="\t"
         immunity_count=monster_var["immunity_count"],
         save_dc=monster_var["save_dc"],
         is_spellcaster=monster_var["is_spellcaster"],
-        regeneration_per_round=monster_var["regeneration_per_second"],
+        regeneration_per_round=monster_var["regeneration_per_round"],
         multiattack_count=monster_var["multiattack_count"],
         ability_count=monster_var["ability_count"],
         tab_amount=tab_amount
                         )
-
-
-
-# =====================================================
-# Example Usage
-# =====================================================
-if __name__ == "__main__":
-    tab_amount = "\t"
-    print("nothing set yet lol")
