@@ -3,4 +3,4 @@ def print_dictionary_nicely(dict,tab_amount="\t"):
     tab_amount += "\t"
 
     for key,value in dict.items():
-        print(tab_amount,":",key,value)
+        print(tab_amount,key,":",value)

@@ -1,6 +1,9 @@
 from src.universal_functions.display.print_2d_list import print_2d_list
 from src.universal_functions.display.print_array_header import print_array_header_and_array_piece
+from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
+from src.universal_functions.get_XP_from_single_enemy_CR import get_XP_from_single_enemy_CR
 from src.universal_functions.get_damage_per_round import get_damage_per_round
+from src.universal_functions.get_encounter_difficulty import get_encounter_difficulty
 from src.universal_functions.spreadsheet_stuff.get_row_from_array_based_on_search_string import get_row_from_array_based_on_search_string
 from src.universal_functions.spreadsheet_stuff.get_row_from_dict_on_param_type_and_string import \
     get_row_from_dict_on_param_type_and_string
@@ -59,11 +62,12 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
             "regeneration_per_second": 0,
             "multiattack_count": 0,
             "ability_count": 1,
-            "average_damage": get_damage_per_round(dice_dict=hoopmaster_dice_dict, tab_amount=tab_amount)
+            "average_damage": get_damage_per_round(dice_dict=hoopmaster_dice_dict, tab_amount=tab_amount+"\t")
         }
-    hoopmaster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=hoopmaster_stockman_stat_block,tab_amount=tab_amount)
+    hoopmaster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=hoopmaster_stockman_stat_block,tab_amount=tab_amount+"\t")
     print(tab_amount,"hoopmaster_cr = ",hoopmaster_cr)
 
+    print(tab_amount,"getting baxster's cr...")
     baxster_dice_dict = \
         {
             4 : 5
@@ -90,12 +94,32 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
         "regeneration_per_second": 0,
         "multiattack_count":0,
         "ability_count":0,
-        "average_damage":get_damage_per_round(dice_dict=baxster_dice_dict,tab_amount=tab_amount)
+        "average_damage":get_damage_per_round(dice_dict=baxster_dice_dict,tab_amount=tab_amount+"\t")
     }
-    print(tab_amount,"getting baxster's cr...")
-    baxster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=baxster_stockman_stat_block,tab_amount=tab_amount)
+    baxster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=baxster_stockman_stat_block,tab_amount=tab_amount+"\t")
 
-    bandit_cr =
+    bandit_dict = get_row_from_dict_on_param_type_and_string(dict_in_question=monsters_all_stats_dict,param_type="Name",string="NPC, Bandit",tab_amount=tab_amount)[0]
+    bandit_cr = bandit_dict["CR"]
+
+    bandit_xp = get_XP_from_single_enemy_CR(CR=bandit_cr,tab_amount=tab_amount)
+    hoopmaster_xp = get_XP_from_single_enemy_CR(CR=hoopmaster_cr,tab_amount=tab_amount)
+    baxster_xp = get_XP_from_single_enemy_CR(CR=baxster_cr,tab_amount=tab_amount)
+
+    monster_xp_list_lvl_1 = [bandit_xp,bandit_xp,bandit_xp,bandit_xp]
+    monster_xp_list_lvl_2 = [bandit_xp,hoopmaster_xp,bandit_xp]
+    monster_xp_list_lvl_3 = [bandit_xp,bandit_xp,baxster_xp,bandit_xp,bandit_xp]
+
+    lvl_1_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,monster_xp_values=monster_xp_list_lvl_1,tab_amount=tab_amount)
+    lvl_2_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,monster_xp_values=monster_xp_list_lvl_2,tab_amount=tab_amount)
+    lvl_3_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,monster_xp_values=monster_xp_list_lvl_3,tab_amount=tab_amount)
+
+    print()
+    print(tab_amount,"calculations finalized!")
+    print()
+
+    print_dictionary_nicely(dict=lvl_1_encounter_difficulty,tab_amount=tab_amount)
+    print_dictionary_nicely(dict=lvl_2_encounter_difficulty,tab_amount=tab_amount)
+    print_dictionary_nicely(dict=lvl_3_encounter_difficulty,tab_amount=tab_amount)
 
 if __name__ == "__main__":
     tab_amount = "\t"

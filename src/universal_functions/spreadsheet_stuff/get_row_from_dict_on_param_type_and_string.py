@@ -13,7 +13,7 @@ def get_row_from_dict_on_param_type_and_string(dict_in_question, param_type, str
         if param_type in dict_in_question[i]:
             if string.lower() == dict_in_question[i][param_type].lower():
                 return_rows.append(dict_in_question[i])
-    print(tab_amount,"the string showed up",len(return_rows),"times in the param_type",param_type)
+    print(tab_amount,"the string \"",string,"\" showed up",len(return_rows),"times in the param_type",param_type)
 
     return return_rows
 
