@@ -76,7 +76,7 @@ def get_baxster_CR(tab_amount="\t"):
         }
     baxster_stockman_stat_block = \
         {
-            "hp": 90,
+            "hp": 60,
             "ac": 11,
             "speed, flight": 60,
             "speed, ground": 30,
@@ -118,8 +118,8 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
     hoopmaster_xp = get_XP_from_single_enemy_CR(CR=hoopmaster_CR,tab_amount=tab_amount)
     baxster_xp = get_XP_from_single_enemy_CR(CR=baxster_CR,tab_amount=tab_amount)
 
-    monster_xp_list_lvl_1 = [bandit_xp,bandit_xp,bandit_xp,bandit_xp]
-    monster_xp_list_lvl_2 = [bandit_xp,hoopmaster_xp,bandit_xp]
+    monster_xp_list_lvl_1 = [bandit_xp,bandit_xp,bandit_xp,bandit_xp,bandit_xp,bandit_xp,bandit_xp]
+    monster_xp_list_lvl_2 = [bandit_xp,hoopmaster_xp,bandit_xp,bandit_xp,bandit_xp]
     monster_xp_list_lvl_3 = [bandit_xp,bandit_xp,baxster_xp,bandit_xp,bandit_xp]
 
     lvl_1_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,monster_xp_values=monster_xp_list_lvl_1,tab_amount=tab_amount)
