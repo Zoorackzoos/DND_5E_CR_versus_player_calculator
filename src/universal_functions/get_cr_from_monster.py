@@ -1,9 +1,3 @@
-from asyncio.windows_events import NULL
-
-from sympy import true
-from sympy.codegen.ast import none
-from sympy.parsing.sympy_parser import null
-
 # =====================================================
 # D&D 5E Monster CR Calculator
 # Based loosely on 2014 DMG rules
@@ -296,7 +290,6 @@ def get_cr_from_monster(
 
     return final_cr
 
-import re
 
 def plug_monster_var_values_into_get_cr_from_monster(monster_var,tab_amount="\t"):
     print(tab_amount,"plug_monster_var_values_into_get_cr")
@@ -319,29 +312,7 @@ def plug_monster_var_values_into_get_cr_from_monster(monster_var,tab_amount="\t"
         tab_amount=tab_amount
                         )
 
-def get_average_damage(dice_string,tab_amount="\t"):
-    """
-    print(average_damage("2d6"))
-    # 7.0
 
-    print(average_damage("2d4 + 1d8"))
-    # 9.5
-
-    :param dice_string:
-    :return:
-    """
-    print(tab_amount,"get_average_damage")
-    tab_amount += "\t"
-
-    total = 0
-    matches = re.findall(r"(\\d+)d(\\d+)", dice_string)
-    for dice_count, dice_sides in matches:
-        dice_count = int(dice_count)
-        dice_sides = int(dice_sides)
-        average_die = (dice_sides + 1) / 2
-        total += dice_count * average_die
-
-    return total
 
 # =====================================================
 # Example Usage

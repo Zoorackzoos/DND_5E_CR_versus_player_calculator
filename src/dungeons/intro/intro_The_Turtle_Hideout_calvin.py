@@ -4,7 +4,7 @@ from src.universal_functions.spreadsheet_stuff.get_row_from_array_based_on_searc
 from src.universal_functions.spreadsheet_stuff.get_row_from_dict_on_param_type_and_string import \
     get_row_from_dict_on_param_type_and_string
 from src.universal_functions.vars.monter_sheet_vars import monsters_all_stats_dict
-from src.universal_functions.get_cr_from_monster import get_average_damage, get_cr_from_monster, \
+from src.universal_functions.get_cr_from_monster import get_damage_per_round, get_cr_from_monster, \
     plug_monster_var_values_into_get_cr_from_monster
 
 
@@ -53,7 +53,7 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
             "regeneration_per_second": 0,
             "multiattack_count": 0,
             "ability_count": 1,
-            "average_damage": get_average_damage(dice_string="5d4 + 2",tab_amount=tab_amount)
+            "average_damage": get_damage_per_round(dice_string="2d6 + 2", tab_amount=tab_amount)
         }
     hoopmaster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=hoopmaster_stockman_stat_block,tab_amount=tab_amount)
     print(tab_amount,"hoopmaster_cr = ",hoopmaster_cr)
@@ -80,7 +80,7 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
         "regeneration_per_second": 0,
         "multiattack_count":0,
         "ability_count":0,
-        "average_damage":get_average_damage(dice_string="5d4")
+        "average_damage":get_damage_per_round(dice_string="5d4")
     }
     print(tab_amount,"getting baxster's cr...")
     baxster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=baxster_stockman_stat_block,tab_amount=tab_amount)
