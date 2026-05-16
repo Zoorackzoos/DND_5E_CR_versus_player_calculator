@@ -36,7 +36,7 @@ def get_encounter_difficulty(player_levels, monster_xp_values,tab_amount="\t"):
     adjusted_xp = \
     (
         total_monster_xp *
-        get_monster_amount_multiplier(len(monster_xp_values))
+        get_monster_amount_multiplier(monster_count=len(monster_xp_values),tab_amount=tab_amount)
     )
 
     party_thresholds = \

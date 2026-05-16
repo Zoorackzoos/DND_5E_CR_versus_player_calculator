@@ -2,6 +2,8 @@ def get_XP_from_single_enemy_CR(CR, tab_amount):
     print(tab_amount,"get_XP_from_single_enemy_CR")
     tab_amount += "\t"
 
+    print(tab_amount,"CR = ",CR)
+
     match CR:
         case 0:
             print(tab_amount,CR,"--> 10")

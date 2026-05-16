@@ -8,8 +8,8 @@ from src.universal_functions.spreadsheet_stuff.get_row_from_array_based_on_searc
 from src.universal_functions.spreadsheet_stuff.get_row_from_dict_on_param_type_and_string import \
     get_row_from_dict_on_param_type_and_string
 from src.universal_functions.vars.monter_sheet_vars import monsters_all_stats_dict
-from src.universal_functions.get_cr_from_monster import get_cr_from_monster, \
-    plug_monster_var_values_into_get_cr_from_monster
+from src.universal_functions.get_CR_from_monster import get_CR_from_monster, \
+    plug_monster_var_values_into_get_CR_from_monster
 
 
 def search_database(tab_amount="\t"):
@@ -29,17 +29,14 @@ def search_database(tab_amount="\t"):
 
     print_2d_list(list_in_question=all_humanoids, tab_amount=tab_amount)
 
-def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
-    print(tab_amount,"intro_the_Turtle_Hideout_calvin")
+def get_hoopmaster_CR(tab_amount="\t"):
+    print(tab_amount, "get_hoopmaster_CR")
     tab_amount += "\t"
 
-    player_levels = [3,3,3,3]
-
-    print(tab_amount,"getting hoopmaster's cr...")
     hoopmaster_dice_dict = \
         {
-            6 : 2,
-            "constant" : 2
+            6: 2,
+            "constant": 2
         }
     hoopmaster_stockman_stat_block = \
         {
@@ -62,48 +59,64 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
             "regeneration_per_second": 0,
             "multiattack_count": 0,
             "ability_count": 1,
-            "average_damage": get_damage_per_round(dice_dict=hoopmaster_dice_dict, tab_amount=tab_amount+"\t")
+            "average_damage": get_damage_per_round(dice_dict=hoopmaster_dice_dict, tab_amount=tab_amount + "\t")
         }
-    hoopmaster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=hoopmaster_stockman_stat_block,tab_amount=tab_amount+"\t")
-    print(tab_amount,"hoopmaster_cr = ",hoopmaster_cr)
+    hoopmaster_cr = plug_monster_var_values_into_get_CR_from_monster(monster_var=hoopmaster_stockman_stat_block,
+                                                                     tab_amount=tab_amount + "\t")
+    print(tab_amount, "hoopmaster_cr = ", hoopmaster_cr)
+    return hoopmaster_cr
 
-    print(tab_amount,"getting baxster's cr...")
+def get_baxster_CR(tab_amount="\t"):
+    print(tab_amount, "get_baxster_CR")
+    tab_amount += "\t"
+
     baxster_dice_dict = \
         {
-            4 : 5
+            4: 5
         }
     baxster_stockman_stat_block = \
-    {
-        "hp" : 90,
-        "ac" : 11,
-        "speed, flight" : 60,
-        "speed, ground" : 30,
-        "str" : 0,
-        "dex" : 0,
-        "con" : 3,
-        "inl" : 3,
-        "wis" : 0,
-        "cha" : -3,
-        "attack_bonus" : 5,
-        "has_legendary_action" : False,
-        "has_flight": True,
-        "resistance_count" : 0,
-        "immunity_count": 0,
-        "save_dc": 13,
-        "is_spellcaster": False,
-        "regeneration_per_second": 0,
-        "multiattack_count":0,
-        "ability_count":0,
-        "average_damage":get_damage_per_round(dice_dict=baxster_dice_dict,tab_amount=tab_amount+"\t")
-    }
-    baxster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=baxster_stockman_stat_block,tab_amount=tab_amount+"\t")
+        {
+            "hp": 90,
+            "ac": 11,
+            "speed, flight": 60,
+            "speed, ground": 30,
+            "str": 0,
+            "dex": 0,
+            "con": 3,
+            "inl": 3,
+            "wis": 0,
+            "cha": -3,
+            "attack_bonus": 5,
+            "has_legendary_action": False,
+            "has_flight": True,
+            "resistance_count": 0,
+            "immunity_count": 0,
+            "save_dc": 13,
+            "is_spellcaster": False,
+            "regeneration_per_second": 0,
+            "multiattack_count": 0,
+            "ability_count": 0,
+            "average_damage": get_damage_per_round(dice_dict=baxster_dice_dict, tab_amount=tab_amount + "\t")
+        }
+    baxster_cr = plug_monster_var_values_into_get_CR_from_monster(monster_var=baxster_stockman_stat_block,
+                                                                  tab_amount=tab_amount + "\t")
+    return baxster_cr
+
+def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
+    print(tab_amount,"intro_the_Turtle_Hideout_calvin")
+    tab_amount += "\t"
+
+    player_levels = [3,3,3,3]
+
+    hoopmaster_CR = get_hoopmaster_CR(tab_amount=tab_amount)
+    baxster_CR = get_baxster_CR(tab_amount=tab_amount)
 
     bandit_dict = get_row_from_dict_on_param_type_and_string(dict_in_question=monsters_all_stats_dict,param_type="Name",string="NPC, Bandit",tab_amount=tab_amount)[0]
     bandit_cr = bandit_dict["CR"]
 
     bandit_xp = get_XP_from_single_enemy_CR(CR=bandit_cr,tab_amount=tab_amount)
-    hoopmaster_xp = get_XP_from_single_enemy_CR(CR=hoopmaster_cr,tab_amount=tab_amount)
-    baxster_xp = get_XP_from_single_enemy_CR(CR=baxster_cr,tab_amount=tab_amount)
+    hoopmaster_xp = get_XP_from_single_enemy_CR(CR=hoopmaster_CR,tab_amount=tab_amount)
+    baxster_xp = get_XP_from_single_enemy_CR(CR=baxster_CR,tab_amount=tab_amount)
 
     monster_xp_list_lvl_1 = [bandit_xp,bandit_xp,bandit_xp,bandit_xp]
     monster_xp_list_lvl_2 = [bandit_xp,hoopmaster_xp,bandit_xp]
