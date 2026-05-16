@@ -130,6 +130,7 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
     print(tab_amount,"calculations finalized!")
     print()
 
+    #TODO: give better GUI interface to show each level's title, "lvl #", their enemies's title, individual CR & individual XP
     print_dictionary_nicely(dict=lvl_1_encounter_difficulty,tab_amount=tab_amount)
     print_dictionary_nicely(dict=lvl_2_encounter_difficulty,tab_amount=tab_amount)
     print_dictionary_nicely(dict=lvl_3_encounter_difficulty,tab_amount=tab_amount)
