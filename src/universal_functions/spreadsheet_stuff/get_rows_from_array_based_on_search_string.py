@@ -1,5 +1,5 @@
-def get_row_from_array_based_on_search_string(search_string, array_in_question, tab_amount="\t"):
-    print(tab_amount,"get_row_from_array_based_on_search_string")
+def get_rows_from_array_based_on_search_string(search_string, array_in_question, tab_amount="\t"):
+    print(tab_amount,"get_rows_from_array_based_on_search_string")
     tab_amount += "\t"
     print(tab_amount,"search_string =",search_string)
     #print(tab_amount,"array_in_question = ",array_in_question)

@@ -78,4 +78,4 @@ if __name__ == "__main__":
     monsters = [450, 450, 450]
 
     encounter_difficulty = get_encounter_difficulty(players, monsters,tab_amount=tab_amount)
-    print_dictionary_nicely(dict=encounter_difficulty,tab_amount=tab_amount)
+    print_dictionary_nicely(dict_in_question=encounter_difficulty, tab_amount=tab_amount)

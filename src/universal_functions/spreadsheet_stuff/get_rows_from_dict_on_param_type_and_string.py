@@ -1,8 +1,8 @@
 from src.universal_functions.vars.monter_sheet_vars import monsters_all_stats_dict
 
 
-def get_row_from_dict_on_param_type_and_string(dict_in_question, param_type, string, tab_amount="\t"):
-    print(tab_amount,"get_row_from_dict_on_param_type_and_string")
+def get_rows_from_dict_on_param_type_and_string(dict_in_question, param_type, string, tab_amount="\t"):
+    print(tab_amount,"get_rows_from_dict_on_param_type_and_string")
     tab_amount += "\t"
 
     return_rows = []
@@ -19,4 +19,4 @@ def get_row_from_dict_on_param_type_and_string(dict_in_question, param_type, str
 
 if __name__ == "__main__":
     tab_amount = "\t"
-    get_row_from_dict_on_param_type_and_string(dict_in_question=monsters_all_stats_dict, param_type="Type", string="Humanoid", tab_amount=tab_amount)
+    get_rows_from_dict_on_param_type_and_string(dict_in_question=monsters_all_stats_dict, param_type="Type", string="Humanoid", tab_amount=tab_amount)

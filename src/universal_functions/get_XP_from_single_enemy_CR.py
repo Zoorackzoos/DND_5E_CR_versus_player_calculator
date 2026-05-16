@@ -1,5 +1,5 @@
-def get_XP_from_single_enemy_CR(CR, tab_amount):
-    print(tab_amount,"get_XP_from_single_enemy_CR")
+def get_cr_from_single_enemy_cr(CR, tab_amount):
+    print(tab_amount,"get_cr_from_single_enemy_cr")
     tab_amount += "\t"
 
     print(tab_amount,"CR =",CR)
