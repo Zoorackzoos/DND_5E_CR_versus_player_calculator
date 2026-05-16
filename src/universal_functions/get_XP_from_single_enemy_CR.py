@@ -26,7 +26,7 @@ def get_XP_from_single_enemy_CR(CR, tab_amount):
         print(tab_amount, CR, "--> 3 --> 700")
         return 700
     if CR < 5:
-        print(tab_amount, CR, "--> 4--> 1100")
+        print(tab_amount, CR, "--> 4 --> 1100")
         return 1100
     if CR < 6:
         print(tab_amount, CR, "--> 5 --> 1800")

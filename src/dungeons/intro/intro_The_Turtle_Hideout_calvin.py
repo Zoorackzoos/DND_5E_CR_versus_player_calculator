@@ -1,15 +1,13 @@
 from src.universal_functions.display.print_2d_list import print_2d_list
-from src.universal_functions.display.print_array_header import print_array_header_and_array_piece
 from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
+from src.universal_functions.get_CR_from_monster import plug_monster_var_values_into_get_CR_from_monster
 from src.universal_functions.get_XP_from_single_enemy_CR import get_XP_from_single_enemy_CR
-from src.universal_functions.get_damage_per_round import get_damage_per_round
+from src.universal_functions.get_damage_per_round import get_damage_per_round_no_print
 from src.universal_functions.get_encounter_difficulty import get_encounter_difficulty
-from src.universal_functions.spreadsheet_stuff.get_row_from_array_based_on_search_string import get_row_from_array_based_on_search_string
 from src.universal_functions.spreadsheet_stuff.get_row_from_dict_on_param_type_and_string import \
     get_row_from_dict_on_param_type_and_string
+from src.universal_functions.stats.convert_monster_modifiers_to_stats import convert_monster_modifiers_to_stats
 from src.universal_functions.vars.monter_sheet_vars import monsters_all_stats_dict
-from src.universal_functions.get_CR_from_monster import get_CR_from_monster, \
-    plug_monster_var_values_into_get_CR_from_monster
 
 
 def search_database(tab_amount="\t"):
@@ -29,75 +27,81 @@ def search_database(tab_amount="\t"):
 
     print_2d_list(list_in_question=all_humanoids, tab_amount=tab_amount)
 
-def get_hoopmaster_CR(tab_amount="\t"):
-    print(tab_amount, "get_hoopmaster_CR")
-    tab_amount += "\t"
-
-    hoopmaster_dice_dict = \
+"""
+i'm going to put stats in as modifiers here.
+the stat converter functions will be used to be put into the spreadsheet as i make duncan characters
+"""
+hoopmaster_dice_dict = \
         {
             6: 2,
             "constant": 2
         }
-    hoopmaster_stockman_stat_block = \
-        {
-            "hp": 30,
-            "ac": 13,
-            "speed, ground": 30,
-            "str": 1,
-            "dex": 1,
-            "con": 1,
-            "inl": 0,
-            "wis": 0,
-            "cha": 0,
-            "attack_bonus": 3,
-            "has_legendary_action": False,
-            "has_flight": False,
-            "resistance_count": 0,
-            "immunity_count": 0,
-            "save_dc": 0,
-            "is_spellcaster": False,
-            "regeneration_per_round": 0,
-            "multiattack_count": 0,
-            "ability_count": 1,
-            "average_damage": get_damage_per_round(dice_dict=hoopmaster_dice_dict, tab_amount=tab_amount + "\t")
-        }
+hoopmaster_stockman_stat_block = \
+    {
+        "hp": 30,
+        "ac": 13,
+        "speed, ground": 30,
+        "str": 1,
+        "dex": 1,
+        "con": 1,
+        "int": 0,
+        "wis": 0,
+        "cha": 0,
+        "attack_bonus": 3,
+        "has_legendary_action": False,
+        "has_flight": False,
+        "resistance_count": 0,
+        "immunity_count": 0,
+        "save_dc": 0,
+        "is_spellcaster": False,
+        "regeneration_per_round": 0,
+        "multiattack_count": 0,
+        "ability_count": 1,
+        "average_damage": get_damage_per_round_no_print(dice_dict=hoopmaster_dice_dict)
+    }
+
+def get_hoopmaster_CR(tab_amount="\t"):
+    print(tab_amount, "get_hoopmaster_CR")
+    tab_amount += "\t"
+
     hoopmaster_cr = plug_monster_var_values_into_get_CR_from_monster(monster_var=hoopmaster_stockman_stat_block,
                                                                      tab_amount=tab_amount + "\t")
     print(tab_amount, "hoopmaster_cr = ", hoopmaster_cr)
     return hoopmaster_cr
 
+baxster_dice_dict = \
+    {
+        4: 3
+    }
+baxster_stockman_stat_block = \
+    {
+        "hp": 60,
+        "ac": 11,
+        "speed, flight": 60,
+        "speed, ground": 30,
+        "str": 0,
+        "dex": 0,
+        "con": 3,
+        "int": 3,
+        "wis": 0,
+        "cha": -3,
+        "attack_bonus": 5,
+        "has_legendary_action": False,
+        "has_flight": True,
+        "resistance_count": 0,
+        "immunity_count": 0,
+        "save_dc": 13,
+        "is_spellcaster": False,
+        "regeneration_per_round": 0,
+        "multiattack_count": 0,
+        "ability_count": 0,
+        "average_damage": get_damage_per_round_no_print(dice_dict=baxster_dice_dict)
+    }
+
 def get_baxster_CR(tab_amount="\t"):
     print(tab_amount, "get_baxster_CR")
     tab_amount += "\t"
 
-    baxster_dice_dict = \
-        {
-            4: 3
-        }
-    baxster_stockman_stat_block = \
-        {
-            "hp": 60,
-            "ac": 11,
-            "speed, flight": 60,
-            "speed, ground": 30,
-            "str": 0,
-            "dex": 0,
-            "con": 3,
-            "inl": 3,
-            "wis": 0,
-            "cha": -3,
-            "attack_bonus": 5,
-            "has_legendary_action": False,
-            "has_flight": True,
-            "resistance_count": 0,
-            "immunity_count": 0,
-            "save_dc": 13,
-            "is_spellcaster": False,
-            "regeneration_per_round": 0,
-            "multiattack_count": 0,
-            "ability_count": 0,
-            "average_damage": get_damage_per_round(dice_dict=baxster_dice_dict, tab_amount=tab_amount + "\t")
-        }
     baxster_cr = plug_monster_var_values_into_get_CR_from_monster(monster_var=baxster_stockman_stat_block,
                                                                   tab_amount=tab_amount + "\t")
     return baxster_cr
@@ -135,7 +139,16 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
     print_dictionary_nicely(dict=lvl_2_encounter_difficulty,tab_amount=tab_amount)
     print_dictionary_nicely(dict=lvl_3_encounter_difficulty,tab_amount=tab_amount)
 
+def convert_hoopmaster_and_baxster_to_numeric_stats(tab_amount="\t"):
+    print(tab_amount,"convert_hoopmaster_and_baxster_to_numeric_stats")
+    tab_amount += "\t"
+    print(tab_amount,"hoopmaster")
+    print_dictionary_nicely(convert_monster_modifiers_to_stats(monster_dict=hoopmaster_stockman_stat_block,tab_amount=tab_amount+"\t"),tab_amount=tab_amount+"\t")
+    print(tab_amount,"baxster")
+    print_dictionary_nicely(convert_monster_modifiers_to_stats(monster_dict=baxster_stockman_stat_block,tab_amount=tab_amount+"\t"),tab_amount=tab_amount+"\t")
+
 if __name__ == "__main__":
     tab_amount = "\t"
     #search_database(tab_amount=tab_amount)
-    intro_the_Turtle_Hideout_calvin(tab_amount=tab_amount)
+    #intro_the_Turtle_Hideout_calvin(tab_amount=tab_amount)
+    convert_hoopmaster_and_baxster_to_numeric_stats(tab_amount=tab_amount)

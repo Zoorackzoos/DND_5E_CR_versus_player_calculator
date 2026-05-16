@@ -46,12 +46,24 @@ def get_damage_per_round(dice_dict, tab_amount="\t"):
     print(tab_amount+"\t","total =",total)
     return total
 
+def get_damage_per_round_no_print(dice_dict):
+    total = 0
+
+    for key,value in dice_dict.items():
+        if key == "constant":
+            total += value
+        else:
+            average_die = (key + 1) / 2
+            total += value * average_die
+
+    return total
+
 class Test_get_damage_per_round(unittest.TestCase):
 
     def test_two_six_dice(self):
         dice_dict = {6: 2}
         self.assertEqual(
-            get_damage_per_round(dice_dict),
+            get_damage_per_round_no_print(dice_dict),
             7.0
         )
 
@@ -62,7 +74,7 @@ class Test_get_damage_per_round(unittest.TestCase):
         }
 
         self.assertEqual(
-            get_damage_per_round(dice_dict),
+            get_damage_per_round_no_print(dice_dict),
             9.5
         )
 
@@ -73,7 +85,7 @@ class Test_get_damage_per_round(unittest.TestCase):
         }
 
         self.assertEqual(
-            get_damage_per_round(dice_dict),
+            get_damage_per_round_no_print(dice_dict),
             14.5
         )
 
