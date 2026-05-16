@@ -112,9 +112,9 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
     baxster_CR = get_baxster_CR(tab_amount=tab_amount)
 
     bandit_dict = get_row_from_dict_on_param_type_and_string(dict_in_question=monsters_all_stats_dict,param_type="Name",string="NPC, Bandit",tab_amount=tab_amount)[0]
-    bandit_cr = bandit_dict["CR"]
+    bandit_CR = float(bandit_dict["CR"])
 
-    bandit_xp = get_XP_from_single_enemy_CR(CR=bandit_cr,tab_amount=tab_amount)
+    bandit_xp = get_XP_from_single_enemy_CR(CR=bandit_CR,tab_amount=tab_amount)
     hoopmaster_xp = get_XP_from_single_enemy_CR(CR=hoopmaster_CR,tab_amount=tab_amount)
     baxster_xp = get_XP_from_single_enemy_CR(CR=baxster_CR,tab_amount=tab_amount)
 
