@@ -1,10 +1,11 @@
 from src.universal_functions.display.print_2d_list import print_2d_list
 from src.universal_functions.display.print_array_header import print_array_header_and_array_piece
+from src.universal_functions.get_damage_per_round import get_damage_per_round
 from src.universal_functions.spreadsheet_stuff.get_row_from_array_based_on_search_string import get_row_from_array_based_on_search_string
 from src.universal_functions.spreadsheet_stuff.get_row_from_dict_on_param_type_and_string import \
     get_row_from_dict_on_param_type_and_string
 from src.universal_functions.vars.monter_sheet_vars import monsters_all_stats_dict
-from src.universal_functions.get_cr_from_monster import get_damage_per_round, get_cr_from_monster, \
+from src.universal_functions.get_cr_from_monster import get_cr_from_monster, \
     plug_monster_var_values_into_get_cr_from_monster
 
 
@@ -32,6 +33,11 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
     player_levels = [3,3,3,3]
 
     print(tab_amount,"getting hoopmaster's cr...")
+    hoopmaster_dice_dict = \
+        {
+            6 : 2,
+            "constant" : 2
+        }
     hoopmaster_stockman_stat_block = \
         {
             "hp": 30,
@@ -53,11 +59,15 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
             "regeneration_per_second": 0,
             "multiattack_count": 0,
             "ability_count": 1,
-            "average_damage": get_damage_per_round(dice_string="2d6 + 2", tab_amount=tab_amount)
+            "average_damage": get_damage_per_round(dice_dict=hoopmaster_dice_dict, tab_amount=tab_amount)
         }
     hoopmaster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=hoopmaster_stockman_stat_block,tab_amount=tab_amount)
     print(tab_amount,"hoopmaster_cr = ",hoopmaster_cr)
 
+    baxster_dice_dict = \
+        {
+            4 : 5
+        }
     baxster_stockman_stat_block = \
     {
         "hp" : 90,
@@ -80,10 +90,12 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
         "regeneration_per_second": 0,
         "multiattack_count":0,
         "ability_count":0,
-        "average_damage":get_damage_per_round(dice_string="5d4")
+        "average_damage":get_damage_per_round(dice_dict=baxster_dice_dict,tab_amount=tab_amount)
     }
     print(tab_amount,"getting baxster's cr...")
     baxster_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=baxster_stockman_stat_block,tab_amount=tab_amount)
+
+    bandit_cr =
 
 if __name__ == "__main__":
     tab_amount = "\t"
