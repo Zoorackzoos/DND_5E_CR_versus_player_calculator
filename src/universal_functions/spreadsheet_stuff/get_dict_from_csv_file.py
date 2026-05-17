@@ -2,7 +2,6 @@ import csv
 
 from src.universal_functions.display.print_2d_list import print_2d_list
 
-
 def get_dict_from_csv(function_path_to_csv_file, tab_amount="\t"):
     print(tab_amount,"get_dict_from_csv")
     tab_amount += "\t"

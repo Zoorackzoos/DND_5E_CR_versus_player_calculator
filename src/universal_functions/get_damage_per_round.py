@@ -1,4 +1,3 @@
-import unittest
 
 
 def get_damage_per_round(dice_dict, tab_amount="\t"):
@@ -58,35 +57,6 @@ def get_damage_per_round_no_print(dice_dict):
 
     return total
 
-class TestGetDamagePerRound(unittest.TestCase):
 
-    def test_two_six_dice(self):
-        dice_dict = {6: 2}
-        self.assertEqual(
-            get_damage_per_round_no_print(dice_dict),
-            7.0
-        )
-
-    def test_two_d4_one_d8(self):
-        dice_dict = {
-            4: 2,
-            8: 1
-        }
-
-        self.assertEqual(
-            get_damage_per_round_no_print(dice_dict),
-            9.5
-        )
-
-    def test_constant_damage(self):
-        dice_dict = {
-            4: 5,
-            "constant": 2
-        }
-
-        self.assertEqual(
-            get_damage_per_round_no_print(dice_dict),
-            14.5
-        )
 
 

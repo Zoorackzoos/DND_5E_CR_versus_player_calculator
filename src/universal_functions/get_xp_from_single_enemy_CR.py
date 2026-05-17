@@ -4,6 +4,9 @@ def get_xp_from_single_enemy_cr(cr, tab_amount):
 
     print(tab_amount,"CR =", cr)
 
+    #TODO: refactor the CR rounded here to be it's own funciton. "get_rounded_cr_from_cr"
+    #it would do the same thing this function does but i can use it elsewhere in "craft_cr_from_monster_stat_block"
+
     if cr < 0.125:
         print(tab_amount, cr, "--> 0 --> 10")
         return 10

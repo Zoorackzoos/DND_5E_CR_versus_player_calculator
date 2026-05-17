@@ -1,5 +1,5 @@
 from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
-from src.universal_functions.get_XP_from_single_enemy_CR import get_xp_from_single_enemy_cr
+from src.universal_functions.get_xp_from_single_enemy_CR import get_xp_from_single_enemy_cr
 from src.universal_functions.get_cr_from_precise_monster_search import get_cr_from_precise_monster_search
 from src.universal_functions.get_encounter_difficulty import get_encounter_difficulty
 

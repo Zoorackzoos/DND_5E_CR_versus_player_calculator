@@ -181,16 +181,17 @@ def craft_cr_from_monster_stat_block(
         hit_points,
         armor_class,
         damage_per_round,
-        attack_bonus,
-        has_legendary_action,
-        has_flight,
-        resistance_count,
-        immunity_count,
-        save_dc,
-        is_spellcaster,
-        regeneration_per_round,
-        multiattack_count,
-        ability_count,
+        attack_bonus = 0,
+        has_legendary_action = False,
+        has_flight = False,
+        resistance_count = 0,
+        immunity_count = 0,
+        weakness_count = 0,
+        save_dc = 0,
+        is_spellcaster = 0,
+        regeneration_per_round = 0,
+        multiattack_count = 0,
+        ability_count = 0,
         tab_amount="\t"
 ):
     print(tab_amount,"get_cr_from_monster")
@@ -210,6 +211,36 @@ def craft_cr_from_monster_stat_block(
         print(tab_amount+"\t","before: hit_points =",hit_points)
         hit_points *= 1 + (0.5 * immunity_count)
         print(tab_amount+"\t","after: hit_points =",hit_points)
+
+    if weakness_count > 0:
+        print(tab_amount + "\t",
+              "weakness_count =",
+              weakness_count)
+
+        print(tab_amount + "\t",
+              "before: hit_points =",
+              hit_points)
+
+        # Each weakness lowers effective HP by 10%
+        weakness_multiplier = (
+                1 - (0.10 * weakness_count)
+        )
+
+        # Prevent absurd reductions
+        weakness_multiplier = max(
+            0.50,
+            weakness_multiplier
+        )
+
+        hit_points *= weakness_multiplier
+
+        print(tab_amount + "\t",
+              "weakness_multiplier =",
+              weakness_multiplier)
+
+        print(tab_amount + "\t",
+              "after: hit_points =",
+              hit_points)
 
     if has_flight:
         print(tab_amount+"\t","has_flight = ",has_flight)

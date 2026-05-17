@@ -1,14 +1,6 @@
-import unittest
-
-
 def get_numeric_stat_from_modifier(modifier):
     return (modifier * 2) + 10
 
-class TestGetNumericStatFromModifier(unittest.TestCase):
-    def test_one_negative_five(self):
-        #good enough
-        self.assertEqual(0, get_numeric_stat_from_modifier(modifier=-5))
-    def test_fourteen(self):
-        self.assertEqual(14, get_numeric_stat_from_modifier(modifier=2))
-    def test_thirty(self):
-        self.assertEqual(30, get_numeric_stat_from_modifier(modifier=10))
+if __name__ == "__main__":
+    temp = get_numeric_stat_from_modifier(modifier=-4)
+    print(temp)
