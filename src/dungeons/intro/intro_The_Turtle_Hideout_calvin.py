@@ -1,7 +1,7 @@
 from src.universal_functions.display.print_2d_list import print_2d_list
 from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
 from src.universal_functions.get_CR_from_monster import plug_monster_var_values_into_get_CR_from_monster
-from src.universal_functions.get_XP_from_single_enemy_CR import get_cr_from_single_enemy_cr
+from src.universal_functions.get_XP_from_single_enemy_CR import get_xp_from_single_enemy_cr
 from src.universal_functions.get_damage_per_round import get_damage_per_round_no_print
 from src.universal_functions.get_encounter_difficulty import get_encounter_difficulty
 from src.universal_functions.spreadsheet_stuff.get_rows_from_dict_on_param_type_and_string import \
@@ -118,9 +118,9 @@ def intro_the_Turtle_Hideout_calvin(tab_amount="\t"):
     bandit_dict = get_rows_from_dict_on_param_type_and_string(dict_in_question=monsters_all_stats_dict, param_type="Name", string="NPC, Bandit", tab_amount=tab_amount)[0]
     bandit_CR = float(bandit_dict["CR"])
 
-    bandit_xp = get_cr_from_single_enemy_cr(CR=bandit_CR, tab_amount=tab_amount)
-    hoopmaster_xp = get_cr_from_single_enemy_cr(CR=hoopmaster_CR, tab_amount=tab_amount)
-    baxster_xp = get_cr_from_single_enemy_cr(CR=baxster_CR, tab_amount=tab_amount)
+    bandit_xp = get_xp_from_single_enemy_cr(CR=bandit_CR, tab_amount=tab_amount)
+    hoopmaster_xp = get_xp_from_single_enemy_cr(CR=hoopmaster_CR, tab_amount=tab_amount)
+    baxster_xp = get_xp_from_single_enemy_cr(CR=baxster_CR, tab_amount=tab_amount)
 
     monster_xp_list_lvl_1 = [bandit_xp,bandit_xp,bandit_xp,bandit_xp,bandit_xp,bandit_xp,bandit_xp]
     monster_xp_list_lvl_2 = [bandit_xp,hoopmaster_xp,bandit_xp,bandit_xp,bandit_xp]
