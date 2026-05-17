@@ -44,6 +44,16 @@ def get_skeleton_minotaur_cr(tab_amount="\t"):
     print(tab_amount, "skeleton_minotaur_cr :", skeleton_minotaur_cr)
     return skeleton_minotaur_cr
 
+def get_cr_from_monster(param_type,string,tab_amount="\t"):
+    print(tab_amount,"get_cr_from_monster")
+    tab_amount += "\t"
+
+    monster_row = get_rows_from_dict_on_param_type_and_string(dict_in_question=monsters_all_stats_dict, param_type=param_type,string=string,tab_amount=tab_amount)[0]
+    print(tab_amount,"monster_row:")
+    print(tab_amount+"\t",monster_row)
+    monster_cr = float(monster_row["CR"])
+    print(tab_amount,"monster_cr :",monster_cr)
+    return monster_cr
 
 def intro_the_magic_castle(tab_amount="\t"):
     print(tab_amount,"intro_the_magic_castle")
@@ -63,7 +73,10 @@ def intro_the_magic_castle(tab_amount="\t"):
     tower_of_power_enemies = [skeleton_minotaur_xp]
     tower_of_power_difficulty = get_encounter_difficulty(player_levels=player_levels,monster_xp_values=tower_of_power_enemies,tab_amount=tab_amount)
 
-    giant_skeleton_cr
+    giant_skeleton_cr = get_cr_from_monster(param_type="Name",string="Skeleton, Giant",tab_amount=tab_amount)
+    giant_skeleton_xp = get_xp_from_single_enemy_cr(CR=giant_skeleton_cr, tab_amount=tab_amount)
+    tower_of_faith_enemies = [giant_skeleton_xp,skeleton_xp,skeleton_xp,skeleton_xp,skeleton_xp,skeleton_xp,skeleton_xp,skeleton_xp,skeleton_xp,]
+    tower_of_faith_difficulty = get_encounter_difficulty(player_levels=player_levels,monster_xp_values=tower_of_faith_enemies,tab_amount=tab_amount)
 
     print(tab_amount,"calculations complete :-3")
 
@@ -71,6 +84,8 @@ def intro_the_magic_castle(tab_amount="\t"):
     print_dictionary_nicely(dict_in_question=inner_castle_difficulty, tab_amount=tab_amount+"\t")
     print(tab_amount,"tower_of_power_difficulty")
     print_dictionary_nicely(dict_in_question=tower_of_power_difficulty, tab_amount=tab_amount+"\t")
+    print(tab_amount,"tower_of_faith_difficulty")
+    print_dictionary_nicely(dict_in_question=tower_of_faith_difficulty,tab_amount=tab_amount+"\t")
 
 if __name__ == "__main__":
     intro_the_magic_castle()
