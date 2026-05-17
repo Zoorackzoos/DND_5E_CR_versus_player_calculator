@@ -58,7 +58,7 @@ def get_damage_per_round_no_print(dice_dict):
 
     return total
 
-class Test_get_damage_per_round(unittest.TestCase):
+class TestGetDamagePerRound(unittest.TestCase):
 
     def test_two_six_dice(self):
         dice_dict = {6: 2}

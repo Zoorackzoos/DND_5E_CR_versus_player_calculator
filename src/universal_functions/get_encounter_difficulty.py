@@ -8,35 +8,35 @@ A = M * k
 calculate party threshold
 T = sigma_p_j=1( t_j )
 """
-from src.universal_functions.display.print_2d_list import print_2d_list
 from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
 from src.universal_functions.get_monster_amount_multiplier import get_monster_amount_multiplier
 from src.universal_functions.vars.player_threshold_var import player_threshold_var
 
-def get_encounter_difficulty(player_levels, monster_xp_values,tab_amount="\t"):
+def get_encounter_difficulty(player_levels, monster_xp_values, get_encounter_difficulty_tab_amount="\t"):
     """
     Example usage:
 
     players = [5, 5, 5, 5]
 
     # Three CR 2 monsters = 450 XP each
-    monsters = [450, 450, 450]
+    monster = [450, 450, 450]
 
     print(encounter_difficulty(players, monsters))
 
     :param player_levels:
     :param monster_xp_values:
+    :param get_encounter_difficulty_tab_amount
     :return:
     """
-    print(tab_amount,"get_encounter_difficulty")
-    tab_amount += "\t"
+    print(get_encounter_difficulty_tab_amount, "get_encounter_difficulty")
+    get_encounter_difficulty_tab_amount += "\t"
 
     total_monster_xp = sum(monster_xp_values)
 
     adjusted_xp = \
     (
         total_monster_xp *
-        get_monster_amount_multiplier(monster_count=len(monster_xp_values),tab_amount=tab_amount)
+        get_monster_amount_multiplier(monster_count=len(monster_xp_values), tab_amount=get_encounter_difficulty_tab_amount)
     )
 
     party_thresholds = \
@@ -77,5 +77,5 @@ if __name__ == "__main__":
     # Three CR 2 monsters = 450 XP each
     monsters = [450, 450, 450]
 
-    encounter_difficulty = get_encounter_difficulty(players, monsters,tab_amount=tab_amount)
+    encounter_difficulty = get_encounter_difficulty(players, monsters, get_encounter_difficulty_tab_amount=tab_amount)
     print_dictionary_nicely(dict_in_question=encounter_difficulty, tab_amount=tab_amount)

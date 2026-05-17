@@ -4,7 +4,7 @@ import unittest
 def get_numeric_stat_from_modifier(modifier):
     return (modifier * 2) + 10
 
-class Test_get_numeric_stat_from_modifier(unittest.TestCase):
+class TestGetNumericStatFromModifier(unittest.TestCase):
     def test_one_negative_five(self):
         #good enough
         self.assertEqual(0, get_numeric_stat_from_modifier(modifier=-5))
