@@ -14,11 +14,11 @@ from src.universal_functions.vars.player_threshold_var import player_threshold_v
 
 def get_encounter_difficulty(player_levels, monster_xp_values, get_encounter_difficulty_tab_amount="\t"):
     """
-    Example usage:
+    Example usage: \n
 
     players = [5, 5, 5, 5]
 
-    # Three CR 2 monsters = 450 XP each
+    # Three CR 2 monsters = 450 XP each \n
     monster = [450, 450, 450]
 
     print(encounter_difficulty(players, monsters))
