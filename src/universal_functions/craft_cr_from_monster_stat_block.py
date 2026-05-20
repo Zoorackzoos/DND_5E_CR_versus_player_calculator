@@ -1,8 +1,4 @@
-# =====================================================
-# D&D 5E Monster CR Calculator
-# Based loosely on 2014 DMG rules
-# =====================================================
-
+#craft_cr_from_monster_stat_block.py
 
 CR_TABLE = [
     {

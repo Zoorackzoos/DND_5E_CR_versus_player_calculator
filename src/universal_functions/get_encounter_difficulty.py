@@ -1,3 +1,5 @@
+#src/universal_functions/get_encounter_difficulty.py
+
 """
 calculate monster XP total
 M = sigma_n_i=1( XP_i )
