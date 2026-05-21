@@ -247,9 +247,54 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
             purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
             purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp
         ]
-    lvl_1_executioner_difficulty = get_encounter_difficulty(player_levels=player_levels, monster_xp_values=lvl_1_monster_xps, tab_amount=tab_amount)
+    lvl_1_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels, monster_xp_values=lvl_1_monster_xps, tab_amount=tab_amount)
+
+    blue_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
+                                                       string="Blue Foot Clan Ninja",
+                                                       tab_amount=tab_amount)
+    blue_ninja_xp = get_xp_from_single_enemy_cr(cr=blue_ninja_cr,tab_amount=tab_amount)
+
+    hoopmaster_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
+                                                       string="Hoopmaster",
+                                                       tab_amount=tab_amount)
+    hoopmaster_xp = get_xp_from_single_enemy_cr(cr=hoopmaster_cr,tab_amount=tab_amount)
+
+    green_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
+                                                        string="Green Foot Clan Ninja",
+                                                        tab_amount=tab_amount)
+    green_ninja_xp = get_xp_from_single_enemy_cr(cr=green_ninja_cr,tab_amount=tab_amount)
+
+    lvl_2_monster_xps = \
+        [
+            blue_ninja_xp, blue_ninja_xp,
+            purple_ninja_xp, purple_ninja_xp,
+            purple_ninja_xp, purple_ninja_xp,
+            hoopmaster_xp, green_ninja_xp
+        ]
+    lvl_2_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
+                                                          monster_xp_values=lvl_2_monster_xps,
+                                                          tab_amount=tab_amount)
+
+    #blue and purple ninjas + baxster
+    baxster_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
+                                       string="Baxster Stockman",
+                                       tab_amount=tab_amount)
+    baxster_xp = get_xp_from_single_enemy_cr(cr=baxster_cr,tab_amount=tab_amount)
+    lvl_3_monster_xps = \
+    [
+        blue_ninja_xp, blue_ninja_xp,
+        purple_ninja_xp, purple_ninja_xp,
+        baxster_xp
+    ]
+    lvl_3_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
+                             monster_xp_values=lvl_3_monster_xps,
+                             tab_amount=tab_amount)
+
     print(tab_amount,"calculations complete :-DDD")
-    print_dictionary_nicely(dict_in_question=lvl_1_executioner_difficulty,tab_amount=tab_amount)
+
+    print_dictionary_nicely(dict_in_question=lvl_1_encounter_difficulty,tab_amount=tab_amount)
+    print_dictionary_nicely(dict_in_question=lvl_2_encounter_difficulty,tab_amount=tab_amount)
+    print_dictionary_nicely(dict_in_question=lvl_3_encounter_difficulty,tab_amount=tab_amount)
 
 if __name__ == "__main__":
     tab_amount = "\t"

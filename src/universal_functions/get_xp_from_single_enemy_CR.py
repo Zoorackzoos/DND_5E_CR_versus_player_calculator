@@ -16,6 +16,8 @@ def get_xp_from_single_enemy_cr(cr, tab_amount):
             return 25
         case 0.25:
             return 50
+        case 0.5:
+            return 100
         case 1:
             return 200
         case 2:
@@ -77,5 +79,5 @@ def get_xp_from_single_enemy_cr(cr, tab_amount):
         case 30:
             return 155000
         case _:
-            print("ERROR: bad cr input. check it plz")
+            print("ERROR: get_xp_from_single_enemy_cr: bad cr input. check it plz")
             exit(1)
