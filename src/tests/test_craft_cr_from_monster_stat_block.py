@@ -19,14 +19,14 @@ class TestCraftCrFromMonsterStatBlock(unittest.TestCase):
         regular_damage = craft_cr_from_monster_stat_block(
             hit_points=20,
             armor_class=13,
-            damage_per_round=4,
+            average_damage=4,
             attack_modifier=3,
         )
 
         recharge_damage = craft_cr_from_monster_stat_block(
             hit_points=20,
             armor_class=13,
-            damage_per_round=4,
+            average_damage=4,
             attack_modifier=3,
             recharge_damage=30,
         )
@@ -37,14 +37,14 @@ class TestCraftCrFromMonsterStatBlock(unittest.TestCase):
         attack_only = craft_cr_from_monster_stat_block(
             hit_points=20,
             armor_class=13,
-            damage_per_round=9,
+            average_damage=9,
             attack_modifier=3,
         )
 
         with_save_dc = craft_cr_from_monster_stat_block(
             hit_points=20,
             armor_class=13,
-            damage_per_round=9,
+            average_damage=9,
             attack_modifier=3,
             save_dc=17,
         )

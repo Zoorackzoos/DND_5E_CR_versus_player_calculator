@@ -167,7 +167,7 @@ def get_hp_multiplier_from_defenses(defensive_cr, resistance_count, immunity_cou
 def craft_cr_from_monster_stat_block(
         hit_points,
         armor_class,
-        damage_per_round,
+        average_damage,
         attack_modifier=0,
         has_legendary_action=False,
         has_flight=False,
@@ -193,11 +193,11 @@ def craft_cr_from_monster_stat_block(
         fail_cr_calculation("Hit points must be greater than 0.", tab_amount)
     if armor_class <= 0:
         fail_cr_calculation("Armor class must be greater than 0.", tab_amount)
-    if damage_per_round < 0:
+    if average_damage < 0:
         fail_cr_calculation("Damage per round cannot be negative.", tab_amount)
 
     original_hit_points = hit_points
-    original_damage_per_round = damage_per_round
+    original_damage_per_round = average_damage
 
     # -------------------------------
     # Defensive CR
@@ -265,52 +265,52 @@ def craft_cr_from_monster_stat_block(
 
     if multiattack_count > 0:
         print(tab_amount + "\t", "multiattack_count =", multiattack_count)
-        print(tab_amount + "\t", "before: damage_per_round =", damage_per_round)
-        damage_per_round *= multiattack_count
-        print(tab_amount + "\t", "after: damage_per_round =", damage_per_round)
+        print(tab_amount + "\t", "before: damage_per_round =", average_damage)
+        average_damage *= multiattack_count
+        print(tab_amount + "\t", "after: damage_per_round =", average_damage)
 
     if recharge_damage > 0:
         recharge_dpr = recharge_damage / 3
         print(tab_amount + "\t", "recharge_damage =", recharge_damage)
         print(tab_amount + "\t", "recharge_dpr =", recharge_dpr)
-        damage_per_round += recharge_dpr
-        print(tab_amount + "\t", "after recharge: damage_per_round =", damage_per_round)
+        average_damage += recharge_dpr
+        print(tab_amount + "\t", "after recharge: damage_per_round =", average_damage)
 
     if limited_use_damage > 0:
         limited_use_dpr = limited_use_damage / 3
         print(tab_amount + "\t", "limited_use_damage =", limited_use_damage)
         print(tab_amount + "\t", "limited_use_dpr =", limited_use_dpr)
-        damage_per_round += limited_use_dpr
-        print(tab_amount + "\t", "after limited use: damage_per_round =", damage_per_round)
+        average_damage += limited_use_dpr
+        print(tab_amount + "\t", "after limited use: damage_per_round =", average_damage)
 
     if bonus_action_damage > 0:
         print(tab_amount + "\t", "bonus_action_damage =", bonus_action_damage)
-        damage_per_round += bonus_action_damage
-        print(tab_amount + "\t", "after bonus action: damage_per_round =", damage_per_round)
+        average_damage += bonus_action_damage
+        print(tab_amount + "\t", "after bonus action: damage_per_round =", average_damage)
 
     if legendary_action_damage > 0:
         print(tab_amount + "\t", "legendary_action_damage =", legendary_action_damage)
-        damage_per_round += legendary_action_damage
-        print(tab_amount + "\t", "after legendary action damage: damage_per_round =", damage_per_round)
+        average_damage += legendary_action_damage
+        print(tab_amount + "\t", "after legendary action damage: damage_per_round =", average_damage)
     elif has_legendary_action:
         print(tab_amount + "\t", "has_legendary_action =", has_legendary_action)
-        print(tab_amount + "\t", "before legendary action estimate: damage_per_round =", damage_per_round)
-        damage_per_round *= 1.25
-        print(tab_amount + "\t", "after legendary action estimate: damage_per_round =", damage_per_round)
+        print(tab_amount + "\t", "before legendary action estimate: damage_per_round =", average_damage)
+        average_damage *= 1.25
+        print(tab_amount + "\t", "after legendary action estimate: damage_per_round =", average_damage)
 
     if ability_count > 0:
         print(tab_amount + "\t", "ability_count =", ability_count)
         print(tab_amount + "\t", "ability_cr_weight =", ability_cr_weight)
-        print(tab_amount + "\t", "before ability estimate: damage_per_round =", damage_per_round)
-        damage_per_round += ability_count * ability_cr_weight
-        print(tab_amount + "\t", "after ability estimate: damage_per_round =", damage_per_round)
+        print(tab_amount + "\t", "before ability estimate: damage_per_round =", average_damage)
+        average_damage += ability_count * ability_cr_weight
+        print(tab_amount + "\t", "after ability estimate: damage_per_round =", average_damage)
 
     if is_spellcaster:
         print(tab_amount + "\t", "is_spellcaster =", is_spellcaster)
         print(tab_amount + "\t", "No direct multiplier was applied. Put spell damage into damage_per_round or ability damage fields.")
 
     offensive_cr = get_offensive_cr(
-        damage_per_round=damage_per_round,
+        damage_per_round=average_damage,
         tab_amount=tab_amount + "\t"
     )
     print(tab_amount + "\t", "offensive_cr_from_damage =", offensive_cr)
@@ -360,7 +360,7 @@ def craft_cr_from_monster_stat_block(
     print(tab_amount + "\t", "original_hit_points =", original_hit_points)
     print(tab_amount + "\t", "effective_hit_points =", hit_points)
     print(tab_amount + "\t", "original_damage_per_round =", original_damage_per_round)
-    print(tab_amount + "\t", "effective_damage_per_round =", damage_per_round)
+    print(tab_amount + "\t", "effective_damage_per_round =", average_damage)
     print(tab_amount + "\t", "defensive_cr =", defensive_cr)
     print(tab_amount + "\t", "offensive_cr =", offensive_cr)
     print(tab_amount + "\t", "final_cr =", final_cr)
@@ -375,7 +375,7 @@ def plug_monster_var_values_into_get_cr_from_monster(monster_var, tab_amount="\t
     return craft_cr_from_monster_stat_block(
         hit_points=monster_var["hp"],
         armor_class=monster_var["ac"],
-        damage_per_round=monster_var["average_damage"],
+        average_damage=monster_var["average_damage"],
         attack_modifier=monster_var.get("attack_modifier", 0),
         has_legendary_action=monster_var.get("has_legendary_action", False),
         has_flight=monster_var.get("has_flight", False),

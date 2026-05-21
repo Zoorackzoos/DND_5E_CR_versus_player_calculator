@@ -174,14 +174,82 @@ def get_white_ninja_cr(tab_amount="\t"):
     white_ninja_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=white_ninja_dictionary,tab_amount=tab_amount)
     return white_ninja_cr
 
+def get_yellow_ninja_cr(tab_amount="\t"):
+    print(tab_amount,"get_yellow_ninja_cr")
+    yellow_ninja_dice_dict = \
+        {
+            8 : 1,
+            "constant" : 4
+        }
+    yellow_ninja_bomb_damage = \
+        {
+            6 : 4,
+            "constant" : 4
+        }
+    yellow_ninja_dictionary = \
+        {
+            "ac" : 12,
+            "hp" : 20,
+            "speed, ground" : 30,
+            "str_numeric" : 12,
+            "dex_numeric" : 12,
+            "con_numeric" : 12,
+            "int_numeric" : 10,
+            "wis_numeric" : 10,
+            "cha_numeric" : 10,
+            "average_damage" : get_average_damage_no_print(dice_dict=yellow_ninja_dice_dict),
+            "attack_modifier" : 5,
+            "limited_use_damage" : get_average_damage_no_print(dice_dict=yellow_ninja_bomb_damage),
+        }
+    yellow_ninja_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=yellow_ninja_dictionary,tab_amount=tab_amount)
+    return yellow_ninja_cr
+
+def get_green_ninja_cr(tab_amount="\t"):
+    print(tab_amount,"get_green_ninja_cr")
+    green_ninja_dice_dict = \
+        {
+            8 : 1,
+            "constant" : 4
+        }
+    green_ninja_dictionary = \
+        {
+            "ac" : 12,
+            "hp" : 15,
+            "speed, ground" : 30,
+            "str_numeric" : 12,
+            "dex_numeric" : 14,
+            "con_numeric" : 10,
+            "int_numeric" : 12,
+            "wis_numeric" : 10,
+            "cha_numeric" : 10,
+            "average_damage" : get_average_damage_no_print(dice_dict=green_ninja_dice_dict),
+            "attack_modifier" : 3,
+        }
+    green_ninja_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=green_ninja_dictionary,tab_amount=tab_amount)
+    return green_ninja_cr
+
+#once i use the functions above for the first time i manually put them in the database
+#that's why i don't call them in the dungeon function.
+
 def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
     print(intro_the_turtle_hideout_calvin_tab_amount, "intro_the_turtle_hideout")
     intro_the_turtle_hideout_calvin_tab_amount += "\t"
 
     player_levels = [4,4,4,4]
 
-    ninja_cr = get_white_ninja_cr(tab_amount=tab_amount)
-    print(ninja_cr)
+    #TODO: **maybe** ask a clanker how to make getting the strings easier
+    purple_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
+                                                         string="Purple Foot Clan Ninja",
+                                                         tab_amount=tab_amount)
+    purple_ninja_xp = get_xp_from_single_enemy_cr(cr=purple_ninja_cr,tab_amount=tab_amount)
+    lvl_1_monster_xps = \
+        [
+            purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
+            purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp
+        ]
+    lvl_1_executioner_difficulty = get_encounter_difficulty(player_levels=player_levels, monster_xp_values=lvl_1_monster_xps, tab_amount=tab_amount)
+    print(tab_amount,"calculations complete :-DDD")
+    print_dictionary_nicely(dict_in_question=lvl_1_executioner_difficulty,tab_amount=tab_amount)
 
 if __name__ == "__main__":
     tab_amount = "\t"
