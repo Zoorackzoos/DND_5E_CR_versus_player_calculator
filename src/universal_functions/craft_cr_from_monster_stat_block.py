@@ -97,11 +97,13 @@ def get_offensive_cr(damage_per_round, tab_amount="\t"):
     tab_amount += "\t"
     print(tab_amount,"damage_per_round:",damage_per_round)
 
-    rounded_damage_per_round = get_rounded_cr(cr=damage_per_round,tab_amount=tab_amount)
+    rounded_damage_per_round = int(damage_per_round)
 
     for row in CR_TABLE:
         print(tab_amount,row["dpr_min"],"<=",rounded_damage_per_round,"<=",row["dpr_max"])
         if row["dpr_min"] <= rounded_damage_per_round <= row["dpr_max"]:
+            print(tab_amount+"\t","this one :-3")
+            print(tab_amount+"\t","returning -->",row["CR"],"")
             return row["CR"]
 
     if rounded_damage_per_round < 0:
