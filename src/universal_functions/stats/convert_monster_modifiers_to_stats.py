@@ -52,9 +52,9 @@ def convert_monster_modifiers_to_stats(monster_dict,tab_amount="\t"):
 if __name__ == "__main__":
      monster_dict = \
          {
-             "str_modifier": 0,
-             "dex_modifier": 1,
-             "con_modifier": 1,
+             "str_modifier": 2,
+             "dex_modifier": 2,
+             "con_modifier": 3,
              "int_modifier": 0,
              "wis_modifier": 0,
              "cha_modifier": 0

@@ -148,13 +148,39 @@ def get_orange_ninja_cr(tab_amount="\t"):
     orange_ninja_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=orange_ninja_dictionary,tab_amount=tab_amount)
     return orange_ninja_cr
 
+def get_white_ninja_cr(tab_amount="\t"):
+    print(tab_amount,"get_white_ninja_cr")
+    white_ninja_dice_dict = \
+        {
+            12 : 1,
+            "constant" : 4
+        }
+    white_ninja_dictionary = \
+        {
+            "ac" : 12,
+            "hp" : 25,
+            "speed, ground" : 30, #not standardized
+            "str_numeric" : 14,
+            "dex_numeric" : 14,
+            "con_numeric" : 12,
+            "int_numeric" : 10,
+            "wis_numeric" : 10,
+            "cha_numeric" : 10,
+            "average_damage" : get_average_damage_no_print(dice_dict=white_ninja_dice_dict),
+            "ability_count" : 1,
+            "ability_cr_weight" : 2,
+            "attack_modifier" : 3
+        }
+    white_ninja_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=white_ninja_dictionary,tab_amount=tab_amount)
+    return white_ninja_cr
+
 def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
     print(intro_the_turtle_hideout_calvin_tab_amount, "intro_the_turtle_hideout")
     intro_the_turtle_hideout_calvin_tab_amount += "\t"
 
     player_levels = [4,4,4,4]
 
-    ninja_cr = get_orange_ninja_cr(tab_amount=tab_amount)
+    ninja_cr = get_white_ninja_cr(tab_amount=tab_amount)
     print(ninja_cr)
 
 if __name__ == "__main__":
