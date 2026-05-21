@@ -1,3 +1,4 @@
+from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
 from src.universal_functions.stats.get_numeric_stat_from_modifier import get_numeric_stat_from_modifier
 
 
@@ -40,10 +41,23 @@ def convert_monster_modifiers_to_stats(monster_dict,tab_amount="\t"):
     tab_amount += "\t"
     new_monster_dict = monster_dict.copy()
 
-    new_monster_dict["str"] = get_numeric_stat_from_modifier(modifier=monster_dict["str"])
-    new_monster_dict["dex"] = get_numeric_stat_from_modifier(modifier=monster_dict["dex"])
-    new_monster_dict["con"] = get_numeric_stat_from_modifier(modifier=monster_dict["con"])
-    new_monster_dict["int"] = get_numeric_stat_from_modifier(modifier=monster_dict["int"])
-    new_monster_dict["wis"] = get_numeric_stat_from_modifier(modifier=monster_dict["wis"])
-    new_monster_dict["cha"] = get_numeric_stat_from_modifier(modifier=monster_dict["cha"])
+    new_monster_dict["str_modifier"] = get_numeric_stat_from_modifier(modifier=monster_dict["str_modifier"])
+    new_monster_dict["dex_modifier"] = get_numeric_stat_from_modifier(modifier=monster_dict["dex_modifier"])
+    new_monster_dict["con_modifier"] = get_numeric_stat_from_modifier(modifier=monster_dict["con_modifier"])
+    new_monster_dict["int_modifier"] = get_numeric_stat_from_modifier(modifier=monster_dict["int_modifier"])
+    new_monster_dict["wis_modifier"] = get_numeric_stat_from_modifier(modifier=monster_dict["wis_modifier"])
+    new_monster_dict["cha_modifier"] = get_numeric_stat_from_modifier(modifier=monster_dict["cha_modifier"])
     return new_monster_dict
+
+if __name__ == "__main__":
+     monster_dict = \
+         {
+             "str_modifier": 0,
+             "dex_modifier": 1,
+             "con_modifier": 1,
+             "int_modifier": 0,
+             "wis_modifier": 0,
+             "cha_modifier": 0
+         }
+     monster_dict_2 = convert_monster_modifiers_to_stats(monster_dict=monster_dict)
+     print_dictionary_nicely(dict_in_question=monster_dict_2)

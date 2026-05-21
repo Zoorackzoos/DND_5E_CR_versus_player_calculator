@@ -63,7 +63,13 @@ def get_purple_ninja_cr(tab_amount="\t"):
             "limited_use_damage" : 0,
             "bonus_action_damage" : 0,
             "legendary_action_damage" : 0,
-            "ability_cr_weight" : 0
+            "ability_cr_weight" : 0,
+            "str_modifier" : 0,
+            "dex_modifier" : 1,
+            "con_modifier" : 1,
+            "int_modifier" : 0,
+            "wis_modifier" : 0,
+            "cha_modifier" : 0
         }
     return plug_monster_var_values_into_get_cr_from_monster(monster_var=purple_ninja_dictionary,tab_amount=tab_amount)
 
@@ -82,6 +88,13 @@ def get_blue_ninja_cr(tab_amount="\t"):
             "attack_modifier" : 5,
             "has_legendary_action" : False,
             "has_flight" : False,
+            "multiattack" : 1,
+            "str_modifier": 1,
+            "dex_modifier": 1,
+            "con_modifier": 1,
+            "int_modifier": 0,
+            "wis_modifier": 0,
+            "cha_modifier": 0
         }
     blue_ninja_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=blue_ninja_dictionary,tab_amount=tab_amount)
     return blue_ninja_cr
@@ -98,10 +111,42 @@ def get_pink_ninja_cr(tab_amount="\t"):
             "hp" : 50,
             "ac" : 12,
             "average_damage" : get_average_damage(dice_dict=pink_ninja_dice_dict,tab_amount=tab_amount),
-            "attack_modifier" : 3
+            "attack_modifier" : 3,
+            "multiattack_count" : 2
         }
     pink_ninja_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=pink_ninja_dict,tab_amount=tab_amount)
     return pink_ninja_cr
+
+def get_orange_ninja_cr(tab_amount="\t"):
+    print(tab_amount,"get_orange_ninja_cr")
+    orange_ninja_dice_dict = \
+        {
+            12 : 1,
+            "constant" : 4
+        }
+    orange_ninja_dictionary = \
+        {
+            "hp" : 20,
+            "ac" : 15,
+            "average_damage" : get_average_damage_no_print(dice_dict=orange_ninja_dice_dict),
+            "attack_modifier" : 4,
+            "has_legendary_action" : False,
+            "has_flight" : False,
+            "resistance_count" : 0,
+            "immunity_count" : 0,
+            "weakness_count" : 0,
+            "save_dc" : 0,
+            "is_spellcaster" : False,
+            "regeneration_per_round" : 0,
+            "multiattack_count" : 0,
+            "ability_count" : 1,
+            "recharge_damage" : 0,
+            "limited_use_damage" : 0,
+            "legendary_action_damage" : 0,
+            "ability_cr_weight" : 1
+        }
+    orange_ninja_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=orange_ninja_dictionary,tab_amount=tab_amount)
+    return orange_ninja_cr
 
 def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
     print(intro_the_turtle_hideout_calvin_tab_amount, "intro_the_turtle_hideout")
@@ -109,8 +154,8 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
 
     player_levels = [4,4,4,4]
 
-    pink_ninja_cr = get_pink_ninja_cr(tab_amount=tab_amount)
-    print(pink_ninja_cr)
+    ninja_cr = get_orange_ninja_cr(tab_amount=tab_amount)
+    print(ninja_cr)
 
 if __name__ == "__main__":
     tab_amount = "\t"
