@@ -87,6 +87,21 @@ def get_blue_ninja_cr(tab_amount="\t"):
     return blue_ninja_cr
 
 def get_pink_ninja_cr(tab_amount="\t"):
+    print(tab_amount,"get_pink_ninja_cr")
+    pink_ninja_dice_dict = \
+        {
+            8 : 1,
+            "constant" : 2
+        }
+    pink_ninja_dict = \
+        {
+            "hp" : 50,
+            "ac" : 12,
+            "average_damage" : get_average_damage(dice_dict=pink_ninja_dice_dict,tab_amount=tab_amount),
+            "attack_modifier" : 3
+        }
+    pink_ninja_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=pink_ninja_dict,tab_amount=tab_amount)
+    return pink_ninja_cr
 
 def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
     print(intro_the_turtle_hideout_calvin_tab_amount, "intro_the_turtle_hideout")
@@ -94,8 +109,8 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
 
     player_levels = [4,4,4,4]
 
-    blue_ninja_cr = get_blue_ninja_cr(tab_amount=tab_amount)
-    print(blue_ninja_cr)
+    pink_ninja_cr = get_pink_ninja_cr(tab_amount=tab_amount)
+    print(pink_ninja_cr)
 
 if __name__ == "__main__":
     tab_amount = "\t"
