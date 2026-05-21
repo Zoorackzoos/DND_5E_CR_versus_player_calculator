@@ -1,7 +1,7 @@
 #src/tests/main_tests.py
 import unittest
 
-from src.universal_functions.get_damage_per_round import get_damage_per_round_no_print
+from src.universal_functions.get_average_damage import get_average_damage_no_print
 from src.universal_functions.stats.get_modifier_from_numeric_stat import get_modifier_from_numeric_stat
 from src.universal_functions.stats.get_numeric_stat_from_modifier import get_numeric_stat_from_modifier
 
@@ -30,7 +30,7 @@ class TestGetDamagePerRound(unittest.TestCase):
     def test_two_six_dice(self):
         dice_dict = {6: 2}
         self.assertEqual(
-            get_damage_per_round_no_print(dice_dict),
+            get_average_damage_no_print(dice_dict),
             7.0
         )
 
@@ -41,7 +41,7 @@ class TestGetDamagePerRound(unittest.TestCase):
         }
 
         self.assertEqual(
-            get_damage_per_round_no_print(dice_dict),
+            get_average_damage_no_print(dice_dict),
             9.5
         )
 
@@ -52,6 +52,6 @@ class TestGetDamagePerRound(unittest.TestCase):
         }
 
         self.assertEqual(
-            get_damage_per_round_no_print(dice_dict),
+            get_average_damage_no_print(dice_dict),
             14.5
         )

@@ -1,6 +1,6 @@
-#src/universal_functions/get_damage_per_round.py
+#src/universal_functions/get_average_damage.py
 
-def get_damage_per_round(dice_dict, tab_amount="\t"):
+def get_average_damage(dice_dict, tab_amount="\t"):
     """
     2d6
     7.0
@@ -45,7 +45,7 @@ def get_damage_per_round(dice_dict, tab_amount="\t"):
     print(tab_amount+"\t","total =",total)
     return total
 
-def get_damage_per_round_no_print(dice_dict):
+def get_average_damage_no_print(dice_dict):
     total = 0
 
     for key,value in dice_dict.items():

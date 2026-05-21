@@ -1,86 +1,81 @@
+from src.universal_functions.get_rounded_cr import get_rounded_cr
+
+
 def get_xp_from_single_enemy_cr(cr, tab_amount):
     print(tab_amount,"get_xp_from_single_enemy_cr")
     tab_amount += "\t"
 
     print(tab_amount,"CR =", cr)
 
-    #TODO: refactor the CR rounded here to be it's own funciton. "get_rounded_cr_from_cr"
-    #it would do the same thing this function does but i can use it elsewhere in "craft_cr_from_monster_stat_block"
+    rounded_cr = get_rounded_cr(cr=cr,tab_amount=tab_amount)
 
-    if cr < 0.125:
-        print(tab_amount, cr, "--> 0 --> 10")
-        return 10
-    if cr < 0.25:
-        print(tab_amount, cr, "--> 0.125 --> 25")
-        return 25
-    if cr < 0.5:
-        print(tab_amount, cr, "--> 0.25 --> 50")
-        return 50
-    if cr < 1:
-        print(tab_amount, cr, "--> 0.5 --> 100")
-        return 100
-    if cr < 2:
-        print(tab_amount, cr, "--> 1 --> 200")
-        return 200
-    if cr < 3:
-        print(tab_amount, cr, "--> 2 --> 450")
-        return 450
-    if cr < 4:
-        print(tab_amount, cr, "--> 3 --> 700")
-        return 700
-    if cr < 5:
-        print(tab_amount, cr, "--> 4 --> 1100")
-        return 1100
-    if cr < 6:
-        print(tab_amount, cr, "--> 5 --> 1800")
-        return 1800
-    if cr < 7:
-        print(tab_amount, cr, "--> 6 --> 2300")
-        return 2300
-    if cr < 8:
-        print(tab_amount, cr, "--> 7 --> 2900")
-        return 2900
-    if cr < 9:
-        print(tab_amount, cr, "--> 8 --> 3900")
-        return 3900
-    if cr < 10:
-        print(tab_amount, cr, "---> 9 --> 5000")
-        return 5000
-    if cr < 11:
-        print(tab_amount, cr, "---> 10 --> 5900")
-        return 5900
-    if cr < 12:
-        print(tab_amount, cr, "---> 11 --> 7200")
-        return 7200
-    if cr < 13:
-        print(tab_amount, cr, "---> 12 --> 8400")
-        return 8400
-    if cr < 14:
-        print(tab_amount, cr, "---> 13 --> 10000")
-        return 10000
-    if cr < 15:
-        print(tab_amount, cr, "---> 14 --> 11500")
-        return 11500
-    if cr < 16:
-        print(tab_amount, cr, "---> 15 --> 13000")
-        return 13000
-    if cr < 17:
-        print(tab_amount, cr, "---> 16 --> 15000")
-        return 15000
-    if cr < 18:
-        print(tab_amount, cr, "---> 17 --> 18000")
-        return 18000
-    if cr < 19:
-        print(tab_amount, cr, "---> 18 --> 20000")
-        return 20000
-    if cr < 20:
-        print(tab_amount, cr, "--> 19 --> 22000")
-        return 22000
-    if cr < 21:
-        print(tab_amount, cr, "---> 20 --> 25000")
-        return 25000
-    if cr >= 30:
-        print(tab_amount, cr, "--> 30 --> 155000")
-        return 155000
-    else:
-        return 0
+    match rounded_cr:
+        case 0:
+            return 10
+        case 0.125:
+            return 25
+        case 0.25:
+            return 50
+        case 1:
+            return 200
+        case 2:
+            return 450
+        case 3:
+            return 700
+        case 4:
+            return 1100
+        case 5:
+            return 1800
+        case 6:
+            return 2300
+        case 7:
+            return 2900
+        case 8:
+            return 3900
+        case 9:
+            return 5000
+        case 10:
+            return 5900
+        case 11:
+            return 7200
+        case 12:
+            return 8400
+        case 13:
+            return 10000
+        case 14:
+            return 11500
+        case 15:
+            return 13000
+        case 16:
+            return 15000
+        case 17:
+            return 18000
+        case 18:
+            return 20000
+        case 19:
+            return 22000
+        case 20:
+            return 25000
+        case 21:
+            return 33000
+        case 22:
+            return 41000
+        case 23:
+            return 50000
+        case 24:
+            return 62000
+        case 25:
+            return 75000
+        case 26:
+            return 90000
+        case 27:
+            return 105000
+        case 28:
+            return 120000
+        case 29:
+            return 135000
+        case 30:
+            return 155000
+        case _:
+            print("ERROR: bad cr input. check it plz")
+            exit(1)

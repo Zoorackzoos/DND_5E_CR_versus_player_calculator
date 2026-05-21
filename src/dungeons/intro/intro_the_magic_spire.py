@@ -1,6 +1,6 @@
 from src.universal_functions.craft_cr_from_monster_stat_block import craft_cr_from_monster_stat_block, \
     plug_monster_var_values_into_get_cr_from_monster
-from src.universal_functions.get_damage_per_round import get_damage_per_round_no_print
+from src.universal_functions.get_average_damage import get_average_damage_no_print
 
 
 def intro_the_magic_spire(tab_amount="\t"):
@@ -35,7 +35,7 @@ def intro_the_magic_spire(tab_amount="\t"):
             "regeneration_per_round": 0,
             "multiattack_count": 0,
             "ability_count": 0,
-            "average_damage": get_damage_per_round_no_print(dice_dict=calculus_monster_limit_damage_dice)
+            "average_damage": get_average_damage_no_print(dice_dict=calculus_monster_limit_damage_dice)
         }
     calculus_monster_limit_cr = plug_monster_var_values_into_get_cr_from_monster(monster_var=calculus_monster_limit_stat_block,tab_amount=tab_amount)
     print(calculus_monster_limit_cr)

@@ -2,7 +2,7 @@
 # D&D 5E Monster CR Calculator
 # Based on the 2014 DMG monster creation math.
 # =====================================================
-
+from src.universal_functions.get_rounded_cr import get_rounded_cr
 
 CR_TABLE = [
     {"CR": 0, "hp_min": 1, "hp_max": 6, "dpr_min": 0, "dpr_max": 1, "ac": 13, "attack_bonus": 3, "save_dc": 13},
@@ -94,17 +94,23 @@ def get_defensive_cr(hit_points, tab_amount="\t"):
 
 def get_offensive_cr(damage_per_round, tab_amount="\t"):
     print(tab_amount, "get_offensive_cr")
+    tab_amount += "\t"
+    print(tab_amount,"damage_per_round:",damage_per_round)
+
+    rounded_damage_per_round = get_rounded_cr(cr=damage_per_round,tab_amount=tab_amount)
 
     for row in CR_TABLE:
-        if row["dpr_min"] <= damage_per_round <= row["dpr_max"]:
+        print(tab_amount,row["dpr_min"],"<=",rounded_damage_per_round,"<=",row["dpr_max"])
+        if row["dpr_min"] <= rounded_damage_per_round <= row["dpr_max"]:
             return row["CR"]
 
-    if damage_per_round < 0:
+    if rounded_damage_per_round < 0:
         fail_cr_calculation(
             error_message="Damage per round cannot be negative.",
             tab_amount=tab_amount + "\t"
         )
 
+    #canary :-3
     fail_cr_calculation(
         error_message="Damage per round is outside the supported CR 0-30 table: " + str(damage_per_round),
         tab_amount=tab_amount + "\t"
@@ -160,7 +166,7 @@ def craft_cr_from_monster_stat_block(
         hit_points,
         armor_class,
         damage_per_round,
-        attack_bonus=0,
+        attack_modifier=0,
         has_legendary_action=False,
         has_flight=False,
         resistance_count=0,
@@ -175,7 +181,7 @@ def craft_cr_from_monster_stat_block(
         limited_use_damage=0,
         bonus_action_damage=0,
         legendary_action_damage=0,
-        ability_damage_bonus=2,
+        ability_cr_weight=2,
         tab_amount="\t"
 ):
     print(tab_amount, "craft_cr_from_monster_stat_block")
@@ -292,9 +298,9 @@ def craft_cr_from_monster_stat_block(
 
     if ability_count > 0:
         print(tab_amount + "\t", "ability_count =", ability_count)
-        print(tab_amount + "\t", "ability_damage_bonus =", ability_damage_bonus)
+        print(tab_amount + "\t", "ability_cr_weight =", ability_cr_weight)
         print(tab_amount + "\t", "before ability estimate: damage_per_round =", damage_per_round)
-        damage_per_round += ability_count * ability_damage_bonus
+        damage_per_round += ability_count * ability_cr_weight
         print(tab_amount + "\t", "after ability estimate: damage_per_round =", damage_per_round)
 
     if is_spellcaster:
@@ -316,7 +322,7 @@ def craft_cr_from_monster_stat_block(
     if save_dc > 0:
         offensive_cr_from_attack_bonus = adjust_cr_by_stat_difference(
             starting_cr=offensive_cr,
-            actual_value=attack_bonus,
+            actual_value=attack_modifier,
             expected_value=offensive_stats["attack_bonus"],
             label="attack_bonus",
             tab_amount=tab_amount + "\t"
@@ -333,7 +339,7 @@ def craft_cr_from_monster_stat_block(
     else:
         offensive_cr = adjust_cr_by_stat_difference(
             starting_cr=offensive_cr,
-            actual_value=attack_bonus,
+            actual_value=attack_modifier,
             expected_value=offensive_stats["attack_bonus"],
             label="attack_bonus",
             tab_amount=tab_amount + "\t"
@@ -368,7 +374,7 @@ def plug_monster_var_values_into_get_cr_from_monster(monster_var, tab_amount="\t
         hit_points=monster_var["hp"],
         armor_class=monster_var["ac"],
         damage_per_round=monster_var["average_damage"],
-        attack_bonus=monster_var.get("attack_bonus", 0),
+        attack_modifier=monster_var.get("attack_modifier", 0),
         has_legendary_action=monster_var.get("has_legendary_action", False),
         has_flight=monster_var.get("has_flight", False),
         resistance_count=monster_var.get("resistance_count", 0),
@@ -383,6 +389,6 @@ def plug_monster_var_values_into_get_cr_from_monster(monster_var, tab_amount="\t
         limited_use_damage=monster_var.get("limited_use_damage", 0),
         bonus_action_damage=monster_var.get("bonus_action_damage", 0),
         legendary_action_damage=monster_var.get("legendary_action_damage", 0),
-        ability_damage_bonus=monster_var.get("ability_damage_bonus", 2),
+        ability_cr_weight=monster_var.get("ability_cr_weight", 2),
         tab_amount=tab_amount
     )
