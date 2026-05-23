@@ -1,3 +1,4 @@
+import math
 import os
 import random
 import time
@@ -25,11 +26,12 @@ def print_2d_list_with_decreasing_buffer\
     buffers_are_the_same = buffer_time_max_editable == buffer_time_min_editable
 
     buffer_increment_number = buffer_time_min_editable / buffer_time_max_editable
+    buffer_increment_number_multiplier = 1
 
     for row in list_in_question:
         for element in row:
             if not buffers_are_the_same:
-                buffer_time_max_editable -= buffer_increment_number
+                buffer_time_max_editable -=
             wait_random_buffer(max=buffer_time_max_editable,min=buffer_time_min_editable,tab_amount=tab_amount)
             print(element, end=" ")
         wait_random_buffer(max=buffer_time_max_editable,min=buffer_time_min_editable,tab_amount=tab_amount)
@@ -112,6 +114,7 @@ def wait_random_buffer(min=BUFFER_TIME_MIN,
     """
     #this is a random decimal between the min & max values
     random_buffer = random.uniform(min,max)
+    print(tab_amount,"random_buffer =", random_buffer)
     time.sleep(random_buffer)
 
 """
