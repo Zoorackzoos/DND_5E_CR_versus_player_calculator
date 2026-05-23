@@ -23,19 +23,19 @@ def print_2d_list_with_decreasing_buffer\
     buffer_time_max_editable = buffer_time_max
     buffer_time_min_editable = buffer_time_min
 
-    buffers_are_the_same_or_max = (buffer_time_max_editable == buffer_time_min_editable
-                                   or
-                                   buffer_time_max_editable < 0)
 
-    i = 1
-
+    """
+    the intended effect here is that the systems stutters a bit and then shits out the aray
+    after the array is shidded then it "solves itself". so it turns into 1s or 0s.
+    """
     for row in list_in_question:
         for element in row:
-            if not buffers_are_the_same_or_max:
-                i *= i
-                buffer_time_max_editable -= buffer_time_min_editable * i
             wait_random_buffer(max=buffer_time_max_editable,min=buffer_time_min_editable,tab_amount=tab_amount)
             print(element, end=" ")
+            if (not(buffer_time_min_editable == buffer_time_max_editable)
+               or
+               not((buffer_time_max_editable / 2) < buffer_time_min_editable)):
+                buffer_time_max_editable /= 2
         wait_random_buffer(max=buffer_time_max_editable,min=buffer_time_min_editable,tab_amount=tab_amount)
         print()
 
@@ -116,7 +116,7 @@ def wait_random_buffer(min=BUFFER_TIME_MIN,
     """
     #this is a random decimal between the min & max values
     random_buffer = random.uniform(min,max)
-    print(tab_amount,"random_buffer =", random_buffer)
+    #print(tab_amount,"random_buffer =", random_buffer)
     time.sleep(random_buffer)
 
 """
