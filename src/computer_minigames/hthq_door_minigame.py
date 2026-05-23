@@ -23,15 +23,17 @@ def print_2d_list_with_decreasing_buffer\
     buffer_time_max_editable = buffer_time_max
     buffer_time_min_editable = buffer_time_min
 
-    buffers_are_the_same = buffer_time_max_editable == buffer_time_min_editable
+    buffers_are_the_same_or_max = (buffer_time_max_editable == buffer_time_min_editable
+                                   or
+                                   buffer_time_max_editable < 0)
 
-    buffer_increment_number = buffer_time_min_editable / buffer_time_max_editable
-    buffer_increment_number_multiplier = 1
+    i = 1
 
     for row in list_in_question:
         for element in row:
-            if not buffers_are_the_same:
-                buffer_time_max_editable -=
+            if not buffers_are_the_same_or_max:
+                i *= i
+                buffer_time_max_editable -= buffer_time_min_editable * i
             wait_random_buffer(max=buffer_time_max_editable,min=buffer_time_min_editable,tab_amount=tab_amount)
             print(element, end=" ")
         wait_random_buffer(max=buffer_time_max_editable,min=buffer_time_min_editable,tab_amount=tab_amount)
