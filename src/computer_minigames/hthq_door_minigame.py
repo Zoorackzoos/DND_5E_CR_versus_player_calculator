@@ -1,10 +1,7 @@
-import math
+import copy
 import os
 import random
 import time
-
-from src.universal_functions.display.print_2d_list import print_2d_list
-from src.universal_functions.display.print_2d_list_that_contains_dictionaries import print_2d_list_that_contains_dictionaries
 
 BUFFER_TIME_MAX = 2
 BUFFER_TIME_MIN = 0.001
@@ -50,6 +47,15 @@ def print_2d_list_with_buffer(list_in_question,
         wait_random_buffer(max=buffer_time_max,min=buffer_time_min,tab_amount=tab_amount)
         print()
 
+def universal_terminal_clear(tab_amount=""):
+    #detect the os so we can clear the terminal
+    if os.name == 'nt':
+        #print("Windows-based system")
+        os.system("cls")
+    elif os.name == 'posix' :
+        #print("Unix-based system (Linux, macOS, etc.)")
+        os.system("clear")
+
 """
 =============================================
           random number shananagins
@@ -65,7 +71,7 @@ def get_random_numbers_array(tab_amount=""):
     :param tab_amount:
     :return:
     """
-    #creating the fucking thing
+    #creating the thing
     terminal_size = 1
 
     try:
@@ -99,8 +105,20 @@ def get_random_numbers_array(tab_amount=""):
             random_int = random.randint(0,9)
             random_numbers_array[row][col] = random_int
 
-    print_2d_list_with_decreasing_buffer(list_in_question=random_numbers_array)
     return random_numbers_array
+
+def get_solved_random_numbers_array(array_in_question, tab_amount=""):
+    copied_array_in_question = copy.deepcopy(array_in_question)
+    row_count = len(copied_array_in_question)
+    column_count = len(copied_array_in_question[0])
+
+    for i in range(row_count):
+        for j in range(column_count):
+            if copied_array_in_question[i][j] >= 5:
+                copied_array_in_question[i][j] = 1
+            else:
+                copied_array_in_question[i][j] = 0
+    return copied_array_in_question
 
 def wait_random_buffer(min=BUFFER_TIME_MIN,
                        max=BUFFER_TIME_MAX,
@@ -134,22 +152,193 @@ def print_starting_noise(tab_amount=""):
     :return:
     """
     random_numbers_array = get_random_numbers_array()
+    print_2d_list_with_decreasing_buffer(list_in_question=random_numbers_array)
+    print("\nwaiting for micro tech slaves...")
+    wait_random_buffer()
+    wait_random_buffer()
+    print("found slaves, dispatching particle whips")
+    wait_random_buffer()
+    print("particle whips dispatched. configuring duties\n")
+
+    continue_noise_1 = input("continue? (y/n)")
+    if continue_noise_1 == 'n':
+        universal_terminal_clear()
+        exit(999)
+
+    wait_random_buffer()
+    solved_random_numbers_array = get_solved_random_numbers_array(array_in_question=random_numbers_array)
+    print_2d_list_with_decreasing_buffer(list_in_question=solved_random_numbers_array)
+    wait_random_buffer()
+    wait_random_buffer()
+    print("preparing murder")
+
+    continue_noise_2 = input("continue? (y/n)")
+    if continue_noise_2 == 'n':
+        universal_terminal_clear()
+        exit(999)
+
+    wait_random_buffer()
+    wait_random_buffer()
+    wait_random_buffer()
+    print("murdering...")
+    wait_random_buffer()
+    wait_random_buffer()
+    wait_random_buffer()
+    print("murdering...")
+    wait_random_buffer()
+    wait_random_buffer()
+    wait_random_buffer()
+    print("murdering...")
+
+
+def get_if_credentials_match(username_try, password_try, available_usernames, available_passwords):
+    if username_try in available_usernames and password_try in available_passwords:
+        if     ((username_try == available_usernames[0] and password_try == available_passwords[0])\
+                or
+                (username_try == available_usernames[1] and password_try == available_passwords[1])
+                or
+                (username_try == available_usernames[2] and password_try == available_passwords[2])):
+            return True
+        else:
+            return False
+    else:
+        print("SHITTY CREDENTIALS. WOULD YOU KINDLY SMASH THIS COMPUTER.")
+        exit(1)
+
+
+def login_phase():
+    print("LOG IN")
+    print("press \'q\' to quit")
+    username_try = input("Username: ")
+    # every ninja had access to this computer but they're not gonna notice :-/
+    available_usernames = \
+        [
+            "TurtleSlayer73",
+            "GoopEnjoyer999",
+            "Ao_Suzuki"
+        ]
+    if username_try == "q":
+        exit()
+    while username_try not in available_usernames:
+        if username_try == "q":
+            exit()
+        username_try = input("\tInvalid username, please try again: ")
+    print("successful username")
+
+    password_try = input("Password: ")
+    available_passwords = \
+        [
+            "password",
+            "Zorblina",
+            "tekitaitekibaishu"  # "hostile takeover"
+        ]
+    if password_try == "q":
+        exit()
+    while not get_if_credentials_match(username_try=username_try,
+                                       password_try=password_try,
+                                       available_usernames=available_usernames,
+                                       available_passwords=available_passwords):
+        if password_try == "q":
+            exit()
+        password_try = input("\tInvalid password, please try again: ")
+    print("successful password")
+    print("logging in...")
+    wait_random_buffer()
+    wait_random_buffer()
+    print("logged in")
+    input("press enter to continue: ")
+    universal_terminal_clear()
+    username_and_password_dict = {"username" : username_try,
+                                  "password" : password_try,}
+    return username_and_password_dict
+
+def im_in_phase_print_user_guide(good_credentials,bad_input_bool=False) -> str:
+    print("you are logged in as: ", good_credentials["username"])
+    print(
+        """
+        1. make computer scream
+        2. unlock door
+        3. show most recent diary entry
+        4. write diary entry
+        q. quit
+        """)
+    if bad_input_bool:
+        print("bad input, please try again.")
+    userinput = input("what would you like to do?")
+    print("userinput = \n\t",userinput)
+    return userinput
+
+def im_in_phase(good_credentials,bad_input_bool=False):
+    #universal_terminal_clear()
+    userinput = im_in_phase_print_user_guide(good_credentials,bad_input_bool=bad_input_bool)
+    valid_inputs = [1,2,3,4,"q"]
+    if userinput in valid_inputs:
+        #valid input....
+        if userinput == "1":
+            #wtf am I doing?
+            scream_sounds = \
+            [
+                "oww stop <:-(",
+                "stop it!",
+                "stop that hurts!",
+                "you're hurting me!"
+            ]
+            scream_number = random.randint(0,3)
+            print("\t",scream_sounds[scream_number])
+        elif userinput == "2":
+            print("beep beep! door's unlocked! \nyou can go in now")
+        if userinput == "3":
+            if good_credentials["username"] == "TurtleSlayer73":
+                print("""\n
+                Why the fuck do we have to write diaries man. 
+                I've got way to much internet to see after I got broadband after dialup man.
+                You know how much porn you can download with broadband internet? 
+                A lot! A lot!
+                And i have that because of shredder so i guess making this diary is worth it. 
+                """)
+            if good_credentials["username"] == "GoopEnjoyer999":
+                print("""\n
+                I know someone probably reads these but i'm thinking about putting my 2 weeks in.
+                It's not putting people in cages or fighting monsters but it's more that I have to do it 
+                with someone like Slayer. Guy's a weirdo. 
+                
+                Also. Fuck the yellow ninjas man. I could do so much better with a bomb. All of them are dickless losers.
+                """)
+            if good_credentials["username"] == "Ao_Suzuki":
+                print("""\n
+                私は私だ。私は変われないし、あなたも変われない。誰も変われない。
+
+                なぜこれを読んでいるんだ？
+                
+                さっさとドアを開けてくれ。
+                
+                まあ、せっかくここまで来たんだから、正直に言おう。ここは嫌いだ。醜い人ばかりだ。唯一まともなのはバーガーキングだけだ。
+                """)
+    else:
+        im_in_phase(good_credentials=good_credentials,bad_input_bool=True)
 
 def hthq_door_minigame(tab_amount=""):
-    wait_random_buffer()
-    print("initializing Evil Ninja OS...")
-    wait_random_buffer()
+    universal_terminal_clear()
+    userInput = input("press enter to continue:")
+    if userInput == "FUCK_YOU":
+        good_credentials = {"username" : "TurtleSlayer73",
+                            "password" : "password"}
+        im_in_phase(good_credentials=good_credentials)
+    else:
+        universal_terminal_clear()
+        wait_random_buffer()
+        print("initializing Evil Ninja OS...")
+        wait_random_buffer()
 
-    #detec the os so we can clear the terminal
-    if os.name == 'nt':
-        #print("Windows-based system")
-        os.system("cls")
-    elif os.name == 'posix':
-        #print("Unix-based system (Linux, macOS, etc.)")
-        os.system("clear")
+        #the goofy ahh \0 doesn't show in the terminal. so don't worry about it.
+        print_starting_noise()
+        wait_random_buffer()
+        wait_random_buffer()
+        universal_terminal_clear()
 
-    #TODO: get rid of the goofy ahh '\0'
-    print_starting_noise()
+        print("finished booting. fucking finally >:-(")
+        good_credentials = login_phase()
+        im_in_phase(good_credentials)
 
 if __name__ == "__main__":
     hthq_door_minigame()
