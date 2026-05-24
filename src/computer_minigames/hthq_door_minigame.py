@@ -3,6 +3,8 @@ import os
 import random
 import time
 
+from sympy import true
+
 BUFFER_TIME_MAX = 2
 BUFFER_TIME_MIN = 0.001
 
@@ -255,31 +257,23 @@ def login_phase():
                                   "password" : password_try,}
     return username_and_password_dict
 
-def im_in_phase_print_user_guide(good_credentials,bad_input_bool=False) -> str:
+def im_in_phase(good_credentials):
     print("you are logged in as: ", good_credentials["username"])
-    print(
+    guide_string = \
         """
         1. make computer scream
         2. unlock door
         3. show most recent diary entry
         4. write diary entry
         q. quit
-        """)
-    if bad_input_bool:
-        print("bad input, please try again.")
-    userinput = input("what would you like to do?")
-    #print("userinput = \n\t",userinput)
-    return userinput
+        """
+    print(guide_string)
+    userinput = input("what would you like to do?: ")
 
-def im_in_phase(good_credentials,bad_input_bool=False):
-    exit_bool = False
-    while not exit_bool:
-        #universal_terminal_clear()
-        userinput = im_in_phase_print_user_guide(good_credentials,bad_input_bool=bad_input_bool)
-        #if those numbers arn't strings the code gets confused
+    while true:
         valid_inputs = ["1","2","3","4","q"]
+        universal_terminal_clear()
         if userinput in valid_inputs:
-            #valid input....
             if userinput == "1":
                 #wtf am I doing?
                 scream_sounds = \
@@ -290,29 +284,34 @@ def im_in_phase(good_credentials,bad_input_bool=False):
                     "you're hurting me!"
                 ]
                 scream_number = random.randint(0,3)
-                print("\t",scream_sounds[scream_number])
+                print("you are logged in as: ", good_credentials["username"])
+                print(guide_string)
+                print("\t\t",scream_sounds[scream_number],"\n")
+                userinput = input("what would you like to do?: ")
             elif userinput == "2":
-                print("beep beep! door's unlocked! \nyou can go in now")
+                print("you are logged in as: ", good_credentials["username"])
+                print(guide_string)
+                print("\t\tbeep beep! door's unlocked! \n\t\tyou can go in now\n")
+                userinput = input("what would you like to do?: ")
             elif userinput == "3":
+                print("you are logged in as: ", good_credentials["username"])
+                print(guide_string)
                 if good_credentials["username"] == "TurtleSlayer73":
-                    print("""\n
-                    Why the fuck do we have to write diaries man. 
+                    print("""\t\t    Why the fuck do we have to write diaries man. 
                     I've got way to much internet to see after I got broadband after dialup man.
                     You know how much porn you can download with broadband internet? 
                     A lot! A lot!
                     And i have that because of shredder so i guess making this diary is worth it. 
                     """)
                 elif good_credentials["username"] == "GoopEnjoyer999":
-                    print("""\n
-                    I know someone probably reads these but i'm thinking about putting my 2 weeks in.
+                    print("""\t\t    I know someone probably reads these but i'm thinking about putting my 2 weeks in.
                     It's not putting people in cages or fighting monsters but it's more that I have to do it 
                     with someone like Slayer. Guy's a weirdo. 
                     
                     Also. Fuck the yellow ninjas man. I could do so much better with a bomb. All of them are dickless losers.
                     """)
                 elif good_credentials["username"] == "Ao_Suzuki":
-                    print("""\n
-                    私は私だ。私は変われないし、あなたも変われない。誰も変われない。
+                    print("""\t\t    私は私だ。私は変われないし、あなたも変われない。誰も変われない。
     
                     なぜこれを読んでいるんだ？
                     
@@ -320,14 +319,19 @@ def im_in_phase(good_credentials,bad_input_bool=False):
                     
                     まあ、せっかくここまで来たんだから、正直に言おう。ここは嫌いだ。醜い人ばかりだ。唯一まともなのはバーガーキングだけだ。
                     """)
+                userinput = input("what would you like to do?: ")
             elif userinput == "4":
-                print("""\n
-                ERROR: write_diary_and_push_to_evil_os_mainframe: word anus is leaking.
-                """)
+                print("you are logged in as: ", good_credentials["username"])
+                print(guide_string)
+                print("\t\tERROR: write_diary_and_push_to_evil_os_mainframe: word anus is leaking.\n")
+                userinput = input("what would you like to do?: ")
             elif userinput == "q":
                 exit()
         else:
-            im_in_phase(good_credentials=good_credentials,bad_input_bool=True)
+            print("you are logged in as: ", good_credentials["username"])
+            print(guide_string)
+            print("\nbad input, please try again.\n")
+            userinput = input("what would you like to do?")
 
 def hthq_door_minigame(tab_amount=""):
     universal_terminal_clear()
@@ -335,6 +339,7 @@ def hthq_door_minigame(tab_amount=""):
     if userInput == "FUCK_YOU":
         good_credentials = {"username" : "TurtleSlayer73",
                             "password" : "password"}
+        universal_terminal_clear()
         im_in_phase(good_credentials=good_credentials)
     else:
         universal_terminal_clear()
