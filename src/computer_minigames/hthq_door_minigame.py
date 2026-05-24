@@ -161,6 +161,8 @@ def print_starting_noise(tab_amount=""):
     print("particle whips dispatched. configuring duties\n")
 
     continue_noise_1 = input("continue? (y/n)")
+    while not (continue_noise_1 == 'n' or continue_noise_1 == 'y'):
+        continue_noise_1 = input("yes or no please: ")
     if continue_noise_1 == 'n':
         universal_terminal_clear()
         exit(999)
@@ -173,6 +175,8 @@ def print_starting_noise(tab_amount=""):
     print("preparing murder")
 
     continue_noise_2 = input("continue? (y/n)")
+    while not (continue_noise_2 == 'n' or continue_noise_2 == 'y'):
+        continue_noise_2 = input("yes or no please: ")
     if continue_noise_2 == 'n':
         universal_terminal_clear()
         exit(999)
@@ -202,8 +206,7 @@ def get_if_credentials_match(username_try, password_try, available_usernames, av
         else:
             return False
     else:
-        print("SHITTY CREDENTIALS. WOULD YOU KINDLY SMASH THIS COMPUTER.")
-        exit(1)
+        return False
 
 
 def login_phase():
@@ -265,13 +268,13 @@ def im_in_phase_print_user_guide(good_credentials,bad_input_bool=False) -> str:
     if bad_input_bool:
         print("bad input, please try again.")
     userinput = input("what would you like to do?")
-    print("userinput = \n\t",userinput)
+    #print("userinput = \n\t",userinput)
     return userinput
 
 def im_in_phase(good_credentials,bad_input_bool=False):
     #universal_terminal_clear()
     userinput = im_in_phase_print_user_guide(good_credentials,bad_input_bool=bad_input_bool)
-    valid_inputs = [1,2,3,4,"q"]
+    valid_inputs = ["1","2","3","4","q"]
     if userinput in valid_inputs:
         #valid input....
         if userinput == "1":
@@ -287,7 +290,7 @@ def im_in_phase(good_credentials,bad_input_bool=False):
             print("\t",scream_sounds[scream_number])
         elif userinput == "2":
             print("beep beep! door's unlocked! \nyou can go in now")
-        if userinput == "3":
+        elif userinput == "3":
             if good_credentials["username"] == "TurtleSlayer73":
                 print("""\n
                 Why the fuck do we have to write diaries man. 
