@@ -272,53 +272,62 @@ def im_in_phase_print_user_guide(good_credentials,bad_input_bool=False) -> str:
     return userinput
 
 def im_in_phase(good_credentials,bad_input_bool=False):
-    #universal_terminal_clear()
-    userinput = im_in_phase_print_user_guide(good_credentials,bad_input_bool=bad_input_bool)
-    valid_inputs = ["1","2","3","4","q"]
-    if userinput in valid_inputs:
-        #valid input....
-        if userinput == "1":
-            #wtf am I doing?
-            scream_sounds = \
-            [
-                "oww stop <:-(",
-                "stop it!",
-                "stop that hurts!",
-                "you're hurting me!"
-            ]
-            scream_number = random.randint(0,3)
-            print("\t",scream_sounds[scream_number])
-        elif userinput == "2":
-            print("beep beep! door's unlocked! \nyou can go in now")
-        elif userinput == "3":
-            if good_credentials["username"] == "TurtleSlayer73":
+    exit_bool = False
+    while not exit_bool:
+        #universal_terminal_clear()
+        userinput = im_in_phase_print_user_guide(good_credentials,bad_input_bool=bad_input_bool)
+        #if those numbers arn't strings the code gets confused
+        valid_inputs = ["1","2","3","4","q"]
+        if userinput in valid_inputs:
+            #valid input....
+            if userinput == "1":
+                #wtf am I doing?
+                scream_sounds = \
+                [
+                    "oww stop <:-(",
+                    "stop it!",
+                    "stop that hurts!",
+                    "you're hurting me!"
+                ]
+                scream_number = random.randint(0,3)
+                print("\t",scream_sounds[scream_number])
+            elif userinput == "2":
+                print("beep beep! door's unlocked! \nyou can go in now")
+            elif userinput == "3":
+                if good_credentials["username"] == "TurtleSlayer73":
+                    print("""\n
+                    Why the fuck do we have to write diaries man. 
+                    I've got way to much internet to see after I got broadband after dialup man.
+                    You know how much porn you can download with broadband internet? 
+                    A lot! A lot!
+                    And i have that because of shredder so i guess making this diary is worth it. 
+                    """)
+                elif good_credentials["username"] == "GoopEnjoyer999":
+                    print("""\n
+                    I know someone probably reads these but i'm thinking about putting my 2 weeks in.
+                    It's not putting people in cages or fighting monsters but it's more that I have to do it 
+                    with someone like Slayer. Guy's a weirdo. 
+                    
+                    Also. Fuck the yellow ninjas man. I could do so much better with a bomb. All of them are dickless losers.
+                    """)
+                elif good_credentials["username"] == "Ao_Suzuki":
+                    print("""\n
+                    私は私だ。私は変われないし、あなたも変われない。誰も変われない。
+    
+                    なぜこれを読んでいるんだ？
+                    
+                    さっさとドアを開けてくれ。
+                    
+                    まあ、せっかくここまで来たんだから、正直に言おう。ここは嫌いだ。醜い人ばかりだ。唯一まともなのはバーガーキングだけだ。
+                    """)
+            elif userinput == "4":
                 print("""\n
-                Why the fuck do we have to write diaries man. 
-                I've got way to much internet to see after I got broadband after dialup man.
-                You know how much porn you can download with broadband internet? 
-                A lot! A lot!
-                And i have that because of shredder so i guess making this diary is worth it. 
+                ERROR: write_diary_and_push_to_evil_os_mainframe: word anus is leaking.
                 """)
-            if good_credentials["username"] == "GoopEnjoyer999":
-                print("""\n
-                I know someone probably reads these but i'm thinking about putting my 2 weeks in.
-                It's not putting people in cages or fighting monsters but it's more that I have to do it 
-                with someone like Slayer. Guy's a weirdo. 
-                
-                Also. Fuck the yellow ninjas man. I could do so much better with a bomb. All of them are dickless losers.
-                """)
-            if good_credentials["username"] == "Ao_Suzuki":
-                print("""\n
-                私は私だ。私は変われないし、あなたも変われない。誰も変われない。
-
-                なぜこれを読んでいるんだ？
-                
-                さっさとドアを開けてくれ。
-                
-                まあ、せっかくここまで来たんだから、正直に言おう。ここは嫌いだ。醜い人ばかりだ。唯一まともなのはバーガーキングだけだ。
-                """)
-    else:
-        im_in_phase(good_credentials=good_credentials,bad_input_bool=True)
+            elif userinput == "q":
+                exit()
+        else:
+            im_in_phase(good_credentials=good_credentials,bad_input_bool=True)
 
 def hthq_door_minigame(tab_amount=""):
     universal_terminal_clear()
