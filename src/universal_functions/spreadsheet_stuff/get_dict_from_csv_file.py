@@ -12,6 +12,6 @@ def get_dict_from_csv(path_to_csv_file, tab_amount="\t"):
         return list(reader)
 
 if __name__ == "__main__":
-    path_to_csv_file = "../../../sheets/monsters_all_stats.csv"
+    path_to_csv_file = "../../../sheets/monsters_all_stats_homebrew.csv"
     # list -> dict
     print_2d_list_that_contains_dictionaries(get_dict_from_csv(path_to_csv_file=path_to_csv_file))

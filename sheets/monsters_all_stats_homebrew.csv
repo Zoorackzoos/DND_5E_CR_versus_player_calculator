@@ -1719,7 +1719,7 @@ Minotaur Gorebull,Large,Monstrosity,7.00,,Book of Beautiful Horrors (★★),u/r
 "Misc. Creature, Phase Spider",Large,Monstrosity,3.00,,Monster Manual,Wizards of the Coast,13,32,"30, climb 30",U,15,15,12,6,10,6,None,Stealth,None,Darkvision 60,None,"Ethereal Jaunt, Spider Climb, Web Walker"
 "Misc. Creature, Poisonous Snake",Tiny,Beast,0.13,,Monster Manual,Wizards of the Coast,13,13,"30, swim 30",U,2,16,11,1,10,3,None,None,None,Blindsight 10,None,None
 "Misc. Creature, Poisonous Snake, Huge",Huge,Beast,3.00,,Skip's Guide to Monsters (★★),u/Drewfro666,15,51,"30, swim 30",U,16,16,15,2,10,3,None,Perception,None,Normal,None,None
-"Misc. Creature, Polar Bear",Large,Beast,2.00,,Monster Manual,Wizards of the Coast,12,42,"40, swim 30",U,20,10,16,2,13,7,None,Perception,None,Normal,None,Keen Smell
+"Misc. Creature, Polar Bear",Large,Beast,2.00,https://roll20.net/compendium/dnd5e/Polar%20Bear#content,Monster Manual,Wizards of the Coast,12,42,"40, swim 30",U,20,10,16,2,13,7,None,Perception,None,Normal,None,Keen Smell
 "Misc. Creature, Pony",Medium,Beast,0.13,,Monster Manual,Wizards of the Coast,10,11,40,U,15,10,13,2,11,7,None,None,None,Normal,None,None
 "Misc. Creature, Praying Mantis, Giant",Large,Beast,1.00,,Skip's Guide to Monsters (★★),u/Drewfro666,14,45,"20, fly 40",U,19,8,15,1,14,6,None,"Perception, Stealth",None,Normal,None,Plant Camouflage
 "Misc. Creature, Quipper",Tiny,Beast,0.00,,Monster Manual,Wizards of the Coast,13,1,swim 40,U,2,16,9,1,7,2,None,None,None,Darkvision 60,None,"Blood Frenzy, Water Breathing"
@@ -1758,7 +1758,7 @@ Minotaur Gorebull,Large,Monstrosity,7.00,,Book of Beautiful Horrors (★★),u/r
 "Misc. Creature, Whale",Gargantuan,Beast,9.00,,Skip's Guide to Monsters (★★),u/Drewfro666,14,210,swim 40,U,22,8,24,4,10,6,None,Perception,None,Blindsight 120,None,Hold Breath
 "Misc. Creature, Whale, Baleen",Gargantuan,Beast,6.00,,Skip's Guide to Monsters (★★),u/Drewfro666,14,210,swim 40,U,22,8,24,4,10,6,None,Perception,None,Blindsight 120,None,Hold Breath
 "Misc. Creature, Winter Wolf",Large,Monstrosity,3.00,,Monster Manual,Wizards of the Coast,13,75,50,NE,18,13,14,7,12,8,None,"Perception, Stealth",Coldimmu,Normal,"Common, Giant, Own","Keen Hearing, Keen Smell, Pack Tactics, Snow Camouflage"
-"Misc. Creature, Wolf",Medium,Beast,0.25,,Monster Manual,Wizards of the Coast,13,11,40,U,12,15,12,3,12,6,None,"Perception, Stealth",None,Normal,None,"Keen Hearing, Keen Smell, Pack Tactics"
+"Misc. Creature, Wolf",Medium,Beast,0.25,https://roll20.net/compendium/dnd5e/Wolf#content,Monster Manual,Wizards of the Coast,13,11,40,U,12,15,12,3,12,6,None,"Perception, Stealth",None,Normal,None,"Keen Hearing, Keen Smell, Pack Tactics"
 "Misc. Creature, Wolf, Blink",Large,Fey,3.00,,Ixor's Manual of Monstrous Findings (★★),u/thorn1993,15,75,40,LG,17,16,14,11,14,12,None,"Perception, Stealth",None,Normal,"Blink Dog, Own, Sylvan","Keen Hearing, Keen Smell, Pack Tactics"
 "Misc. Creature, Wolverine",Medium,Beast,1.00,,Skip's Guide to Monsters (★★),u/Drewfro666,13,17,"30, burrow 15, climb 15",U,14,15,18,3,10,5,None,"Perception, Stealth",None,Normal,None,"Keen Smell, Feral Rage"
 "Misc. Creature, Wolverine, Dire",Large,Beast,4.00,,Skip's Guide to Monsters (★★),u/Drewfro666,16,57,"30, climb 15",U,18,17,18,3,12,10,None,"Perception, Stealth",None,Normal,None,"Keen Smell, Feral Rage"
@@ -2899,7 +2899,7 @@ Zorbo,Small,Monstrosity,0.50,,Tomb of Annihilation,Wizards of the Coast,10,27,"3
 Zuvexus,Large,Fiend (Demon),17.00,,https://drive.google.com/file/d/1YxCrJevrMZL4M4xqCkHSQ960D7PLr2R0/view,u/badooga1,18,189,"40, fly 60",CE,18,20,20,18,16,20,,,,,,
 Purple Foot Clan Ninja,Medium,Humanoid,0.25,https://docs.google.com/document/d/1JUiihzhgPS4Rg1ofP1xjbswx8sFso69X1KWdyWuTT78/edit?tab=t.0,Virasco 2000,Shwifty_Meme_Lord,12,20,30,NE,10,12,12,10,10,10,None,None,None,Normal,"Common, Theives Cant",None
 Green Foot Clan Ninja,Medium,Humanoid,0.25,https://docs.google.com/document/d/1JUiihzhgPS4Rg1ofP1xjbswx8sFso69X1KWdyWuTT78/edit?tab=t.0,Virasco 2000,Shwifty_Meme_Lord,12,15,30,NE,12,14,10,12,10,10,None,None,None,Normal,"Common, Theives Cant",None
-"Calculus Monster, Limimt",Medium,Demon,0.50,https://docs.google.com/document/d/1RYat9ybER4u0_WBGPNnN3afBu3G_uze6ZQuLpCy4M_A/edit?tab=t.0#heading=h.dj2t1ht3jxa5,Virasco 2000,Shwifty_Meme_Lord,15,15,15,CE,14,6,10,14,6,2,INT,None,"Radientweak, acidweak, psychicres",Normal,Math,None
+"Calculus Monster, Limit",Medium,Demon,0.50,https://docs.google.com/document/d/1RYat9ybER4u0_WBGPNnN3afBu3G_uze6ZQuLpCy4M_A/edit?tab=t.0#heading=h.dj2t1ht3jxa5,Virasco 2000,Shwifty_Meme_Lord,15,15,15,CE,14,6,10,14,6,2,INT,None,"Radientweak, acidweak, psychicres",Normal,Math,None
 Hoopmaster,Meduim,Humanoid,0.50,https://docs.google.com/document/d/1ZFMTMGkZRF-9eraiE5OQK44IJciWIM8cPfMTc0cQu_Q/edit?tab=t.0#heading=h.i4umjts4rmyy,Virasco 2000,Shwifty_Meme_Lord,13,30,30,NE,12,12,12,10,10,10,None,None,None,Normal,Common,None
 Blue Foot Clan Ninja,Medium,Humanoid,0.50,https://docs.google.com/document/d/1JUiihzhgPS4Rg1ofP1xjbswx8sFso69X1KWdyWuTT78/edit?tab=t.0,Virasco 2000,Shwifty_Meme_Lord,12,20,30,NE,12,12,12,10,10,10,None,None,None,Normal,"Common, Theives Cant",None
 Pink Foot Clan Ninja,Medium,Humanoid,0.50,https://docs.google.com/document/d/1JUiihzhgPS4Rg1ofP1xjbswx8sFso69X1KWdyWuTT78/edit?tab=t.0,Virasco 2000,Shwifty_Meme_Lord,12,50,30,NE,14,10,16,10,10,10,None,None,None,Normal,"Common, Theives Cant",None
