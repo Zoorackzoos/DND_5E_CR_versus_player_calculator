@@ -4,6 +4,8 @@ from src.universal_functions.get_average_damage import get_average_damage_no_pri
 
 
 def intro_the_magic_spire(tab_amount="\t"):
+    #TODO: finishing getting CR calculations for the magic spire
+
     print(tab_amount,"intro_the_magic_spire")
     player_levels = [3,3,3,3]
 

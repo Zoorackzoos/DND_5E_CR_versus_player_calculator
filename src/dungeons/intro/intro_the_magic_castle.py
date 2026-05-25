@@ -3,9 +3,6 @@ from src.universal_functions.get_xp_from_single_enemy_CR import get_xp_from_sing
 from src.universal_functions.get_cr_from_precise_monster_search import get_cr_from_precise_monster_search
 from src.universal_functions.get_encounter_difficulty import get_encounter_difficulty
 
-
-#TODO: create Enums for the spreadsheet headers so i can call them instead of string literals
-#TODO: design the get_rows_from_dict_on_param_type_and_string to be more smoother. currently if you do a precise search it gives a list with one dict which is awkward.
 #TODO: make the searching of the database more applicable on this program in general. it's more convent to cntrl+F on the spreadsheet on google sheets
 
 def intro_the_magic_castle(tab_amount="\t"):
