@@ -26,11 +26,10 @@ def get_z_lvl_1_encounter_difficulty(player_levels: list[int], tab_amount: str) 
                                                             tab_amount=tab_amount)
     withering_gnoll_xp = get_xp_from_single_enemy_cr(cr=withering_gnoll_cr, tab_amount=tab_amount)
 
-    z_lvl_1_monster_xps = [manes_xp, manes_xp, manes_xp, manes_xp,
+    z_lvl_1_monster_xps = [manes_xp, manes_xp,
                            calculus_monster_limits_xp, calculus_monster_limits_xp,
                            calculus_monster_limits_xp, calculus_monster_limits_xp,
-                           calculus_monster_limits_xp, calculus_monster_limits_xp,
-                           withering_gnoll_xp, withering_gnoll_xp]
+                           withering_gnoll_xp]
     z_lvl_1_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
                                                             monster_xp_values=z_lvl_1_monster_xps,
                                                             tab_amount=tab_amount)
@@ -75,14 +74,15 @@ def get_z_lvl_2_encounter_difficulty(player_levels: list[int], tab_amount: str) 
                                                       tab_amount=tab_amount)
     spectator_xp = get_xp_from_single_enemy_cr(cr=spectator_cr, tab_amount=tab_amount)
 
-    z_lvl_2_monster_xps = [troglodyte_xp, troglodyte_xp, troglodyte_xp, troglodyte_xp,
+    z_lvl_2_monster_xps = [troglodyte_xp, troglodyte_xp,
                            animated_object_armor_xp,
-                           lizard_xp, lizard_xp, lizard_xp,
-                           giant_lizard_xp, giant_lizard_xp,
-                           tri_flower_frond_xp, tri_flower_frond_xp,
-                           wolf_xp, wolf_xp, wolf_xp,
-                           wolf_xp, wolf_xp, wolf_xp, wolf_xp, wolf_xp, wolf_xp,
-                           spectator_xp]
+                           lizard_xp, lizard_xp,
+                           giant_lizard_xp,
+                           tri_flower_frond_xp,
+                           wolf_xp, wolf_xp,
+                           wolf_xp, wolf_xp
+                           #spectator_xp #just make it so this guy asks for ice cream, and the kitchen has ice cream
+                           ]
     z_lvl_2_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
                                                             monster_xp_values=z_lvl_2_monster_xps,
                                                             tab_amount=tab_amount)
@@ -103,7 +103,6 @@ def get_z_lvl_3_encounter_difficulty(player_levels: list[int], tab_amount: str) 
     return z_lvl_3_encounter_difficulty
 
 def intro_the_magic_spire(tab_amount="\t"):
-    #TODO: change dungeon to be not as hard as it is right now
 
     #i did the CR calculations for the Limit calculus monster at some point but i deleted it some time ago
     #regardless i want to be able to do it again flexibly
