@@ -8,7 +8,7 @@ from src.universal_functions.get_encounter_difficulty import get_encounter_diffi
 from src.universal_functions.spreadsheet_stuff.get_rows_from_dict_on_param_type_and_string import \
     get_rows_from_dict_on_param_type_and_string
 from src.universal_functions.stats.convert_monster_modifiers_to_stats import convert_monster_modifiers_to_stats
-from src.universal_functions.vars.monter_sheet_vars import monsters_all_stats_dict
+from src.universal_functions.vars.monter_sheet_vars import default_path_monsters_all_stats_dict
 from src.universal_functions.vars.spreadsheet_enums import SpreadsheetKeysEnums
 
 def get_purple_ninja_cr(tab_amount="\t"):

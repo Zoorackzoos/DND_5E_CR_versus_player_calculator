@@ -4,13 +4,16 @@ from src.universal_functions.get_cr_from_precise_monster_search import get_cr_fr
 from src.universal_functions.get_encounter_difficulty import get_encounter_difficulty
 from src.universal_functions.vars.spreadsheet_enums import SpreadsheetKeysEnums
 
-
+#murder all human traffickers. every single one.
 def hthq(tab_amount="\t"):
     print(tab_amount,"hthq")
 
     player_levels = [4,4,4,4]
 
-    purple_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,string="Purple Foot Clan Ninja",tab_amount=tab_amount)
+    purple_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
+                                                         string="Purple Foot Clan Ninja",
+                                                         path_to_csv_file="../../../../sheets/monsters_all_stats.csv",
+                                                         tab_amount=tab_amount)
     print(purple_ninja_cr)
     ground_level_enemies = 0
 
