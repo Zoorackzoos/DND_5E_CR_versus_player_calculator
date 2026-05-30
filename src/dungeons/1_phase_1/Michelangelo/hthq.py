@@ -199,30 +199,37 @@ def hthq(tab_amount="\t"):
     exposed_evil_ninja_cyborg_xp = get_xp_from_single_enemy_cr(cr=exposed_evil_ninja_cyborg_cr,
                                                                tab_amount=tab_amount)
 
-    lvl_2_monsters_xps = \
-        [
-            purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, blue_ninja_xp, # airlock
-            green_ninja_xp, green_ninja_xp, green_ninja_xp, green_ninja_xp, #showers
-            purple_ninja_xp, purple_ninja_xp, yellow_ninja_xp, #chamber
-            white_ninja_xp, white_ninja_xp, blue_ninja_xp, blue_ninja_xp, #computer room
+    lvl_2_airlock_showers_prison_xps = \
+    [
+        purple_ninja_xp,purple_ninja_xp,purple_ninja_xp,blue_ninja_xp, #airlock
+        green_ninja_xp,green_ninja_xp,green_ninja_xp, #showers
+        purple_ninja_xp,purple_ninja_xp,yellow_ninja_xp, #prison
+    ]
+    lvl_2_airlock_showers_prison_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
+                                                                                 monster_xp_values=lvl_2_airlock_showers_prison_xps,
+                                                                                 tab_amount=tab_amount)
 
-            purple_ninja_xp,
-            purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, #computer mainframe
-            exposed_evil_ninja_cyborg_xp,
-            exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp #computer mainframe
-        ]
-
-    lvl_2_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
-                                                          monster_xp_values=lvl_2_monsters_xps,
-                                                          tab_amount=tab_amount)
+    lvl_2_personal_and_mainframe_xps = \
+    [
+        white_ninja_xp, white_ninja_xp, blue_ninja_xp, blue_ninja_xp, #computer room
+        exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp,
+        exposed_evil_ninja_cyborg_xp, #mainframe
+        purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp # mainframe
+    ]
+    lvl_2_personal_and_mainframe_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
+                                                                                 monster_xp_values=lvl_2_personal_and_mainframe_xps,
+                                                                                 tab_amount=tab_amount)
 
     print(tab_amount,"calculations complete :-3")
+    print(tab_amount+'\t',"dict_in_question=lvl_1_encounter_difficulty")
     print_dictionary_nicely(dict_in_question=lvl_1_encounter_difficulty,
-                            tab_amount=tab_amount)
-    print_dictionary_nicely(dict_in_question=lvl_2_encounter_difficulty,
-                            tab_amount=tab_amount)
-
-
+                            tab_amount=tab_amount+"\t\t")
+    print(tab_amount + '\t', "dict_in_question=lvl_2_airlock_showers_prison_encounter_difficulty")
+    print_dictionary_nicely(dict_in_question=lvl_2_airlock_showers_prison_encounter_difficulty,
+                            tab_amount=tab_amount + "\t\t")
+    print(tab_amount + '\t', "dict_in_question=lvl_2_personal_and_mainframe_encounter_difficulty")
+    print_dictionary_nicely(dict_in_question=lvl_2_personal_and_mainframe_encounter_difficulty,
+                            tab_amount=tab_amount + "\t\t")
 
 if __name__ == "__main__":
     tab_amount="\t"
