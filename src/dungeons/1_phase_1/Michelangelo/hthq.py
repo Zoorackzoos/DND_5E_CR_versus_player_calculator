@@ -10,9 +10,11 @@ def hthq(tab_amount="\t"):
 
     player_levels = [4,4,4,4]
 
+    hthq_path_to_csv_file = "../../../../sheets/monsters_all_stats_homebrew.csv"
+
     purple_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                          string="Purple Foot Clan Ninja",
-                                                         path_to_csv_file="../../../../sheets/monsters_all_stats_homebrew.csv",
+                                                         path_to_csv_file=hthq_path_to_csv_file,
                                                          tab_amount=tab_amount)
     print(purple_ninja_cr)
     ground_level_enemies = 0

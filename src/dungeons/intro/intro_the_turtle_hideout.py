@@ -1,15 +1,13 @@
-from src.universal_functions.display.print_2d_list_that_contains_dictionaries import print_2d_list_that_contains_dictionaries
-from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
 from src.universal_functions.craft_cr_from_monster_stat_block import plug_monster_var_values_into_get_cr_from_monster
-from src.universal_functions.get_cr_from_precise_monster_search import get_cr_from_precise_monster_search
-from src.universal_functions.get_xp_from_single_enemy_CR import get_xp_from_single_enemy_cr
+from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
+from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
 from src.universal_functions.get_average_damage import get_average_damage_no_print, get_average_damage
+from src.universal_functions.get_cr_from_precise_monster_search import get_cr_from_precise_monster_search
 from src.universal_functions.get_encounter_difficulty import get_encounter_difficulty
-from src.universal_functions.spreadsheet_stuff.get_rows_from_dict_on_param_type_and_string import \
-    get_rows_from_dict_on_param_type_and_string
-from src.universal_functions.stats.convert_monster_modifiers_to_stats import convert_monster_modifiers_to_stats
-from src.universal_functions.vars.monter_sheet_vars import default_path_monsters_all_stats_dict
+from src.universal_functions.get_xp_from_single_enemy_CR import get_xp_from_single_enemy_cr
 from src.universal_functions.vars.spreadsheet_enums import SpreadsheetKeysEnums
+
+path_to_csv_file = "../../../sheets/monsters_all_stats_homebrew.csv"
 
 def get_purple_ninja_cr(tab_amount="\t"):
     print(tab_amount,"get_purple_ninja_cr")
@@ -240,6 +238,7 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
     #TODO: **maybe** ask a clanker how to make getting the strings easier
     purple_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                          string="Purple Foot Clan Ninja",
+                                                         path_to_csv_file=path_to_csv_file,
                                                          tab_amount=tab_amount)
     purple_ninja_xp = get_xp_from_single_enemy_cr(cr=purple_ninja_cr,tab_amount=tab_amount)
     lvl_1_monster_xps = \
@@ -251,16 +250,19 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
 
     blue_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                        string="Blue Foot Clan Ninja",
+                                                       path_to_csv_file=path_to_csv_file,
                                                        tab_amount=tab_amount)
     blue_ninja_xp = get_xp_from_single_enemy_cr(cr=blue_ninja_cr,tab_amount=tab_amount)
 
     hoopmaster_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                        string="Hoopmaster",
+                                                       path_to_csv_file=path_to_csv_file,
                                                        tab_amount=tab_amount)
     hoopmaster_xp = get_xp_from_single_enemy_cr(cr=hoopmaster_cr,tab_amount=tab_amount)
 
     green_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                         string="Green Foot Clan Ninja",
+                                                        path_to_csv_file=path_to_csv_file,
                                                         tab_amount=tab_amount)
     green_ninja_xp = get_xp_from_single_enemy_cr(cr=green_ninja_cr,tab_amount=tab_amount)
 
@@ -278,6 +280,7 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
     #blue and purple ninjas + baxster
     baxster_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                        string="Baxster Stockman",
+                                       path_to_csv_file=path_to_csv_file,
                                        tab_amount=tab_amount)
     baxster_xp = get_xp_from_single_enemy_cr(cr=baxster_cr,tab_amount=tab_amount)
     lvl_3_monster_xps = \
