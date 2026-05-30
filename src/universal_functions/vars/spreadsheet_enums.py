@@ -96,6 +96,7 @@ class CreatureTypesEnums(Enum):
     PLANT = "Plant"
     UNDEAD = "Undead"
     UNDEAD_TITAN = "Undead (Titan)"
+    ROBOT = "Robot"
 
 class CRTypeEnums(Enum):
     """
