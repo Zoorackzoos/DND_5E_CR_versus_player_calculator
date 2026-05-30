@@ -205,12 +205,21 @@ def hthq(tab_amount="\t"):
             purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, yellow_ninja_xp, #chamber
             white_ninja_xp, white_ninja_xp, blue_ninja_xp, blue_ninja_xp, #computer room
 
-            purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, #computer mainframe
-            exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp #computer mainframe
+            purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
+            purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, #computer mainframe
+            exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp,
+            exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp,
+            exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp #computer mainframe
         ]
+
+    lvl_2_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
+                                                          monster_xp_values=lvl_2_monsters_xps,
+                                                          tab_amount=tab_amount)
 
     print(tab_amount,"calculations complete :-3")
     print_dictionary_nicely(dict_in_question=lvl_1_encounter_difficulty,
+                            tab_amount=tab_amount)
+    print_dictionary_nicely(dict_in_question=lvl_2_encounter_difficulty,
                             tab_amount=tab_amount)
 
 
