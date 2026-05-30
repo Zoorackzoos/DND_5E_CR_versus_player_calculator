@@ -121,6 +121,7 @@ def get_cyborg_cr(tab_amount="\t"):
 #murder all human traffickers. every single one.
 def hthq(tab_amount="\t"):
     print(tab_amount,"hthq")
+    tab_amount += "\t"
 
     player_levels = [4,4,4,4]
 
@@ -154,10 +155,10 @@ def hthq(tab_amount="\t"):
     rahzar_xp = get_xp_from_single_enemy_cr(cr=rahzar_cr,
                                             tab_amount=tab_amount)
 
-    lvl_1_monsters_xps = [purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
-                      purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
-                      pink_ninja_xp,
-                          tokka_xp,rahzar_xp]
+    lvl_1_monsters_xps = [  purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
+                            purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
+                            pink_ninja_xp,
+                            tokka_xp,rahzar_xp]
 
     lvl_1_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
                                                           monster_xp_values=lvl_1_monsters_xps,
@@ -202,13 +203,12 @@ def hthq(tab_amount="\t"):
         [
             purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, blue_ninja_xp, # airlock
             green_ninja_xp, green_ninja_xp, green_ninja_xp, green_ninja_xp, #showers
-            purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, yellow_ninja_xp, #chamber
+            purple_ninja_xp, purple_ninja_xp, yellow_ninja_xp, #chamber
             white_ninja_xp, white_ninja_xp, blue_ninja_xp, blue_ninja_xp, #computer room
 
-            purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
+            purple_ninja_xp,
             purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, #computer mainframe
-            exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp,
-            exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp,
+            exposed_evil_ninja_cyborg_xp,
             exposed_evil_ninja_cyborg_xp, exposed_evil_ninja_cyborg_xp #computer mainframe
         ]
 
