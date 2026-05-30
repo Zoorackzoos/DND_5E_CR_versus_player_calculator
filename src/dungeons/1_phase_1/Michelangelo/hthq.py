@@ -82,14 +82,8 @@ def get_rahzar_cr(tab_amount="\t"):
         }
     plug_monster_var_values_into_get_cr_from_monster(monster_var=rahzar_monster_dict,tab_amount=tab_amount)
 
-#murder all human traffickers. every single one.
-def hthq(tab_amount="\t"):
-    print(tab_amount,"hthq")
-
-    player_levels = [4,4,4,4]
-
-    hthq_path_to_csv_file = "../../../../sheets/monsters_all_stats_homebrew.csv"
-
+def get_lvl_1_difficulty(hthq_path_to_csv_file: str, player_levels: list[int], tab_amount: str) -> dict[
+    str, int | float | dict[str, int] | str]:
     purple_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                          string="Purple Foot Clan Ninja",
                                                          path_to_csv_file=hthq_path_to_csv_file,
@@ -119,17 +113,34 @@ def hthq(tab_amount="\t"):
                                             tab_amount=tab_amount)
 
     lvl_1_monsters_xps = [purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
-                      purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
-                      pink_ninja_xp,
-                          tokka_xp,rahzar_xp]
+                          purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
+                          pink_ninja_xp,
+                          tokka_xp, rahzar_xp]
 
     lvl_1_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
                                                           monster_xp_values=lvl_1_monsters_xps,
                                                           tab_amount=tab_amount)
+    return lvl_1_encounter_difficulty
+
+#murder all human traffickers. every single one.
+def get_lvl_2_encounter_difficulty(hthq_path_to_csv_file, player_levels, tab_amount="\t"):
+    print(tab_amount,"get_lvl_2_encounter_difficulty")
+    tab_amount += "\t"
+
+
+
+def hthq(tab_amount="\t"):
+    print(tab_amount,"hthq")
+
+    player_levels = [4,4,4,4]
+
+    hthq_path_to_csv_file = "../../../../sheets/monsters_all_stats_homebrew.csv"
+
+    lvl_1_encounter_difficulty = get_lvl_1_difficulty(hthq_path_to_csv_file, player_levels, tab_amount)
     print_dictionary_nicely(dict_in_question=lvl_1_encounter_difficulty,
                             tab_amount=tab_amount)
 
-    lvl_1_boss_monster = 10
+    lvl_2_encounter_difficulty = get_lvl_2_encounter_difficulty(hthq_path_to_csv_file, player_levels, tab_amount)
 
 if __name__ == "__main__":
     tab_amount="\t"
