@@ -167,7 +167,7 @@ def print_starting_noise(tab_amount=""):
         continue_noise_1 = input("yes or no please: ")
     if continue_noise_1 == 'n':
         universal_terminal_clear()
-        exit(999)
+        exit(0)
 
     wait_random_buffer()
     solved_random_numbers_array = get_solved_random_numbers_array(array_in_question=random_numbers_array)
@@ -181,7 +181,7 @@ def print_starting_noise(tab_amount=""):
         continue_noise_2 = input("yes or no please: ")
     if continue_noise_2 == 'n':
         universal_terminal_clear()
-        exit(999)
+        exit(0)
 
     wait_random_buffer()
     wait_random_buffer()
@@ -223,10 +223,10 @@ def login_phase():
             "Ao_Suzuki"
         ]
     if username_try == "q":
-        exit()
+        exit(0)
     while username_try not in available_usernames:
         if username_try == "q":
-            exit()
+            exit(0)
         username_try = input("\tInvalid username, please try again: ")
     print("successful username")
 
@@ -238,13 +238,13 @@ def login_phase():
             "tekitaitekibaishu"  # "hostile takeover"
         ]
     if password_try == "q":
-        exit()
+        exit(0)
     while not get_if_credentials_match(username_try=username_try,
                                        password_try=password_try,
                                        available_usernames=available_usernames,
                                        available_passwords=available_passwords):
         if password_try == "q":
-            exit()
+            exit(0)
         password_try = input("\tInvalid password, please try again: ")
     print("successful password")
     print("logging in...")
@@ -326,7 +326,7 @@ def im_in_phase(good_credentials):
                 print("\t\tERROR: write_diary_and_push_to_evil_os_mainframe: word anus is leaking.\n")
                 userinput = input("what would you like to do?: ")
             elif userinput == "q":
-                exit()
+                exit(0)
         else:
             print("you are logged in as: ", good_credentials["username"])
             print(guide_string)

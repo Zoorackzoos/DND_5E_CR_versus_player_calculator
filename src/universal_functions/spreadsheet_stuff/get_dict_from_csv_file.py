@@ -15,8 +15,7 @@ def get_dict_from_csv(path_to_csv_file, tab_amount="\t"):
             return list(reader)
     except FileNotFoundError:
         print(tab_amount,"path_to_csv_file = \n", path_to_csv_file)
-        print(tab_amount,"ERROR: get_dict_from_csv: shit path_to_csv_file. please put the path to it given the nested dungeon file.")
-        exit(1)
+        exit("ERROR: get_dict_from_csv: shit path_to_csv_file. please put the path to it given the nested dungeon file.")
 
 if __name__ == "__main__":
     path_to_csv_file = "../../../sheets/monsters_all_stats_homebrew.csv"

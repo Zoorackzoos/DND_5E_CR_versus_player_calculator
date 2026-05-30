@@ -4,8 +4,7 @@ def get_rounded_cr(cr,tab_amount="\t"):
     print(tab_amount,"cr =",cr)
 
     if cr < 0:
-        print("ERROR: get_rounded_cr: you have a negative cr. wtf bro")
-        exit(1)
+        exit("ERROR: get_rounded_cr: you have a negative cr. wtf bro")
     elif cr == 0:
         return 0
     elif cr <= 0.125:
@@ -76,4 +75,4 @@ def get_rounded_cr(cr,tab_amount="\t"):
         return 30
     else:
         print(tab_amount,"ERROR: get_rounded_cr: really weird cr",cr)
-        exit(1)
+        exit("ERROR: get_rounded_cr: really weird cr")
