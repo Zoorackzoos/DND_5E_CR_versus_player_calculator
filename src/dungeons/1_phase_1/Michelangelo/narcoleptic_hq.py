@@ -81,9 +81,59 @@ def narcoleptic_hq(tab_amount="\t"):
                                                                 monster_cr_values=lvl_1_monster_cr_values,
                                                                 tab_amount=tab_amount)
 
+    """
+    1 yellow ninja
+    3 green ninjas
+    6 mausers
+    """
+    yellow_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
+                                                         string="Yellow Foot Clan Ninja",
+                                                         path_to_csv_file=path_to_csv_file,
+                                                         tab_amount=tab_amount)
+    green_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
+                                                        string="Green Foot Clan Ninja",
+                                                        path_to_csv_file=path_to_csv_file,
+                                                        tab_amount=tab_amount)
+    mauser_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
+                                                   string="mauser",
+                                                   path_to_csv_file=path_to_csv_file,
+                                                   tab_amount=tab_amount)
+
+    lvl_2_monster_cr_values = \
+        [
+            yellow_ninja_cr,
+            green_ninja_cr, green_ninja_cr, green_ninja_cr,
+            mauser_cr, mauser_cr, mauser_cr,
+            mauser_cr, mauser_cr, mauser_cr
+        ]
+    lvl_2_difficulty = get_encounter_difficulty_from_cr_values(player_levels=player_levels,
+                                                               monster_cr_values=lvl_2_monster_cr_values,
+                                                               tab_amount=tab_amount)
+
+    bebop_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
+                                                  string="Bebop",
+                                                  path_to_csv_file=path_to_csv_file,
+                                                  tab_amount=tab_amount)
+    rocksteady_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
+                                                       string="Rocksteady",
+                                                       path_to_csv_file=path_to_csv_file,
+                                                       tab_amount=tab_amount)
+
+    lvl_3_monster_cr_values = \
+        [
+            bebop_cr, rocksteady_cr
+        ]
+    lvl_3_difficulty = get_encounter_difficulty_from_cr_values( player_levels=player_levels,
+                                                                monster_cr_values=lvl_3_monster_cr_values,
+                                                                tab_amount=tab_amount)
+
     print(tab_amount,"calculations complete :-3")
-    print(tab_amount+"\t","lvl_1_difficulty")
-    print_dictionary_nicely(dict_in_question=lvl_1_difficulty,tab_amount=tab_amount+"\t\t")
+    print(tab_amount,"lvl_1_difficulty")
+    print_dictionary_nicely(dict_in_question=lvl_1_difficulty,tab_amount=tab_amount+"\t")
+    print(tab_amount, "lvl_2_difficulty")
+    print_dictionary_nicely(dict_in_question=lvl_2_difficulty, tab_amount=tab_amount + "\t")
+    print(tab_amount, "lvl_3_difficulty")
+    print_dictionary_nicely(dict_in_question=lvl_3_difficulty, tab_amount=tab_amount + "\t")
 
 if __name__ == "__main__":
     tab_amount = "\t"
