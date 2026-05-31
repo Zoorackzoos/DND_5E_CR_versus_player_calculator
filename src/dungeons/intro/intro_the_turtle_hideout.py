@@ -234,7 +234,6 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
 
     player_levels = [4,4,4,4]
 
-    #TODO: **maybe** ask a clanker how to make getting the strings easier
     purple_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                          string="Purple Foot Clan Ninja",
                                                          path_to_csv_file=path_to_csv_file,

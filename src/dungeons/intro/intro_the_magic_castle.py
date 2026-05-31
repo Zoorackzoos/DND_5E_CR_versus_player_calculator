@@ -3,8 +3,6 @@ from src.universal_functions.get_xp_from_single_enemy_CR import get_xp_from_sing
 from src.universal_functions.get_cr_from_precise_monster_search import get_cr_from_precise_monster_search
 from src.universal_functions.get_encounter_difficulty.get_encounter_difficulty_from_xp_values import get_encounter_difficulty_from_xp_values
 
-#TODO: make the searching of the database more applicable on this program in general. it's more convent to cntrl+F on the spreadsheet on google sheets
-
 def intro_the_magic_castle(tab_amount="\t"):
     print(tab_amount,"intro_the_magic_castle")
     tab_amount += "\t"

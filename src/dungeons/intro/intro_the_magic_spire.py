@@ -113,12 +113,6 @@ def get_z_lvl_3_encounter_difficulty(player_levels: list[int], tab_amount: str) 
     return z_lvl_3_encounter_difficulty
 
 def intro_the_magic_spire(tab_amount="\t"):
-
-    #i did the CR calculations for the Limit calculus monster at some point but i deleted it some time ago
-    #regardless i want to be able to do it again flexibly
-    #so...
-    #TODO: add a column to the spreadsheet that has all of the craft cr function's necessities so the code can call it here
-
     print(tab_amount,"intro_the_magic_spire")
     player_levels = [4,4,4,4]
 
