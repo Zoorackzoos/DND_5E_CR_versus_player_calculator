@@ -14,7 +14,11 @@ from src.universal_functions.display.print_dictionary_nicely import print_dictio
 from src.universal_functions.get_monster_amount_multiplier import get_monster_amount_multiplier
 from src.universal_functions.vars.player_threshold_var import player_threshold_var
 
-def get_encounter_difficulty_from_xp_values(player_levels, monster_xp_values, tab_amount="\t"):
+
+def get_encounter_difficulty_from_xp_values(player_levels,
+                                            monster_xp_values,
+                                            encounter_name="unnamed",
+                                            tab_amount="\t"):
     """
     Example usage: \n
 
@@ -33,6 +37,10 @@ def get_encounter_difficulty_from_xp_values(player_levels, monster_xp_values, ta
     print(tab_amount, "get_encounter_difficulty")
     tab_amount += "\t"
 
+    if len(player_levels) > 1:
+        if player_levels[0] != player_levels[1]:
+            print(tab_amount,"WARNING: get_encounter_difficulty_from_xp_values: player_levels are not all the same. Will proceed with computation.")
+
     total_monster_xp = sum(monster_xp_values)
 
     adjusted_xp = \
@@ -50,25 +58,41 @@ def get_encounter_difficulty_from_xp_values(player_levels, monster_xp_values, ta
     }
 
     for level in player_levels:
-        for difficulty in party_thresholds:
-            party_thresholds[difficulty] += player_threshold_var[level][difficulty]
+        for predicted_difficulty in party_thresholds:
+            party_thresholds[predicted_difficulty] += player_threshold_var[level][predicted_difficulty]
 
     if adjusted_xp < party_thresholds["easy"]:
-        difficulty = "trivial"
+        predicted_difficulty = "trivial"
     elif adjusted_xp < party_thresholds["medium"]:
-        difficulty = "easy"
+        predicted_difficulty = "easy"
     elif adjusted_xp < party_thresholds["hard"]:
-        difficulty = "medium"
+        predicted_difficulty = "medium"
     elif adjusted_xp < party_thresholds["deadly"]:
-        difficulty = "hard"
+        predicted_difficulty = "hard"
     else:
-        difficulty = "deadly"
+        predicted_difficulty = "deadly"
 
     return \
     {
-        "adjusted_xp": adjusted_xp,
-        "thresholds": party_thresholds,
-        "difficulty": difficulty
+        "encounter_name": encounter_name,
+        "party_level": sum(player_levels) / len(player_levels), #average :-D
+        "party_size": len(player_levels),
+        "predicted_difficulty": predicted_difficulty,
+        "actual_difficulty": "???",
+        "monster_count": len(monster_xp_values),
+        "total_monster_xp": sum(monster_xp_values),
+        "adjusted_xp": adjusted_xp, #action economy effects xp values
+        "rounds": "???", #in session deduction
+        "lasted_too_long": "???", #in session deduction
+        "players_downed": "???", #in session deduction
+        "players_killed": "???", #in session deduction
+        "major_resource_drain": "???", #in session deduction
+        "terrain_helped_players": "???", #TODO: implement a parameter for terrain_helped_players
+        "terrain_helped_monsters": "???", #TODO: implement a parameter for terrain_helped_monsters
+        "player_synergy_tags": "???", #in session deduction
+        "monster_weakness_tags": "???", #TODO: implement a parameter for monster_weakness_tags
+        "notes": "???", #in session deduction
+        "party_thresholds": party_thresholds,
     }
 
 if __name__ == "__main__":

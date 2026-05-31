@@ -240,12 +240,12 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
                                                          path_to_csv_file=path_to_csv_file,
                                                          tab_amount=tab_amount)
     purple_ninja_xp = get_xp_from_single_enemy_cr(cr=purple_ninja_cr,tab_amount=tab_amount)
-    lvl_1_monster_xps = \
+    turtle_hideout_lvl_1_monster_xps = \
         [
             purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
             purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp
         ]
-    lvl_1_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels, monster_xp_values=lvl_1_monster_xps, tab_amount=tab_amount)
+    turtle_hideout_lvl_1_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels, monster_xp_values=turtle_hideout_lvl_1_monster_xps, tab_amount=tab_amount)
 
     blue_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                        string="Blue Foot Clan Ninja",
@@ -265,15 +265,15 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
                                                         tab_amount=tab_amount)
     green_ninja_xp = get_xp_from_single_enemy_cr(cr=green_ninja_cr,tab_amount=tab_amount)
 
-    lvl_2_monster_xps = \
+    turtle_hideout_lvl_2_monster_xps = \
         [
             blue_ninja_xp, blue_ninja_xp,
             purple_ninja_xp, purple_ninja_xp,
             purple_ninja_xp, purple_ninja_xp,
             hoopmaster_xp, green_ninja_xp
         ]
-    lvl_2_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
-                                                                         monster_xp_values=lvl_2_monster_xps,
+    turtle_hideout_lvl_2_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
+                                                                         monster_xp_values=turtle_hideout_lvl_2_monster_xps,
                                                                          tab_amount=tab_amount)
 
     #blue and purple ninjas + baxster
@@ -282,21 +282,36 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
                                        path_to_csv_file=path_to_csv_file,
                                        tab_amount=tab_amount)
     baxster_xp = get_xp_from_single_enemy_cr(cr=baxster_cr,tab_amount=tab_amount)
-    lvl_3_monster_xps = \
+    turtle_hideout_lvl_3_monster_xps = \
     [
         blue_ninja_xp, blue_ninja_xp,
-        purple_ninja_xp, purple_ninja_xp,
-        baxster_xp
+        purple_ninja_xp, purple_ninja_xp
     ]
-    lvl_3_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
-                                                                         monster_xp_values=lvl_3_monster_xps,
+    turtle_hideout_lvl_3_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
+                                                                         monster_xp_values=turtle_hideout_lvl_3_monster_xps,
                                                                          tab_amount=tab_amount)
 
-    print(tab_amount,"calculations complete :-DDD")
+    turtle_hideout_boss_xp = \
+    [
+        baxster_xp
+    ]
+    turtle_hideout_boss_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
+                                                                             monster_xp_values=turtle_hideout_boss_xp,
+                                                                             tab_amount=tab_amount)
 
-    print_dictionary_nicely(dict_in_question=lvl_1_encounter_difficulty,tab_amount=tab_amount)
-    print_dictionary_nicely(dict_in_question=lvl_2_encounter_difficulty,tab_amount=tab_amount)
-    print_dictionary_nicely(dict_in_question=lvl_3_encounter_difficulty,tab_amount=tab_amount)
+    print(tab_amount,"calculations complete :-DDD")
+    print(tab_amount+"\t","turtle_hideout_lvl_1_encounter_difficulty")
+    print_dictionary_nicely(dict_in_question=turtle_hideout_lvl_1_encounter_difficulty,
+                            tab_amount=tab_amount+"\t\t")
+    print(tab_amount + "\t", "turtle_hideout_lvl_2_encounter_difficulty")
+    print_dictionary_nicely(dict_in_question=turtle_hideout_lvl_2_encounter_difficulty,
+                            tab_amount=tab_amount+"\t\t")
+    print(tab_amount + "\t", "turtle_hideout_lvl_3_encounter_difficulty")
+    print_dictionary_nicely(dict_in_question=turtle_hideout_lvl_3_encounter_difficulty,
+                            tab_amount=tab_amount+"\t\t")
+    print(tab_amount + "\t", "turtle_hideout_boss_difficulty")
+    print_dictionary_nicely(dict_in_question=turtle_hideout_boss_difficulty,
+                            tab_amount=tab_amount+"\t\t")
 
 if __name__ == "__main__":
     tab_amount = "\t"
