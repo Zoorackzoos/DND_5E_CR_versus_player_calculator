@@ -4,7 +4,7 @@ from src.universal_functions.display.print_dictionary_nicely import print_dictio
 from src.universal_functions.get_average_damage import get_average_damage
 from src.universal_functions.get_xp_from_single_enemy_CR import get_xp_from_single_enemy_cr
 from src.universal_functions.get_cr_from_precise_monster_search import get_cr_from_precise_monster_search
-from src.universal_functions.get_encounter_difficulty import get_encounter_difficulty
+from src.universal_functions.get_encounter_difficulty.get_encounter_difficulty_from_xp_values import get_encounter_difficulty_from_xp_values
 from src.universal_functions.vars.spreadsheet_enums import SpreadsheetKeysEnums
 
 def get_tokka_cr(tab_amount="\t"):
@@ -236,9 +236,9 @@ def hthq(tab_amount="\t"):
                             pink_ninja_xp,
                             tokka_xp,rahzar_xp]
 
-    lvl_1_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
-                                                          monster_xp_values=lvl_1_monsters_xps,
-                                                          tab_amount=tab_amount)
+    lvl_1_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
+                                                                         monster_xp_values=lvl_1_monsters_xps,
+                                                                         tab_amount=tab_amount)
 
     blue_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                        string="Blue Foot Clan Ninja",
@@ -281,9 +281,9 @@ def hthq(tab_amount="\t"):
         green_ninja_xp,green_ninja_xp,green_ninja_xp, #showers
         purple_ninja_xp,purple_ninja_xp,yellow_ninja_xp, #prison
     ]
-    lvl_2_airlock_showers_prison_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
-                                                                                 monster_xp_values=lvl_2_airlock_showers_prison_xps,
-                                                                                 tab_amount=tab_amount)
+    lvl_2_airlock_showers_prison_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
+                                                                                                monster_xp_values=lvl_2_airlock_showers_prison_xps,
+                                                                                                tab_amount=tab_amount)
 
     lvl_2_personal_and_mainframe_xps = \
     [
@@ -292,9 +292,9 @@ def hthq(tab_amount="\t"):
         exposed_evil_ninja_cyborg_xp, #mainframe
         purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp # mainframe
     ]
-    lvl_2_personal_and_mainframe_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
-                                                                                 monster_xp_values=lvl_2_personal_and_mainframe_xps,
-                                                                                 tab_amount=tab_amount)
+    lvl_2_personal_and_mainframe_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
+                                                                                                monster_xp_values=lvl_2_personal_and_mainframe_xps,
+                                                                                                tab_amount=tab_amount)
 
     roadkill_rodney_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                             string="Roadkill Rodney",
@@ -305,9 +305,9 @@ def hthq(tab_amount="\t"):
 
     lvl_3_test_tube_monster_xps = [roadkill_rodney_xp, roadkill_rodney_xp, roadkill_rodney_xp,
                                     roadkill_rodney_xp, roadkill_rodney_xp, roadkill_rodney_xp]
-    lvl_3_test_tube_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
-                                                                     monster_xp_values=lvl_3_test_tube_monster_xps,
-                                                                     tab_amount=tab_amount)
+    lvl_3_test_tube_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
+                                                                                   monster_xp_values=lvl_3_test_tube_monster_xps,
+                                                                                   tab_amount=tab_amount)
 
     metalhead_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                       string="Metalhead",
@@ -322,9 +322,9 @@ def hthq(tab_amount="\t"):
             green_ninja_xp, green_ninja_xp, green_ninja_xp,
             #metalhead_xp #metalhead does appear once they interact with the door.... so don't include him.
         ]
-    lvl_3_gene_banks_monster_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
-                                                                             monster_xp_values=lvl_3_gene_banks_monster_xps,
-                                                                             tab_amount=tab_amount)
+    lvl_3_gene_banks_monster_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
+                                                                                            monster_xp_values=lvl_3_gene_banks_monster_xps,
+                                                                                            tab_amount=tab_amount)
 
     print(tab_amount,"calculations complete :-3")
     print(tab_amount+'\t',"dict_in_question=lvl_1_encounter_difficulty")

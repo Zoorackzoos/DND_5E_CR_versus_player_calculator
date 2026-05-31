@@ -1,9 +1,6 @@
-from src.universal_functions.craft_cr_from_monster_stat_block import craft_cr_from_monster_stat_block, \
-    plug_monster_var_values_into_get_cr_from_monster
 from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
-from src.universal_functions.get_average_damage import get_average_damage_no_print
 from src.universal_functions.get_cr_from_precise_monster_search import get_cr_from_precise_monster_search
-from src.universal_functions.get_encounter_difficulty import get_encounter_difficulty
+from src.universal_functions.get_encounter_difficulty.get_encounter_difficulty_from_xp_values import get_encounter_difficulty_from_xp_values
 from src.universal_functions.get_xp_from_single_enemy_CR import get_xp_from_single_enemy_cr
 from src.universal_functions.vars.spreadsheet_enums import SpreadsheetKeysEnums
 
@@ -35,9 +32,9 @@ def get_z_lvl_1_encounter_difficulty(player_levels: list[int], tab_amount: str) 
                            calculus_monster_limits_xp, calculus_monster_limits_xp,
                            calculus_monster_limits_xp, calculus_monster_limits_xp,
                            withering_gnoll_xp]
-    z_lvl_1_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
-                                                            monster_xp_values=z_lvl_1_monster_xps,
-                                                            tab_amount=tab_amount)
+    z_lvl_1_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
+                                                                           monster_xp_values=z_lvl_1_monster_xps,
+                                                                           tab_amount=tab_amount)
     return z_lvl_1_encounter_difficulty
 
 def get_z_lvl_2_encounter_difficulty(player_levels: list[int], tab_amount: str) -> dict[
@@ -95,9 +92,9 @@ def get_z_lvl_2_encounter_difficulty(player_levels: list[int], tab_amount: str) 
                            wolf_xp, wolf_xp
                            #spectator_xp #just make it so this guy asks for ice cream, and the kitchen has ice cream
                            ]
-    z_lvl_2_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
-                                                            monster_xp_values=z_lvl_2_monster_xps,
-                                                            tab_amount=tab_amount)
+    z_lvl_2_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
+                                                                           monster_xp_values=z_lvl_2_monster_xps,
+                                                                           tab_amount=tab_amount)
     return z_lvl_2_encounter_difficulty
 
 def get_z_lvl_3_encounter_difficulty(player_levels: list[int], tab_amount: str) -> dict[
@@ -110,9 +107,9 @@ def get_z_lvl_3_encounter_difficulty(player_levels: list[int], tab_amount: str) 
                                                        tab_amount=tab_amount)
     polar_bear_xp = get_xp_from_single_enemy_cr(cr=polar_bear_cr, tab_amount=tab_amount)
     z_lvl_3_monster_xps = [polar_bear_xp, polar_bear_xp, polar_bear_xp]
-    z_lvl_3_encounter_difficulty = get_encounter_difficulty(player_levels=player_levels,
-                                                            monster_xp_values=z_lvl_3_monster_xps,
-                                                            tab_amount=tab_amount)
+    z_lvl_3_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
+                                                                           monster_xp_values=z_lvl_3_monster_xps,
+                                                                           tab_amount=tab_amount)
     return z_lvl_3_encounter_difficulty
 
 def intro_the_magic_spire(tab_amount="\t"):

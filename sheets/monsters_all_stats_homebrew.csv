@@ -2072,7 +2072,7 @@ Nothic,Medium,Aberration,2.00,,Monster Manual,Wizards of the Coast,45,15,30,NE,1
 "NPC, Bandit",Medium,Humanoid,0.13,,Monster Manual,Wizards of the Coast,11,12,30,NOT LAWFUL,11,12,12,10,10,10,None,None,None,Normal,Any,None
 "NPC, Bandit Captain",Medium,Humanoid,2.00,,Monster Manual,Wizards of the Coast,65,15,30,NOT LAWFUL,15,16,14,14,11,14,"STR, DEX, WIS","Athletics, Deception",None,Normal,Any,None
 "NPC, Berserker",Medium,Humanoid,2.00,,Monster Manual,Wizards of the Coast,67,13,30,ANY CHAOTIC,16,12,17,9,11,9,None,None,None,Normal,Any,Reckless
-"NPC, Commoner",Medium,Humanoid,0.00,,Monster Manual,Wizards of the Coast,4,10,30,ANY,10,10,10,10,10,10,None,None,None,Normal,Any,None
+"NPC, Commoner",Medium,Humanoid,0.00,https://roll20.net/compendium/dnd5e/Commoner#content,Monster Manual,Wizards of the Coast,4,10,30,ANY,10,10,10,10,10,10,None,None,None,Normal,Any,None
 "NPC, Cult Fanatic",Medium,Humanoid,2.00,,Monster Manual,Wizards of the Coast,33,13,30,NOT GOOD,11,14,12,10,13,14,None,"Deception, Persuasion, Religion",None,Normal,Any,"Dark Devotion, Normal Spellcasting"
 "NPC, Cultist",Medium,Humanoid,0.13,,Monster Manual,Wizards of the Coast,9,12,30,NOT GOOD,11,12,10,10,11,10,None,"Deception, Religion",None,Normal,Any,Dark Devotion
 "NPC, Druid",Medium,Humanoid,2.00,,Monster Manual,Wizards of the Coast,27,11,30,ANY,10,12,13,12,15,11,None,"Medicine, Nature, Perception",None,Normal,"Druidic, Any",Normal Spellcasting
@@ -2912,3 +2912,4 @@ Rahzar the evil puppy monster,large,Humanoid,1.00,https://docs.google.com/docume
 exposed evil ninja cyborg,Meduim,Humanoid,0.25,https://docs.google.com/document/d/1bBcn2fHXY9idsQiPRAkNVeI19Kd5YQGr8i6oR3ao6Jw/edit?tab=t.0,Virasco 2000,Shwifty_Meme_Lord,15,11,30,CE,14,14,10,10,10,8,None,None,None,Normal,Common,None
 Roadkill Rodney,Meduim,Robot,0.50,https://docs.google.com/document/d/19Mm9gwXO-fEdfTlZWVefCmsBZLcTGNXMkMeJX6Pn7Wg/edit?tab=t.0,Virasco 2000,Shwifty_Meme_Lord,30,13,30,U,12,12,10,10,10,10,None,None,None,Normal,Common,None
 Metalhead,Meduim,Robot,2.00,https://docs.google.com/document/d/1Uq6E4xTI31gWsXEyPQAxvbrP7nWVLxEodIc8wdgEegs/edit?tab=t.0,Virasco 2000,Shwifty_Meme_Lord,60,14,40,LE,14,14,10,8,8,8,STR,None,None,Normal,"Common, Binary, Theives cant","machine gun chest cavity, robot leap"
+mauser,small,Robot,0.13,https://docs.google.com/document/d/1fVXMYY1GSCm78bT1oHG2WPHuOOexkhZ4l3I2EYMa8dA/edit?tab=t.0,Virasco 2000,Shwifty_Meme_Lord,10,11,30,U,16,10,10,10,10,10,None,None,None,Normal,None,None

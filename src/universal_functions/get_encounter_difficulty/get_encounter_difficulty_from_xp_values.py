@@ -1,4 +1,4 @@
-#src/universal_functions/get_encounter_difficulty.py
+#src/universal_functions/get_encounter_difficulty_from_xp_values.py
 
 """
 calculate monster XP total
@@ -14,7 +14,7 @@ from src.universal_functions.display.print_dictionary_nicely import print_dictio
 from src.universal_functions.get_monster_amount_multiplier import get_monster_amount_multiplier
 from src.universal_functions.vars.player_threshold_var import player_threshold_var
 
-def get_encounter_difficulty(player_levels, monster_xp_values, tab_amount="\t"):
+def get_encounter_difficulty_from_xp_values(player_levels, monster_xp_values, tab_amount="\t"):
     """
     Example usage: \n
 
@@ -79,5 +79,5 @@ if __name__ == "__main__":
     # Three CR 2 monsters = 450 XP each
     monsters = [450, 450, 450]
 
-    encounter_difficulty = get_encounter_difficulty(players, monsters, tab_amount=tab_amount)
+    encounter_difficulty = get_encounter_difficulty_from_xp_values(players, monsters, tab_amount=tab_amount)
     print_dictionary_nicely(dict_in_question=encounter_difficulty, tab_amount=tab_amount)
