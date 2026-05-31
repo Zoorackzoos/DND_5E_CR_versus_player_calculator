@@ -1,3 +1,4 @@
+from src.universal_functions.display.print_encounter_difficulty_concisely import print_encounter_difficulty_concisely
 from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
 from src.universal_functions.get_cr_from_precise_monster_search import get_cr_from_precise_monster_search
 from src.universal_functions.get_encounter_difficulty.get_encounter_difficulty_from_xp_values import get_encounter_difficulty_from_xp_values
@@ -123,10 +124,9 @@ def intro_the_magic_spire(tab_amount="\t"):
     z_lvl_3_encounter_difficulty = get_z_lvl_3_encounter_difficulty(player_levels, tab_amount)
 
     print(tab_amount,"calculations complete :-3")
-    print_dictionary_nicely(dict_in_question=z_lvl_1_encounter_difficulty,tab_amount=tab_amount)
-    print_dictionary_nicely(dict_in_question=z_lvl_2_encounter_difficulty,tab_amount=tab_amount)
-    print_dictionary_nicely(dict_in_question=z_lvl_3_encounter_difficulty,tab_amount=tab_amount)
-
+    print_encounter_difficulty_concisely(dict_in_question=z_lvl_1_encounter_difficulty,tab_amount=tab_amount+"\t")
+    print_encounter_difficulty_concisely(dict_in_question=z_lvl_2_encounter_difficulty,tab_amount=tab_amount+"\t")
+    print_encounter_difficulty_concisely(dict_in_question=z_lvl_3_encounter_difficulty,tab_amount=tab_amount+"\t")
 
 if __name__ == "__main__":
     intro_the_magic_spire()
