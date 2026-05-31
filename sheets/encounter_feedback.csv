@@ -1,0 +1,5 @@
+encounter_name,party_level,party_size,predicted_difficulty,actual_difficulty,monster_count,total_monster_xp,adjusted_xp,rounds,lasted_too_long,players_downed,players_killed,major_resource_drain,terrain_helped_players,terrain_helped_monsters,player_synergy_tags,monster_weakness_tags,notes,party_thresholds
+turtle_hideout_lvl_1_encounter_difficulty,4,4,medium,easy,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+Baxter Stockman,5,4,hard,easy,1,1800,1800,3,FALSE,0,0,medium,TRUE,FALSE,"prone,forced_movement,anti_flying","flying,low_str_save",Boss got proned while flying and fell 20 ft,
