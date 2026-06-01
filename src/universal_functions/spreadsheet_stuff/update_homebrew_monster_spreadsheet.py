@@ -91,7 +91,7 @@ def update_homebrew_monster_spreadsheet(
     print(tab_amount, "path_to_csv_file =", path_to_csv_file)
 
     if not path_to_csv_file.exists():
-        print(tab_amount, "ERROR: homebrew monster spreadsheet does not exist.")
+        print(tab_amount, "ERROR: update_homebrew_monster_spreadsheet: homebrew monster spreadsheet does not exist.")
         exit()
 
     monster_name = get_value_from_monster_dict(
@@ -109,7 +109,7 @@ def update_homebrew_monster_spreadsheet(
         rows = list(reader)
 
     if fieldnames is None:
-        print(tab_amount, "ERROR: spreadsheet must have a header row.")
+        print(tab_amount, "ERROR: update_homebrew_monster_spreadsheet: spreadsheet must have a header row.")
         exit()
 
     new_row = get_row_from_monster_dict(
