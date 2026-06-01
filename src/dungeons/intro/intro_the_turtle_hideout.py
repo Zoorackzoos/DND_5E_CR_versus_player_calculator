@@ -4,6 +4,8 @@ from src.universal_functions.get_average_damage import get_average_damage_no_pri
 from src.universal_functions.get_cr_from_precise_monster_search import get_cr_from_precise_monster_search
 from src.universal_functions.get_encounter_difficulty.get_encounter_difficulty_from_xp_values import get_encounter_difficulty_from_xp_values
 from src.universal_functions.get_xp_from_single_enemy_CR import get_xp_from_single_enemy_cr
+from src.universal_functions.spreadsheet_stuff.update_encounter_feedback_spreadsheet import \
+    update_encounter_feedback_spreadsheet
 from src.universal_functions.vars.spreadsheet_enums import SpreadsheetKeysEnums
 
 path_to_csv_file = "../../../sheets/monsters_all_stats_homebrew.csv"
@@ -244,7 +246,12 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
             purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp,
             purple_ninja_xp, purple_ninja_xp, purple_ninja_xp, purple_ninja_xp
         ]
-    turtle_hideout_lvl_1_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels, monster_xp_values=turtle_hideout_lvl_1_monster_xps, tab_amount=tab_amount)
+    turtle_hideout_lvl_1_encounter_difficulty = get_encounter_difficulty_from_xp_values(
+        player_levels=player_levels,
+        monster_xp_values=turtle_hideout_lvl_1_monster_xps,
+        encounter_name="turtle_hideout_lvl_1_encounter_difficulty",
+        tab_amount=tab_amount
+    )
 
     blue_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                        string="Blue Foot Clan Ninja",
@@ -271,9 +278,12 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
             purple_ninja_xp, purple_ninja_xp,
             hoopmaster_xp, green_ninja_xp
         ]
-    turtle_hideout_lvl_2_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
-                                                                         monster_xp_values=turtle_hideout_lvl_2_monster_xps,
-                                                                         tab_amount=tab_amount)
+    turtle_hideout_lvl_2_encounter_difficulty = get_encounter_difficulty_from_xp_values(
+    player_levels=player_levels,
+    monster_xp_values=turtle_hideout_lvl_2_monster_xps,
+    encounter_name="turtle_hideout_lvl_2_encounter_difficulty",
+    tab_amount=tab_amount
+    )
 
     #blue and purple ninjas + baxster
     baxster_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
@@ -286,17 +296,23 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
         blue_ninja_xp, blue_ninja_xp,
         purple_ninja_xp, purple_ninja_xp
     ]
-    turtle_hideout_lvl_3_encounter_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
-                                                                         monster_xp_values=turtle_hideout_lvl_3_monster_xps,
-                                                                         tab_amount=tab_amount)
+    turtle_hideout_lvl_3_encounter_difficulty = get_encounter_difficulty_from_xp_values(
+    player_levels=player_levels,
+    monster_xp_values=turtle_hideout_lvl_3_monster_xps,
+    encounter_name="turtle_hideout_lvl_3_encounter_difficulty",
+    tab_amount=tab_amount
+    )
 
     turtle_hideout_boss_xp = \
     [
         baxster_xp
     ]
-    turtle_hideout_boss_difficulty = get_encounter_difficulty_from_xp_values(player_levels=player_levels,
-                                                                             monster_xp_values=turtle_hideout_boss_xp,
-                                                                             tab_amount=tab_amount)
+    turtle_hideout_boss_difficulty = get_encounter_difficulty_from_xp_values(
+    player_levels=player_levels,
+    monster_xp_values=turtle_hideout_boss_xp,
+    encounter_name="turtle_hideout_boss_difficulty",
+    tab_amount=tab_amount
+    )
 
     print(tab_amount,"calculations complete :-DDD")
     print(tab_amount+"\t","turtle_hideout_lvl_1_encounter_difficulty")
@@ -311,6 +327,12 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
     print(tab_amount + "\t", "turtle_hideout_boss_difficulty")
     print_dictionary_nicely(dict_in_question=turtle_hideout_boss_difficulty,
                             tab_amount=tab_amount+"\t\t")
+
+    print("\nupdate encounter predicitn spreadsheet time")
+    update_encounter_feedback_spreadsheet(encounter_dict=turtle_hideout_lvl_1_encounter_difficulty)
+    update_encounter_feedback_spreadsheet(encounter_dict=turtle_hideout_lvl_2_encounter_difficulty)
+    update_encounter_feedback_spreadsheet(encounter_dict=turtle_hideout_lvl_3_encounter_difficulty)
+
 
 if __name__ == "__main__":
     tab_amount = "\t"
