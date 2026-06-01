@@ -1,6 +1,6 @@
 from src.universal_functions.display.print_2d_list_that_contains_dictionaries import \
     print_2d_list_that_contains_dictionaries
-from src.universal_functions.spreadsheet_stuff.get_dict_from_csv_file import get_dict_from_csv
+from src.universal_functions.spreadsheet_stuff.dict_based_database_interpretors.get_dict_from_csv_file import get_dict_from_csv
 
 
 def get_rows_from_dict_on_param_type_and_string(dict_in_question, param_type, string, get_rows_tab_amount="\t"):
@@ -21,7 +21,7 @@ def get_rows_from_dict_on_param_type_and_string(dict_in_question, param_type, st
 
 if __name__ == "__main__":
     tab_amount = "\t"
-    path_to_csv_file = "../../../sheets/monsters_all_stats_homebrew.csv"
+    path_to_csv_file = "../../../../sheets/monsters_all_stats_homebrew.csv"
     monsters_all_stats_homebrew_dict = get_dict_from_csv(path_to_csv_file=path_to_csv_file,tab_amount=tab_amount)
     rows_for_humanoid = get_rows_from_dict_on_param_type_and_string(dict_in_question=monsters_all_stats_homebrew_dict,
                                                                     param_type="Type",

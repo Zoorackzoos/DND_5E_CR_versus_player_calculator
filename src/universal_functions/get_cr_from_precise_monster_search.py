@@ -1,5 +1,5 @@
-from src.universal_functions.spreadsheet_stuff.get_dict_from_csv_file import get_dict_from_csv
-from src.universal_functions.spreadsheet_stuff.get_rows_from_dict_on_param_type_and_string import \
+from src.universal_functions.spreadsheet_stuff.dict_based_database_interpretors.get_dict_from_csv_file import get_dict_from_csv
+from src.universal_functions.spreadsheet_stuff.dict_based_database_interpretors.get_rows_from_dict_on_param_type_and_string import \
     get_rows_from_dict_on_param_type_and_string
 
 default_path_monsters_all_stats_dict = "../../../sheets/monsters_all_stats_homebrew.csv"

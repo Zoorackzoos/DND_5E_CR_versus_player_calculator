@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from src.universal_functions.spreadsheet_stuff.update_homebrew_monster_spreadsheet import (
+from src.universal_functions.spreadsheet_stuff.spreadsheet_updaters.update_homebrew_monster_spreadsheet import (
     update_homebrew_monster_spreadsheet,
 )
 
