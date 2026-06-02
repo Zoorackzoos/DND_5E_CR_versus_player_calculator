@@ -279,6 +279,7 @@ class SkillsEnums(Enum):
     SLIGHT_OF_HAND = "Slight Of Hand"
     STEALTH = "Stealth"
     SURVIVAL = "Survival"
+    NONE = "None"
 
 class WRIEnums(Enum):
     """
@@ -339,6 +340,16 @@ class WRIEnums(Enum):
     LIGHTNING_WEAKNESS = "Lightningweak"
     LIGHTNING_RESISTANT = "Lightningres"
     LIGHTNING_IMMUNE = "Lightningimmu"
+
+class SensesEnums(Enum):
+    NORMAL = "Normal"
+    NONE = "None"
+    DARKVISION_SIXTY = "Darkvision 60"
+    BLINDSIGHT_THIRTY = "Blindsight 30"
+    BLINDSIGHT_ONE_TWENTY = "Blindsight 120"
+    TREMORSENSE_THIRTY = "Tremorsesen 30"
+    TRUSIGHT_ONE_TWENTY = "Trusight 120"
+    #TODO: add the rest of these senses
 
 class LanguagesEnums(Enum):
     """

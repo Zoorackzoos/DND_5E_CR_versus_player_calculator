@@ -133,6 +133,7 @@ def update_homebrew_monster_spreadsheet(
         print(tab_amount, "duplicate monster found =", monster_name)
 
         if duplicate_action == "ask":
+            print(tab_amount+"\t ",end="")
             answer = input(
                 "A monster named "
                 + str(monster_name)
