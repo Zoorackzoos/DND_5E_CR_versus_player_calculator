@@ -8,7 +8,7 @@ from src.universal_functions.spreadsheet_stuff.spreadsheet_updaters.update_encou
     update_encounter_feedback_spreadsheet
 from src.universal_functions.vars.spreadsheet_enums import SpreadsheetKeysEnums
 
-path_to_csv_file = "../../../sheets/monsters_all_stats_homebrew.csv"
+path_to_csv_file = "../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
 
 def get_purple_ninja_cr(tab_amount="\t"):
     print(tab_amount,"get_purple_ninja_cr")

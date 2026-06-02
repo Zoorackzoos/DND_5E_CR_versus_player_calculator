@@ -5,7 +5,7 @@ from src.universal_functions.get_encounter_difficulty.get_encounter_difficulty_f
 from src.universal_functions.get_xp_from_single_enemy_CR import get_xp_from_single_enemy_cr
 from src.universal_functions.vars.spreadsheet_enums import SpreadsheetKeysEnums
 
-into_the_magic_spire_path_to_csv_file = "../../../sheets/monsters_all_stats_homebrew.csv"
+into_the_magic_spire_path_to_csv_file = "../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
 
 def intro_the_magic_spire(tab_amount="\t"):
     print(tab_amount,"intro_the_magic_spire")

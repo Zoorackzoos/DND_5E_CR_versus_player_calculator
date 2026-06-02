@@ -35,9 +35,23 @@ def convert_csv_file_into_tsv_file(path_to_csv_file,
 
     return str(path_to_tsv_file)
 
+def convert_encounter_feedback_from_csv_to_tsv(tab_amount="\t"):
+    print(tab_amount, "convert_encounter_feedback_from_csv_to_tsv")
+    #tab_amount += "\t"
+    convert_csv_file_into_tsv_file(
+        path_to_csv_file="../../../sheets/encounter_feedback/encounter_feedback.csv",
+        path_to_tsv_file="../../../sheets/encounter_feedback/encounter_feedback.tsv"
+    )
+
+def convert_monsters_all_stats_homebrew_from_csv_to_tsv(tab_amount="\t"):
+    print(tab_amount, "convert_encounter_feedback_from_csv_to_tsv")
+    # tab_amount += "\t"
+    convert_csv_file_into_tsv_file(
+        path_to_csv_file="../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv",
+        path_to_tsv_file="../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.tsv"
+    )
 
 if __name__ == "__main__":
-    convert_csv_file_into_tsv_file(
-        path_to_csv_file="../../../sheets/encounter_feedback.csv",
-        path_to_tsv_file="../../../sheets/encounter_feedback.tsv"
-    )
+    tab_amount = "\t"
+    #convert_encounter_feedback_from_csv_to_tsv(tab_amount=tab_amount)
+    convert_monsters_all_stats_homebrew_from_csv_to_tsv(tab_amount=tab_amount)

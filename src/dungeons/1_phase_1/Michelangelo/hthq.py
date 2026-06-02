@@ -201,7 +201,7 @@ def hthq(tab_amount="\t"):
 
     player_levels = [4,4,4,4]
 
-    hthq_path_to_csv_file = "../../../../sheets/monsters_all_stats_homebrew.csv"
+    hthq_path_to_csv_file = "../../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
 
     purple_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                          string="Purple Foot Clan Ninja",

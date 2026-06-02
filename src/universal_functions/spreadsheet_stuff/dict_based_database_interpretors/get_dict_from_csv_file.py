@@ -18,6 +18,6 @@ def get_dict_from_csv(path_to_csv_file, tab_amount="\t"):
         exit("ERROR: get_dict_from_csv: shit path_to_csv_file. please put the path to it given the nested dungeon file.")
 
 if __name__ == "__main__":
-    path_to_csv_file = "../../../../sheets/monsters_all_stats_homebrew.csv"
+    path_to_csv_file = "../../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
     # list -> dict
     print_2d_list_that_contains_dictionaries(get_dict_from_csv(path_to_csv_file=path_to_csv_file))

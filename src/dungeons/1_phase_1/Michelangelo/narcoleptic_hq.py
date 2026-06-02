@@ -50,7 +50,7 @@ def narcoleptic_hq(tab_amount="\t"):
     print(tab_amount,"narcoleptic_hq")
     tab_amount += "\t"
 
-    path_to_csv_file = "../../../../sheets/monsters_all_stats_homebrew.csv"
+    path_to_csv_file = "../../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
 
     player_levels = [4,4,4,4]
 
