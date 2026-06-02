@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\sheets\monsters_all_stats_homebrew\monsters_all_stats_homebrew.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\sheets\monsters_all_stats_no_homebrew.csv">
           <value>
             <Attribute>

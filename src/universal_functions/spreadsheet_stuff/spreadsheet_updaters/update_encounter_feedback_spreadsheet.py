@@ -1,7 +1,7 @@
 import csv
 from pathlib import Path
 
-
+#TODO: fix this
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_ENCOUNTER_FEEDBACK_SPREADSHEET = (
     PROJECT_ROOT / "sheets" / "encounter_feedback.csv"
@@ -86,8 +86,7 @@ def update_encounter_feedback_spreadsheet(
     print(tab_amount, "path_to_csv_file =", path_to_csv_file)
 
     if not path_to_csv_file.exists():
-        print(tab_amount, "ERROR: update_encounter_feedback_spreadsheet: encounter feedback spreadsheet does not exist.")
-        exit()
+        exit("ERROR: update_encounter_feedback_spreadsheet: encounter feedback spreadsheet does not exist.")
 
     encounter_name = get_value_from_encounter_dict(
         encounter_dict=encounter_dict,
