@@ -33,6 +33,24 @@ class SpreadsheetKeysEnums(Enum):
     SENSES = "Senses"
     LANGUAGES = "Languages"
     ADDITIONAL = "Additional"
+    AVERAGE_DAMAGE = "average_damage" # needed
+    ATTACK_MODIFIER = "attack_modifier" # needed
+    #everything bellow defaults in the crafter as 0 or "not"
+    HAS_LEGENDARY_ACTION = "has_legendary_action"
+    LEGENDARY_ACTION_DAMAGE = "legendary_action_damage"
+    HAS_FLIGHT = "has_flight"
+    RESISTANCE_COUNT = "resistance_count"
+    IMMUNITY_COUNT = "immunity_count"
+    WEAKNESS_COUNT = "weakness_count"
+    SAVE_DC = "save_dc"
+    IS_SPELLCASTER = "is_spellcaster"
+    REGENERATION_PER_ROUND = "regeneration_per_round"
+    MULTIATTACK_COUNT = "multiattack_count"
+    ABILITY_COUNT = "ability_count"
+    ABILITY_CR_WEIGHT = "ability_cr_weight"
+    RECHARGE_DAMAGE = "recharge_damage"
+    LIMITED_USE_DAMAGE = "limited_use_damage"
+    BONUS_ACTION_DAMAGE = "bonus_action_damage"
 
 class SizeEnums(Enum):
     TINY = "Tiny"
@@ -96,7 +114,7 @@ class CreatureTypesEnums(Enum):
     PLANT = "Plant"
     UNDEAD = "Undead"
     UNDEAD_TITAN = "Undead (Titan)"
-    ROBOT = "Robot"
+    ROBOT = "Robot" #Virasco 2000 enum
 
 class CRTypeEnums(Enum):
     """
@@ -233,4 +251,120 @@ class AlignmentEnums(Enum):
     NOT_ALIGNED = "U"
     VARIES = "VARIES"
 
-#TODO: add more enums for: saving throws, skills, WRI and languages. if it matters anyway
+class SavingThrowsEnums(Enum):
+    STR = "STR"
+    DEX = "DEX"
+    CON = "CON"
+    INT = "INT"
+    WIS = "WIS"
+    CHA = "CHA"
+    NONE = "None"
+
+class SkillsEnums(Enum):
+    ACROBATICS = "Acrobatics"
+    ANIMAL_HANDLING = "Animal Handling"
+    ARCANA = "Arcana"
+    ATHLETICS = "Athletics"
+    DECEPTION = "Deception"
+    HISTORY = "History"
+    INSIGHT = "Insight"
+    INTIMIDATION = "Intimation"
+    INVESTIGATION = "Investigation"
+    MEDICINE = "Medicine"
+    NATURE = "Nature"
+    PERCEPTION = "Perception"
+    PERFORMANCE = "Performance"
+    PERSUASION = "Persuasion"
+    RELIGION = "Religion"
+    SLIGHT_OF_HAND = "Slight Of Hand"
+    STEALTH = "Stealth"
+    SURVIVAL = "Survival"
+
+class WRIEnums(Enum):
+    """
+    Weakness-es
+    Resistances
+    Immunities
+    """
+    NONE = "None"
+
+    SLASHING_WEAKNESS = "Slashingweak"
+    SLASHING_RESISTANT = "Slashingres"
+    SLASHING_IMMUNE = "Slashingimmu"
+
+    PIERCING_WEAKNESS = "Piercingweak"
+    PIERCING_RESISTANT = "Piercingres"
+    PIERCING_IMMUNE = "Piercingimmu"
+
+    BLUDGEONING_WEAKNESS = "Bludgeoningweak"
+    BLUDGEONING_RESISTANT = "Bludgeoningres"
+    BLUDGEONING_IMMUNE = "Bludgeoningimmu"
+
+    COLD_WEAKNESS = "Coldweak"
+    COLD_RESISTANT = "Coldres"
+    COLD_IMMUNE = "Coldimmu"
+
+    POISON_WEAKNESS = "Poisonweak"
+    POISON_RESISTANT = "Poisonres"
+    POISON_IMMUNE = "Poisonimmu"
+
+    ACID_WEAKNESS = "Acidweak"
+    ACID_RESISTANT = "Acidres"
+    ACID_IMMUNE = "Acidimmu"
+
+    PSYCHIC_WEAKNESS = "Psychicweak"
+    PSYCHIC_RESISTANT = "Psychicres"
+    PSYCHIC_IMMUNE = "Psychicimmu"
+
+    FIRE_WEAKNESS = "Fireweak"
+    FIRE_RESISTANT = "Fireres"
+    FIRE_IMMUNE = "Fireimmu"
+
+    NECROTIC_WEAKNESS = "Necroticweak"
+    NECROTIC_RESISTANT = "Necroticres"
+    NECROTIC_IMMUNE = "Necroticimmu"
+
+    RADIANT_WEAKNESS = "Radiantweak"
+    RADIANT_RESISTANT = "Radiantres"
+    RADIANT_IMMUNE = "Radiantimmu"
+
+    FORCE_WEAKNESS = "Forceweak"
+    FORCE_RESISTANT = "Forceres"
+    FORCE_IMMUNE = "Forceimmu"
+
+    THUNDER_WEAKNESS = "Thunderweak"
+    THUNDER_RESISTANT = "Thunderres"
+    THUNDER_IMMUNE = "Thunderimmu"
+
+    LIGHTNING_WEAKNESS = "Lightningweak"
+    LIGHTNING_RESISTANT = "Lightningres"
+    LIGHTNING_IMMUNE = "Lightningimmu"
+
+class LanguagesEnums(Enum):
+    """
+    got from here:
+    https://www.reddit.com/r/DnD/comments/ejs4yu/languages/
+    """
+    #Standard languages
+    COMMON = "Common"
+    DWARVISH = "Dwarvish"
+    ELVISH = "Elvish"
+    GIANT = "Giant"
+    GNOMISH = "Gnomish"
+    GOBLIN = "Goblin"
+    HALFLING = "Halfling"
+    ORC = "Orc"
+
+    #Exotic language
+    ABYSSAL = "Abyssal"
+    CELESTIAL = "Celestial"
+    DRACONIC = "Draconic"
+    DEEP_SPEECH = "Deep Speech"
+    INFERNAL = "Infernal"
+    PRIMODIAL_AQUAN = "Primodial Aquan"
+    PRIMODIAL_ARUAN = "Primodial Aruan"
+    PRIMODIAL_IGNAN = "Primodial Ignan"
+    PRIMODIAL_TERRAN = "Primodial Terran"
+    SYLVAN = "Sylvan"
+    UNDERCOMMON = "Undercommon"
+    THIEVES_CANT = "Thieves Cant"

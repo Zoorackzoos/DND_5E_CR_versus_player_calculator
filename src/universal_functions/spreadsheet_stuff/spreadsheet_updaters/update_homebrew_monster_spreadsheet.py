@@ -84,30 +84,37 @@ def update_homebrew_monster_spreadsheet(
         duplicate_action="ask",
         tab_amount="\t"
 ):
+    #terminal display stuff
     print(tab_amount, "update_homebrew_monster_spreadsheet")
     tab_amount += "\t"
 
+    #get the file path
     path_to_csv_file = Path(path_to_csv_file)
     print(tab_amount, "path_to_csv_file =", path_to_csv_file)
 
+    #can't find the file path
     if not path_to_csv_file.exists():
         print(tab_amount, "ERROR: update_homebrew_monster_spreadsheet: homebrew monster spreadsheet does not exist.")
         exit()
 
-    monster_name = get_value_from_monster_dict(
+    monster_name = (get_value_from_monster_dict
+    (
         monster_dict=monster_dict,
         header="Name"
-    )
+    ))
 
+    #no name
     if str(monster_name).strip() == "":
         print(tab_amount, "ERROR: monster_dict must include a Name or name value.")
         exit()
 
+    #file variable things i don't know about.
     with open(path_to_csv_file, newline="", encoding="utf-8") as file:
         reader = csv.DictReader(file)
         fieldnames = reader.fieldnames
         rows = list(reader)
 
+    #no header on spreadsheet
     if fieldnames is None:
         print(tab_amount, "ERROR: update_homebrew_monster_spreadsheet: spreadsheet must have a header row.")
         exit()
@@ -150,6 +157,7 @@ def update_homebrew_monster_spreadsheet(
         print(tab_amount, "adding new monster =", monster_name)
         rows.append(new_row)
 
+    #writing the thing
     with open(path_to_csv_file, "w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
