@@ -121,21 +121,22 @@ class CRTypeEnums(Enum):
     i've added verbal words to these. \n
     if you find these annoying you can delete them
     """
-    CR_ZERO_NO_CHALLENGE = 0
-    CR_ONE_EIGHTH_VERY_WEAK = 1 / 8
-    CR_ONE_FORTH_WEAK = 1 / 4
-    CR_ONE_HALF_MINOR = 1 / 2
-    CR_ONE = 1
-    CR_TWO = 2
-    CR_THREE = 3
-    CR_FOUR = 4
-    CR_FIVE = 5
-    CR_SIX = 6
-    CR_SEVEN = 7
-    CR_EIGHT = 8
-    CR_NINE = 9
-    CR_TEN = 10
-    CR_TWENTY = 20
+    UNKNOWN = "????"
+    ZERO_NO_CHALLENGE = 0
+    ONE_EIGHTH_VERY_WEAK = 1 / 8
+    ONE_FORTH_WEAK = 1 / 4
+    ONE_HALF_MINOR = 1 / 2
+    ONE = 1
+    TWO = 2
+    THREE = 3
+    FOUR = 4
+    FIVE = 5
+    SIX = 6
+    SEVEN = 7
+    EIGHT = 8
+    NINE = 9
+    TEN = 10
+    TWENTY = 20
 
 class FontTypesEnums(Enum):
     FOUR_LEGENDARY_DRAGONS = "4 Legendary Dragons (★)"
@@ -356,6 +357,8 @@ class LanguagesEnums(Enum):
     got from here:
     https://www.reddit.com/r/DnD/comments/ejs4yu/languages/
     """
+    NONE = "None"
+
     #Standard languages
     COMMON = "Common"
     DWARVISH = "Dwarvish"

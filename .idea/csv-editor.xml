@@ -3,14 +3,7 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\sheets\encounter_feedback.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\sheets\monsters_all_stats_homebrew.csv">
+        <entry key="\sheets\encounter_feedback\encounter_feedback.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -25,13 +18,6 @@
           </value>
         </entry>
         <entry key="\sheets\monsters_all_stats_no_homebrew.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\sheets\monsters_and_CR.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

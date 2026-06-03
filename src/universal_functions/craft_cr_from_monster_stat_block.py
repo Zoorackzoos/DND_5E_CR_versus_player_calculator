@@ -3,6 +3,8 @@
 # Based on the 2014 DMG monster creation math.
 # =====================================================
 from src.universal_functions.get_rounded_cr import get_rounded_cr
+from src.universal_functions.vars import spreadsheet_enums
+from src.universal_functions.vars.spreadsheet_enums import SpreadsheetKeysEnums
 
 CR_TABLE = [
     {"CR": 0, "hp_min": 1, "hp_max": 6, "dpr_min": 0, "dpr_max": 1, "ac": 13, "attack_bonus": 3, "save_dc": 13},
@@ -373,9 +375,9 @@ def plug_monster_var_values_into_get_cr_from_monster(monster_var, tab_amount="\t
     tab_amount += "\t"
 
     return craft_cr_from_monster_stat_block(
-        hit_points=monster_var["hp"],
-        armor_class=monster_var["ac"],
-        average_damage=monster_var["average_damage"],
+        hit_points=monster_var[spreadsheet_enums.SpreadsheetKeysEnums.HP.value],
+        armor_class=monster_var[spreadsheet_enums.SpreadsheetKeysEnums.AC.value],
+        average_damage=monster_var[spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value],
         attack_modifier=monster_var.get("attack_modifier", 0),
         has_legendary_action=monster_var.get("has_legendary_action", False),
         has_flight=monster_var.get("has_flight", False),

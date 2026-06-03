@@ -11,7 +11,7 @@ intro_yellow_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value:
             spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value:
-            spreadsheet_enums.CRTypeEnums.CR_ONE_HALF_MINOR.value,
+            spreadsheet_enums.CRTypeEnums.ONE_HALF_MINOR.value,
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value:
             "https://docs.google.com/document/d/1JUiihzhgPS4Rg1ofP1xjbswx8sFso69X1KWdyWuTT78/edit?tab=t.0",
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value:

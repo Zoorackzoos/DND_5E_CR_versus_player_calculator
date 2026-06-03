@@ -57,6 +57,23 @@ def get_average_damage_no_print(dice_dict):
 
     return total
 
+if __name__ == "__main__":
+    tab_amount = "\t"
+    dice_dict = \
+        {
+            4 : 0,
+            6 : 0,
+            8 : 2,
+            12 : 0,
+            20 : 0,
+            "constant" : 6
+        }
 
+    average_damage = (get_average_damage
+    (
+        dice_dict=dice_dict,
+        tab_amount=tab_amount
+    ))
 
+    print("average_damage =",average_damage)
 

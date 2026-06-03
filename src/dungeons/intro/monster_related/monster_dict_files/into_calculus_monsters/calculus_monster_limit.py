@@ -1,60 +1,70 @@
 # for the love of your life.
+from src.universal_functions.craft_cr_from_monster_stat_block import craft_cr_from_monster_stat_block, \
+    plug_monster_var_values_into_get_cr_from_monster
 from src.universal_functions.get_average_damage import get_average_damage
 from src.universal_functions.vars import spreadsheet_enums
 from src.universal_functions.vars.get_stringified_list_of_enums import get_stringified_list_of_enums
 
-
-# please use mr. intro_purple here as a default for every monster dict here on out
-intro_purple_foot_clan_ninja_monster_dict = \
+calculus_monster_limit_monster_dict = \
     {
         spreadsheet_enums.SpreadsheetKeysEnums.NAME.value :
-            "intro purple foot clan ninja",
+            "Calculus Monster, Limit",
         spreadsheet_enums.SpreadsheetKeysEnums.SIZE.value :
             spreadsheet_enums.SizeEnums.MEDIUM.value,
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
-            spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
+            spreadsheet_enums.CreatureTypesEnums.MONSTROSITY.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            spreadsheet_enums.CRTypeEnums.ONE_FORTH_WEAK.value,
+            spreadsheet_enums.CRTypeEnums.UNKNOWN.value, # update this later in the updater file or here
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
-            "https://docs.google.com/document/d/1JUiihzhgPS4Rg1ofP1xjbswx8sFso69X1KWdyWuTT78/edit?tab=t.0",
+            "https://docs.google.com/document/d/1RYat9ybER4u0_WBGPNnN3afBu3G_uze6ZQuLpCy4M_A/edit?tab=t.0",
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
             spreadsheet_enums.FontTypesEnums.VIRASCO_2000.value,
         spreadsheet_enums.SpreadsheetKeysEnums.AUTHOR.value :
             spreadsheet_enums.AuthorFontTypesEnums.SHWIFTY_MEME_LORD.value,
         spreadsheet_enums.SpreadsheetKeysEnums.HP.value :
-            20,
-        spreadsheet_enums.SpreadsheetKeysEnums.AC.value :
-            12,
-        spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value :
             30,
+        spreadsheet_enums.SpreadsheetKeysEnums.AC.value :
+            18,
+        spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value :
+            15,
         spreadsheet_enums.SpreadsheetKeysEnums.ALIGN.value :
             spreadsheet_enums.AlignmentEnums.NEUTRAL_EVIL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.STR.value :
-            10,
+            14,
         spreadsheet_enums.SpreadsheetKeysEnums.DEX.value :
-            12,
-        spreadsheet_enums.SpreadsheetKeysEnums.CON.value :
-            12,
-        spreadsheet_enums.SpreadsheetKeysEnums.INT.value :
             10,
+        spreadsheet_enums.SpreadsheetKeysEnums.CON.value :
+            10,
+        spreadsheet_enums.SpreadsheetKeysEnums.INT.value :
+            14,
         spreadsheet_enums.SpreadsheetKeysEnums.WIS.value :
             10,
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             10,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            spreadsheet_enums.SavingThrowsEnums.NONE.value,
+            get_stringified_list_of_enums(
+                list_of_enums=
+                [
+                    spreadsheet_enums.SavingThrowsEnums.STR,
+                    spreadsheet_enums.SavingThrowsEnums.INT,
+                    spreadsheet_enums.SavingThrowsEnums.WIS
+                ]
+            ),
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            spreadsheet_enums.SkillsEnums.NONE.value,
+            spreadsheet_enums.SkillsEnums.HISTORY.value,
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            spreadsheet_enums.WRIEnums.NONE,
+            get_stringified_list_of_enums(
+                list_of_enums=
+                [
+                    spreadsheet_enums.WRIEnums.PSYCHIC_RESISTANT.value,
+                    spreadsheet_enums.WRIEnums.SLASHING_RESISTANT.value,
+                    spreadsheet_enums.WRIEnums.PIERCING_RESISTANT.value
+                ]
+            ),
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            get_stringified_list_of_enums
-            (
-                list_of_enums=[spreadsheet_enums.LanguagesEnums.COMMON.value,
-                              spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]
-            ),
+            spreadsheet_enums.LanguagesEnums.NONE.value,
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             "None",
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
@@ -62,12 +72,16 @@ intro_purple_foot_clan_ninja_monster_dict = \
             (
                 dice_dict=
                 {
-                    6 : 1,
-                    "constant" : 2
+                    4: 0,
+                    6: 0,
+                    8: 2,
+                    12: 0,
+                    20: 0,
+                    "constant": 6
                 }
             ),
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
-            3,
+            4,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value :
@@ -75,7 +89,7 @@ intro_purple_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_FLIGHT.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value :
-            0,
+            3,
         spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
@@ -99,3 +113,14 @@ intro_purple_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
             0,
     }
+
+if __name__ == "__main__":
+    tab_amount = "\t"
+    calculus_monster_cr = \
+    (plug_monster_var_values_into_get_cr_from_monster
+        (
+            monster_var=calculus_monster_limit_monster_dict,
+            tab_amount=tab_amount
+        )
+    )
+    print("calculus_monster_cr =",calculus_monster_cr)
