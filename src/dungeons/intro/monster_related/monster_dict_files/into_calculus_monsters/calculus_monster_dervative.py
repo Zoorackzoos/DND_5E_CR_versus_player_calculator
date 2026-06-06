@@ -7,49 +7,50 @@ from src.universal_functions.spreadsheet_stuff.spreadsheet_updaters.update_homeb
 from src.universal_functions.vars import spreadsheet_enums
 from src.universal_functions.vars.get_stringified_list_of_enums import get_stringified_list_of_enums
 
-calculus_monster_limit_monster_dict = \
+calculus_monster_dervative_monster_dict = \
     {
         spreadsheet_enums.SpreadsheetKeysEnums.NAME.value :
-            "Calculus Monster, Limit",
+            "Calculus Monster, Derivative",
         spreadsheet_enums.SpreadsheetKeysEnums.SIZE.value :
             spreadsheet_enums.SizeEnums.MEDIUM.value,
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.MONSTROSITY.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            spreadsheet_enums.CRTypeEnums.TWO.value, # update this later in the updater file or here
+            spreadsheet_enums.CRTypeEnums.THREE.value, # update this later in the updater file or here
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
-            "https://docs.google.com/document/d/1RYat9ybER4u0_WBGPNnN3afBu3G_uze6ZQuLpCy4M_A/edit?tab=t.0",
+            "https://docs.google.com/document/d/1evELbjfqqUkLtBtvN27-di9otjVPgX5iiDu2qsMbo70/edit?tab=t.0",
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
             spreadsheet_enums.FontTypesEnums.VIRASCO_2000.value,
         spreadsheet_enums.SpreadsheetKeysEnums.AUTHOR.value :
             spreadsheet_enums.AuthorFontTypesEnums.SHWIFTY_MEME_LORD.value,
         spreadsheet_enums.SpreadsheetKeysEnums.HP.value :
-            30,
+            80,
         spreadsheet_enums.SpreadsheetKeysEnums.AC.value :
-            18,
-        spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value :
             15,
+        spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value :
+            60,
         spreadsheet_enums.SpreadsheetKeysEnums.ALIGN.value :
             spreadsheet_enums.AlignmentEnums.CHAOTIC_EVIL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.STR.value :
-            14,
+            16,
         spreadsheet_enums.SpreadsheetKeysEnums.DEX.value :
-            10,
+            18,
         spreadsheet_enums.SpreadsheetKeysEnums.CON.value :
-            10,
+            18,
         spreadsheet_enums.SpreadsheetKeysEnums.INT.value :
-            14,
+            20,
         spreadsheet_enums.SpreadsheetKeysEnums.WIS.value :
-            10,
+            20,
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
-            10,
+            14,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
             get_stringified_list_of_enums(
                 list_of_enums=
                 [
                     spreadsheet_enums.SavingThrowsEnums.STR,
                     spreadsheet_enums.SavingThrowsEnums.INT,
-                    spreadsheet_enums.SavingThrowsEnums.WIS
+                    spreadsheet_enums.SavingThrowsEnums.WIS,
+                    spreadsheet_enums.SavingThrowsEnums.DEX
                 ]
             ),
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
@@ -58,9 +59,9 @@ calculus_monster_limit_monster_dict = \
             get_stringified_list_of_enums(
                 list_of_enums=
                 [
-                    spreadsheet_enums.WRIEnums.PSYCHIC_RESISTANT.value,
-                    spreadsheet_enums.WRIEnums.SLASHING_RESISTANT.value,
-                    spreadsheet_enums.WRIEnums.PIERCING_RESISTANT.value
+                    spreadsheet_enums.WRIEnums.PSYCHIC_IMMUNE.value,
+                    spreadsheet_enums.WRIEnums.NECROTIC_RESISTANT.value,
+                    spreadsheet_enums.WRIEnums.ACID_IMMUNE.value
                 ]
             ),
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES :
@@ -76,14 +77,14 @@ calculus_monster_limit_monster_dict = \
                 {
                     4: 0,
                     6: 0,
-                    8: 2,
+                    8: 1,
                     12: 0,
                     20: 0,
-                    "constant": 6
+                    "constant": 2
                 }
             ),
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
-            4,
+            3,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value :
@@ -91,9 +92,9 @@ calculus_monster_limit_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_FLIGHT.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value :
-            3,
+            1,
         spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value :
-            0,
+            2,
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
@@ -116,11 +117,11 @@ calculus_monster_limit_monster_dict = \
             0,
     }
 
-def get_limit_cr_and_print_it(tab_amount="\t"):
+def get_and_print_out_derivative_cr_out(tab_amount="\t"):
     calculus_monster_cr = \
         (plug_monster_var_values_into_get_cr_from_monster
             (
-            monster_var=calculus_monster_limit_monster_dict,
+            monster_var=calculus_monster_dervative_monster_dict,
             tab_amount=tab_amount
         )
         )
@@ -128,9 +129,9 @@ def get_limit_cr_and_print_it(tab_amount="\t"):
 
 if __name__ == "__main__":
     tab_amount = "\t"
-    #get_limit_cr_and_print_it(tab_amount=tab_amount)
+    #get_and_print_out_derivative_cr_out(tab_amount=tab_amount)
     update_homebrew_monster_spreadsheet(
-        monster_dict=calculus_monster_limit_monster_dict,
+        monster_dict=calculus_monster_dervative_monster_dict,
         path_to_csv_file="../../../../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv",
         tab_amount=tab_amount
     )

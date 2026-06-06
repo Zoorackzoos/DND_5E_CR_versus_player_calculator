@@ -4,7 +4,10 @@ from src.universal_functions.get_encounter_difficulty.get_encounter_difficulty_f
 from src.universal_functions.get_xp_from_single_enemy_CR import get_xp_from_single_enemy_cr
 
 
-def get_encounter_difficulty_from_cr_values(player_levels, monster_cr_values, tab_amount="\t"):
+def get_encounter_difficulty_from_cr_values(player_levels,
+                                            monster_cr_values,
+                                            encounter_name="NOT_NAMED",
+                                            tab_amount="\t"):
     print(tab_amount, "get_encounter_difficulty_from_cr_values")
     tab_amount += "\t"
 
@@ -18,5 +21,6 @@ def get_encounter_difficulty_from_cr_values(player_levels, monster_cr_values, ta
     return get_encounter_difficulty_from_xp_values(
         player_levels=player_levels,
         monster_xp_values=monster_xp_values,
+        encounter_name=encounter_name,
         tab_amount=tab_amount
     )
