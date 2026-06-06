@@ -9,23 +9,34 @@ from src.universal_functions.vars import spreadsheet_enums
 from src.universal_functions.vars.spreadsheet_enums import SpreadsheetKeysEnums
 
 into_the_magic_spire_path_to_csv_file = "../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
+player_levels = [5, 5, 5, 5]
 
-def intro_the_magic_spire(tab_amount="\t"):
-    print(tab_amount,"intro_the_magic_spire")
-    player_levels = [5,5,5,5]
+def intro_the_magic_spire_lvl_1(tab_amount="\t"):
+    print(tab_amount,"intro_the_magic_spire_lvl_1")
 
     #manes_smokoer_encounter
+    """
     manes_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Demon, Manes",
         path_to_csv_file=into_the_magic_spire_path_to_csv_file,
         tab_amount=tab_amount
     )
-    manes_smoke_break_cr_values = [manes_cr, manes_cr, manes_cr, manes_cr]
-    manes_smoke_break_encounter_difficulty = get_encounter_difficulty_from_cr_values(
+    """
+    hag_green_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Hag, Green",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    hags_smoke_break_cr_values = \
+        [
+            hag_green_cr,hag_green_cr,hag_green_cr
+        ]
+    hags_smoke_break_encounter_difficulty = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
-        monster_cr_values=manes_smoke_break_cr_values,
-        encounter_name="manes_smoke_break",
+        monster_cr_values=hags_smoke_break_cr_values,
+        encounter_name="hags_smoke_break",
         tab_amount=tab_amount
     )
 
@@ -64,15 +75,23 @@ def intro_the_magic_spire(tab_amount="\t"):
     )
 
     #office room
+    """
     dreadlock_wight_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Deathlock Wight",
         path_to_csv_file=into_the_magic_spire_path_to_csv_file,
         tab_amount=tab_amount
     )
+    """
+    embrald_gemstone_guy_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Golem, Gemstone, Emerald",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
     office_room_cr_values = \
         [
-            dreadlock_wight_cr
+            embrald_gemstone_guy_cr
         ]
     office_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
@@ -81,16 +100,199 @@ def intro_the_magic_spire(tab_amount="\t"):
         tab_amount=tab_amount
     )
 
-    print("\n",tab_amount,"Calculations complete")
-    encounter_difficulty_list = \
+    print("\n",tab_amount,"intro_the_magic_spire_lvl_1_encounter_difficulty completed")
+    intro_the_magic_spire_lvl_1_encounter_difficulty_list = \
     [
-        manes_smoke_break_encounter_difficulty,
+        hags_smoke_break_encounter_difficulty,
         mainframe_room_encounter_difficulty,
         office_room_encounter_difficulty
     ]
-    for encounter in encounter_difficulty_list:
+    for encounter in intro_the_magic_spire_lvl_1_encounter_difficulty_list:
         print(tab_amount+"\t",encounter["encounter_name"])
         print_encounter_difficulty_concisely(dict_in_question=encounter,tab_amount=tab_amount+"\t")
 
+def intro_the_magic_spire_lvl_2(tab_amount="\t"):
+    #break room
+    troglidyte_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Troglodyte",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    break_room_cr_values = \
+    [
+        troglidyte_cr, troglidyte_cr
+    ]
+    break_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=break_room_cr_values,
+        encounter_name="break_room",
+        tab_amount=tab_amount
+    )
+
+    #dining room
+    animated_armour_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Animated Object, Armor",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    dining_room_monster_cr_values = \
+    [
+        animated_armour_cr
+    ]
+    dining_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=dining_room_monster_cr_values,
+        encounter_name="dining_room",
+        tab_amount=tab_amount
+    )
+
+    #kitchen
+    lizard_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Misc. Creature, Lizard",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    giant_lizard_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Misc. Creature, Giant Lizard",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    kitchen_cr_values = \
+    [
+        giant_lizard_cr,
+        lizard_cr, lizard_cr
+    ]
+    kitchen_encounter_difficulty = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=kitchen_cr_values,
+        encounter_name="kitchen",
+        tab_amount=tab_amount
+    )
+
+    #movie room
+    wolf_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Misc. Creature, Wolf",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    movie_room_cr_values = \
+    [
+        wolf_cr,wolf_cr
+    ]
+    movie_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=movie_room_cr_values,
+        encounter_name="movie_room",
+        tab_amount=tab_amount
+    )
+
+    #teal key room
+    spectator_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Beholder, Spectator",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    teal_key_cr_values = \
+        [
+            spectator_cr
+        ]
+    teal_key_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=teal_key_cr_values,
+        encounter_name="teal_key",
+        tab_amount=tab_amount
+    )
+
+    #bottom left conference room
+    bottom_left_conference_room_cr_values = \
+        [
+            wolf_cr,wolf_cr
+        ]
+    bottom_left_encounter_difficulty = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=bottom_left_conference_room_cr_values,
+        encounter_name="bottom_left_conference_room",
+        tab_amount=tab_amount
+    )
+
+    #flower conference room. official flower busniess
+    tri_flower_frond_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Tri-Flower Frond",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    flower_conference_room_cr_values = \
+    [
+        tri_flower_frond_cr
+    ]
+    flower_conference_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=flower_conference_room_cr_values,
+        encounter_name="flower_conference_room",
+        tab_amount=tab_amount
+    )
+
+    intro_the_magic_spire_lvl_2_encounters_list = \
+    [
+        break_room_encounter_difficulty,
+        dining_room_encounter_difficulty,
+        kitchen_encounter_difficulty,
+        movie_room_encounter_difficulty,
+        teal_key_room_encounter_difficulty,
+        bottom_left_encounter_difficulty,
+        flower_conference_room_encounter_difficulty,
+    ]
+    print("\n",tab_amount+"\tintro_the_magic_spire_lvl_2_encounters completed")
+    for encounter in intro_the_magic_spire_lvl_2_encounters_list:
+        print(tab_amount+"\t\t",encounter["encounter_name"])
+        print_encounter_difficulty_concisely(dict_in_question=encounter, tab_amount=tab_amount)
+
+def intro_the_magic_spire_lvl_3(tab_amount="\t"):
+    """
+    it's just one big barracks.
+    cockroach people live in there
+
+    :param tab_amount:
+    :return:
+    """
+    #barracks
+    polar_bear_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Misc. Creature, Polar Bear",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    barracks_cr_value = \
+    [
+        polar_bear_cr, polar_bear_cr, polar_bear_cr
+    ]
+    barracks_encounter_difficulty = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=barracks_cr_value,
+        encounter_name="barracks",
+        tab_amount=tab_amount
+    )
+
+    intro_the_magic_spire_lvl_3_encounters_list = \
+        [
+            barracks_encounter_difficulty
+        ]
+    print("\n", tab_amount + "\tintro_the_magic_spire_lvl_3_encounters completed")
+    for encounter in intro_the_magic_spire_lvl_3_encounters_list:
+        print(tab_amount + "\t\t", encounter["encounter_name"])
+        print_encounter_difficulty_concisely(dict_in_question=encounter, tab_amount=tab_amount+"\t\t\t")
+
 if __name__ == "__main__":
-    intro_the_magic_spire()
+    tab_amount = "\t"
+    print("begin program")
+    #intro_the_magic_spire_lvl_1(tab_amount=tab_amount)
+    intro_the_magic_spire_lvl_2(tab_amount=tab_amount)
+    #intro_the_magic_spire_lvl_3(tab_amount=tab_amount)
+    print("end program")
