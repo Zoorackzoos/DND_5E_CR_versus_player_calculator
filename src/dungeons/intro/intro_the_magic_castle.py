@@ -10,12 +10,17 @@ def intro_the_magic_castle(tab_amount="\t"):
     print(tab_amount,"intro_the_magic_castle")
     tab_amount += "\t"
 
+    path_to_monster_csv_file = "../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
+    path_to_encounter_csv_file = "../../../sheets/encounter_feedback/encounter_feedback.csv"
+
     player_levels = [3,3,3,3]
 
     skeleton_cr = get_cr_from_precise_monster_search(param_type="Name",
+                                                     path_to_csv_file=path_to_monster_csv_file,
                                                      string="Skeleton",
                                                      tab_amount=tab_amount)
     skeleton_war_horse_cr = get_cr_from_precise_monster_search(param_type="Name",
+                                                               path_to_csv_file=path_to_monster_csv_file,
                                                                string="Skeleton, Warhorse",
                                                                tab_amount=tab_amount)
     skeleton_xp = get_xp_from_single_enemy_cr(cr=skeleton_cr,
@@ -33,6 +38,7 @@ def intro_the_magic_castle(tab_amount="\t"):
     )
 
     skeleton_minotaur_cr = get_cr_from_precise_monster_search(param_type="Name",
+                                                              path_to_csv_file=path_to_monster_csv_file,
                                                               string="Skeleton, Minotaur",
                                                               tab_amount=tab_amount)
     skeleton_minotaur_xp = get_xp_from_single_enemy_cr(cr=skeleton_minotaur_cr,
@@ -46,6 +52,7 @@ def intro_the_magic_castle(tab_amount="\t"):
     )
 
     giant_skeleton_cr = get_cr_from_precise_monster_search(param_type="Name",
+                                                           path_to_csv_file=path_to_monster_csv_file,
                                                            string="Skeleton, Giant",
                                                            tab_amount=tab_amount)
     giant_skeleton_xp = get_xp_from_single_enemy_cr(cr=giant_skeleton_cr,
@@ -76,13 +83,21 @@ def intro_the_magic_castle(tab_amount="\t"):
 
     #============= update section =============
     print("\nupdate section")
-    update_encounter_feedback_spreadsheet(encounter_dict=intro_magic_castle_inner_castle_difficulty,
-                                          tab_amount=tab_amount+"\t")
-    update_encounter_feedback_spreadsheet(encounter_dict=intro_magic_castle_tower_of_power_difficulty,
-                                          tab_amount=tab_amount + "\t")
-    update_encounter_feedback_spreadsheet(encounter_dict=intro_magic_castle_tower_of_faith_difficulty,
-                                          tab_amount=tab_amount + "\t")
-
+    update_encounter_feedback_spreadsheet(
+        encounter_dict=intro_magic_castle_inner_castle_difficulty,
+        path_to_csv_file=path_to_encounter_csv_file,
+        tab_amount=tab_amount+"\t"
+    )
+    update_encounter_feedback_spreadsheet(
+        encounter_dict=intro_magic_castle_tower_of_power_difficulty,
+        path_to_csv_file=path_to_encounter_csv_file,
+        tab_amount=tab_amount + "\t"
+    )
+    update_encounter_feedback_spreadsheet(
+        encounter_dict=intro_magic_castle_tower_of_faith_difficulty,
+        path_to_csv_file=path_to_encounter_csv_file,
+        tab_amount=tab_amount + "\t"
+    )
 
 if __name__ == "__main__":
     intro_the_magic_castle()

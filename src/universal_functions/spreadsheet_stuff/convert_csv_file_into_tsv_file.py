@@ -1,7 +1,6 @@
 import csv
 from pathlib import Path
 
-
 def convert_csv_file_into_tsv_file(path_to_csv_file,
                                    path_to_tsv_file=None,
                                    tab_amount="\t"):
@@ -52,6 +51,5 @@ def convert_monsters_all_stats_homebrew_from_csv_to_tsv(tab_amount="\t"):
     )
 
 if __name__ == "__main__":
-    tab_amount = "\t"
-    #convert_encounter_feedback_from_csv_to_tsv(tab_amount=tab_amount)
-    convert_monsters_all_stats_homebrew_from_csv_to_tsv(tab_amount=tab_amount)
+    convert_encounter_feedback_from_csv_to_tsv()
+    convert_monsters_all_stats_homebrew_from_csv_to_tsv()
