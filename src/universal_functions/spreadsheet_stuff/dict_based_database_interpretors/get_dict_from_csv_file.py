@@ -4,7 +4,7 @@ from src.universal_functions.display.print_2d_list_that_contains_dictionaries im
     print_2d_list_that_contains_dictionaries
 
 
-def get_dict_from_csv(path_to_csv_file, tab_amount="\t"):
+def get_dict_from_csv_file(path_to_csv_file, tab_amount="\t"):
     print(tab_amount,"get_dict_from_csv")
     tab_amount += "\t"
     print(tab_amount,"path_to_csv_file = \n", tab_amount, path_to_csv_file)
@@ -20,4 +20,4 @@ def get_dict_from_csv(path_to_csv_file, tab_amount="\t"):
 if __name__ == "__main__":
     path_to_csv_file = "../../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
     # list -> dict
-    print_2d_list_that_contains_dictionaries(get_dict_from_csv(path_to_csv_file=path_to_csv_file))
+    print_2d_list_that_contains_dictionaries(get_dict_from_csv_file(path_to_csv_file=path_to_csv_file))

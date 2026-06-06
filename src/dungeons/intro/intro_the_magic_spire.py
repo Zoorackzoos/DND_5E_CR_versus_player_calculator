@@ -209,12 +209,14 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     )
 
     #movie room
+    """
     wolf_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Misc. Creature, Wolf",
         path_to_csv_file=into_the_magic_spire_path_to_csv_file,
         tab_amount=tab_amount
     )
+    """
     dire_wolf_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Misc. Creature, Dire Wolf",
@@ -223,7 +225,8 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     )
     movie_room_cr_values = \
     [
-        wolf_cr,wolf_cr
+        dire_wolf_cr, dire_wolf_cr, dire_wolf_cr,
+        dire_wolf_cr, dire_wolf_cr, dire_wolf_cr
     ]
     movie_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
@@ -251,9 +254,22 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     )
 
     #bottom left conference room
+    drop_bear_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Drop Bear",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    hunting_cactus_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Cactus, Hunting",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
     bottom_left_conference_room_cr_values = \
         [
-            wolf_cr,wolf_cr
+            hunting_cactus_cr,hunting_cactus_cr,
+            drop_bear_cr,drop_bear_cr,drop_bear_cr
         ]
     bottom_left_encounter_difficulty = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
