@@ -108,20 +108,38 @@ def intro_the_magic_spire_lvl_1(tab_amount="\t"):
         office_room_encounter_difficulty
     ]
     for encounter in intro_the_magic_spire_lvl_1_encounter_difficulty_list:
-        print(tab_amount+"\t",encounter["encounter_name"])
-        print_encounter_difficulty_concisely(dict_in_question=encounter,tab_amount=tab_amount+"\t")
+        print(tab_amount+"\t\t",encounter["encounter_name"])
+        print_encounter_difficulty_concisely(
+            dict_in_question=encounter,
+            tab_amount=tab_amount+"\t\t\t"
+        )
 
 def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     #break room
+    """
     troglidyte_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Troglodyte",
         path_to_csv_file=into_the_magic_spire_path_to_csv_file,
         tab_amount=tab_amount
     )
+    """
+    troll_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Troll",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    derro_savant_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Derro Savant",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
     break_room_cr_values = \
     [
-        troglidyte_cr, troglidyte_cr
+        troll_cr,
+        derro_savant_cr
     ]
     break_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
@@ -137,9 +155,16 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
         path_to_csv_file=into_the_magic_spire_path_to_csv_file,
         tab_amount=tab_amount
     )
+    bulette_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Bulette",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
     dining_room_monster_cr_values = \
     [
-        animated_armour_cr
+        animated_armour_cr,
+        bulette_cr
     ]
     dining_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
@@ -149,22 +174,32 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     )
 
     #kitchen
+    """
     lizard_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Misc. Creature, Lizard",
         path_to_csv_file=into_the_magic_spire_path_to_csv_file,
         tab_amount=tab_amount
     )
+    """
     giant_lizard_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Misc. Creature, Giant Lizard",
         path_to_csv_file=into_the_magic_spire_path_to_csv_file,
         tab_amount=tab_amount
     )
+    lizard_monarch_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Lizard King/Queen",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
     kitchen_cr_values = \
     [
-        giant_lizard_cr,
-        lizard_cr, lizard_cr
+        giant_lizard_cr, giant_lizard_cr,
+        giant_lizard_cr, giant_lizard_cr,
+        giant_lizard_cr, giant_lizard_cr,
+        lizard_monarch_cr
     ]
     kitchen_encounter_difficulty = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
@@ -177,6 +212,12 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     wolf_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Misc. Creature, Wolf",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    dire_wolf_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Misc. Creature, Dire Wolf",
         path_to_csv_file=into_the_magic_spire_path_to_csv_file,
         tab_amount=tab_amount
     )
@@ -228,9 +269,18 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
         path_to_csv_file=into_the_magic_spire_path_to_csv_file,
         tab_amount=tab_amount
     )
+    """
+    corpse_flower_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Corpse Flower",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    """
     flower_conference_room_cr_values = \
     [
-        tri_flower_frond_cr
+        tri_flower_frond_cr,tri_flower_frond_cr,
+        tri_flower_frond_cr,tri_flower_frond_cr
     ]
     flower_conference_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
@@ -252,7 +302,10 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     print("\n",tab_amount+"\tintro_the_magic_spire_lvl_2_encounters completed")
     for encounter in intro_the_magic_spire_lvl_2_encounters_list:
         print(tab_amount+"\t\t",encounter["encounter_name"])
-        print_encounter_difficulty_concisely(dict_in_question=encounter, tab_amount=tab_amount)
+        print_encounter_difficulty_concisely(
+            dict_in_question=encounter,
+            tab_amount=tab_amount+"\t\t\t"
+        )
 
 def intro_the_magic_spire_lvl_3(tab_amount="\t"):
     """
@@ -287,7 +340,10 @@ def intro_the_magic_spire_lvl_3(tab_amount="\t"):
     print("\n", tab_amount + "\tintro_the_magic_spire_lvl_3_encounters completed")
     for encounter in intro_the_magic_spire_lvl_3_encounters_list:
         print(tab_amount + "\t\t", encounter["encounter_name"])
-        print_encounter_difficulty_concisely(dict_in_question=encounter, tab_amount=tab_amount+"\t\t\t")
+        print_encounter_difficulty_concisely(
+            dict_in_question=encounter,
+            tab_amount=tab_amount+"\t\t\t"
+        )
 
 if __name__ == "__main__":
     tab_amount = "\t"
