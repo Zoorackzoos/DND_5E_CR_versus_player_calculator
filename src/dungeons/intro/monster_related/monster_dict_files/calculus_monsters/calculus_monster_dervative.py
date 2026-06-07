@@ -7,7 +7,7 @@ from src.universal_functions.spreadsheet_stuff.spreadsheet_updaters.update_homeb
 from src.universal_functions.vars import spreadsheet_enums
 from src.universal_functions.vars.get_stringified_list_of_enums import get_stringified_list_of_enums
 
-calculus_monster_dervative_monster_dict = \
+calculus_monster_derivative_monster_dict = \
     {
         spreadsheet_enums.SpreadsheetKeysEnums.NAME.value :
             "Calculus Monster, Derivative",
@@ -121,7 +121,7 @@ def get_and_print_out_derivative_cr_out(tab_amount="\t"):
     calculus_monster_cr = \
         (plug_monster_var_values_into_get_cr_from_monster
             (
-            monster_var=calculus_monster_dervative_monster_dict,
+            monster_var=calculus_monster_derivative_monster_dict,
             tab_amount=tab_amount
         )
         )
@@ -131,7 +131,7 @@ if __name__ == "__main__":
     tab_amount = "\t"
     #get_and_print_out_derivative_cr_out(tab_amount=tab_amount)
     update_homebrew_monster_spreadsheet(
-        monster_dict=calculus_monster_dervative_monster_dict,
+        monster_dict=calculus_monster_derivative_monster_dict,
         path_to_csv_file="../../../../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv",
         tab_amount=tab_amount
     )
