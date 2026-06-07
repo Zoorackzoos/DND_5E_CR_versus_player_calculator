@@ -553,6 +553,6 @@ def interpret_markdown_stat_block_into_python_file(
 
 if __name__ == "__main__":
     interpret_markdown_stat_block_into_python_file(
-        path_to_markdown_file="../../../docs/stat_block_interpreter_template.md",
-        path_to_python_file="../../../docs/generated_template_monster.py"
+        path_to_markdown_file="temp_monster_directory/Template Monster, Parser Trial.md",
+        path_to_python_file="temp_monster_directory/Template Monster, Parser Trial.py"
     )
