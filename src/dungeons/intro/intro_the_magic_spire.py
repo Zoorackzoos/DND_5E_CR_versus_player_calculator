@@ -50,7 +50,7 @@ def intro_the_magic_spire_lvl_1(tab_amount="\t"):
         path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
-    calculus_monster_dervative_cr = get_cr_from_precise_monster_search(
+    calculus_monster_derivative_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Calculus Monster, Derivative",
         path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
@@ -67,7 +67,7 @@ def intro_the_magic_spire_lvl_1(tab_amount="\t"):
             calculus_monster_limit_cr, calculus_monster_limit_cr, calculus_monster_limit_cr,
             calculus_monster_limit_cr, calculus_monster_limit_cr, calculus_monster_limit_cr,
             calculus_monster_limit_cr, calculus_monster_limit_cr, calculus_monster_limit_cr,
-            calculus_monster_dervative_cr,
+            calculus_monster_derivative_cr,
             withering_gnoll_cr
         ]
     mainframe_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
@@ -216,6 +216,76 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
         tab_amount=tab_amount
     )
 
+    # flower conference room. official flower busniess
+    tri_flower_frond_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Tri-Flower Frond",
+        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        tab_amount=tab_amount
+    )
+    """
+    corpse_flower_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Corpse Flower",
+        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
+        tab_amount=tab_amount
+    )
+    """
+    flower_conference_room_cr_values = \
+        [
+            tri_flower_frond_cr, tri_flower_frond_cr,
+            tri_flower_frond_cr, tri_flower_frond_cr
+        ]
+    flower_conference_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=flower_conference_room_cr_values,
+        encounter_name="intro_the_magic_spire_flower_conference_room",
+        tab_amount=tab_amount
+    )
+
+    # bottom left conference room
+    drop_bear_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Drop Bear",
+        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        tab_amount=tab_amount
+    )
+    hunting_cactus_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Cactus, Hunting",
+        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        tab_amount=tab_amount
+    )
+    bottom_left_conference_room_cr_values = \
+        [
+            hunting_cactus_cr, hunting_cactus_cr,
+            drop_bear_cr, drop_bear_cr, drop_bear_cr
+        ]
+    bottom_left_encounter_difficulty = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=bottom_left_conference_room_cr_values,
+        encounter_name="intro_the_magic_spire_bottom_left_conference_room",
+        tab_amount=tab_amount
+    )
+
+    # teal key room
+    spectator_cr = get_cr_from_precise_monster_search(
+        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
+        string="Beholder, Spectator",
+        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        tab_amount=tab_amount
+    )
+    teal_key_cr_values = \
+        [
+            spectator_cr
+        ]
+    teal_key_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=teal_key_cr_values,
+        encounter_name="intro_the_magic_spire_teal_key",
+        tab_amount=tab_amount
+    )
+
     #movie room
     """
     wolf_cr = get_cr_from_precise_monster_search(
@@ -243,85 +313,15 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
         tab_amount=tab_amount
     )
 
-    #teal key room
-    spectator_cr = get_cr_from_precise_monster_search(
-        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
-        string="Beholder, Spectator",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
-        tab_amount=tab_amount
-    )
-    teal_key_cr_values = \
-        [
-            spectator_cr
-        ]
-    teal_key_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
-        player_levels=player_levels,
-        monster_cr_values=teal_key_cr_values,
-        encounter_name="intro_the_magic_spire_teal_key",
-        tab_amount=tab_amount
-    )
-
-    #bottom left conference room
-    drop_bear_cr = get_cr_from_precise_monster_search(
-        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
-        string="Drop Bear",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
-        tab_amount=tab_amount
-    )
-    hunting_cactus_cr = get_cr_from_precise_monster_search(
-        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
-        string="Cactus, Hunting",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
-        tab_amount=tab_amount
-    )
-    bottom_left_conference_room_cr_values = \
-        [
-            hunting_cactus_cr,hunting_cactus_cr,
-            drop_bear_cr,drop_bear_cr,drop_bear_cr
-        ]
-    bottom_left_encounter_difficulty = get_encounter_difficulty_from_cr_values(
-        player_levels=player_levels,
-        monster_cr_values=bottom_left_conference_room_cr_values,
-        encounter_name="intro_the_magic_spire_bottom_left_conference_room",
-        tab_amount=tab_amount
-    )
-
-    #flower conference room. official flower busniess
-    tri_flower_frond_cr = get_cr_from_precise_monster_search(
-        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
-        string="Tri-Flower Frond",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
-        tab_amount=tab_amount
-    )
-    """
-    corpse_flower_cr = get_cr_from_precise_monster_search(
-        param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
-        string="Corpse Flower",
-        path_to_csv_file=into_the_magic_spire_path_to_csv_file,
-        tab_amount=tab_amount
-    )
-    """
-    flower_conference_room_cr_values = \
-    [
-        tri_flower_frond_cr,tri_flower_frond_cr,
-        tri_flower_frond_cr,tri_flower_frond_cr
-    ]
-    flower_conference_room_encounter_difficulty = get_encounter_difficulty_from_cr_values(
-        player_levels=player_levels,
-        monster_cr_values=flower_conference_room_cr_values,
-        encounter_name="intro_the_magic_spire_flower_conference_room",
-        tab_amount=tab_amount
-    )
-
     intro_the_magic_spire_lvl_2_encounters_list = \
     [
         break_room_encounter_difficulty,
         dining_room_encounter_difficulty,
         kitchen_encounter_difficulty,
-        movie_room_encounter_difficulty,
-        teal_key_room_encounter_difficulty,
-        bottom_left_encounter_difficulty,
         flower_conference_room_encounter_difficulty,
+        bottom_left_encounter_difficulty,
+        teal_key_room_encounter_difficulty,
+        movie_room_encounter_difficulty,
     ]
     print("\n",tab_amount+"\tintro_the_magic_spire_lvl_2_encounters completed")
     for encounter in intro_the_magic_spire_lvl_2_encounters_list:
