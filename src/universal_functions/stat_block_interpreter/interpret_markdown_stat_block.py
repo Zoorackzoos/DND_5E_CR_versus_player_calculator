@@ -180,7 +180,7 @@ def parse_markdown_stat_block(path_to_markdown_file, tab_amount="\t"):
     print(tab_amount, "path_to_markdown_file =", path_to_markdown_file)
 
     if not path_to_markdown_file.exists():
-        print(tab_amount, "ERROR: markdown stat block file does not exist.")
+        print(tab_amount, "ERROR: parse_markdown_stat_block: markdown stat block file does not exist.")
         exit()
 
     parsed_stat_block = {
@@ -294,7 +294,9 @@ def get_defaulted_monster_properties(parsed_stat_block, tab_amount="\t"):
     else:
         languages = parsed_stat_block["languages"]
 
-    if len(parsed_stat_block["wri"]["weak"]) == 0 and len(parsed_stat_block["wri"]["resistant"]) == 0 and len(parsed_stat_block["wri"]["immune"]) == 0:
+    if (len(parsed_stat_block["wri"]["weak"]) == 0 and
+            len(parsed_stat_block["wri"]["resistant"]) == 0 and
+            len(parsed_stat_block["wri"]["immune"]) == 0):
         print(tab_amount, "WRI missing or empty. Defaulting to None.")
 
     monster_properties = {
@@ -552,7 +554,42 @@ def interpret_markdown_stat_block_into_python_file(
 
 
 if __name__ == "__main__":
+    """
     interpret_markdown_stat_block_into_python_file(
         path_to_markdown_file="temp_monster_directory/Template Monster, Parser Trial.md",
         path_to_python_file="temp_monster_directory/Template Monster, Parser Trial.py"
     )
+    """
+    phase_1_foot_clan_ninja_path_list = \
+    [
+        [
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 blue foot clan ninja.md",
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 blue foot clan ninja.py"
+        ],
+        [
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 green foot clan ninja.md",
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 green foot clan ninja.py"
+        ],
+        [
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 orange foot clan ninja.md",
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 orange foot clan ninja.py"
+        ],
+        [
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 pink foot clan ninja.md",
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 pink foot clan ninja.py"
+        ],
+        [
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 purple foot clan ninja.md",
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 purple foot clan ninja.py"
+        ],
+        [
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 white foot clan ninja.md",
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 white foot clan ninja.py"
+        ],
+    ]
+
+    for path in phase_1_foot_clan_ninja_path_list:
+        interpret_markdown_stat_block_into_python_file(
+            path_to_markdown_file=path[0],
+            path_to_python_file=path[1]
+        )

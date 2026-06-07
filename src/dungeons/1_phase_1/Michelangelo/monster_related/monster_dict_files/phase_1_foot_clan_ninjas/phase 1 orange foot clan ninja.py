@@ -1,56 +1,56 @@
 from src.universal_functions.vars import spreadsheet_enums
 
 
-template_monster_parser_trial_monster_dict = \
+phase_1_orange_foot_clan_ninja_monster_dict = \
     {
         spreadsheet_enums.SpreadsheetKeysEnums.NAME.value :
-            'Template Monster, Parser Trial',
+            'phase 1 orange foot clan ninja',
         spreadsheet_enums.SpreadsheetKeysEnums.SIZE.value :
-            spreadsheet_enums.SizeEnums.SMALL.value,
+            spreadsheet_enums.SizeEnums.MEDIUM.value,
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
-            spreadsheet_enums.CreatureTypesEnums.CONSTRUCT.value,
+            spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            0.5,
+            '????',
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
-            'https://example.com/stat-block',
+            'https://docs.google.com/document/d/1dIjotzgCGDHc_MWAUKniFIZCMPxN7ynQ7SKz-v0YWNU/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
-            'DND_5E_CR_versus_player_calculator',
+            spreadsheet_enums.FontTypesEnums.VIRASCO_2000.value,
         spreadsheet_enums.SpreadsheetKeysEnums.AUTHOR.value :
-            'Codex',
+            spreadsheet_enums.AuthorFontTypesEnums.SHWIFTY_MEME_LORD.value,
         spreadsheet_enums.SpreadsheetKeysEnums.HP.value :
-            13,
+            40,
         spreadsheet_enums.SpreadsheetKeysEnums.AC.value :
-            12,
+            18,
         spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value :
-            '30, climb 20',
+            30,
         spreadsheet_enums.SpreadsheetKeysEnums.ALIGN.value :
-            'almost chaos',
+            'chaotic neutral',
         spreadsheet_enums.SpreadsheetKeysEnums.STR.value :
-            8,
+            16,
         spreadsheet_enums.SpreadsheetKeysEnums.DEX.value :
-            14,
+            16,
         spreadsheet_enums.SpreadsheetKeysEnums.CON.value :
-            10,
+            16,
         spreadsheet_enums.SpreadsheetKeysEnums.INT.value :
-            6,
+            14,
         spreadsheet_enums.SpreadsheetKeysEnums.WIS.value :
-            9,
+            12,
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
-            4,
+            10,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value]),
+            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.WIS.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            ", ".join([spreadsheet_enums.SkillsEnums.STEALTH.value, spreadsheet_enums.SkillsEnums.HISTORY.value]),
+            ", ".join([spreadsheet_enums.SkillsEnums.ACROBATICS.value, spreadsheet_enums.SkillsEnums.STEALTH.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            ", ".join([spreadsheet_enums.WRIEnums.RADIANT_WEAKNESS.value, spreadsheet_enums.WRIEnums.FIRE_RESISTANT.value, spreadsheet_enums.WRIEnums.NECROTIC_RESISTANT.value, spreadsheet_enums.WRIEnums.POISON_IMMUNE.value]),
+            spreadsheet_enums.WRIEnums.BLUDGEONING_RESISTANT.value,
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
-            spreadsheet_enums.SensesEnums.DARKVISION_SIXTY.value,
+            spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
             spreadsheet_enums.LanguagesEnums.COMMON.value,
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            5.5,
+            21,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
             4,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
@@ -60,13 +60,13 @@ template_monster_parser_trial_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_FLIGHT.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value :
-            2,
+            1,
         spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value :
-            1,
+            0,
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
-            1,
+            0,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
-            11,
+            15,
         spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.REGENERATION_PER_ROUND.value :
@@ -74,37 +74,15 @@ template_monster_parser_trial_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value :
-            1,
-        spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
             2,
+        spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
+            1,
         spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.LIMITED_USE_DAMAGE.value :
-            6,
+            0,
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
-            1,
+            0,
         "actions" :
-            [
-                {
-                    'name': 'action \\- test spark',
-                    'action_type': 'action',
-                    'attack_type': 'ranged_spell_attack',
-                    'hit_modifier': 4,
-                    'damage': '1d6 + 2',
-                    'damage_type': 'fire',
-                    'range': 60,
-                    'notes': 'Link in the action name should become plain text.'
-                 },
-                {
-                    'name': 'action \\- bad math shove',
-                    'action_type': 'bonus_action',
-                    'attack_type': 'saving_throw',
-                    'save_dc': 11,
-                    'save_stat': 'str',
-                    'damage': '1d4 \\- 1',
-                    'damage_type': 'bludgeoning',
-                    'range': 5,
-                    'notes': 'Negative constants should not scare the parser.'
-                 }
-            ],
+            [{'name': 'action \\- test spark', 'action_type': 'action', 'attack_type': 'ranged_attack', 'hit_modifier': 5, 'damage': '2d12 + 8', 'damage_type': 'piercing', 'range': 30, 'notes': 'this is the weapon the shinobi from for honor uses.'}, {'name': 'bonus action \\- get over here', 'action_type': 'bonus action', 'attack_type': 'ranged_attack', 'save_dc': 15, 'dc_type': 'dex', 'range': '30ft', 'notes': 'this brings the target towards the orange ninja'}, {'name': 'bonus action \\- smoke bomb', 'action_type': 'bonus action', 'attack_type': 'ranged_attack', 'save_dc': 15, 'dc_type': 'perception', 'range': '30ft', 'notes': 'the orange ninja puts this by himself and a 4x4 cube around him is covered in smoke you cannot see for 1 whole turn'}],
     }

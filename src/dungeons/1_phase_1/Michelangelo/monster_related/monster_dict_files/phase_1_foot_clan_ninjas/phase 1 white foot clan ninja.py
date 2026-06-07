@@ -1,58 +1,58 @@
 from src.universal_functions.vars import spreadsheet_enums
 
 
-template_monster_parser_trial_monster_dict = \
+phase_1_white_foot_clan_ninja_monster_dict = \
     {
         spreadsheet_enums.SpreadsheetKeysEnums.NAME.value :
-            'Template Monster, Parser Trial',
+            'phase 1 white foot clan ninja',
         spreadsheet_enums.SpreadsheetKeysEnums.SIZE.value :
-            spreadsheet_enums.SizeEnums.SMALL.value,
+            spreadsheet_enums.SizeEnums.MEDIUM.value,
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
-            spreadsheet_enums.CreatureTypesEnums.CONSTRUCT.value,
+            spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            0.5,
+            '????',
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
-            'https://example.com/stat-block',
+            'https://docs.google.com/document/d/1bg1YjfYSb06-euGZpkAeznGUKGTsy4GXGSm3xQHY0mk/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
-            'DND_5E_CR_versus_player_calculator',
+            spreadsheet_enums.FontTypesEnums.VIRASCO_2000.value,
         spreadsheet_enums.SpreadsheetKeysEnums.AUTHOR.value :
-            'Codex',
+            spreadsheet_enums.AuthorFontTypesEnums.SHWIFTY_MEME_LORD.value,
         spreadsheet_enums.SpreadsheetKeysEnums.HP.value :
-            13,
+            50,
         spreadsheet_enums.SpreadsheetKeysEnums.AC.value :
-            12,
-        spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value :
-            '30, climb 20',
-        spreadsheet_enums.SpreadsheetKeysEnums.ALIGN.value :
-            'almost chaos',
-        spreadsheet_enums.SpreadsheetKeysEnums.STR.value :
-            8,
-        spreadsheet_enums.SpreadsheetKeysEnums.DEX.value :
             14,
+        spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value :
+            30,
+        spreadsheet_enums.SpreadsheetKeysEnums.ALIGN.value :
+            'chaotic neutral',
+        spreadsheet_enums.SpreadsheetKeysEnums.STR.value :
+            16,
+        spreadsheet_enums.SpreadsheetKeysEnums.DEX.value :
+            16,
         spreadsheet_enums.SpreadsheetKeysEnums.CON.value :
-            10,
+            14,
         spreadsheet_enums.SpreadsheetKeysEnums.INT.value :
-            6,
+            12,
         spreadsheet_enums.SpreadsheetKeysEnums.WIS.value :
-            9,
+            10,
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
-            4,
+            10,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value]),
+            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.WIS.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            ", ".join([spreadsheet_enums.SkillsEnums.STEALTH.value, spreadsheet_enums.SkillsEnums.HISTORY.value]),
+            ", ".join([spreadsheet_enums.SkillsEnums.ACROBATICS.value, spreadsheet_enums.SkillsEnums.STEALTH.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            ", ".join([spreadsheet_enums.WRIEnums.RADIANT_WEAKNESS.value, spreadsheet_enums.WRIEnums.FIRE_RESISTANT.value, spreadsheet_enums.WRIEnums.NECROTIC_RESISTANT.value, spreadsheet_enums.WRIEnums.POISON_IMMUNE.value]),
+            spreadsheet_enums.WRIEnums.NONE.value,
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
-            spreadsheet_enums.SensesEnums.DARKVISION_SIXTY.value,
+            spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
             spreadsheet_enums.LanguagesEnums.COMMON.value,
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            5.5,
+            19,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
-            4,
+            5,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value :
@@ -60,13 +60,13 @@ template_monster_parser_trial_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_FLIGHT.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value :
-            2,
+            0,
         spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value :
-            1,
+            0,
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
-            1,
+            0,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
-            11,
+            17,
         spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.REGENERATION_PER_ROUND.value :
@@ -74,37 +74,15 @@ template_monster_parser_trial_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value :
-            1,
+            2,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
             2,
         spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.LIMITED_USE_DAMAGE.value :
-            6,
+            0,
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
-            1,
+            19,
         "actions" :
-            [
-                {
-                    'name': 'action \\- test spark',
-                    'action_type': 'action',
-                    'attack_type': 'ranged_spell_attack',
-                    'hit_modifier': 4,
-                    'damage': '1d6 + 2',
-                    'damage_type': 'fire',
-                    'range': 60,
-                    'notes': 'Link in the action name should become plain text.'
-                 },
-                {
-                    'name': 'action \\- bad math shove',
-                    'action_type': 'bonus_action',
-                    'attack_type': 'saving_throw',
-                    'save_dc': 11,
-                    'save_stat': 'str',
-                    'damage': '1d4 \\- 1',
-                    'damage_type': 'bludgeoning',
-                    'range': 5,
-                    'notes': 'Negative constants should not scare the parser.'
-                 }
-            ],
+            [{'name': 'action \\- nunchuck strike', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 5, 'damage': '2d12 + 6', 'damage_type': 'bludening', 'range': 5}, {'name': 'bonus action \\- initiate area denial', 'action_type': 'bonus action', 'attack_type': 'melee_attack', 'notes': 'this requires concentration. if for some reason you have a spell that breaks his concentration then he stops, and can’t hit you back.'}, {'name': 'reaction \\- retribution nunchuck strike', 'action_type': 'reaction', 'attack_type': 'melee_attack', 'save_dc': 17, 'dc_type': 'dex', 'damage': '2d12 + 6', 'damage_type': 'bludening', 'range': 5, 'notes': 'you have to initiate area denial on.'}],
     }
