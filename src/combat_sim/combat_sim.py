@@ -17,7 +17,10 @@ def get_damage(damage_dice,tab_amount="\t"):
     total_damage = 0
 
     for key, value in damage_dice.items():
-        if value == 0:
+        if key == "constant":
+            print(tab_amount, "constant damage =", value)
+            total_damage += value
+        elif value == 0:
             print(tab_amount,"no",key,"dice present. not rolling")
             pass
         else:
