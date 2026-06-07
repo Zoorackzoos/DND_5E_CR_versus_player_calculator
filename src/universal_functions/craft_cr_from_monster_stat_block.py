@@ -374,25 +374,32 @@ def plug_monster_var_values_into_get_cr_from_monster(monster_var, tab_amount="\t
     print(tab_amount, "plug_monster_var_values_into_get_cr_from_monster")
     tab_amount += "\t"
 
+    def get_monster_value(spreadsheet_key, code_key, default_value=None):
+        if spreadsheet_key in monster_var:
+            return monster_var[spreadsheet_key]
+        if code_key in monster_var:
+            return monster_var[code_key]
+        return default_value
+
     return craft_cr_from_monster_stat_block(
-        hit_points=monster_var[spreadsheet_enums.SpreadsheetKeysEnums.HP.value],
-        armor_class=monster_var[spreadsheet_enums.SpreadsheetKeysEnums.AC.value],
-        average_damage=monster_var[spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value],
-        attack_modifier=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value, 0),
-        has_legendary_action=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value, False),
-        has_flight=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.HAS_FLIGHT.value, False),
-        resistance_count=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value, 0),
-        immunity_count=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value, 0),
-        weakness_count=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value, 0),
-        save_dc=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value, 0),
-        is_spellcaster=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value, False),
-        regeneration_per_round=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.REGENERATION_PER_ROUND.value, 0),
-        multiattack_count=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value, 0),
-        ability_count=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value, 0),
-        recharge_damage=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value, 0),
-        limited_use_damage=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.LIMITED_USE_DAMAGE.value, 0),
-        bonus_action_damage=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value, 0),
-        legendary_action_damage=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value, 0),
-        ability_cr_weight=monster_var.get(spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value, 2),
+        hit_points=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.HP.value, "hp"),
+        armor_class=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.AC.value, "ac"),
+        average_damage=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value, "average_damage"),
+        attack_modifier=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value, "attack_modifier", 0),
+        has_legendary_action=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value, "has_legendary_action", False),
+        has_flight=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.HAS_FLIGHT.value, "has_flight", False),
+        resistance_count=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value, "resistance_count", 0),
+        immunity_count=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value, "immunity_count", 0),
+        weakness_count=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value, "weakness_count", 0),
+        save_dc=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value, "save_dc", 0),
+        is_spellcaster=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value, "is_spellcaster", False),
+        regeneration_per_round=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.REGENERATION_PER_ROUND.value, "regeneration_per_round", 0),
+        multiattack_count=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value, "multiattack_count", 0),
+        ability_count=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value, "ability_count", 0),
+        recharge_damage=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value, "recharge_damage", 0),
+        limited_use_damage=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.LIMITED_USE_DAMAGE.value, "limited_use_damage", 0),
+        bonus_action_damage=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value, "bonus_action_damage", 0),
+        legendary_action_damage=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value, "legendary_action_damage", 0),
+        ability_cr_weight=get_monster_value(spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value, "ability_cr_weight", 2),
         tab_amount=tab_amount
     )
