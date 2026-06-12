@@ -7,8 +7,8 @@ def the_dmv(tab_amount="\t"):
     :param tab_amount:
     :return:
     """
-    player_levels = [5,5,5,5]
-    #TODO: update this with upgraded ninjas. I do this, not you mr. codex.
+    player_levels = [6,6,6,6]
+    
     pass
 
 if __name__ == "__main__":
