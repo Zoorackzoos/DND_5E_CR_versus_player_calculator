@@ -1,0 +1,88 @@
+from src.universal_functions.vars import spreadsheet_enums
+
+
+phase_1_yellow_foot_clan_ninja_monster_dict = \
+    {
+        spreadsheet_enums.SpreadsheetKeysEnums.NAME.value :
+            'phase 1 yellow foot clan ninja',
+        spreadsheet_enums.SpreadsheetKeysEnums.SIZE.value :
+            spreadsheet_enums.SizeEnums.MEDIUM.value,
+        spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
+            spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
+        spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
+            '????',
+        spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
+            'https://docs.google.com/document/d/1yOfg4PKpu4RJNDXECuvuNZzwuMiic8-mhLkkQcajzAc/edit?tab=t.0',
+        spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
+            spreadsheet_enums.FontTypesEnums.VIRASCO_2000.value,
+        spreadsheet_enums.SpreadsheetKeysEnums.AUTHOR.value :
+            spreadsheet_enums.AuthorFontTypesEnums.SHWIFTY_MEME_LORD.value,
+        spreadsheet_enums.SpreadsheetKeysEnums.HP.value :
+            40,
+        spreadsheet_enums.SpreadsheetKeysEnums.AC.value :
+            14,
+        spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value :
+            30,
+        spreadsheet_enums.SpreadsheetKeysEnums.ALIGN.value :
+            'neutral evil',
+        spreadsheet_enums.SpreadsheetKeysEnums.STR.value :
+            16,
+        spreadsheet_enums.SpreadsheetKeysEnums.DEX.value :
+            18,
+        spreadsheet_enums.SpreadsheetKeysEnums.CON.value :
+            18,
+        spreadsheet_enums.SpreadsheetKeysEnums.INT.value :
+            12,
+        spreadsheet_enums.SpreadsheetKeysEnums.WIS.value :
+            12,
+        spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
+            12,
+        spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
+            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.WIS.value]),
+        spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
+            ", ".join([spreadsheet_enums.SkillsEnums.ACROBATICS.value, spreadsheet_enums.SkillsEnums.STEALTH.value]),
+        spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
+            ", ".join([spreadsheet_enums.WRIEnums.BLUDGEONING_RESISTANT.value, spreadsheet_enums.WRIEnums.SLASHING_RESISTANT.value, spreadsheet_enums.WRIEnums.FORCE_RESISTANT.value]),
+        spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
+            spreadsheet_enums.SensesEnums.NORMAL.value,
+        spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
+            spreadsheet_enums.LanguagesEnums.COMMON.value,
+        spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
+            'None',
+        spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
+            17,
+        spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
+            5,
+        spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
+            False,
+        spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.HAS_FLIGHT.value :
+            False,
+        spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value :
+            3,
+        spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
+            14,
+        spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value :
+            False,
+        spreadsheet_enums.SpreadsheetKeysEnums.REGENERATION_PER_ROUND.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value :
+            2,
+        spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
+            4,
+        spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.LIMITED_USE_DAMAGE.value :
+            44,
+        spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
+            0,
+        "actions" :
+            [{'name': 'action \\- boomerang throw', 'action_type': 'action', 'attack_type': 'ranged_spell_attack', 'hit_modifier': 5, 'damage': '2d8 + 8', 'damage_type': 'bludening', 'range': 60}, {'name': 'action \\- bomb throw', 'action_type': 'action', 'attack_type': 'saving_throw', 'save_dc': 14, 'save_stat': 'dex', 'damage': '8d8 + 8', 'damage_type': 'force', 'range': 60, 'notes': 'i hyped up the fact this guy has bombs. do read my lips.'}, {'name': 'limited use reaction \\- dodge', 'action_type': 'reaction', 'amount_of_uses': 3, 'notes': 'the attacker has disadvantage to hit this yellow ninja.'}],
+    }

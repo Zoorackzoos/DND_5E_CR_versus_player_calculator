@@ -10,6 +10,21 @@ def get_cr_from_precise_monster_search(param_type,
                                        string,
                                        path_to_csv_file=default_path_monsters_all_stats_dict,
                                        tab_amount="\t"):
+    """
+    this gets the CR of the 1st creature it detects based on
+    * param_type
+    * string
+
+    the reason path_to_csv_file is a parameter is because i don't know how to make the
+    pathing in this function universally flexible, without a parameter. because the file
+    you're calling it in will have a different directory, from file to file.
+
+    :param param_type:
+    :param string:
+    :param path_to_csv_file:
+    :param tab_amount:
+    :return:
+    """
     global monster_row
     print(tab_amount,"get_cr_from_precise_monster_search")
     tab_amount += "\t"

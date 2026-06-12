@@ -5,6 +5,19 @@ from src.universal_functions.display.print_2d_list_that_contains_dictionaries im
 
 
 def get_dict_from_csv_file(path_to_csv_file, tab_amount="\t"):
+    """
+    this converts the entire spreadsheet into a dictionary file
+    the path_to_csv_file IS a requirement because of the function's feature.
+        in any other function, path_to_csv_file is a limitation of my knowledge
+
+    it's important to know this has a worse sister function of
+    "get_array_from_csv_file".
+        dictionaries are better than arrays in this project.
+
+    :param path_to_csv_file:
+    :param tab_amount:
+    :return:
+    """
     print(tab_amount,"get_dict_from_csv")
     tab_amount += "\t"
     print(tab_amount,"path_to_csv_file = \n", tab_amount, path_to_csv_file)

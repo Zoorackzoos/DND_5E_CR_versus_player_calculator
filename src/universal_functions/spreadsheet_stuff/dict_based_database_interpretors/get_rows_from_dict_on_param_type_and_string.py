@@ -4,6 +4,21 @@ from src.universal_functions.spreadsheet_stuff.dict_based_database_interpretors.
 
 
 def get_rows_from_dict_on_param_type_and_string(dict_in_question, param_type, string, tab_amount="\t"):
+    """
+    everything in the .tsv and .csv spreadsheet is a string. so there's no type errors when
+    i compare the string variable, and the spreadsheet's cell values.
+        This funciton has to be fed a dictionary. just a big ahh dictionary.
+            the way you get that is from calling "get_dict_from_csv_file"
+            function in the file beforehand
+
+    
+
+    :param dict_in_question:
+    :param param_type:
+    :param string:
+    :param tab_amount:
+    :return:
+    """
     print(tab_amount, "get_rows_from_dict_on_param_type_and_string")
     tab_amount += "\t"
 

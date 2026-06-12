@@ -586,6 +586,10 @@ if __name__ == "__main__":
             "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 white foot clan ninja.md",
             "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 white foot clan ninja.py"
         ],
+        [
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 yellow foot clan ninja.md",
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase 1 yellow foot clan ninja.py"
+        ],
     ]
 
     for path in phase_1_foot_clan_ninja_path_list:
