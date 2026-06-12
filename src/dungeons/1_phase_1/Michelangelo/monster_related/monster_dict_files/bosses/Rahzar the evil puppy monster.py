@@ -1,0 +1,104 @@
+from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_block import (
+    build_replacement_python_dictionary_file_text_from_monster_dict,
+    infer_cr_helper_values_from_monster_dict,
+)
+from src.universal_functions.vars import spreadsheet_enums
+
+
+rahzar_the_evil_puppy_monster_monster_dict = \
+    {
+        spreadsheet_enums.SpreadsheetKeysEnums.NAME.value :
+            'Rahzar the evil puppy monster',
+        spreadsheet_enums.SpreadsheetKeysEnums.SIZE.value :
+            spreadsheet_enums.SizeEnums.LARGE.value,
+        spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
+            spreadsheet_enums.CreatureTypesEnums.MONSTROSITY.value,
+        spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
+            '????',
+        spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
+            'https://docs.google.com/document/d/1z_fra4MkVdRrooz2piO6xCZersSbJz060tb7f9HAyic/edit?tab=t.0',
+        spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
+            spreadsheet_enums.FontTypesEnums.VIRASCO_2000.value,
+        spreadsheet_enums.SpreadsheetKeysEnums.AUTHOR.value :
+            spreadsheet_enums.AuthorFontTypesEnums.SHWIFTY_MEME_LORD.value,
+        spreadsheet_enums.SpreadsheetKeysEnums.HP.value :
+            90,
+        spreadsheet_enums.SpreadsheetKeysEnums.AC.value :
+            13,
+        spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value :
+            45,
+        spreadsheet_enums.SpreadsheetKeysEnums.ALIGN.value :
+            'chaotic evil',
+        spreadsheet_enums.SpreadsheetKeysEnums.STR.value :
+            18,
+        spreadsheet_enums.SpreadsheetKeysEnums.DEX.value :
+            16,
+        spreadsheet_enums.SpreadsheetKeysEnums.CON.value :
+            14,
+        spreadsheet_enums.SpreadsheetKeysEnums.INT.value :
+            6,
+        spreadsheet_enums.SpreadsheetKeysEnums.WIS.value :
+            9,
+        spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
+            8,
+        spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
+            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value]),
+        spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
+            ", ".join([spreadsheet_enums.SkillsEnums.ANIMAL_HANDLING.value, spreadsheet_enums.SkillsEnums.INTIMIDATION.value]),
+        spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
+            ", ".join([spreadsheet_enums.WRIEnums.BLUDGEONING_RESISTANT.value, 'fearimmune', 'proneimmune']),
+        spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
+            spreadsheet_enums.SensesEnums.NORMAL.value,
+        spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
+            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
+        spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
+            'None',
+        spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
+            18,
+        spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
+            5,
+        spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
+            False,
+        spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.HAS_FLIGHT.value :
+            False,
+        spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value :
+            1,
+        spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value :
+            2,
+        spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
+            14,
+        spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value :
+            False,
+        spreadsheet_enums.SpreadsheetKeysEnums.REGENERATION_PER_ROUND.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value :
+            1,
+        spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
+            3,
+        spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.LIMITED_USE_DAMAGE.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
+            19.5,
+        "actions" :
+            [{'name': 'rush bash', 'action_type': 'bonus action', 'attack_type': 'charge_attack', 'save_dc': 14, 'damage': '3d8 + 6', 'damage_type': 'bludgening', 'range': 45, 'notes': 'if he runs into Tokka, Tokka takes 1d8 damage. average damage \\= 19.5'}, {'name': 'fire breathe', 'action_type': 'action', 'attack_type': 'saving_throw', 'save_dc': 14, 'save_stat': 'dex', 'damage': '2d8 + 6', 'damage_type': 'fire', 'range': 15, 'notes': 'he breathes fire.'}, {'name': 'strike', 'action_type': 'action', 'attack_type': 'melee_action', 'hit_modifier': 5, 'damage': '2d8 + 2d6 + 2', 'damage_type': 'bludgening', 'range': 5, 'notes': 'average damage \\= 18.0'}],
+    }
+
+
+if __name__ == "__main__":
+    updated_monster_dict = infer_cr_helper_values_from_monster_dict(
+        monster_dict=rahzar_the_evil_puppy_monster_monster_dict
+    )
+    print(
+        build_replacement_python_dictionary_file_text_from_monster_dict(
+            monster_dict=updated_monster_dict,
+            dict_variable_name='rahzar_the_evil_puppy_monster_monster_dict'
+        )
+    )

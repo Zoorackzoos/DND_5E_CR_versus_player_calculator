@@ -837,7 +837,31 @@ if __name__ == "__main__":
         ],
     ]
 
+    path_to_tokka_the_evil_blue_turtle = \
+    "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/bosses/Tokka the evil blue turtle.md"
+    path_to_rahzar_the_evil_puppy_monster = \
+    "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/bosses/Rahzar the evil puppy monster.md"
+
+    DMV_bosses = \
+    [
+        [
+            path_to_tokka_the_evil_blue_turtle,
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/bosses/Tokka the evil blue turtle.py"
+        ],
+        [
+            path_to_rahzar_the_evil_puppy_monster,
+            "../../dungeons/1_phase_1/Michelangelo/monster_related/monster_dict_files/bosses/Rahzar the evil puppy monster.py"
+        ]
+    ]
+
+    #updating the ninjas
     for path in phase_1_foot_clan_ninja_path_list:
+        interpret_markdown_stat_block_into_python_file(
+            path_to_markdown_file=path[0],
+            path_to_python_file=path[1]
+        )
+    #updating the bosses
+    for path in DMV_bosses:
         interpret_markdown_stat_block_into_python_file(
             path_to_markdown_file=path[0],
             path_to_python_file=path[1]
