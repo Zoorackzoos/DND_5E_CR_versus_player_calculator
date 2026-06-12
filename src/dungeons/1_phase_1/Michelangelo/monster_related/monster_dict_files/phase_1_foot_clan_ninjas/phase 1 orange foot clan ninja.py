@@ -1,3 +1,7 @@
+from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_block import (
+    build_replacement_python_dictionary_file_text_from_monster_dict,
+    infer_cr_helper_values_from_monster_dict,
+)
 from src.universal_functions.vars import spreadsheet_enums
 
 
@@ -46,7 +50,7 @@ phase_1_orange_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            spreadsheet_enums.LanguagesEnums.COMMON.value,
+            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
@@ -84,5 +88,17 @@ phase_1_orange_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
             0,
         "actions" :
-            [{'name': 'action \\- test spark', 'action_type': 'action', 'attack_type': 'ranged_attack', 'hit_modifier': 5, 'damage': '2d12 + 8', 'damage_type': 'piercing', 'range': 30, 'notes': 'this is the weapon the shinobi from for honor uses.'}, {'name': 'bonus action \\- get over here', 'action_type': 'bonus action', 'attack_type': 'ranged_attack', 'save_dc': 15, 'dc_type': 'dex', 'range': '30ft', 'notes': 'this brings the target towards the orange ninja'}, {'name': 'bonus action \\- smoke bomb', 'action_type': 'bonus action', 'attack_type': 'ranged_attack', 'save_dc': 15, 'dc_type': 'perception', 'range': '30ft', 'notes': 'the orange ninja puts this by himself and a 4x4 cube around him is covered in smoke you cannot see for 1 whole turn'}],
+            [{'name': 'test spark', 'action_type': 'action', 'attack_type': 'ranged_attack', 'hit_modifier': 5, 'damage': '2d12 + 8', 'damage_type': 'piercing', 'range': 30, 'notes': 'this is the weapon the shinobi from for honor uses.'}, {'name': 'get over here', 'action_type': 'bonus action', 'attack_type': 'ranged_attack', 'save_dc': 15, 'dc_type': 'dex', 'range': '30ft', 'notes': 'this brings the target towards the orange ninja'}, {'name': 'smoke bomb', 'action_type': 'bonus action', 'attack_type': 'ranged_attack', 'save_dc': 15, 'dc_type': 'perception', 'range': '30ft', 'notes': 'the orange ninja puts this by himself and a 4x4 cube around him is covered in smoke you cannot see for 1 whole turn'}],
     }
+
+
+if __name__ == "__main__":
+    updated_monster_dict = infer_cr_helper_values_from_monster_dict(
+        monster_dict=phase_1_orange_foot_clan_ninja_monster_dict
+    )
+    print(
+        build_replacement_python_dictionary_file_text_from_monster_dict(
+            monster_dict=updated_monster_dict,
+            dict_variable_name='phase_1_orange_foot_clan_ninja_monster_dict'
+        )
+    )

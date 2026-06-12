@@ -1,3 +1,7 @@
+from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_block import (
+    build_replacement_python_dictionary_file_text_from_monster_dict,
+    infer_cr_helper_values_from_monster_dict,
+)
 from src.universal_functions.vars import spreadsheet_enums
 
 
@@ -46,7 +50,7 @@ phase_1_white_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            spreadsheet_enums.LanguagesEnums.COMMON.value,
+            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
@@ -84,5 +88,17 @@ phase_1_white_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
             19,
         "actions" :
-            [{'name': 'action \\- nunchuck strike', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 5, 'damage': '2d12 + 6', 'damage_type': 'bludening', 'range': 5}, {'name': 'bonus action \\- initiate area denial', 'action_type': 'bonus action', 'attack_type': 'melee_attack', 'notes': 'this requires concentration. if for some reason you have a spell that breaks his concentration then he stops, and can’t hit you back.'}, {'name': 'reaction \\- retribution nunchuck strike', 'action_type': 'reaction', 'attack_type': 'melee_attack', 'save_dc': 17, 'dc_type': 'dex', 'damage': '2d12 + 6', 'damage_type': 'bludening', 'range': 5, 'notes': 'you have to initiate area denial on.'}],
+            [{'name': 'nunchuck strike', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 5, 'damage': '2d12 + 6', 'damage_type': 'bludening', 'range': 5}, {'name': 'initiate area denial', 'action_type': 'bonus action', 'attack_type': 'melee_attack', 'notes': 'this requires concentration. if for some reason you have a spell that breaks his concentration then he stops, and can’t hit you back.'}, {'name': 'retribution nunchuck strike', 'action_type': 'reaction', 'attack_type': 'melee_attack', 'save_dc': 17, 'dc_type': 'dex', 'damage': '2d12 + 6', 'damage_type': 'bludening', 'range': 5, 'notes': 'you have to initiate area denial on.'}],
     }
+
+
+if __name__ == "__main__":
+    updated_monster_dict = infer_cr_helper_values_from_monster_dict(
+        monster_dict=phase_1_white_foot_clan_ninja_monster_dict
+    )
+    print(
+        build_replacement_python_dictionary_file_text_from_monster_dict(
+            monster_dict=updated_monster_dict,
+            dict_variable_name='phase_1_white_foot_clan_ninja_monster_dict'
+        )
+    )

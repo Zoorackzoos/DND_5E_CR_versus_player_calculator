@@ -1,6 +1,9 @@
 import re
 from pathlib import Path
 
+from src.universal_functions.craft_cr_from_monster_stat_block import (
+    plug_monster_var_values_into_get_cr_from_monster,
+)
 from src.universal_functions.vars import spreadsheet_enums
 
 
@@ -85,8 +88,10 @@ def clean_action_name(value):
     value = value.replace("\\_", "_")
     value = value.replace("\\+", "+")
     value = value.replace("\\#", "#")
+    value = value.replace("\\-", "-")
     value = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r"\1", value)
-    value = re.sub(r"^action\s*-\s*", "", value, flags=re.IGNORECASE)
+    if "-" in value:
+        value = value.split("-", 1)[1]
     return value.strip()
 
 
@@ -240,7 +245,7 @@ def parse_markdown_stat_block(path_to_markdown_file, tab_amount="\t"):
             if current_section == "ignored" or current_section is None:
                 continue
 
-            if current_section == "languages" and line.startswith("-"):
+            if current_section == "languages" and (line.startswith("-") or line.startswith("*")):
                 parsed_stat_block["languages"].append(
                     clean_markdown_text(line[1:])
                 )
@@ -431,17 +436,231 @@ def get_monster_value_expression(key, value):
     if key == "alignment":
         return get_enum_expression(spreadsheet_enums.AlignmentEnums, "AlignmentEnums", value)
     if key == "saving_throws":
+        if not isinstance(value, dict):
+            return repr(value)
         return get_saving_throw_expression(value)
     if key == "skills":
+        if not isinstance(value, dict):
+            return repr(value)
         return get_skills_expression(value)
     if key == "wri":
+        if not isinstance(value, dict):
+            return repr(value)
         return get_wri_expression(value)
     if key == "senses":
         return get_enum_expression(spreadsheet_enums.SensesEnums, "SensesEnums", value)
     if key == "languages":
+        if isinstance(value, str):
+            return repr(value)
         return get_languages_expression(value)
 
     return repr(value)
+
+
+def get_average_damage_from_damage_string(damage_string):
+    if damage_string is None:
+        return 0
+
+    damage_string = clean_markdown_text(damage_string).lower()
+    total_damage = 0
+
+    dice_matches = re.findall(r"(\d+)d(\d+)", damage_string)
+
+    for dice_count, dice_sides in dice_matches:
+        dice_count = int(dice_count)
+        dice_sides = int(dice_sides)
+        total_damage += dice_count * ((dice_sides + 1) / 2)
+
+    damage_string_without_dice = re.sub(r"\d+d\d+", "", damage_string)
+    constant_matches = re.findall(r"[-+]\s*\d+", damage_string_without_dice)
+
+    for constant_match in constant_matches:
+        total_damage += int(constant_match.replace(" ", ""))
+
+    return total_damage
+
+
+def get_monster_dict_value(monster_dict, spreadsheet_key, default_value=None):
+    if spreadsheet_key in monster_dict:
+        return monster_dict[spreadsheet_key]
+
+    return default_value
+
+
+def get_inferred_defense_counts(wri_value):
+    wri_text = str(wri_value).lower()
+
+    if wri_text == "" or wri_text == "none":
+        return {
+            "resistance_count": 0,
+            "immunity_count": 0,
+            "weakness_count": 0,
+        }
+
+    wri_parts = [part.strip() for part in wri_text.split(",")]
+
+    return {
+        "resistance_count": len([part for part in wri_parts if "res" in part]),
+        "immunity_count": len([part for part in wri_parts if "immu" in part]),
+        "weakness_count": len([part for part in wri_parts if "weak" in part]),
+    }
+
+
+def infer_cr_helper_values_from_monster_dict(monster_dict, tab_amount="\t"):
+    print(tab_amount, "infer_cr_helper_values_from_monster_dict")
+    tab_amount += "\t"
+
+    updated_monster_dict = dict(monster_dict)
+    actions = updated_monster_dict.get("actions", [])
+
+    normal_action_damages = []
+    bonus_action_damages = []
+    limited_use_damages = []
+    recharge_damages = []
+    legendary_action_damages = []
+    hit_modifiers = []
+    save_dcs = []
+    utility_ability_count = 0
+
+    for action in actions:
+        action_name = str(action.get("name", "")).lower()
+        action_type = str(action.get("action_type", "")).lower()
+        action_text = action_name + " " + action_type
+        action_damage = get_average_damage_from_damage_string(action.get("damage"))
+
+        if "hit_modifier" in action:
+            hit_modifiers.append(action["hit_modifier"])
+        if "save_dc" in action:
+            save_dcs.append(action["save_dc"])
+
+        if action_damage > 0:
+            if "legendary" in action_text:
+                legendary_action_damages.append(action_damage)
+            elif "recharge" in action_text or "rechargeable" in action_text:
+                recharge_damages.append(action_damage)
+            elif "limited" in action_text:
+                limited_use_damages.append(action_damage)
+            elif "bonus" in action_text:
+                bonus_action_damages.append(action_damage)
+            elif action_type == "action" or action_type == "":
+                normal_action_damages.append(action_damage)
+        else:
+            if action_type != "action":
+                utility_ability_count += 1
+
+    speed_value = get_monster_dict_value(
+        monster_dict=updated_monster_dict,
+        spreadsheet_key=spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value,
+        default_value=""
+    )
+    wri_value = get_monster_dict_value(
+        monster_dict=updated_monster_dict,
+        spreadsheet_key=spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value,
+        default_value=""
+    )
+    defense_counts = get_inferred_defense_counts(wri_value=wri_value)
+
+    inferred_values = {
+        spreadsheet_enums.SpreadsheetKeysEnums.HAS_FLIGHT.value:
+            "fly" in str(speed_value).lower(),
+        spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value:
+            defense_counts["resistance_count"],
+        spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value:
+            defense_counts["immunity_count"],
+        spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value:
+            defense_counts["weakness_count"],
+    }
+
+    if len(normal_action_damages) > 0:
+        inferred_values[spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value] = max(normal_action_damages)
+    if len(hit_modifiers) > 0:
+        inferred_values[spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value] = max(hit_modifiers)
+    if len(save_dcs) > 0:
+        inferred_values[spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value] = max(save_dcs)
+    if len(bonus_action_damages) > 0:
+        inferred_values[spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value] = max(bonus_action_damages)
+    if len(limited_use_damages) > 0:
+        inferred_values[spreadsheet_enums.SpreadsheetKeysEnums.LIMITED_USE_DAMAGE.value] = max(limited_use_damages)
+    if len(recharge_damages) > 0:
+        inferred_values[spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value] = max(recharge_damages)
+    if len(legendary_action_damages) > 0:
+        inferred_values[spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value] = max(legendary_action_damages)
+        inferred_values[spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value] = True
+    if utility_ability_count > 0:
+        inferred_values[spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value] = utility_ability_count
+
+    for key, value in inferred_values.items():
+        print(tab_amount, key, "=", value)
+        updated_monster_dict[key] = value
+
+    updated_monster_dict[spreadsheet_enums.SpreadsheetKeysEnums.CR.value] = (
+        plug_monster_var_values_into_get_cr_from_monster(
+            monster_var=updated_monster_dict,
+            tab_amount=tab_amount
+        )
+    )
+
+    print(
+        tab_amount,
+        spreadsheet_enums.SpreadsheetKeysEnums.CR.value,
+        "=",
+        updated_monster_dict[spreadsheet_enums.SpreadsheetKeysEnums.CR.value]
+    )
+
+    return updated_monster_dict
+
+
+def get_monster_properties_from_generated_monster_dict(monster_dict):
+    monster_properties = {
+        "name": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.NAME.value, "Unnamed Monster"),
+        "size": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.SIZE.value, "medium"),
+        "type": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value, "monstrosity"),
+        "cr": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.CR.value, "????"),
+        "url": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.URL.value, ""),
+        "font": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.FONT.value, ""),
+        "author": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.AUTHOR.value, ""),
+        "hp": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.HP.value, 1),
+        "ac": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.AC.value, 10),
+        "speed": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value, 30),
+        "alignment": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.ALIGN.value, "U"),
+        "str_numeric_stat": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.STR.value, 10),
+        "dex_numeric_stat": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.DEX.value, 10),
+        "con_numeric_stat": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.CON.value, 10),
+        "int_numeric_stat": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.INT.value, 10),
+        "wis_numeric_stat": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.WIS.value, 10),
+        "cha_numeric_stat": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.CHA.value, 10),
+        "saving_throws": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value, spreadsheet_enums.SavingThrowsEnums.NONE.value),
+        "skills": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value, spreadsheet_enums.SkillsEnums.NONE.value),
+        "wri": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value, spreadsheet_enums.WRIEnums.NONE.value),
+        "senses": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value, spreadsheet_enums.SensesEnums.NORMAL.value),
+        "languages": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value, spreadsheet_enums.LanguagesEnums.COMMON.value),
+        "additional": monster_dict.get(spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value, "None"),
+        "actions": monster_dict.get("actions", []),
+    }
+
+    for key in [
+        "average_damage",
+        "attack_modifier",
+        "has_legendary_action",
+        "legendary_action_damage",
+        "has_flight",
+        "resistance_count",
+        "immunity_count",
+        "weakness_count",
+        "save_dc",
+        "is_spellcaster",
+        "regeneration_per_round",
+        "multiattack_count",
+        "ability_count",
+        "ability_cr_weight",
+        "recharge_damage",
+        "limited_use_damage",
+        "bonus_action_damage",
+    ]:
+        spreadsheet_key = spreadsheet_enums.SpreadsheetKeysEnums[SPREADSHEET_KEY_ENUMS[key]].value
+        monster_properties[key] = monster_dict.get(spreadsheet_key, 0)
+
+    return monster_properties
 
 
 def build_python_dictionary_file_text(monster_properties, dict_variable_name=None):
@@ -492,6 +711,10 @@ def build_python_dictionary_file_text(monster_properties, dict_variable_name=Non
     ]
 
     lines = [
+        "from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_block import (",
+        "    build_replacement_python_dictionary_file_text_from_monster_dict,",
+        "    infer_cr_helper_values_from_monster_dict,",
+        ")",
         "from src.universal_functions.vars import spreadsheet_enums",
         "",
         "",
@@ -515,8 +738,30 @@ def build_python_dictionary_file_text(monster_properties, dict_variable_name=Non
     lines.append("            " + repr(monster_properties["actions"]) + ",")
     lines.append("    }")
     lines.append("")
+    lines.append("")
+    lines.append('if __name__ == "__main__":')
+    lines.append("    updated_monster_dict = infer_cr_helper_values_from_monster_dict(")
+    lines.append("        monster_dict=" + dict_variable_name)
+    lines.append("    )")
+    lines.append("    print(")
+    lines.append("        build_replacement_python_dictionary_file_text_from_monster_dict(")
+    lines.append("            monster_dict=updated_monster_dict,")
+    lines.append("            dict_variable_name=" + repr(dict_variable_name))
+    lines.append("        )")
+    lines.append("    )")
+    lines.append("")
 
     return "\n".join(lines)
+
+
+def build_replacement_python_dictionary_file_text_from_monster_dict(monster_dict, dict_variable_name=None):
+    monster_properties = get_monster_properties_from_generated_monster_dict(
+        monster_dict=monster_dict
+    )
+    return build_python_dictionary_file_text(
+        monster_properties=monster_properties,
+        dict_variable_name=dict_variable_name
+    )
 
 
 def interpret_markdown_stat_block_into_python_file(

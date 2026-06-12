@@ -1,3 +1,7 @@
+from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_block import (
+    build_replacement_python_dictionary_file_text_from_monster_dict,
+    infer_cr_helper_values_from_monster_dict,
+)
 from src.universal_functions.vars import spreadsheet_enums
 
 
@@ -46,7 +50,7 @@ phase_1_purple_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            spreadsheet_enums.LanguagesEnums.COMMON.value,
+            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
@@ -84,5 +88,17 @@ phase_1_purple_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
             0,
         "actions" :
-            [{'name': 'action \\- fist melee weapon attack:', 'action_type': 'action', 'attack_type': 'melee_action', 'hit_modifier': 6, 'damage': '2d6 + 4', 'damage_type': 'bludgeoning damage', 'range': 5, 'notes': 'he’s a martial artist. He knows karite.'}, {'name': 'action \\- leg sweep', 'hit_modifier': 6, 'damage': '3d4 + 4', 'damage_type': 'bludgeoning damage', 'range': 5, 'notes': 'after this attack executes it goes into the leg sweep fall attack'}, {'name': 'instantaneous \\- leg sweep fall', 'save_dc': 15, 'dc_type': 'str, dex', 'additional_info': 'this prones the target. Functionally, if they fail the dc, they fall prone.'}, {'name': 'action \\- shurakin ranged weapon attack:', 'hit_modifier': 6, 'damage': '2d6 + 4', 'damage_type': 'piercing damage', 'range': 80}],
+            [{'name': 'fist melee weapon attack:', 'action_type': 'action', 'attack_type': 'melee_action', 'hit_modifier': 6, 'damage': '2d6 + 4', 'damage_type': 'bludgeoning damage', 'range': 5, 'notes': 'he’s a martial artist. He knows karite.'}, {'name': 'leg sweep', 'hit_modifier': 6, 'damage': '3d4 + 4', 'damage_type': 'bludgeoning damage', 'range': 5, 'notes': 'after this attack executes it goes into the leg sweep fall attack'}, {'name': 'leg sweep fall', 'save_dc': 15, 'dc_type': 'str, dex', 'additional_info': 'this prones the target. Functionally, if they fail the dc, they fall prone.'}, {'name': 'shurakin ranged weapon attack:', 'hit_modifier': 6, 'damage': '2d6 + 4', 'damage_type': 'piercing damage', 'range': 80}],
     }
+
+
+if __name__ == "__main__":
+    updated_monster_dict = infer_cr_helper_values_from_monster_dict(
+        monster_dict=phase_1_purple_foot_clan_ninja_monster_dict
+    )
+    print(
+        build_replacement_python_dictionary_file_text_from_monster_dict(
+            monster_dict=updated_monster_dict,
+            dict_variable_name='phase_1_purple_foot_clan_ninja_monster_dict'
+        )
+    )

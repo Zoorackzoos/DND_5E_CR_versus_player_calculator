@@ -1,3 +1,7 @@
+from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_block import (
+    build_replacement_python_dictionary_file_text_from_monster_dict,
+    infer_cr_helper_values_from_monster_dict,
+)
 from src.universal_functions.vars import spreadsheet_enums
 
 
@@ -46,7 +50,7 @@ phase_1_blue_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            spreadsheet_enums.LanguagesEnums.COMMON.value,
+            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
@@ -84,5 +88,17 @@ phase_1_blue_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
             1,
         "actions" :
-            [{'name': 'action \\- kitana slash', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 6, 'damage': '4d6 + 6', 'damage_type': 'slashing', 'range': 5, 'notes': 'he has multiattack'}, {'name': 'action \\- shurkin', 'action_type': 'action', 'attack_type': 'ranged_attack', 'hit_modifier': 6, 'damage': '2d6 + 2', 'damage_type': 'piercing', 'range': 60, 'notes': 'he has multiattack'}, {'name': 'bonus action \\- whirlwind swipe', 'action_type': 'bonus action', 'attack_type': 'melee_attack', 'hit_modifier': 6, 'damage': '3d6 + 4', 'damage_type': 'slashing', 'range': 5, 'notes': 'he has multi attack. this hits everybody around him. including allies.'}],
+            [{'name': 'kitana slash', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 6, 'damage': '4d6 + 6', 'damage_type': 'slashing', 'range': 5, 'notes': 'he has multiattack'}, {'name': 'shurkin', 'action_type': 'action', 'attack_type': 'ranged_attack', 'hit_modifier': 6, 'damage': '2d6 + 2', 'damage_type': 'piercing', 'range': 60, 'notes': 'he has multiattack'}, {'name': 'whirlwind swipe', 'action_type': 'bonus action', 'attack_type': 'melee_attack', 'hit_modifier': 6, 'damage': '3d6 + 4', 'damage_type': 'slashing', 'range': 5, 'notes': 'he has multi attack. this hits everybody around him. including allies.'}],
     }
+
+
+if __name__ == "__main__":
+    updated_monster_dict = infer_cr_helper_values_from_monster_dict(
+        monster_dict=phase_1_blue_foot_clan_ninja_monster_dict
+    )
+    print(
+        build_replacement_python_dictionary_file_text_from_monster_dict(
+            monster_dict=updated_monster_dict,
+            dict_variable_name='phase_1_blue_foot_clan_ninja_monster_dict'
+        )
+    )

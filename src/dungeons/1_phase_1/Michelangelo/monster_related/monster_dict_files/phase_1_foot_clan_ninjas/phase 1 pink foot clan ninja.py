@@ -1,3 +1,7 @@
+from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_block import (
+    build_replacement_python_dictionary_file_text_from_monster_dict,
+    infer_cr_helper_values_from_monster_dict,
+)
 from src.universal_functions.vars import spreadsheet_enums
 
 
@@ -46,7 +50,7 @@ template_monster_parser_trial_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            spreadsheet_enums.LanguagesEnums.COMMON.value,
+            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
@@ -84,5 +88,17 @@ template_monster_parser_trial_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
             0,
         "actions" :
-            [{'name': 'action \\- tonfa strike', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 4, 'damage': '2d8 + 4', 'damage_type': 'bludgening', 'range': 5}, {'name': 'reaction \\- tonfa block', 'action_type': 'reaction', 'notes': 'as a reaction he can make the attacker have disadvantage and have to re-roll their attack. “blocking” them.'}, {'name': 'passive \\- regeneration', 'action_type': 'passive', 'notes': '1d8 regeneration per turn. if anybody notices, do a investigation check. he has a Stockman pathogen inside him.'}],
+            [{'name': 'tonfa strike', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 4, 'damage': '2d8 + 4', 'damage_type': 'bludgening', 'range': 5}, {'name': 'tonfa block', 'action_type': 'reaction', 'notes': 'as a reaction he can make the attacker have disadvantage and have to re-roll their attack. “blocking” them.'}, {'name': 'regeneration', 'action_type': 'passive', 'notes': '1d8 regeneration per turn. if anybody notices, do a investigation check. he has a Stockman pathogen inside him.'}],
     }
+
+
+if __name__ == "__main__":
+    updated_monster_dict = infer_cr_helper_values_from_monster_dict(
+        monster_dict=template_monster_parser_trial_monster_dict
+    )
+    print(
+        build_replacement_python_dictionary_file_text_from_monster_dict(
+            monster_dict=updated_monster_dict,
+            dict_variable_name='template_monster_parser_trial_monster_dict'
+        )
+    )

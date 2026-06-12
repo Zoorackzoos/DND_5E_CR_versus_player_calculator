@@ -1,3 +1,7 @@
+from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_block import (
+    build_replacement_python_dictionary_file_text_from_monster_dict,
+    infer_cr_helper_values_from_monster_dict,
+)
 from src.universal_functions.vars import spreadsheet_enums
 
 
@@ -46,7 +50,7 @@ phase_1_yellow_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            spreadsheet_enums.LanguagesEnums.COMMON.value,
+            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
@@ -84,5 +88,17 @@ phase_1_yellow_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
             0,
         "actions" :
-            [{'name': 'action \\- boomerang throw', 'action_type': 'action', 'attack_type': 'ranged_spell_attack', 'hit_modifier': 5, 'damage': '2d8 + 8', 'damage_type': 'bludening', 'range': 60}, {'name': 'action \\- bomb throw', 'action_type': 'action', 'attack_type': 'saving_throw', 'save_dc': 14, 'save_stat': 'dex', 'damage': '8d8 + 8', 'damage_type': 'force', 'range': 60, 'notes': 'i hyped up the fact this guy has bombs. do read my lips.'}, {'name': 'limited use reaction \\- dodge', 'action_type': 'reaction', 'amount_of_uses': 3, 'notes': 'the attacker has disadvantage to hit this yellow ninja.'}],
+            [{'name': 'boomerang throw', 'action_type': 'action', 'attack_type': 'ranged_spell_attack', 'hit_modifier': 5, 'damage': '2d8 + 8', 'damage_type': 'bludening', 'range': 60}, {'name': 'bomb throw', 'action_type': 'action', 'attack_type': 'saving_throw', 'save_dc': 14, 'save_stat': 'dex', 'damage': '8d8 + 8', 'damage_type': 'force', 'range': 60, 'notes': 'i hyped up the fact this guy has bombs. do read my lips.'}, {'name': 'dodge', 'action_type': 'reaction', 'amount_of_uses': 3, 'notes': 'the attacker has disadvantage to hit this yellow ninja.'}],
     }
+
+
+if __name__ == "__main__":
+    updated_monster_dict = infer_cr_helper_values_from_monster_dict(
+        monster_dict=phase_1_yellow_foot_clan_ninja_monster_dict
+    )
+    print(
+        build_replacement_python_dictionary_file_text_from_monster_dict(
+            monster_dict=updated_monster_dict,
+            dict_variable_name='phase_1_yellow_foot_clan_ninja_monster_dict'
+        )
+    )

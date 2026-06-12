@@ -1,3 +1,7 @@
+from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_block import (
+    build_replacement_python_dictionary_file_text_from_monster_dict,
+    infer_cr_helper_values_from_monster_dict,
+)
 from src.universal_functions.vars import spreadsheet_enums
 
 
@@ -46,7 +50,7 @@ phase_1_green_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            spreadsheet_enums.LanguagesEnums.COMMON.value,
+            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
@@ -84,5 +88,17 @@ phase_1_green_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
             1,
         "actions" :
-            [{'name': 'action \\- shoot arrow', 'action_type': 'action', 'attack_type': 'ranged_spell_attack', 'hit_modifier': 8, 'damage': '4d4', 'damage_type': 'piercing', 'range': 60}, {'name': 'action \\- dagger attack', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 3, 'damage': '2d4 + 4', 'damage_type': 'slashing', 'range': 5}, {'name': 'rechargeable bonus action \\- administer potion', 'action_type': 'bonus action', 'notes': 'this heals the green ninja or a buddy with a herbal remedy. Heal 4d4 + 10\\. if a player loots the green ninja. they get a 4d4 health potion instead.'}],
+            [{'name': 'shoot arrow', 'action_type': 'action', 'attack_type': 'ranged_spell_attack', 'hit_modifier': 8, 'damage': '4d4', 'damage_type': 'piercing', 'range': 60}, {'name': 'dagger attack', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 3, 'damage': '2d4 + 4', 'damage_type': 'slashing', 'range': 5}, {'name': 'administer potion', 'action_type': 'bonus action', 'notes': 'this heals the green ninja or a buddy with a herbal remedy. Heal 4d4 + 10\\. if a player loots the green ninja. they get a 4d4 health potion instead.'}],
     }
+
+
+if __name__ == "__main__":
+    updated_monster_dict = infer_cr_helper_values_from_monster_dict(
+        monster_dict=phase_1_green_foot_clan_ninja_monster_dict
+    )
+    print(
+        build_replacement_python_dictionary_file_text_from_monster_dict(
+            monster_dict=updated_monster_dict,
+            dict_variable_name='phase_1_green_foot_clan_ninja_monster_dict'
+        )
+    )
