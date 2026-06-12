@@ -16,7 +16,7 @@ phase_1_blue_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
             '????',
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
-            'https://example.com/stat-block',
+            'https://docs.google.com/document/d/1daCFFA2hZVeGYmBh3_WQIvwLzxCK7K1V8mCfu3q7lcM/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
             spreadsheet_enums.FontTypesEnums.VIRASCO_2000.value,
         spreadsheet_enums.SpreadsheetKeysEnums.AUTHOR.value :

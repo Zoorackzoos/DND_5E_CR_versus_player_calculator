@@ -4,7 +4,7 @@
 
 name: phase 1 blue foot clan ninja  
 cr: ????  
-url: [Example Stat Block](https://example.com/stat-block)  
+url: [https://docs.google.com/document/d/1daCFFA2hZVeGYmBh3\_WQIvwLzxCK7K1V8mCfu3q7lcM/edit?tab=t.0](https://docs.google.com/document/d/1daCFFA2hZVeGYmBh3_WQIvwLzxCK7K1V8mCfu3q7lcM/edit?tab=t.0)   
 font: Virasco 2000  
 author: Shwifty\_meme\_lord
 
