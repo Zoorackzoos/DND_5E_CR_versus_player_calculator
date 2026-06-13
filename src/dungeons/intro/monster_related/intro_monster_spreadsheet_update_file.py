@@ -27,12 +27,12 @@ from src.dungeons.intro.monster_related.monster_dict_files.intro_foot_clan_ninja
 from src.universal_functions.spreadsheet_stuff.spreadsheet_updaters.update_homebrew_monster_spreadsheet import \
     update_homebrew_monster_spreadsheet
 
+monster_spreadsheet_updates_file_path_to_csv_file = \
+    "../../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
 
 def update_ninjas_into_intro_ninjas(tab_amount="\t"):
     print(tab_amount,"update_ninjas_into_intro_ninjas")
     tab_amount += "\t"
-
-    monster_spreadsheet_updates_file_path_to_csv_file = "../../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
 
     list_of_intro_ninjas_to_update = \
         [

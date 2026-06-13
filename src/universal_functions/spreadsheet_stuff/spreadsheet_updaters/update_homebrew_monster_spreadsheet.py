@@ -84,6 +84,18 @@ def update_homebrew_monster_spreadsheet(
         duplicate_action="ask",
         tab_amount="\t"
 ):
+    """
+    This updates the csv spreadsheet with homebrew monsters.
+    If you're forgetting in what processes homebrew monsters are added.
+    Please consult the README.
+
+    :param monster_dict:
+    :param path_to_csv_file:
+    :param duplicate_action:
+    :param tab_amount:
+    :return:
+    """
+
     #terminal display stuff
     print(tab_amount, "update_homebrew_monster_spreadsheet")
     tab_amount += "\t"
