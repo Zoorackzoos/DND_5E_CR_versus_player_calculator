@@ -23,7 +23,7 @@ phase_1_purple_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            1,
+            '???',
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
             'https://docs.google.com/document/d/1kwxFiHrlmZ2s3m1TR2D2_0ups-mzlxzUwG8-gPtRtMg/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
@@ -51,19 +51,19 @@ phase_1_purple_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             12,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            'STR, DEX, WIS',
+            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.WIS.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            'Acrobatics, Stealth',
+            ", ".join([spreadsheet_enums.SkillsEnums.ACROBATICS.value, spreadsheet_enums.SkillsEnums.STEALTH.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            'None',
+            spreadsheet_enums.WRIEnums.NONE.value,
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            'Common, Thieves Cant',
+            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            11.5,
+            11,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
             6,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :

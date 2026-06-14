@@ -14,58 +14,58 @@ from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_bloc
 from src.universal_functions.vars import spreadsheet_enums
 
 
-phase_1_orange_foot_clan_ninja_monster_dict = \
+roadkill_rodney_monster_dict = \
     {
         spreadsheet_enums.SpreadsheetKeysEnums.NAME.value :
-            'phase 1 orange foot clan ninja',
+            'Roadkill Rodney',
         spreadsheet_enums.SpreadsheetKeysEnums.SIZE.value :
-            spreadsheet_enums.SizeEnums.MEDIUM.value,
+            spreadsheet_enums.SizeEnums.SMALL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
-            spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
+            spreadsheet_enums.CreatureTypesEnums.CONSTRUCT.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            '????',
+            4,
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
-            'https://docs.google.com/document/d/1dIjotzgCGDHc_MWAUKniFIZCMPxN7ynQ7SKz-v0YWNU/edit?tab=t.0',
+            'https://docs.google.com/document/d/1HeEsEPTt2DvsJck63FiWg6YzutTa9ODAWH2qLRxyO1A/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
             spreadsheet_enums.FontTypesEnums.VIRASCO_2000.value,
         spreadsheet_enums.SpreadsheetKeysEnums.AUTHOR.value :
-            spreadsheet_enums.AuthorFontTypesEnums.SHWIFTY_MEME_LORD.value,
+            'Shwify_meme_lord',
         spreadsheet_enums.SpreadsheetKeysEnums.HP.value :
-            40,
+            60,
         spreadsheet_enums.SpreadsheetKeysEnums.AC.value :
-            18,
+            19,
         spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value :
-            30,
+            60,
         spreadsheet_enums.SpreadsheetKeysEnums.ALIGN.value :
-            'chaotic neutral',
+            'true neutral',
         spreadsheet_enums.SpreadsheetKeysEnums.STR.value :
-            16,
-        spreadsheet_enums.SpreadsheetKeysEnums.DEX.value :
-            16,
-        spreadsheet_enums.SpreadsheetKeysEnums.CON.value :
-            16,
-        spreadsheet_enums.SpreadsheetKeysEnums.INT.value :
             14,
+        spreadsheet_enums.SpreadsheetKeysEnums.DEX.value :
+            14,
+        spreadsheet_enums.SpreadsheetKeysEnums.CON.value :
+            20,
+        spreadsheet_enums.SpreadsheetKeysEnums.INT.value :
+            10,
         spreadsheet_enums.SpreadsheetKeysEnums.WIS.value :
-            12,
+            10,
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             10,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.WIS.value]),
+            'STR, DEX, CON',
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            ", ".join([spreadsheet_enums.SkillsEnums.ACROBATICS.value, spreadsheet_enums.SkillsEnums.STEALTH.value]),
+            'None',
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            spreadsheet_enums.WRIEnums.BLUDGEONING_RESISTANT.value,
+            'Acidweak, Lightningweak, Necroticres, Slashingimmu, Piercingimmu, Coldimmu, Psychicimmu',
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
+            'Common',
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            21,
+            24.0,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
-            4,
+            7,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value :
@@ -75,11 +75,11 @@ phase_1_orange_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value :
             1,
         spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value :
-            0,
+            4,
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
-            0,
+            2,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
-            15,
+            17,
         spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.REGENERATION_PER_ROUND.value :
@@ -87,9 +87,9 @@ phase_1_orange_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value :
-            2,
+            0,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
-            1,
+            2,
         spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.LIMITED_USE_DAMAGE.value :
@@ -97,17 +97,17 @@ phase_1_orange_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
             0,
         "actions" :
-            [{'name': 'test spark', 'action_type': 'action', 'attack_type': 'ranged_attack', 'hit_modifier': 5, 'damage': '2d12 + 8', 'damage_type': 'piercing', 'range': 30, 'notes': 'this is the weapon the shinobi from for honor uses.'}, {'name': 'get over here', 'action_type': 'bonus action', 'attack_type': 'ranged_attack', 'save_dc': 15, 'dc_type': 'dex', 'range': '30ft', 'notes': 'this brings the target towards the orange ninja'}, {'name': 'smoke bomb', 'action_type': 'bonus action', 'attack_type': 'ranged_attack', 'save_dc': 15, 'dc_type': 'perception', 'range': '30ft', 'notes': 'the orange ninja puts this by himself and a 4x4 cube around him is covered in smoke you cannot see for 1 whole turn'}],
+            [{'name': 'zap grab', 'action_type': 'action', 'attack_type': 'saving_throw', 'save_dc': 17, 'save_stat': 'dex', 'damage': '8d4', 'damage_type': 'lightning', 'range': 20, 'notes': 'these are wires that spit out of Roadkill Rodney’s mid section'}, {'name': 'laser beam', 'action_type': 'action', 'attack_type': 'saving_throw', 'save_dc': 14, 'damage': '4d8 + 6', 'damge_type': 'lightning', 'range': 120}, {'name': 'bash', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 7, 'damage': '2d10 + 2', 'damage_type': 'bludgeoning', 'range': 5}],
     }
 
 
 if __name__ == "__main__":
     updated_monster_dict = infer_cr_helper_values_from_monster_dict(
-        monster_dict=phase_1_orange_foot_clan_ninja_monster_dict
+        monster_dict=roadkill_rodney_monster_dict
     )
     print(
         build_replacement_python_dictionary_file_text_from_monster_dict(
             monster_dict=updated_monster_dict,
-            dict_variable_name='phase_1_orange_foot_clan_ninja_monster_dict'
+            dict_variable_name='roadkill_rodney_monster_dict'
         )
     )

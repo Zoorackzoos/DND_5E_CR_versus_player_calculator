@@ -23,7 +23,7 @@ phase_1_green_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            1,
+            '????',
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
             'https://docs.google.com/document/d/1g5gJKfk9xB9k4h9Hrjt_EwEtkEdmlBMWB56wzojgt9s/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
@@ -51,21 +51,21 @@ phase_1_green_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             10,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            'STR, DEX, WIS',
+            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.WIS.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            'Acrobatics, Stealth',
+            ", ".join([spreadsheet_enums.SkillsEnums.ACROBATICS.value, spreadsheet_enums.SkillsEnums.STEALTH.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            'None',
+            spreadsheet_enums.WRIEnums.NONE.value,
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            'Common, Thieves Cant',
+            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            10.0,
+            5.5,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
-            8,
+            4,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value :
@@ -73,11 +73,11 @@ phase_1_green_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_FLIGHT.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value :
-            0,
+            2,
         spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value :
-            0,
+            1,
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
-            0,
+            1,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
             11,
         spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value :

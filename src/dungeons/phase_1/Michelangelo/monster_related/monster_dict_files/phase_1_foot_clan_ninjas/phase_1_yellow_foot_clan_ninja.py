@@ -23,7 +23,7 @@ phase_1_yellow_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            5,
+            '????',
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
             'https://docs.google.com/document/d/1yOfg4PKpu4RJNDXECuvuNZzwuMiic8-mhLkkQcajzAc/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
@@ -51,19 +51,19 @@ phase_1_yellow_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             12,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            'STR, DEX, WIS',
+            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.WIS.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            'Acrobatics, Stealth',
+            ", ".join([spreadsheet_enums.SkillsEnums.ACROBATICS.value, spreadsheet_enums.SkillsEnums.STEALTH.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            'Bludgeoningres, Slashingres, Forceres',
+            ", ".join([spreadsheet_enums.WRIEnums.BLUDGEONING_RESISTANT.value, spreadsheet_enums.WRIEnums.SLASHING_RESISTANT.value, spreadsheet_enums.WRIEnums.FORCE_RESISTANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            'Common, Thieves Cant',
+            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            44.0,
+            17,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
             5,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
@@ -87,7 +87,7 @@ phase_1_yellow_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value :
-            1,
+            2,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
             4,
         spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value :

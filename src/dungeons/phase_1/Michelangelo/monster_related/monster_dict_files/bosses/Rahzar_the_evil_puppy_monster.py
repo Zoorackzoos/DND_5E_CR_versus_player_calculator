@@ -23,7 +23,7 @@ rahzar_the_evil_puppy_monster_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.MONSTROSITY.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            7,
+            '????',
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
             'https://docs.google.com/document/d/1z_fra4MkVdRrooz2piO6xCZersSbJz060tb7f9HAyic/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
@@ -51,19 +51,19 @@ rahzar_the_evil_puppy_monster_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             8,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            'STR, DEX',
+            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            'Animal Handling, Intimation',
+            ", ".join([spreadsheet_enums.SkillsEnums.ANIMAL_HANDLING.value, spreadsheet_enums.SkillsEnums.INTIMIDATION.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            'Bludgeoningres, fearimmune, proneimmune',
+            ", ".join([spreadsheet_enums.WRIEnums.BLUDGEONING_RESISTANT.value, 'fearimmune', 'proneimmune']),
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            'Common, Thieves Cant',
+            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            18.0,
+            18,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
             5,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
