@@ -80,6 +80,10 @@ def interpret_phase_1_michelangelo_monster_files(tab_amount="\t"):
             "monster_dict_files/rouge_monsters/Roadkill_Rodney.md",
             "monster_dict_files/rouge_monsters/Roadkill_Rodney.py"
         ],
+        [
+            "monster_dict_files/rouge_monsters/evil_foot_clan_ninja_cyborg.md",
+            "monster_dict_files/rouge_monsters/evil_foot_clan_ninja_cyborg.py"
+        ]
     ]
 
     print(tab_amount, "phase_1_michelangelo_boss_markdown_and_python_paths")
@@ -139,6 +143,16 @@ def update_phase_1_michelangelo_monsters_onto_spreadsheet(tab_amount="\t"):
 
 if __name__ == "__main__":
     tab_amount = "\t"
+    interpret_phase_1_michelangelo_monster_files(
+        tab_amount=tab_amount,
+    )
+    user_input = input("continue? (y/n)")
+    if user_input == "n":
+        exit(0)
+    elif user_input == "y":
+        pass
+    else:
+        user_input = input("i need a (y/n) answer sir.")
     update_phase_1_michelangelo_monsters_onto_spreadsheet(
         tab_amount=tab_amount
     )

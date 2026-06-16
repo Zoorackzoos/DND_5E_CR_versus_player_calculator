@@ -14,54 +14,54 @@ from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_bloc
 from src.universal_functions.vars import spreadsheet_enums
 
 
-roadkill_rodney_monster_dict = \
+evil_foot_clan_ninja_cyborg_monster_dict = \
     {
         spreadsheet_enums.SpreadsheetKeysEnums.NAME.value :
-            'Roadkill Rodney',
+            'evil foot clan ninja cyborg',
         spreadsheet_enums.SpreadsheetKeysEnums.SIZE.value :
-            spreadsheet_enums.SizeEnums.SMALL.value,
+            spreadsheet_enums.SizeEnums.MEDIUM.value,
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
-            spreadsheet_enums.CreatureTypesEnums.CONSTRUCT.value,
+            spreadsheet_enums.CreatureTypesEnums.ROBOT.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
             '????',
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
-            'https://docs.google.com/document/d/1HeEsEPTt2DvsJck63FiWg6YzutTa9ODAWH2qLRxyO1A/edit?tab=t.0',
+            'https://docs.google.com/document/d/1B8WJEbqgzitmZXBGrXjD4ZValvzzG_4wSivm084la18/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
             spreadsheet_enums.FontTypesEnums.VIRASCO_2000.value,
         spreadsheet_enums.SpreadsheetKeysEnums.AUTHOR.value :
-            'Shwify_meme_lord',
+            spreadsheet_enums.AuthorFontTypesEnums.SHWIFTY_MEME_LORD.value,
         spreadsheet_enums.SpreadsheetKeysEnums.HP.value :
-            60,
+            120,
         spreadsheet_enums.SpreadsheetKeysEnums.AC.value :
-            19,
+            13,
         spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value :
-            60,
+            40,
         spreadsheet_enums.SpreadsheetKeysEnums.ALIGN.value :
-            'true neutral',
+            'neutral evil',
         spreadsheet_enums.SpreadsheetKeysEnums.STR.value :
-            14,
-        spreadsheet_enums.SpreadsheetKeysEnums.DEX.value :
-            14,
-        spreadsheet_enums.SpreadsheetKeysEnums.CON.value :
             20,
+        spreadsheet_enums.SpreadsheetKeysEnums.DEX.value :
+            20,
+        spreadsheet_enums.SpreadsheetKeysEnums.CON.value :
+            10,
         spreadsheet_enums.SpreadsheetKeysEnums.INT.value :
             10,
         spreadsheet_enums.SpreadsheetKeysEnums.WIS.value :
-            10,
+            12,
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             10,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.CON.value]),
+            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.CON.value, spreadsheet_enums.SavingThrowsEnums.INT.value, spreadsheet_enums.SavingThrowsEnums.WIS.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
             spreadsheet_enums.SkillsEnums.NONE.value,
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            ", ".join([spreadsheet_enums.WRIEnums.ACID_WEAKNESS.value, spreadsheet_enums.WRIEnums.LIGHTNING_WEAKNESS.value, spreadsheet_enums.WRIEnums.NECROTIC_RESISTANT.value, spreadsheet_enums.WRIEnums.SLASHING_IMMUNE.value, spreadsheet_enums.WRIEnums.PIERCING_IMMUNE.value, spreadsheet_enums.WRIEnums.COLD_IMMUNE.value, spreadsheet_enums.WRIEnums.PSYCHIC_IMMUNE.value]),
+            ", ".join([spreadsheet_enums.WRIEnums.ACID_WEAKNESS.value, spreadsheet_enums.WRIEnums.SLASHING_RESISTANT.value, spreadsheet_enums.WRIEnums.PIERCING_RESISTANT.value]),
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
             spreadsheet_enums.LanguagesEnums.COMMON.value,
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
-            'None',
+            'these are a single use enemy. they will not show up later.',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
@@ -73,11 +73,11 @@ roadkill_rodney_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_FLIGHT.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value :
-            1,
-        spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value :
-            4,
-        spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
             2,
+        spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value :
+            0,
+        spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
+            1,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value :
@@ -97,17 +97,17 @@ roadkill_rodney_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
             0,
         "actions" :
-            [{'name': 'zap grab', 'action_type': 'action', 'attack_type': 'saving_throw', 'save_dc': 17, 'save_stat': 'dex', 'damage': '8d4', 'damage_type': 'lightning', 'range': 20, 'notes': 'these are wires that spit out of Roadkill Rodney’s mid section'}, {'name': 'laser beam', 'action_type': 'action', 'attack_type': 'saving_throw', 'save_dc': 14, 'damage': '4d8 + 6', 'damge_type': 'lightning', 'range': 120}, {'name': 'bash', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 7, 'damage': '2d10 + 2', 'damage_type': 'bludgeoning', 'range': 5}],
+            [{'name': 'bash', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 4, 'damage': '1d12 + 2', 'damage_type': 'bludgening', 'range': 5}, {'name': 'guard', 'action_type': 'bonus_action', 'attack_type': 'utility', 'range': '10ft', 'notes': 'the cyborg goes in front of a attack. if it’s a melee attack this just happens. if it’s a ranged attack, there’s nothing the cyborg can do. On the board, the cyborg changes places with the person who was attacked.'}],
     }
 
 
 if __name__ == "__main__":
     updated_monster_dict = infer_cr_helper_values_from_monster_dict(
-        monster_dict=roadkill_rodney_monster_dict
+        monster_dict=evil_foot_clan_ninja_cyborg_monster_dict
     )
     print(
         build_replacement_python_dictionary_file_text_from_monster_dict(
             monster_dict=updated_monster_dict,
-            dict_variable_name='roadkill_rodney_monster_dict'
+            dict_variable_name='evil_foot_clan_ninja_cyborg_monster_dict'
         )
     )
