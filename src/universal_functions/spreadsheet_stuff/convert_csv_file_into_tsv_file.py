@@ -52,4 +52,4 @@ def convert_monsters_all_stats_homebrew_from_csv_to_tsv(tab_amount="\t"):
 
 if __name__ == "__main__":
     convert_encounter_feedback_from_csv_to_tsv()
-    #convert_monsters_all_stats_homebrew_from_csv_to_tsv()
+    convert_monsters_all_stats_homebrew_from_csv_to_tsv()

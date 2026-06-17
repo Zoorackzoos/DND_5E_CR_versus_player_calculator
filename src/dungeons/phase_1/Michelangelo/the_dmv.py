@@ -250,6 +250,12 @@ def phase_1_michelangelo_the_dmv_lvl_3(tab_amount="\t"):
         roadkill_rodney_cr, roadkill_rodney_cr, roadkill_rodney_cr,
         roadkill_rodney_cr, roadkill_rodney_cr
     ]
+    phase_1_michelangelo_the_dmv_lvl_3_lab_encounter_dict = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=phase_1_michelangelo_the_dmv_lvl_3_lab_cr_values,
+        encounter_name="phase_1_michelangelo_the_dmv_lvl_3_lab_encounter_dict",
+        tab_amount=tab_amount
+    )
 
     """
     gene banks
@@ -303,7 +309,7 @@ def phase_1_michelangelo_the_dmv_lvl_3(tab_amount="\t"):
 
     encounter_dict_list = \
     [
-        phase_1_michelangelo_the_dmv_lvl_3_lab_cr_values,
+        phase_1_michelangelo_the_dmv_lvl_3_lab_encounter_dict,
         phase_1_michelangelo_the_dmv_lvl_3_gene_banks_encounter_dict,
         phase_1_michelangelo_the_dmv_lvl_3_metalhead_encounter_dict
     ]
@@ -318,4 +324,6 @@ def phase_1_michelangelo_the_dmv_lvl_3(tab_amount="\t"):
 
 if __name__ == "__main__":
     tab_amount="\t"
-    phase_1_michelangelo_the_dmv_lvl_1(tab_amount=tab_amount)
+    #phase_1_michelangelo_the_dmv_lvl_1(tab_amount=tab_amount)
+    #phase_1_michelangelo_the_dmv_lvl_2(tab_amount=tab_amount)
+    phase_1_michelangelo_the_dmv_lvl_3(tab_amount=tab_amount)
