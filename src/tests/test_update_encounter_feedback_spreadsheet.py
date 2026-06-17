@@ -60,7 +60,7 @@ class TestUpdateEncounterFeedbackSpreadsheet(unittest.TestCase):
                 "actual_difficulty": "medium",
                 "adjusted_xp": 1800,
             },
-            path_to_csv_file=self.path_to_csv_file,
+            path_to_encounter_feedback_csv_file=self.path_to_csv_file,
         )
 
         rows = self.get_rows()
@@ -78,7 +78,7 @@ class TestUpdateEncounterFeedbackSpreadsheet(unittest.TestCase):
                 "actual_difficulty": "deadly",
                 "notes": "Updated notes.",
             },
-            path_to_csv_file=self.path_to_csv_file,
+            path_to_encounter_feedback_csv_file=self.path_to_csv_file,
             duplicate_action="overwrite",
         )
 
@@ -98,7 +98,7 @@ class TestUpdateEncounterFeedbackSpreadsheet(unittest.TestCase):
                     "party_level": 10,
                     "actual_difficulty": "deadly",
                 },
-                path_to_csv_file=self.path_to_csv_file,
+                path_to_encounter_feedback_csv_file=self.path_to_csv_file,
                 duplicate_action="stop",
             )
 

@@ -85,17 +85,17 @@ def intro_the_magic_castle(tab_amount="\t"):
     print("\nupdate section")
     update_encounter_feedback_spreadsheet(
         encounter_dict=intro_magic_castle_inner_castle_difficulty,
-        path_to_csv_file=path_to_encounter_csv_file,
+        path_to_encounter_feedback_csv_file=path_to_encounter_csv_file,
         tab_amount=tab_amount+"\t"
     )
     update_encounter_feedback_spreadsheet(
         encounter_dict=intro_magic_castle_tower_of_power_difficulty,
-        path_to_csv_file=path_to_encounter_csv_file,
+        path_to_encounter_feedback_csv_file=path_to_encounter_csv_file,
         tab_amount=tab_amount + "\t"
     )
     update_encounter_feedback_spreadsheet(
         encounter_dict=intro_magic_castle_tower_of_faith_difficulty,
-        path_to_csv_file=path_to_encounter_csv_file,
+        path_to_encounter_feedback_csv_file=path_to_encounter_csv_file,
         tab_amount=tab_amount + "\t"
     )
 

@@ -332,13 +332,13 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
     intro_the_turtle_hideout_path_to_encounter_feedback_csv_file = "../../../sheets/encounter_feedback/encounter_feedback.csv"
 
     update_encounter_feedback_spreadsheet(encounter_dict=turtle_hideout_lvl_1_encounter_difficulty,
-                                          path_to_csv_file=intro_the_turtle_hideout_path_to_encounter_feedback_csv_file)
+                                          path_to_encounter_feedback_csv_file=intro_the_turtle_hideout_path_to_encounter_feedback_csv_file)
     update_encounter_feedback_spreadsheet(encounter_dict=turtle_hideout_lvl_2_encounter_difficulty,
-                                          path_to_csv_file=intro_the_turtle_hideout_path_to_encounter_feedback_csv_file)
+                                          path_to_encounter_feedback_csv_file=intro_the_turtle_hideout_path_to_encounter_feedback_csv_file)
     update_encounter_feedback_spreadsheet(encounter_dict=turtle_hideout_lvl_3_encounter_difficulty,
-                                          path_to_csv_file=intro_the_turtle_hideout_path_to_encounter_feedback_csv_file)
+                                          path_to_encounter_feedback_csv_file=intro_the_turtle_hideout_path_to_encounter_feedback_csv_file)
     update_encounter_feedback_spreadsheet(encounter_dict=turtle_hideout_boss_difficulty,
-                                          path_to_csv_file=intro_the_turtle_hideout_path_to_encounter_feedback_csv_file)
+                                          path_to_encounter_feedback_csv_file=intro_the_turtle_hideout_path_to_encounter_feedback_csv_file)
 
 
 if __name__ == "__main__":

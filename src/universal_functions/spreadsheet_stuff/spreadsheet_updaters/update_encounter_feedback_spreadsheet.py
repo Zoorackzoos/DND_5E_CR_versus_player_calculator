@@ -75,17 +75,17 @@ def get_duplicate_index(rows, encounter_name):
 
 def update_encounter_feedback_spreadsheet(
         encounter_dict,
-        path_to_csv_file=DEFAULT_ENCOUNTER_FEEDBACK_SPREADSHEET,
+        path_to_encounter_feedback_csv_file=DEFAULT_ENCOUNTER_FEEDBACK_SPREADSHEET,
         duplicate_action="ask",
         tab_amount="\t"
 ):
     print(tab_amount, "update_encounter_feedback_spreadsheet")
     tab_amount += "\t"
 
-    path_to_csv_file = Path(path_to_csv_file)
-    print(tab_amount, "path_to_csv_file =", path_to_csv_file)
+    path_to_encounter_feedback_csv_file = Path(path_to_encounter_feedback_csv_file)
+    print(tab_amount, "path_to_csv_file =", path_to_encounter_feedback_csv_file)
 
-    if not path_to_csv_file.exists():
+    if not path_to_encounter_feedback_csv_file.exists():
         exit("ERROR: update_encounter_feedback_spreadsheet: encounter feedback spreadsheet does not exist.")
 
     encounter_name = get_value_from_encounter_dict(
@@ -97,7 +97,7 @@ def update_encounter_feedback_spreadsheet(
         print(tab_amount, "ERROR: encounter_dict must include an encounter_name or name value.")
         exit()
 
-    with open(path_to_csv_file, newline="", encoding="utf-8") as file:
+    with open(path_to_encounter_feedback_csv_file, newline="", encoding="utf-8") as file:
         reader = csv.DictReader(file)
         fieldnames = reader.fieldnames
         rows = list(reader)
@@ -144,7 +144,7 @@ def update_encounter_feedback_spreadsheet(
         print(tab_amount, "adding new encounter =", encounter_name)
         rows.append(new_row)
 
-    with open(path_to_csv_file, "w", newline="", encoding="utf-8") as file:
+    with open(path_to_encounter_feedback_csv_file, "w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)

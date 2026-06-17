@@ -118,7 +118,7 @@ def intro_the_magic_spire_lvl_1(tab_amount="\t"):
         )
         update_encounter_feedback_spreadsheet(
             encounter_dict=encounter,
-            path_to_csv_file=intro_the_magic_spire_path_to_encounter_csv_file,
+            path_to_encounter_feedback_csv_file=intro_the_magic_spire_path_to_encounter_csv_file,
             tab_amount=tab_amount + "\t\t\t"
         )
 
@@ -332,7 +332,7 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
         )
         update_encounter_feedback_spreadsheet(
             encounter_dict=encounter,
-            path_to_csv_file=intro_the_magic_spire_path_to_encounter_csv_file,
+            path_to_encounter_feedback_csv_file=intro_the_magic_spire_path_to_encounter_csv_file,
             tab_amount=tab_amount + "\t\t\t"
         )
 
@@ -375,7 +375,7 @@ def intro_the_magic_spire_lvl_3(tab_amount="\t"):
         )
         update_encounter_feedback_spreadsheet(
             encounter_dict=encounter,
-            path_to_csv_file=intro_the_magic_spire_path_to_encounter_csv_file,
+            path_to_encounter_feedback_csv_file=intro_the_magic_spire_path_to_encounter_csv_file,
             tab_amount=tab_amount+"\t\t\t"
         )
 
