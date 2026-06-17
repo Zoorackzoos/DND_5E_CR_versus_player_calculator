@@ -14,10 +14,10 @@ from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_bloc
 from src.universal_functions.vars import spreadsheet_enums
 
 
-template_monster_parser_trial_monster_dict = \
+phase_1_pink_foot_clan_ninja_monster_dict = \
     {
         spreadsheet_enums.SpreadsheetKeysEnums.NAME.value :
-            'Template Monster, Parser Trial',
+            'phase 1 pink foot clan ninja',
         spreadsheet_enums.SpreadsheetKeysEnums.SIZE.value :
             spreadsheet_enums.SizeEnums.MEDIUM.value,
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
@@ -103,11 +103,11 @@ template_monster_parser_trial_monster_dict = \
 
 if __name__ == "__main__":
     updated_monster_dict = infer_cr_helper_values_from_monster_dict(
-        monster_dict=template_monster_parser_trial_monster_dict
+        monster_dict=phase_1_pink_foot_clan_ninja_monster_dict
     )
     print(
         build_replacement_python_dictionary_file_text_from_monster_dict(
             monster_dict=updated_monster_dict,
-            dict_variable_name='template_monster_parser_trial_monster_dict'
+            dict_variable_name='phase_1_pink_foot_clan_ninja_monster_dict'
         )
     )

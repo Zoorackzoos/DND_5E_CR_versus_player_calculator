@@ -1,12 +1,16 @@
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.bosses.Metalhead import metalhead_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.bosses.Tokka_the_evil_blue_turtle import \
     tokka_the_evil_blue_turtle_monster_dict
+from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.phase_1_foot_clan_ninjas import \
+    phase_1_pink_foot_clan_ninja
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.phase_1_foot_clan_ninjas.phase_1_blue_foot_clan_ninja import \
     phase_1_blue_foot_clan_ninja_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.phase_1_foot_clan_ninjas.phase_1_green_foot_clan_ninja import \
     phase_1_green_foot_clan_ninja_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.phase_1_foot_clan_ninjas.phase_1_orange_foot_clan_ninja import \
     phase_1_orange_foot_clan_ninja_monster_dict
+from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.phase_1_foot_clan_ninjas.phase_1_pink_foot_clan_ninja import \
+    phase_1_pink_foot_clan_ninja_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.phase_1_foot_clan_ninjas.phase_1_purple_foot_clan_ninja import \
     phase_1_purple_foot_clan_ninja_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.phase_1_foot_clan_ninjas.phase_1_white_foot_clan_ninja import \
@@ -129,6 +133,7 @@ def nuclear_update_phase_1_michelangelo_monsters_onto_spreadsheet(tab_amount="\t
         phase_1_purple_foot_clan_ninja_monster_dict,
         phase_1_white_foot_clan_ninja_monster_dict,
         phase_1_yellow_foot_clan_ninja_monster_dict,
+        phase_1_pink_foot_clan_ninja_monster_dict,
         rahzar_the_evil_puppy_monster_monster_dict,
         tokka_the_evil_blue_turtle_monster_dict,
         roadkill_rodney_monster_dict,
@@ -150,4 +155,4 @@ def nuclear_update_phase_1_michelangelo_monsters_onto_spreadsheet(tab_amount="\t
 
 if __name__ == "__main__":
     tab_amount = "\t"
-    nuclear_update_phase_1_michelangelo_monsters_onto_spreadsheet()
+    #nuclear_update_phase_1_michelangelo_monsters_onto_spreadsheet()

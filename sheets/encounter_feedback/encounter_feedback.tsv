@@ -17,3 +17,5 @@ intro_the_magic_spire_teal_key	5	4	trivial	easy	1	700	700	1	FALSE	0	0	FALSE	FALS
 intro_the_magic_spire_bottom_left_conference_room	5	4	deadly	easy	5	2500	5000	5	FALSE	0	0	FALSE	FALSE	FALSE	None	None	triggered both at the same time	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
 intro_the_magic_spire_flower_conference_room	5	4	trivial	easy	4	400	800	5	FALSE	0	0	FALSE	FALSE	FALSE	None	None	triggered both at the same time	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
 intro_the_magic_spire_barracks	5	4	medium	???	3	1350	2700	???	???	???	???	???	???	???	???	???	???	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
+phase_1_michelangelo_the_dmv_lvl_1_encounter_dict	6.0	4	deadly	???	7	4100	10250.0	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_dmv_lvl_1_elevator_tokka_and_rahzar_encounter_dict	6.0	4	deadly	???	2	5800	8700.0	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}

@@ -1,8 +1,8 @@
-# phase 1 pink foot clan ninjas
+# phase 1 pink foot clan ninja
 
 # metadata
 
-name: Template Monster, Parser Trial  
+name: phase 1 pink foot clan ninja 
 cr: ????  
 url: [https://docs.google.com/document/d/1Cn68O2DB9j-QPiJOO36mgH1ecj1EPC\_C1wxkpORb\_oA/edit?tab=t.0](https://docs.google.com/document/d/1Cn68O2DB9j-QPiJOO36mgH1ecj1EPC_C1wxkpORb_oA/edit?tab=t.0)   
 font: Virasco 2000  
