@@ -23,7 +23,7 @@ evil_foot_clan_ninja_cyborg_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.ROBOT.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            '????',
+            3,
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
             'https://docs.google.com/document/d/1B8WJEbqgzitmZXBGrXjD4ZValvzzG_4wSivm084la18/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
@@ -51,21 +51,21 @@ evil_foot_clan_ninja_cyborg_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             10,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.CON.value, spreadsheet_enums.SavingThrowsEnums.INT.value, spreadsheet_enums.SavingThrowsEnums.WIS.value]),
+            'STR, DEX, CON, INT, WIS',
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            spreadsheet_enums.SkillsEnums.NONE.value,
+            'None',
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            ", ".join([spreadsheet_enums.WRIEnums.ACID_WEAKNESS.value, spreadsheet_enums.WRIEnums.SLASHING_RESISTANT.value, spreadsheet_enums.WRIEnums.PIERCING_RESISTANT.value]),
+            'Acidweak, Slashingres, Piercingres',
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            spreadsheet_enums.LanguagesEnums.COMMON.value,
+            'Common',
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'these are a single use enemy. they will not show up later.',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            0,
+            8.5,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
-            0,
+            4,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value :
@@ -87,7 +87,7 @@ evil_foot_clan_ninja_cyborg_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value :
-            0,
+            1,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
             2,
         spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value :

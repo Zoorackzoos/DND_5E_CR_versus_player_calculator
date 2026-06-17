@@ -23,7 +23,7 @@ phase_1_white_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            '????',
+            4,
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
             'https://docs.google.com/document/d/1bg1YjfYSb06-euGZpkAeznGUKGTsy4GXGSm3xQHY0mk/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
@@ -51,19 +51,19 @@ phase_1_white_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             10,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.WIS.value]),
+            'STR, DEX, WIS',
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            ", ".join([spreadsheet_enums.SkillsEnums.ACROBATICS.value, spreadsheet_enums.SkillsEnums.STEALTH.value]),
+            'Acrobatics, Stealth',
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            spreadsheet_enums.WRIEnums.NONE.value,
+            'None',
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
+            'Common, Thieves Cant',
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            19,
+            19.0,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
             5,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
@@ -87,7 +87,7 @@ phase_1_white_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value :
-            2,
+            1,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
             2,
         spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value :

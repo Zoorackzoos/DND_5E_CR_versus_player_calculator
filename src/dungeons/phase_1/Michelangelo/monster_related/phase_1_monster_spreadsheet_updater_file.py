@@ -39,6 +39,10 @@ def interpret_phase_1_michelangelo_monster_files(tab_amount="\t"):
         [
             "monster_dict_files/bosses/Tokka_the_evil_blue_turtle.md",
             "monster_dict_files/bosses/Tokka_the_evil_blue_turtle.py"
+        ],
+        [
+            "monster_dict_files/bosses/Metalhead.md",
+            "monster_dict_files/bosses/Metalhead.py"
         ]
     ]
 

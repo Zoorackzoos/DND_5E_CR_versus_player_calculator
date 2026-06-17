@@ -23,7 +23,7 @@ phase_1_blue_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            '????',
+            6,
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
             'https://docs.google.com/document/d/1daCFFA2hZVeGYmBh3_WQIvwLzxCK7K1V8mCfu3q7lcM/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
@@ -51,19 +51,19 @@ phase_1_blue_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             12,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.WIS.value]),
+            'STR, DEX, WIS',
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            ", ".join([spreadsheet_enums.SkillsEnums.ACROBATICS.value, spreadsheet_enums.SkillsEnums.STEALTH.value]),
+            'Acrobatics, Stealth',
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            spreadsheet_enums.WRIEnums.SLASHING_RESISTANT.value,
+            'Slashingres',
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
+            'Common, Thieves Cant',
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            20,
+            20.0,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
             6,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
@@ -95,7 +95,7 @@ phase_1_blue_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.LIMITED_USE_DAMAGE.value :
             6,
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
-            1,
+            14.5,
         "actions" :
             [{'name': 'kitana slash', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 6, 'damage': '4d6 + 6', 'damage_type': 'slashing', 'range': 5, 'notes': 'he has multiattack'}, {'name': 'shurkin', 'action_type': 'action', 'attack_type': 'ranged_attack', 'hit_modifier': 6, 'damage': '2d6 + 2', 'damage_type': 'piercing', 'range': 60, 'notes': 'he has multiattack'}, {'name': 'whirlwind swipe', 'action_type': 'bonus action', 'attack_type': 'melee_attack', 'hit_modifier': 6, 'damage': '3d6 + 4', 'damage_type': 'slashing', 'range': 5, 'notes': 'he has multi attack. this hits everybody around him. including allies.'}],
     }

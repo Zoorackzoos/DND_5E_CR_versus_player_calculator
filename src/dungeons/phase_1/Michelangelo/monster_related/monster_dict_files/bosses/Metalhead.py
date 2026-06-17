@@ -14,56 +14,56 @@ from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_bloc
 from src.universal_functions.vars import spreadsheet_enums
 
 
-phase_1_orange_foot_clan_ninja_monster_dict = \
+metalhead_monster_dict = \
     {
         spreadsheet_enums.SpreadsheetKeysEnums.NAME.value :
-            'phase 1 orange foot clan ninja',
+            'Metalhead',
         spreadsheet_enums.SpreadsheetKeysEnums.SIZE.value :
             spreadsheet_enums.SizeEnums.MEDIUM.value,
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
-            spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
+            spreadsheet_enums.CreatureTypesEnums.ROBOT.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            4,
+            7,
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
-            'https://docs.google.com/document/d/1dIjotzgCGDHc_MWAUKniFIZCMPxN7ynQ7SKz-v0YWNU/edit?tab=t.0',
+            'https://docs.google.com/document/d/1_kzsKEAMJYnfTcJuicAQuWBTUkbCUmkC6iwOX-ngjME/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
             spreadsheet_enums.FontTypesEnums.VIRASCO_2000.value,
         spreadsheet_enums.SpreadsheetKeysEnums.AUTHOR.value :
             spreadsheet_enums.AuthorFontTypesEnums.SHWIFTY_MEME_LORD.value,
         spreadsheet_enums.SpreadsheetKeysEnums.HP.value :
-            40,
+            225,
         spreadsheet_enums.SpreadsheetKeysEnums.AC.value :
-            18,
+            19,
         spreadsheet_enums.SpreadsheetKeysEnums.SPEEDS.value :
             30,
         spreadsheet_enums.SpreadsheetKeysEnums.ALIGN.value :
-            'chaotic neutral',
+            'Lawful Evil',
         spreadsheet_enums.SpreadsheetKeysEnums.STR.value :
-            16,
+            20,
         spreadsheet_enums.SpreadsheetKeysEnums.DEX.value :
             16,
         spreadsheet_enums.SpreadsheetKeysEnums.CON.value :
-            16,
-        spreadsheet_enums.SpreadsheetKeysEnums.INT.value :
-            14,
-        spreadsheet_enums.SpreadsheetKeysEnums.WIS.value :
-            12,
-        spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             10,
+        spreadsheet_enums.SpreadsheetKeysEnums.INT.value :
+            6,
+        spreadsheet_enums.SpreadsheetKeysEnums.WIS.value :
+            10,
+        spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
+            6,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            'STR, DEX, WIS',
+            'DEX, STR',
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            'Acrobatics, Stealth',
+            'None',
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            'Bludgeoningres',
+            'Lightningweak, Coldres, Fireres, Bludgeoningres, Poisonimmu, Slashingimmu, Piercingimmu',
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            'Common, Thieves Cant',
+            'Common',
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            21.0,
+            29.5,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
             5,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
@@ -73,13 +73,13 @@ phase_1_orange_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_FLIGHT.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.RESISTANCE_COUNT.value :
-            1,
+            3,
         spreadsheet_enums.SpreadsheetKeysEnums.IMMUNITY_COUNT.value :
-            0,
+            3,
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
-            0,
+            1,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
-            15,
+            0,
         spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.REGENERATION_PER_ROUND.value :
@@ -89,7 +89,7 @@ phase_1_orange_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value :
             2,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
-            1,
+            2,
         spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.LIMITED_USE_DAMAGE.value :
@@ -97,17 +97,17 @@ phase_1_orange_foot_clan_ninja_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
             0,
         "actions" :
-            [{'name': 'test spark', 'action_type': 'action', 'attack_type': 'ranged_attack', 'hit_modifier': 5, 'damage': '2d12 + 8', 'damage_type': 'piercing', 'range': 30, 'notes': 'this is the weapon the shinobi from for honor uses.'}, {'name': 'get over here', 'action_type': 'bonus action', 'attack_type': 'ranged_attack', 'save_dc': 15, 'dc_type': 'dex', 'range': '30ft', 'notes': 'this brings the target towards the orange ninja'}, {'name': 'smoke bomb', 'action_type': 'bonus action', 'attack_type': 'ranged_attack', 'save_dc': 15, 'dc_type': 'perception', 'range': '30ft', 'notes': 'the orange ninja puts this by himself and a 4x4 cube around him is covered in smoke you cannot see for 1 whole turn'}],
+            [{'name': 'slam', 'action_type': 'action', 'attack_type': 'melee_action', 'hit_modifier': 5, 'range': 5, 'damage': '2d8 + 6'}, {'name': 'extendo fist', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 5, 'range': 15, 'damage': '3d8 + 6'}, {'name': 'chest machine gun', 'action_type': 'action', 'attack_type': 'ranged_attack', 'hit_modifier': 5, 'range': 120, 'damage': '3d12 + 10', 'notes': 'recharges in 1d4 + 1 turns'}, {'name': 'jump pack leap', 'action_type': 'bonus_action', 'attack_type': 'utility', 'range': 40, 'notes': 'Metalhead jumps 40 feet. opportunity attack is not given to players.'}, {'name': 'multiattack', 'action_type': 'passive', 'attack_type': 'utility', 'notes': 'Metalhead can attack twice'}],
     }
 
 
 if __name__ == "__main__":
     updated_monster_dict = infer_cr_helper_values_from_monster_dict(
-        monster_dict=phase_1_orange_foot_clan_ninja_monster_dict
+        monster_dict=metalhead_monster_dict
     )
     print(
         build_replacement_python_dictionary_file_text_from_monster_dict(
             monster_dict=updated_monster_dict,
-            dict_variable_name='phase_1_orange_foot_clan_ninja_monster_dict'
+            dict_variable_name='metalhead_monster_dict'
         )
     )

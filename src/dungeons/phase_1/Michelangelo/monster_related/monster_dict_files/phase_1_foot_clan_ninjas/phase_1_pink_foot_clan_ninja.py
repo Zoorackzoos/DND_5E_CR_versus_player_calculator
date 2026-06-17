@@ -23,7 +23,7 @@ template_monster_parser_trial_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            '????',
+            7,
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
             'https://docs.google.com/document/d/1Cn68O2DB9j-QPiJOO36mgH1ecj1EPC_C1wxkpORb_oA/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
@@ -51,19 +51,19 @@ template_monster_parser_trial_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             10,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value]),
+            'STR, DEX',
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            ", ".join([spreadsheet_enums.SkillsEnums.ACROBATICS.value, spreadsheet_enums.SkillsEnums.STEALTH.value]),
+            'Acrobatics, Stealth',
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            ", ".join([spreadsheet_enums.WRIEnums.BLUDGEONING_RESISTANT.value, spreadsheet_enums.WRIEnums.SLASHING_RESISTANT.value]),
+            'Bludgeoningres, Slashingres',
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            ", ".join([spreadsheet_enums.LanguagesEnums.COMMON.value, spreadsheet_enums.LanguagesEnums.THIEVES_CANT.value]),
+            'Common, Thieves Cant',
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            13,
+            13.0,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
             4,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
@@ -87,7 +87,7 @@ template_monster_parser_trial_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value :
-            1,
+            2,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
             1,
         spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value :
