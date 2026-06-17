@@ -1,3 +1,4 @@
+from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.bosses.Metalhead import metalhead_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.bosses.Tokka_the_evil_blue_turtle import \
     tokka_the_evil_blue_turtle_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.phase_1_foot_clan_ninjas.phase_1_blue_foot_clan_ninja import \
@@ -15,6 +16,8 @@ from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.phase_
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.bosses.Rahzar_the_evil_puppy_monster import rahzar_the_evil_puppy_monster_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.rouge_monsters.Roadkill_Rodney import \
     roadkill_rodney_monster_dict
+from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.rouge_monsters.evil_foot_clan_ninja_cyborg import \
+    evil_foot_clan_ninja_cyborg_monster_dict
 from src.universal_functions.spreadsheet_stuff.convert_csv_file_into_tsv_file import convert_csv_file_into_tsv_file
 from src.universal_functions.spreadsheet_stuff.spreadsheet_updaters.update_homebrew_monster_spreadsheet import \
     update_homebrew_monster_spreadsheet
@@ -24,7 +27,7 @@ from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_bloc
 path_to_monster_spreadsheet_file = \
     "../../../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
 
-def interpret_phase_1_michelangelo_monster_files(tab_amount="\t"):
+def nuclear_interpret_phase_1_michelangelo_monster_files(tab_amount="\t"):
     print(tab_amount,"interpret_phase_1_michelangelo_monster_files")
     tab_amount += "\t"
 
@@ -114,9 +117,7 @@ def interpret_phase_1_michelangelo_monster_files(tab_amount="\t"):
             tab_amount=tab_amount+"\t"
         )
 
-
-
-def update_phase_1_michelangelo_monsters_onto_spreadsheet(tab_amount="\t"):
+def nuclear_update_phase_1_michelangelo_monsters_onto_spreadsheet(tab_amount="\t"):
     print(tab_amount,"update_phase_1_michelangelo_monsters_onto_spreadsheet")
     tab_amount += "\t"
 
@@ -130,7 +131,9 @@ def update_phase_1_michelangelo_monsters_onto_spreadsheet(tab_amount="\t"):
         phase_1_yellow_foot_clan_ninja_monster_dict,
         rahzar_the_evil_puppy_monster_monster_dict,
         tokka_the_evil_blue_turtle_monster_dict,
-        roadkill_rodney_monster_dict
+        roadkill_rodney_monster_dict,
+        evil_foot_clan_ninja_cyborg_monster_dict,
+        metalhead_monster_dict
     ]
 
     for monster_dict in phase_1_monster_and_boss_dicts:
@@ -147,16 +150,4 @@ def update_phase_1_michelangelo_monsters_onto_spreadsheet(tab_amount="\t"):
 
 if __name__ == "__main__":
     tab_amount = "\t"
-    interpret_phase_1_michelangelo_monster_files(
-        tab_amount=tab_amount,
-    )
-    user_input = input("continue? (y/n)")
-    if user_input == "n":
-        exit(0)
-    elif user_input == "y":
-        pass
-    else:
-        user_input = input("i need a (y/n) answer sir.")
-    update_phase_1_michelangelo_monsters_onto_spreadsheet(
-        tab_amount=tab_amount
-    )
+    nuclear_update_phase_1_michelangelo_monsters_onto_spreadsheet()
