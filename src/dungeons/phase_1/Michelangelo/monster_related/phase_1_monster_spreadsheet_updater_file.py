@@ -18,6 +18,8 @@ from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.phase_
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.phase_1_foot_clan_ninjas.phase_1_yellow_foot_clan_ninja import \
     phase_1_yellow_foot_clan_ninja_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.bosses.Rahzar_the_evil_puppy_monster import rahzar_the_evil_puppy_monster_monster_dict
+from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.rouge_monsters.Mauser import \
+    mauser_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.rouge_monsters.Roadkill_Rodney import \
     roadkill_rodney_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.rouge_monsters.evil_foot_clan_ninja_cyborg import \
@@ -165,9 +167,17 @@ def nuclear_update_phase_1_michelangelo_monsters_onto_spreadsheet(tab_amount="\t
 
 if __name__ == "__main__":
     tab_amount = "\t"
+    """
     interpret_markdown_stat_block_into_python_file(
         path_to_markdown_file="monster_dict_files/rouge_monsters/Mauser.md",
         path_to_python_file="monster_dict_files/rouge_monsters/Mauser.py",
-        dict_variable_name=path_to_monster_spreadsheet_file,
         tab_amount=tab_amount
     )
+    """
+    """
+    update_homebrew_monster_spreadsheet(
+        monster_dict=mauser_monster_dict,
+        path_to_csv_file=path_to_monster_spreadsheet_file,
+        tab_amount=tab_amount
+    )
+    """
