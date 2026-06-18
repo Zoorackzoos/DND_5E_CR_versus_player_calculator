@@ -1,3 +1,5 @@
+from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.bosses.Bebop_the_Warthog import \
+    bebop_the_warthog_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.bosses.Metalhead import metalhead_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.bosses.Rocksteady_the_Rhinovirus import \
     rocksteady_the_rhinovirus_monster_dict
@@ -171,14 +173,16 @@ if __name__ == "__main__":
     tab_amount = "\t"
     """
     interpret_markdown_stat_block_into_python_file(
-        path_to_markdown_file="monster_dict_files/bosses/Rocksteady_the_Rhinovirus.md",
-        path_to_python_file="monster_dict_files/bosses/Rocksteady_the_Rhinovirus.py",
+        path_to_markdown_file="monster_dict_files/bosses/Bebop_the_Warthog.md",
+        path_to_python_file="monster_dict_files/bosses/Bebop_the_Warthog.py",
         tab_amount=tab_amount
     )
     """
+
     update_homebrew_monster_spreadsheet(
-        monster_dict=rocksteady_the_rhinovirus_monster_dict,
+        monster_dict=bebop_the_warthog_monster_dict,
         path_to_csv_file=path_to_monster_spreadsheet_file,
         tab_amount=tab_amount
     )
 
+    # remember to convert the monsters_all_stats_homebrew.csv to it's tsv varity.
