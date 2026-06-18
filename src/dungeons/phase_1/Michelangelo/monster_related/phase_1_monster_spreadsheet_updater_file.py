@@ -35,8 +35,6 @@ def nuclear_interpret_phase_1_michelangelo_monster_files(tab_amount="\t"):
     print(tab_amount,"interpret_phase_1_michelangelo_monster_files")
     tab_amount += "\t"
 
-    #TODO: refactor this
-
     phase_1_michelangelo_boss_markdown_and_python_paths = \
     [
         [
@@ -50,7 +48,15 @@ def nuclear_interpret_phase_1_michelangelo_monster_files(tab_amount="\t"):
         [
             "monster_dict_files/bosses/Metalhead.md",
             "monster_dict_files/bosses/Metalhead.py"
-        ]
+        ],
+        [
+            "monster_dict_files/bosses/Bebop_the_Warthog.md",
+            "monster_dict_files/bosses/Bebop_the_Warthog.py"
+        ],
+        [
+            "monster_dict_files/bosses/Rocksteady_the_Rhinovirus.md",
+            "monster_dict_files/bosses/Rocksteady_the_Rhinovirus.py"
+        ],
     ]
 
     phase_1_michelangelo_phase_1_foot_clan_ninjas_markdown_and_python_paths = \
@@ -90,6 +96,10 @@ def nuclear_interpret_phase_1_michelangelo_monster_files(tab_amount="\t"):
         [
             "monster_dict_files/rouge_monsters/Roadkill_Rodney.md",
             "monster_dict_files/rouge_monsters/Roadkill_Rodney.py"
+        ],
+        [
+            "monster_dict_files/rouge_monsters/evil_foot_clan_ninja_cyborg.md",
+            "monster_dict_files/rouge_monsters/evil_foot_clan_ninja_cyborg.py"
         ],
         [
             "monster_dict_files/rouge_monsters/evil_foot_clan_ninja_cyborg.md",
@@ -155,4 +165,9 @@ def nuclear_update_phase_1_michelangelo_monsters_onto_spreadsheet(tab_amount="\t
 
 if __name__ == "__main__":
     tab_amount = "\t"
-    #nuclear_update_phase_1_michelangelo_monsters_onto_spreadsheet()
+    interpret_markdown_stat_block_into_python_file(
+        path_to_markdown_file="monster_dict_files/rouge_monsters/Mauser.md",
+        path_to_python_file="monster_dict_files/rouge_monsters/Mauser.py",
+        dict_variable_name=path_to_monster_spreadsheet_file,
+        tab_amount=tab_amount
+    )

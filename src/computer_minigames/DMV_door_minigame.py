@@ -333,7 +333,7 @@ def im_in_phase(good_credentials):
             print("\nbad input, please try again.\n")
             userinput = input("what would you like to do?")
 
-def hthq_door_minigame(tab_amount=""):
+def DMV_door_minigame(tab_amount=""):
     universal_terminal_clear()
     userInput = input("press enter to continue:")
     if userInput == "FUCK_YOU":
@@ -358,4 +358,4 @@ def hthq_door_minigame(tab_amount=""):
         im_in_phase(good_credentials)
 
 if __name__ == "__main__":
-    hthq_door_minigame()
+    DMV_door_minigame()
