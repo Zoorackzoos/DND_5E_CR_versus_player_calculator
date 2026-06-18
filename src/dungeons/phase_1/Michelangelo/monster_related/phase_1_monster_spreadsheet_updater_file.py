@@ -1,4 +1,6 @@
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.bosses.Metalhead import metalhead_monster_dict
+from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.bosses.Rocksteady_the_Rhinovirus import \
+    rocksteady_the_rhinovirus_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.bosses.Tokka_the_evil_blue_turtle import \
     tokka_the_evil_blue_turtle_monster_dict
 from src.dungeons.phase_1.Michelangelo.monster_related.monster_dict_files.phase_1_foot_clan_ninjas import \
@@ -169,15 +171,14 @@ if __name__ == "__main__":
     tab_amount = "\t"
     """
     interpret_markdown_stat_block_into_python_file(
-        path_to_markdown_file="monster_dict_files/rouge_monsters/Mauser.md",
-        path_to_python_file="monster_dict_files/rouge_monsters/Mauser.py",
+        path_to_markdown_file="monster_dict_files/bosses/Rocksteady_the_Rhinovirus.md",
+        path_to_python_file="monster_dict_files/bosses/Rocksteady_the_Rhinovirus.py",
         tab_amount=tab_amount
     )
     """
-    """
     update_homebrew_monster_spreadsheet(
-        monster_dict=mauser_monster_dict,
+        monster_dict=rocksteady_the_rhinovirus_monster_dict,
         path_to_csv_file=path_to_monster_spreadsheet_file,
         tab_amount=tab_amount
     )
-    """
+
