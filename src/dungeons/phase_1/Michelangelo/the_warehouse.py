@@ -147,9 +147,39 @@ def phase_1_michelangelo_the_warehouse_lvl_3(tab_amount="\t"):
 
     bebop_cr = get_cr_from_precise_monster_search(
         param_type=SpreadsheetKeysEnums.NAME.value,
-        string=""
+        string="Bebop the Warthog",
+        path_to_csv_file=path_to_monsters_csv_file,
+        tab_amount=tab_amount
+    )
+    rocksteady_cr = get_cr_from_precise_monster_search(
+        param_type=SpreadsheetKeysEnums.NAME.value,
+        string="Rocksteady the Rhinovirus",
+        path_to_csv_file=path_to_monsters_csv_file,
+    )
+    bebop_and_rocksteady_cr_values = \
+    [
+        bebop_cr, rocksteady_cr
+    ]
+    phase_1_michelangelo_the_warehouse_lvl_3_bebop_and_rocksteady_dict = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=bebop_and_rocksteady_cr_values,
+        encounter_name="phase_1_michelangelo_the_warehouse_lvl_3_bebop_and_rocksteady_dict",
+        tab_amount=tab_amount
+    )
+
+    update_encounter_feedback_spreadsheet(
+        encounter_dict=phase_1_michelangelo_the_warehouse_lvl_3_minions_encounter_dict,
+        path_to_encounter_feedback_csv_file=path_to_encounter_feedback_csv_file,
+        tab_amount=tab_amount
+    )
+    update_encounter_feedback_spreadsheet(
+        encounter_dict=phase_1_michelangelo_the_warehouse_lvl_3_bebop_and_rocksteady_dict,
+        path_to_encounter_feedback_csv_file=path_to_encounter_feedback_csv_file,
+        tab_amount=tab_amount
     )
 
 if __name__ == '__main__':
     tab_amount =" \t"
     phase_1_michelangelo_the_warehouse_lvl_1(tab_amount=tab_amount)
+    phase_1_michelangelo_the_warehouse_lvl_2(tab_amount=tab_amount)
+    phase_1_michelangelo_the_warehouse_lvl_3(tab_amount=tab_amount)
