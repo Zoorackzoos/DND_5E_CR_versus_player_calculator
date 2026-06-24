@@ -35,16 +35,16 @@ def get_damage(damage_dice,tab_amount="\t"):
 if __name__ == "__main__":
     print("program started")
     tab_amount = "\t"
-    hit_modifier = 2
+    hit_modifier = 6
     damage_dice = \
         {
             20 : 0,
             12 : 0,
             10 : 0,
             8 : 0,
-            6 : 1,
+            6 : 2,
             4 : 0,
-            "constant" : 0
+            "constant" : 6
         }
     chance_to_hit = get_chance_to_hit(hit_modifier=hit_modifier,tab_amount=tab_amount)
     damage = get_damage(damage_dice=damage_dice,tab_amount=tab_amount)
