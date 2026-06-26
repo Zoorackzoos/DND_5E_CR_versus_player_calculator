@@ -44,10 +44,10 @@ def phase_1_michelangelo_the_dmv_lvl_1(tab_amount="\t"):
         purple_ninja_cr, purple_ninja_cr, purple_ninja_cr,
         pink_ninja_cr
     ]
-    phase_1_michelangelo_the_dmv_lvl_1_encounter_dict = get_encounter_difficulty_from_cr_values(
+    phase_1_michelangelo_the_dmv_lvl_1_intial_encounter_dict = get_encounter_difficulty_from_cr_values(
         monster_cr_values=phase_1_michelangelo_the_dmv_lvl_1_the_office_cr_values,
         player_levels=player_levels,
-        encounter_name="phase_1_michelangelo_the_dmv_lvl_1_encounter_dict",
+        encounter_name="phase_1_michelangelo_the_dmv_lvl_1_intial_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -81,7 +81,7 @@ def phase_1_michelangelo_the_dmv_lvl_1(tab_amount="\t"):
 
     encounter_dict_list = \
     [
-        phase_1_michelangelo_the_dmv_lvl_1_encounter_dict,
+        phase_1_michelangelo_the_dmv_lvl_1_intial_encounter_dict,
         phase_1_michelangelo_the_dmv_lvl_1_elevator_tokka_and_rahzar_encounter_dict
     ]
 
@@ -214,6 +214,12 @@ def phase_1_michelangelo_the_dmv_lvl_2(tab_amount="\t"):
             evil_cyborg_ninja, evil_cyborg_ninja, evil_cyborg_ninja, evil_cyborg_ninja,
             purple_ninja_cr, purple_ninja_cr, purple_ninja_cr, purple_ninja_cr
         ]
+    phase_1_michelangelo_the_dmv_lvl_2_robotics_difficulty_dict = get_encounter_difficulty_from_cr_values(
+        player_levels=player_levels,
+        monster_cr_values=phase_1_michelangelo_the_dmv_lvl_2_robotics_cr_values,
+        encounter_name="phase_1_michelangelo_the_dmv_lvl_2_robotics_difficulty_dict",
+        tab_amount=tab_amount
+    )
 
     encounter_dict_list = \
     [
@@ -221,7 +227,7 @@ def phase_1_michelangelo_the_dmv_lvl_2(tab_amount="\t"):
         phase_1_michelangelo_the_dmv_lvl_2_showers_difficulty_dict,
         phase_1_michelangelo_the_dmv_lvl_2_cells_difficulty_dict,
         phase_1_michelangelo_the_dmv_lvl_2_break_room_difficulty_dict,
-        phase_1_michelangelo_the_dmv_lvl_2_robotics_cr_values
+        phase_1_michelangelo_the_dmv_lvl_2_robotics_difficulty_dict
     ]
 
     # update_encounter_feedback_spreadsheet loop
@@ -325,5 +331,5 @@ def phase_1_michelangelo_the_dmv_lvl_3(tab_amount="\t"):
 if __name__ == "__main__":
     tab_amount="\t"
     #phase_1_michelangelo_the_dmv_lvl_1(tab_amount=tab_amount)
-    #phase_1_michelangelo_the_dmv_lvl_2(tab_amount=tab_amount)
-    phase_1_michelangelo_the_dmv_lvl_3(tab_amount=tab_amount)
+    phase_1_michelangelo_the_dmv_lvl_2(tab_amount=tab_amount)
+    #phase_1_michelangelo_the_dmv_lvl_3(tab_amount=tab_amount)

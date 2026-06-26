@@ -1,32 +1,32 @@
 encounter_name	party_level	party_size	predicted_difficulty	actual_difficulty	monster_count	total_monster_xp	adjusted_xp	rounds	lasted_too_long	players_downed	players_killed	major_resource_drain	terrain_helped_players	terrain_helped_monsters	player_synergy_tags	monster_weakness_tags	notes	party_thresholds
-intro_magic_castle_inner_castle_difficulty	3	4	medium	medium	6	400	800	???	???	???	???	???	???	???	???	???	???	{'easy': 300, 'medium': 600, 'hard': 900, 'deadly': 1600}
-intro_magic_castle_tower_of_power_difficulty	3	4	easy	easy	1	450	450	???	???	???	???	???	???	???	???	???	???	{'easy': 300, 'medium': 600, 'hard': 900, 'deadly': 1600}
-intro_magic_castle_tower_of_faith_difficulty	3	4	deadly	easy	9	3300	8250	???	???	???	???	???	???	???	???	???	???	{'easy': 300, 'medium': 600, 'hard': 900, 'deadly': 1600}
-turtle_hideout_lvl_1_encounter_difficulty	4	4	medium	easy	8	400	1000	???	???	???	???	???	???	???	???	???	???	{'easy': 500, 'medium': 1000, 'hard': 1500, 'deadly': 2000}
-turtle_hideout_lvl_2_encounter_difficulty	4	4	medium	easy	8	550	1375	???	???	???	???	???	???	???	???	???	???	{'easy': 500, 'medium': 1000, 'hard': 1500, 'deadly': 2000}
-turtle_hideout_lvl_3_encounter_difficulty	4	4	easy	easy	4	300	600	???	???	???	???	???	???	???	???	???	???	{'easy': 500, 'medium': 1000, 'hard': 1500, 'deadly': 2000}
-turtle_hideout_boss_difficulty	4	4	medium	easy	1	1100	1100	???	???	???	???	???	???	???	???	???	???	{'easy': 500, 'medium': 1000, 'hard': 1500, 'deadly': 2000}
+intro_magic_castle_inner_castle_difficulty	3	4	medium	medium	6	400	800	???	FALSE	0	0	FALSE	TRUE	FALSE	None	None	???	{'easy': 300, 'medium': 600, 'hard': 900, 'deadly': 1600}
+intro_magic_castle_tower_of_power_difficulty	3	4	easy	easy	1	450	450	???	FALSE	0	0	FALSE	TRUE	FALSE	None	None	???	{'easy': 300, 'medium': 600, 'hard': 900, 'deadly': 1600}
+intro_magic_castle_tower_of_faith_difficulty	3	4	deadly	easy	9	3300	8250	???	FALSE	0	0	FALSE	TRUE	FALSE	None	None	???	{'easy': 300, 'medium': 600, 'hard': 900, 'deadly': 1600}
+turtle_hideout_lvl_1_encounter_difficulty	4	4	medium	easy	8	400	1000	???	FALSE	0	0	FALSE	TRUE	FALSE	None	None	???	{'easy': 500, 'medium': 1000, 'hard': 1500, 'deadly': 2000}
+turtle_hideout_lvl_2_encounter_difficulty	4	4	medium	easy	8	550	1375	???	FALSE	0	0	FALSE	TRUE	FALSE	None	None	???	{'easy': 500, 'medium': 1000, 'hard': 1500, 'deadly': 2000}
+turtle_hideout_lvl_3_encounter_difficulty	4	4	easy	easy	4	300	600	???	FALSE	0	0	FALSE	TRUE	FALSE	None	None	???	{'easy': 500, 'medium': 1000, 'hard': 1500, 'deadly': 2000}
+turtle_hideout_boss_difficulty	4	4	medium	easy	1	1100	1100	???	FALSE	0	0	FALSE	TRUE	FALSE	None	None	???	{'easy': 500, 'medium': 1000, 'hard': 1500, 'deadly': 2000}
 intro_the_magic_spire_hags_smoke_break	5	4	hard	hard	3	2100	4200	9	FALSE	0	0	TRUE	TRUE	FALSE	None	Bludgening	enjoyable	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
 intro_the_magic_spire_mainframe_room	5	4	deadly	hard	11	4800	14400	9	FALSE	0	0	TRUE	TRUE	FALSE	None	Bludgening	enjoyable	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
 intro_the_magic_spire_office_room	5	4	deadly	hard	1	5000	5000	9	FALSE	0	0	TRUE	TRUE	FALSE	None	Bludgening	enjoyable	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
 intro_the_magic_spire_break_room	5	4	hard	medium	2	2500	3750	3	FALSE	0	0	FALSE	TRUE	FALSE	None	None	good	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
-intro_the_magic_spire_dining_room	5	4	hard	???	2	2000	3000	???	???	???	???	???	???	???	???	???	???	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
+intro_the_magic_spire_dining_room	5	4	hard	easy	2	2000	3000	0	FALSE	0	0	FALSE	TRUE	FALSE	None	None	???	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
 intro_the_magic_spire_kitchen	5	4	hard	easy	7	1400	3500	1	FALSE	0	0	FALSE	FALSE	FALSE	None	None	made friedsn with lizard queen and brood	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
 intro_the_magic_spire_movie_room	5	4	medium	easy	6	1200	2400	0	FALSE	0	0	FALSE	TRUE	FALSE	None	None	the spectator teleported animals to the wolves after johnathan charmed the wolves	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
 intro_the_magic_spire_teal_key	5	4	trivial	easy	1	700	700	1	FALSE	0	0	FALSE	FALSE	FALSE	None	None	friends with beholder. god help me	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
 intro_the_magic_spire_bottom_left_conference_room	5	4	deadly	easy	5	2500	5000	5	FALSE	0	0	FALSE	FALSE	FALSE	None	None	triggered both at the same time	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
 intro_the_magic_spire_flower_conference_room	5	4	trivial	easy	4	400	800	5	FALSE	0	0	FALSE	FALSE	FALSE	None	None	triggered both at the same time	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
-intro_the_magic_spire_barracks	5	4	medium	???	3	1350	2700	???	???	???	???	???	???	???	???	???	???	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
-phase_1_michelangelo_the_dmv_lvl_1_encounter_dict	6.0	4	deadly	???	7	4100	10250.0	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
-phase_1_michelangelo_the_dmv_lvl_1_elevator_tokka_and_rahzar_encounter_dict	6.0	4	deadly	???	2	5800	8700.0	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
-phase_1_michelangelo_the_dmv_lvl_2_airlock_encounter_dict	6.0	4	deadly	???	4	2900	5800	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
-phase_1_michelangelo_the_dmv_lvl_2_showers_difficulty_dict	6.0	4	easy	???	4	800	1600	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
-phase_1_michelangelo_the_dmv_lvl_2_cells_difficulty_dict	6.0	4	hard	???	3	2200	4400	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
-phase_1_michelangelo_the_dmv_lvl_2_break_room_difficulty_dict	6.0	4	deadly	???	4	6800	13600	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
-phase_1_michelangelo_the_dmv_lvl_3_lab_encounter_dict	6.0	4	deadly	???	5	5500	11000	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
-phase_1_michelangelo_the_dmv_lvl_3_gene_banks_encounter_dict	6.0	4	deadly	???	6	4400	8800	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
-phase_1_michelangelo_the_dmv_lvl_3_metalhead_encounter_dict	6.0	4	medium	???	1	2900	2900	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
-phase_1_michelangelo_the_warehouse_lvl_1_difficulty_dict	6.0	4	deadly	???	5	4600	9200	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
-phase_1_michelangelo_the_warehouse_lvl_2_encounter_dict	6.0	4	medium	???	10	1400	3500.0	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
-phase_1_michelangelo_the_warehouse_lvl_3_minions_encounter_dict	6.0	4	deadly	???	5	6200	12400	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
-phase_1_michelangelo_the_warehouse_lvl_3_bebop_and_rocksteady_dict	6.0	4	deadly	???	2	21500	32250.0	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+intro_the_magic_spire_barracks	5	4	medium	easy	3	1350	2700	4	FALSE	0	0	FALSE	FALSE	FALSE	None	None	2 polar bears were spared	{'easy': 1000, 'medium': 2000, 'hard': 3000, 'deadly': 4400}
+phase_1_michelangelo_the_dmv_lvl_1_intial_encounter_dict	6	4	deadly	easy	7	4100	10250	2	FALSE	0	0	FALSE	FALSE	FALSE	None	None	bad encounter name. they did this using prep tattics. as in, they blew up everybody. one ran away.	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_dmv_lvl_1_elevator_tokka_and_rahzar_encounter_dict	6	4	deadly	medium	2	5800	8700	4	FALSE	0	0	FALSE	FALSE	FALSE	None	None	jullian was upset at rahzer's prone immmune-ness	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_dmv_lvl_2_airlock_encounter_dict	6	4	deadly	easy	4	2900	5800	3	FALSE	0	0	FALSE	FALSE	FALSE	None	None	they realeased the chuul and it killed one purple ninja	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_dmv_lvl_2_showers_difficulty_dict	6	4	easy	???	4	800	1600	3	FALSE	0	0	FALSE	FALSE	TRUE	None	None	Jullian noticed the shower mechanic	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_dmv_lvl_2_cells_difficulty_dict	6	4	hard	???	3	2200	4400	2	FALSE	0	0	FALSE	FALSE	FALSE	None	None	the insect ninja turtle fan was a turbo nerd voice who bought comics of the turtles	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_dmv_lvl_2_break_room_difficulty_dict	6	4	deadly	???	4	6800	13600	6	FALSE	0	0	FALSE	FALSE	FALSE	None	None	they really liked the computer minigame. i wish i could do that again.	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_dmv_lvl_3_lab_encounter_dict	6	4	deadly	???	5	5500	11000	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_dmv_lvl_3_gene_banks_encounter_dict	6	4	deadly	???	6	4400	8800	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_dmv_lvl_3_metalhead_encounter_dict	6	4	medium	???	1	2900	2900	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_warehouse_lvl_1_difficulty_dict	6	4	deadly	???	5	4600	9200	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_warehouse_lvl_2_encounter_dict	6	4	medium	???	10	1400	3500	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_warehouse_lvl_3_minions_encounter_dict	6	4	deadly	???	5	6200	12400	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
+phase_1_michelangelo_the_warehouse_lvl_3_bebop_and_rocksteady_dict	6	4	deadly	???	2	21500	32250	???	???	???	???	???	???	???	???	???	???	{'easy': 1200, 'medium': 2400, 'hard': 3600, 'deadly': 5600}
