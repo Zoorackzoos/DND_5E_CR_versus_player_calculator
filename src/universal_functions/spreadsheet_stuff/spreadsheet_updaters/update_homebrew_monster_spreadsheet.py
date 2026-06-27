@@ -1,6 +1,6 @@
 import csv
 from pathlib import Path
-
+from helper_functions.get_value_and_get_normalized_name_from_monster_or_encounter_dict import get_value_from_encounter_or_monster_dict, get_normalized_encounter_or_monster_name
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_HOMEBREW_MONSTER_SPREADSHEET = (
@@ -34,45 +34,26 @@ HEADER_ALIASES = {
     "Additional": ["additional"],
 }
 
-
-def get_value_from_monster_dict(monster_dict, header):
-    possible_keys = [header]
-    possible_keys += HEADER_ALIASES.get(header, [])
-    possible_keys += [header.lower()]
-
-    for key in possible_keys:
-        if key in monster_dict:
-            value = monster_dict[key]
-
-            if value is None:
-                return ""
-
-            return value
-
-    return ""
-
-
-def get_normalized_monster_name(monster_name):
-    return str(monster_name).strip().lower()
-
-
 def get_row_from_monster_dict(monster_dict, fieldnames):
     row = {}
 
     for fieldname in fieldnames:
-        row[fieldname] = get_value_from_monster_dict(
-            monster_dict=monster_dict,
-            header=fieldname
+        row[fieldname] = get_value_from_encounter_or_monster_dict(
+            encounter_or_monster_dict=monster_dict,
+            header=fieldname,
+            HEADER_ALIASES=HEADER_ALIASES
         )
 
     return row
 
 
 def get_duplicate_index(rows, monster_name):
-    normalized_monster_name = get_normalized_monster_name(monster_name)
+    normalized_monster_name = get_normalized_encounter_or_monster_name(encounter_or_monster_name=monster_name)
 
     for index, row in enumerate(rows):
-        if get_normalized_monster_name(row.get("Name", "")) == normalized_monster_name:
+        if (get_normalized_encounter_or_monster_name(row.get("Name", ""))
+                ==
+                normalized_monster_name):
             return index
 
     return None
@@ -88,6 +69,10 @@ def update_homebrew_monster_spreadsheet(
     This updates the csv spreadsheet with homebrew monsters.
     If you're forgetting in what processes homebrew monsters are added.
     Please consult the README.
+
+    At some point i need to put my big boy pants on and see if i can refactor this and teh encoutner updater into 1 funciton instead of 2 seperate ones.
+    though... from a end user perspective, using separate ones makes more sense.
+    oh well :-).
 
     :param monster_dict:
     :param path_to_csv_file:
@@ -109,10 +94,11 @@ def update_homebrew_monster_spreadsheet(
         print(tab_amount, "ERROR: update_homebrew_monster_spreadsheet: homebrew monster spreadsheet does not exist.")
         exit()
 
-    monster_name = (get_value_from_monster_dict
+    monster_name = (get_value_from_encounter_or_monster_dict
     (
-        monster_dict=monster_dict,
-        header="Name"
+        encounter_or_monster_dict=monster_dict,
+        header="Name",
+        HEADER_ALIASES=HEADER_ALIASES
     ))
 
     #no name
@@ -154,12 +140,16 @@ def update_homebrew_monster_spreadsheet(
 
             if answer.strip().lower() in ["y", "yes"]:
                 duplicate_action = "overwrite"
-            else:
+            elif answer.strip().lower() in ["n", "no"]:
+                duplicate_action = "continue"
+            else: #answer.strip().lower() in ["s", "stop"]:
                 duplicate_action = "stop"
 
         if duplicate_action == "overwrite":
             print(tab_amount, "overwriting existing monster row")
             rows[duplicate_index] = new_row
+        elif duplicate_action == "continue":
+            print(tab_amount, "continuing encounter update...")
         elif duplicate_action == "stop":
             print(tab_amount, "stopping without changing the spreadsheet")
             exit()
