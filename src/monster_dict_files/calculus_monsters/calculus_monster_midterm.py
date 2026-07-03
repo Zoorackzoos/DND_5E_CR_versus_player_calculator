@@ -23,7 +23,7 @@ calculus_monster_midterm_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            '????',
+            9,
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
             'https://docs.google.com/document/d/1tbZlCBBZYNydWd_cagPicmmBTVjhAp0fNEb7J5Ciwqk/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
@@ -51,19 +51,19 @@ calculus_monster_midterm_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             4,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            spreadsheet_enums.SavingThrowsEnums.NONE.value,
+            'None',
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            spreadsheet_enums.SkillsEnums.NONE.value,
+            'None',
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            ", ".join([spreadsheet_enums.WRIEnums.RADIANT_WEAKNESS.value, spreadsheet_enums.WRIEnums.FIRE_WEAKNESS.value, spreadsheet_enums.WRIEnums.POISON_IMMUNE.value, spreadsheet_enums.WRIEnums.NECROTIC_IMMUNE.value]),
+            'Radiantweak, Fireweak, Poisonimmu, Necroticimmu',
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            spreadsheet_enums.LanguagesEnums.COMMON.value,
+            'Common',
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            0,
+            23.5,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
@@ -79,7 +79,7 @@ calculus_monster_midterm_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
             2,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
-            0,
+            16,
         spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.REGENERATION_PER_ROUND.value :

@@ -23,7 +23,7 @@ bowling_ball_monster_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.MONSTROSITY.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            '????',
+            11,
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
             'https://docs.google.com/document/d/1dvK7F77c64SoFjstG9rYURPBFaGzL0uagUfyFc1y24Y/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
@@ -51,21 +51,21 @@ bowling_ball_monster_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             6,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.CON.value]),
+            'STR, DEX, CON',
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            spreadsheet_enums.SkillsEnums.NONE.value,
+            'None',
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            ", ".join([spreadsheet_enums.WRIEnums.BLUDGEONING_IMMUNE.value, spreadsheet_enums.WRIEnums.SLASHING_IMMUNE.value, spreadsheet_enums.WRIEnums.PIERCING_IMMUNE.value]),
+            'Bludgeoningimmu, Slashingimmu, Piercingimmu',
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            spreadsheet_enums.LanguagesEnums.COMMON.value,
+            'Common',
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            0,
+            20.5,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
-            0,
+            5,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value :
@@ -79,7 +79,7 @@ bowling_ball_monster_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
-            0,
+            14,
         spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.REGENERATION_PER_ROUND.value :
@@ -95,7 +95,7 @@ bowling_ball_monster_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.LIMITED_USE_DAMAGE.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.BONUS_ACTION_DAMAGE.value :
-            0,
+            16.5,
         "actions" :
             [{'name': 'slam', 'action_type': 'action', 'attack_type': 'melee_attack', 'hit_modifier': 5, 'damage': '1d20 + 10', 'range': '10ft'}, {'name': 'roll', 'action_type': 'bonus_action', 'attack_type': 'saving_throw', 'save_dc': 14, 'save_stat': 'dex', 'damage': '1d20 + 6', 'damage_type': 'bludgening', 'range': 30, 'notes': 'the bowling ball monster rolls on the ground to a location. Anybody in his way must make a saving throw.'}],
     }

@@ -23,7 +23,7 @@ calculus_monster_continuity_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.HUMANOID.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            '????',
+            2,
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
             'https://docs.google.com/document/d/1ZalR7lS_lz-2Z88KMu2bgCedFbuBk_oElixSBwLVdoU/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
@@ -51,19 +51,19 @@ calculus_monster_continuity_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             4,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            ", ".join([spreadsheet_enums.SavingThrowsEnums.INT.value, spreadsheet_enums.SavingThrowsEnums.WIS.value, spreadsheet_enums.SavingThrowsEnums.CHA.value]),
+            'INT, WIS, CHA',
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            ", ".join([spreadsheet_enums.SkillsEnums.ACROBATICS.value, spreadsheet_enums.SkillsEnums.STEALTH.value, spreadsheet_enums.SkillsEnums.HISTORY.value]),
+            'Acrobatics, Stealth, History',
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            ", ".join([spreadsheet_enums.WRIEnums.PSYCHIC_IMMUNE.value, spreadsheet_enums.WRIEnums.NECROTIC_IMMUNE.value]),
+            'Psychicimmu, Necroticimmu',
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            spreadsheet_enums.LanguagesEnums.COMMON.value,
+            'Common',
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            0,
+            15.5,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
@@ -79,7 +79,7 @@ calculus_monster_continuity_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
-            0,
+            16,
         spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.REGENERATION_PER_ROUND.value :
@@ -87,7 +87,7 @@ calculus_monster_continuity_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value :
-            0,
+            2,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
             2,
         spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value :

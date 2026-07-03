@@ -23,7 +23,7 @@ calculus_monster_cra_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.TYPE.value :
             spreadsheet_enums.CreatureTypesEnums.MONSTROSITY.value,
         spreadsheet_enums.SpreadsheetKeysEnums.CR.value :
-            '????',
+            8,
         spreadsheet_enums.SpreadsheetKeysEnums.URL.value :
             'https://docs.google.com/document/d/1ie3GLYkp2qjGO3Pz_trP-QyKvLroA4ys1RFAEi01NOY/edit?tab=t.0',
         spreadsheet_enums.SpreadsheetKeysEnums.FONT.value :
@@ -51,21 +51,21 @@ calculus_monster_cra_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.CHA.value :
             6,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVING_THROWS.value :
-            ", ".join([spreadsheet_enums.SavingThrowsEnums.STR.value, spreadsheet_enums.SavingThrowsEnums.DEX.value, spreadsheet_enums.SavingThrowsEnums.INT.value]),
+            'STR, DEX, INT',
         spreadsheet_enums.SpreadsheetKeysEnums.SKILLS.value :
-            spreadsheet_enums.SkillsEnums.NONE.value,
+            'None',
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESSES_RESISTANCES_AND_IMMUNITIES.value :
-            ", ".join([spreadsheet_enums.WRIEnums.RADIANT_WEAKNESS.value, spreadsheet_enums.WRIEnums.FIRE_RESISTANT.value, spreadsheet_enums.WRIEnums.NECROTIC_RESISTANT.value, spreadsheet_enums.WRIEnums.BLUDGEONING_RESISTANT.value, spreadsheet_enums.WRIEnums.SLASHING_RESISTANT.value, spreadsheet_enums.WRIEnums.PIERCING_RESISTANT.value, spreadsheet_enums.WRIEnums.NECROTIC_RESISTANT.value, spreadsheet_enums.WRIEnums.FORCE_RESISTANT.value, spreadsheet_enums.WRIEnums.THUNDER_RESISTANT.value, spreadsheet_enums.WRIEnums.LIGHTNING_RESISTANT.value, spreadsheet_enums.WRIEnums.PSYCHIC_IMMUNE.value]),
+            'Radiantweak, Fireres, Necroticres, Bludgeoningres, Slashingres, Piercingres, Necroticres, Forceres, Thunderres, Lightningres, Psychicimmu',
         spreadsheet_enums.SpreadsheetKeysEnums.SENSES.value :
             spreadsheet_enums.SensesEnums.NORMAL.value,
         spreadsheet_enums.SpreadsheetKeysEnums.LANGUAGES.value :
-            spreadsheet_enums.LanguagesEnums.COMMON.value,
+            'Common',
         spreadsheet_enums.SpreadsheetKeysEnums.ADDITIONAL.value :
             'None',
         spreadsheet_enums.SpreadsheetKeysEnums.AVERAGE_DAMAGE.value :
-            0,
+            29.0,
         spreadsheet_enums.SpreadsheetKeysEnums.ATTACK_MODIFIER.value :
-            0,
+            5,
         spreadsheet_enums.SpreadsheetKeysEnums.HAS_LEGENDARY_ACTION.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.LEGENDARY_ACTION_DAMAGE.value :
@@ -79,7 +79,7 @@ calculus_monster_cra_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.WEAKNESS_COUNT.value :
             1,
         spreadsheet_enums.SpreadsheetKeysEnums.SAVE_DC.value :
-            0,
+            16,
         spreadsheet_enums.SpreadsheetKeysEnums.IS_SPELLCASTER.value :
             False,
         spreadsheet_enums.SpreadsheetKeysEnums.REGENERATION_PER_ROUND.value :
@@ -87,7 +87,7 @@ calculus_monster_cra_monster_dict = \
         spreadsheet_enums.SpreadsheetKeysEnums.MULTIATTACK_COUNT.value :
             0,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_COUNT.value :
-            0,
+            5,
         spreadsheet_enums.SpreadsheetKeysEnums.ABILITY_CR_WEIGHT.value :
             2,
         spreadsheet_enums.SpreadsheetKeysEnums.RECHARGE_DAMAGE.value :
