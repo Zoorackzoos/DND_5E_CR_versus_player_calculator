@@ -74,7 +74,7 @@ def update_encounter_feedback_spreadsheet(
 
     :param encounter_dict:
         either a temp or hard variable of a monster. for example see:
-        "src/dungeons/phase_1/Michelangelo/monster_related/monster_dict_files/phase_1_foot_clan_ninjas/phase_1_purple_foot_clan_ninja.py"
+        "src/dungeons/phase_1/Michelangelo/monster_related/monster_dict_files/michelangelo_phase_1_foot_clan_ninjas/phase_1_purple_foot_clan_ninja.py"
     :param path_to_encounter_feedback_csv_file:
         this is variable depending on the location of the dungeon file. The reason this exists is because
         i don't want to deal with more powerful path based libraries. So it just gets fed as a parameter.
