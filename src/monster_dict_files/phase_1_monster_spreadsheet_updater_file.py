@@ -1,3 +1,11 @@
+from src.monster_dict_files.calculus_monsters.calculus_monster_continuity import \
+    calculus_monster_continuity_monster_dict
+from src.monster_dict_files.calculus_monsters.calculus_monster_cra import calculus_monster_cra_monster_dict
+from src.monster_dict_files.calculus_monsters.calculus_monster_midterm import calculus_monster_midterm_monster_dict
+from src.monster_dict_files.calculus_monsters.calculus_monster_polynomial import \
+    calculus_monster_polynomial_monster_dict
+from src.monster_dict_files.calculus_monsters.calculus_monster_product_rule import \
+    calculus_monster_product_rule_monster_dict
 from src.monster_dict_files.forest_rouge_monsters import evil_generator_poison_flesh_turret
 from src.monster_dict_files.forest_rouge_monsters.bowling_ball_monster import bowling_ball_monster_monster_dict
 from src.monster_dict_files.forest_rouge_monsters.evil_generator_poison_flesh_turret import \
@@ -31,9 +39,10 @@ from src.universal_functions.spreadsheet_stuff.spreadsheet_updaters.update_homeb
     update_homebrew_monster_spreadsheet
 from src.universal_functions.stat_block_interpreter.interpret_markdown_stat_block import \
     interpret_markdown_stat_block_into_python_file
+from src.monster_dict_files.calculus_monsters.calculus_monster_dervative import calculus_monster_derivative_monster_dict
 
 path_to_monsters_csv_spreadsheet_file = \
-    "../../sheets/encounter_feedback/encounter_feedback.csv"
+    "../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
 
 def interp_forest_rouge_monsters(tab_amount="\t"):
     forest_rouge_monster_markdown_and_python_paths = \
@@ -108,14 +117,22 @@ def interp_calculus_monsters(tab_amount="\t"):
 def update_calculus_monsters(tab_amount="\t"):
     calculus_monsters_monster_dict_list = \
         [
-
+            calculus_monster_continuity_monster_dict,
+            calculus_monster_cra_monster_dict,
+            calculus_monster_derivative_monster_dict,
+            calculus_monster_midterm_monster_dict,
+            calculus_monster_polynomial_monster_dict,
+            calculus_monster_product_rule_monster_dict
         ]
+
+    for monster_dict in calculus_monsters_monster_dict_list:
+        update_homebrew_monster_spreadsheet(
+            monster_dict=monster_dict,
+            path_to_csv_file=path_to_monsters_csv_spreadsheet_file,
+            tab_amount=tab_amount
+        )
 
 if __name__ == "__main__":
     tab_amount = "\t"
-    path_to_dervative_monster_markdown = "calculus_monsters/calculus_monster_dervative.md"
-    interpret_markdown_stat_block_into_python_file(
-        path_to_markdown_file=path_to_dervative_monster_markdown,
-        path_to_python_file="calculus_monsters/calculus_monster_dervative.py",
-        tab_amount=tab_amount
-    )
+    update_forest_rouge_monsters(tab_amount=tab_amount)
+    update_calculus_monsters(tab_amount=tab_amount)
