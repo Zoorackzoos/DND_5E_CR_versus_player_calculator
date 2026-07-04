@@ -49,7 +49,7 @@ def update_ninjas_into_intro_ninjas(tab_amount="\t"):
         (update_homebrew_monster_spreadsheet
         (
             monster_dict=intro_ninja,
-            path_to_csv_file=monster_spreadsheet_updates_file_path_to_csv_file,
+            path_to_monsters_csv_file=monster_spreadsheet_updates_file_path_to_csv_file,
             tab_amount=tab_amount
         ))
 

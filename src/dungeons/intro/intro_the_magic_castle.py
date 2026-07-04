@@ -16,11 +16,11 @@ def intro_the_magic_castle(tab_amount="\t"):
     player_levels = [3,3,3,3]
 
     skeleton_cr = get_cr_from_precise_monster_search(param_type="Name",
-                                                     path_to_csv_file=path_to_monster_csv_file,
+                                                     path_to_monsters_csv_file=path_to_monster_csv_file,
                                                      string="Skeleton",
                                                      tab_amount=tab_amount)
     skeleton_war_horse_cr = get_cr_from_precise_monster_search(param_type="Name",
-                                                               path_to_csv_file=path_to_monster_csv_file,
+                                                               path_to_monsters_csv_file=path_to_monster_csv_file,
                                                                string="Skeleton, Warhorse",
                                                                tab_amount=tab_amount)
     skeleton_xp = get_xp_from_single_enemy_cr(cr=skeleton_cr,
@@ -38,7 +38,7 @@ def intro_the_magic_castle(tab_amount="\t"):
     )
 
     skeleton_minotaur_cr = get_cr_from_precise_monster_search(param_type="Name",
-                                                              path_to_csv_file=path_to_monster_csv_file,
+                                                              path_to_monsters_csv_file=path_to_monster_csv_file,
                                                               string="Skeleton, Minotaur",
                                                               tab_amount=tab_amount)
     skeleton_minotaur_xp = get_xp_from_single_enemy_cr(cr=skeleton_minotaur_cr,
@@ -52,7 +52,7 @@ def intro_the_magic_castle(tab_amount="\t"):
     )
 
     giant_skeleton_cr = get_cr_from_precise_monster_search(param_type="Name",
-                                                           path_to_csv_file=path_to_monster_csv_file,
+                                                           path_to_monsters_csv_file=path_to_monster_csv_file,
                                                            string="Skeleton, Giant",
                                                            tab_amount=tab_amount)
     giant_skeleton_xp = get_xp_from_single_enemy_cr(cr=giant_skeleton_cr,

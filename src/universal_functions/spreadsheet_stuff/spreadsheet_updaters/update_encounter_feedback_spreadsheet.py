@@ -73,13 +73,12 @@ def update_encounter_feedback_spreadsheet(
     this function and it's helper functions was coded by Codex. I modified it minorly.
 
     :param encounter_dict:
-        either a temp or hard variable of a monster. for example see:
-        "src/dungeons/phase_1/Michelangelo/monster_related/monster_dict_files/michelangelo_phase_1_foot_clan_ninjas/phase_1_purple_foot_clan_ninja.py"
+        lower level than my markdown and python files. only the system views these variables created by get_encounter_difficulty_from_cr_values
     :param path_to_encounter_feedback_csv_file:
         this is variable depending on the location of the dungeon file. The reason this exists is because
         i don't want to deal with more powerful path based libraries. So it just gets fed as a parameter.
     :param duplicate_action:
-
+        it's not advized you mess with this.
     :param tab_amount: Variations of "\t". like "\t\t" or "\t\t\t".
     :return:
     """

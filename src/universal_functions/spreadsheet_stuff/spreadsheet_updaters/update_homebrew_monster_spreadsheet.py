@@ -61,7 +61,7 @@ def get_duplicate_index(rows, monster_name):
 
 def update_homebrew_monster_spreadsheet(
         monster_dict,
-        path_to_csv_file=DEFAULT_HOMEBREW_MONSTER_SPREADSHEET,
+        path_to_monsters_csv_file=DEFAULT_HOMEBREW_MONSTER_SPREADSHEET,
         duplicate_action="ask",
         tab_amount="\t"
 ):
@@ -75,7 +75,7 @@ def update_homebrew_monster_spreadsheet(
     oh well :-).
 
     :param monster_dict:
-    :param path_to_csv_file:
+    :param path_to_monsters_csv_file:
     :param duplicate_action:
     :param tab_amount:
     :return:
@@ -86,11 +86,11 @@ def update_homebrew_monster_spreadsheet(
     tab_amount += "\t"
 
     #get the file path
-    path_to_csv_file = Path(path_to_csv_file)
-    print(tab_amount, "path_to_csv_file =", path_to_csv_file)
+    path_to_monsters_csv_file = Path(path_to_monsters_csv_file)
+    print(tab_amount, "path_to_csv_file =", path_to_monsters_csv_file)
 
     #can't find the file path
-    if not path_to_csv_file.exists():
+    if not path_to_monsters_csv_file.exists():
         print(tab_amount, "ERROR: update_homebrew_monster_spreadsheet: homebrew monster spreadsheet does not exist.")
         exit()
 
@@ -107,7 +107,7 @@ def update_homebrew_monster_spreadsheet(
         exit()
 
     #file variable things i don't know about.
-    with open(path_to_csv_file, newline="", encoding="utf-8") as file:
+    with open(path_to_monsters_csv_file, newline="", encoding="utf-8") as file:
         reader = csv.DictReader(file)
         fieldnames = reader.fieldnames
         rows = list(reader)
@@ -161,7 +161,7 @@ def update_homebrew_monster_spreadsheet(
         rows.append(new_row)
 
     #writing the thing
-    with open(path_to_csv_file, "w", newline="", encoding="utf-8") as file:
+    with open(path_to_monsters_csv_file, "w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)

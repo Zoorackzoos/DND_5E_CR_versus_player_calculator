@@ -52,7 +52,7 @@ class TestUpdateHomebrewMonsterSpreadsheet(unittest.TestCase):
                 "average_damage": 15,
                 "attack_modifier": 4,
             },
-            path_to_csv_file=self.path_to_csv_file,
+            path_to_monsters_csv_file=self.path_to_csv_file,
         )
 
         rows = self.get_rows()
@@ -70,7 +70,7 @@ class TestUpdateHomebrewMonsterSpreadsheet(unittest.TestCase):
                 "HP": 80,
                 "AC": 16,
             },
-            path_to_csv_file=self.path_to_csv_file,
+            path_to_monsters_csv_file=self.path_to_csv_file,
             duplicate_action="overwrite",
         )
 
@@ -89,7 +89,7 @@ class TestUpdateHomebrewMonsterSpreadsheet(unittest.TestCase):
                     "CR": 10,
                     "HP": 500,
                 },
-                path_to_csv_file=self.path_to_csv_file,
+                path_to_monsters_csv_file=self.path_to_csv_file,
                 duplicate_action="stop",
             )
 

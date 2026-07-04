@@ -28,19 +28,19 @@ def phase_1_michelangelo_the_warehouse_lvl_1(tab_amount="\t"):
     purple_ninja_cr = get_cr_from_precise_monster_search(
         param_type=SpreadsheetKeysEnums.NAME.value,
         string="phase 1 purple foot clan ninja",
-        path_to_csv_file=path_to_monsters_csv_file,
+        path_to_monsters_csv_file=path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     orange_ninja_cr = get_cr_from_precise_monster_search(
         param_type=SpreadsheetKeysEnums.NAME.value,
         string="phase 1 orange foot clan ninja",
-        path_to_csv_file=path_to_monsters_csv_file,
+        path_to_monsters_csv_file=path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     white_ninja_cr = get_cr_from_precise_monster_search(
         param_type=SpreadsheetKeysEnums.NAME.value,
         string="phase 1 white foot clan ninja",
-        path_to_csv_file=path_to_monsters_csv_file,
+        path_to_monsters_csv_file=path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
 
@@ -78,13 +78,13 @@ def phase_1_michelangelo_the_warehouse_lvl_2(tab_amount="\t"):
     mauser_cr = get_cr_from_precise_monster_search(
         param_type=SpreadsheetKeysEnums.NAME.value,
         string="mauser",
-        path_to_csv_file=path_to_monsters_csv_file,
+        path_to_monsters_csv_file=path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     green_ninja_cr = get_cr_from_precise_monster_search(
         param_type=SpreadsheetKeysEnums.NAME.value,
         string="phase 1 green foot clan ninja",
-        path_to_csv_file=path_to_monsters_csv_file,
+        path_to_monsters_csv_file=path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
 
@@ -123,13 +123,13 @@ def phase_1_michelangelo_the_warehouse_lvl_3(tab_amount="\t"):
     orange_ninja_cr = get_cr_from_precise_monster_search(
         param_type=SpreadsheetKeysEnums.NAME.value,
         string="phase 1 orange foot clan ninja",
-        path_to_csv_file=path_to_monsters_csv_file,
+        path_to_monsters_csv_file=path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     yellow_ninja_cr = get_cr_from_precise_monster_search(
         param_type=SpreadsheetKeysEnums.NAME.value,
         string="phase 1 yellow foot clan ninja",
-        path_to_csv_file=path_to_monsters_csv_file,
+        path_to_monsters_csv_file=path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
 
@@ -148,13 +148,13 @@ def phase_1_michelangelo_the_warehouse_lvl_3(tab_amount="\t"):
     bebop_cr = get_cr_from_precise_monster_search(
         param_type=SpreadsheetKeysEnums.NAME.value,
         string="Bebop the Warthog",
-        path_to_csv_file=path_to_monsters_csv_file,
+        path_to_monsters_csv_file=path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     rocksteady_cr = get_cr_from_precise_monster_search(
         param_type=SpreadsheetKeysEnums.NAME.value,
         string="Rocksteady the Rhinovirus",
-        path_to_csv_file=path_to_monsters_csv_file,
+        path_to_monsters_csv_file=path_to_monsters_csv_file,
     )
     bebop_and_rocksteady_cr_values = \
     [

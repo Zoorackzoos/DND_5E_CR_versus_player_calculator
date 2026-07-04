@@ -8,7 +8,7 @@ default_path_monsters_all_stats_dict = "../../../sheets/monsters_all_stats_homeb
 
 def get_cr_from_precise_monster_search(param_type,
                                        string,
-                                       path_to_csv_file=default_path_monsters_all_stats_dict,
+                                       path_to_monsters_csv_file=default_path_monsters_all_stats_dict,
                                        tab_amount="\t"):
     """
     this gets the CR of the 1st creature it detects based on
@@ -21,19 +21,19 @@ def get_cr_from_precise_monster_search(param_type,
 
     :param param_type:
     :param string:
-    :param path_to_csv_file:
+    :param path_to_monsters_csv_file:
     :param tab_amount:
     :return:
     """
     global monster_row
     print(tab_amount,"get_cr_from_precise_monster_search")
     tab_amount += "\t"
-    if path_to_csv_file == default_path_monsters_all_stats_dict:
+    if path_to_monsters_csv_file == default_path_monsters_all_stats_dict:
         monster_row = (
             get_rows_from_dict_on_param_type_and_string(
                 dict_in_question=get_dict_from_csv_file
                 (
-                    path_to_csv_file=path_to_csv_file,
+                    path_to_csv_file=path_to_monsters_csv_file,
                     tab_amount=tab_amount
                 ),
                 param_type=param_type,
@@ -41,14 +41,14 @@ def get_cr_from_precise_monster_search(param_type,
                 tab_amount=tab_amount
             )
         )[0]
-    elif path_to_csv_file != default_path_monsters_all_stats_dict:
+    elif path_to_monsters_csv_file != default_path_monsters_all_stats_dict:
         try:
             monster_row = (
                 get_rows_from_dict_on_param_type_and_string
                 (
                     dict_in_question=get_dict_from_csv_file
                     (
-                        path_to_csv_file=path_to_csv_file,
+                        path_to_csv_file=path_to_monsters_csv_file,
                         tab_amount=tab_amount
                     ),
                     param_type=param_type,
@@ -59,7 +59,7 @@ def get_cr_from_precise_monster_search(param_type,
         except:
             print(tab_amount,"ERROR: get_cr_from_precise_monster_search: had a issue trying to get your monster by the",param_type,string)
             print(tab_amount,"monster_row:")
-            print(tab_amount +"\t", get_rows_from_dict_on_param_type_and_string(dict_in_question=get_dict_from_csv_file(path_to_csv_file=path_to_csv_file, tab_amount=tab_amount),
+            print(tab_amount +"\t", get_rows_from_dict_on_param_type_and_string(dict_in_question=get_dict_from_csv_file(path_to_csv_file=path_to_monsters_csv_file, tab_amount=tab_amount),
                                                                                 param_type=param_type,
                                                                                 string=string,
                                                                                 tab_amount=tab_amount + "\t"))

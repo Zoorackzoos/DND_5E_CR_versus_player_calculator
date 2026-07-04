@@ -238,7 +238,7 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
 
     purple_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                          string="intro purple foot clan ninja",
-                                                         path_to_csv_file=intro_the_turtle_hideout_path_to_monster_csv_file,
+                                                         path_to_monsters_csv_file=intro_the_turtle_hideout_path_to_monster_csv_file,
                                                          tab_amount=tab_amount)
     purple_ninja_xp = get_xp_from_single_enemy_cr(cr=purple_ninja_cr,tab_amount=tab_amount)
     turtle_hideout_lvl_1_monster_xps = \
@@ -255,19 +255,19 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
 
     blue_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                        string="intro blue foot clan ninja",
-                                                       path_to_csv_file=intro_the_turtle_hideout_path_to_monster_csv_file,
+                                                       path_to_monsters_csv_file=intro_the_turtle_hideout_path_to_monster_csv_file,
                                                        tab_amount=tab_amount)
     blue_ninja_xp = get_xp_from_single_enemy_cr(cr=blue_ninja_cr,tab_amount=tab_amount)
 
     hoopmaster_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                        string="intro Hoopmaster",
-                                                       path_to_csv_file=intro_the_turtle_hideout_path_to_monster_csv_file,
+                                                       path_to_monsters_csv_file=intro_the_turtle_hideout_path_to_monster_csv_file,
                                                        tab_amount=tab_amount)
     hoopmaster_xp = get_xp_from_single_enemy_cr(cr=hoopmaster_cr,tab_amount=tab_amount)
 
     green_ninja_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                         string="intro green foot clan ninja",
-                                                        path_to_csv_file=intro_the_turtle_hideout_path_to_monster_csv_file,
+                                                        path_to_monsters_csv_file=intro_the_turtle_hideout_path_to_monster_csv_file,
                                                         tab_amount=tab_amount)
     green_ninja_xp = get_xp_from_single_enemy_cr(cr=green_ninja_cr,tab_amount=tab_amount)
 
@@ -288,7 +288,7 @@ def intro_the_turtle_hideout(intro_the_turtle_hideout_calvin_tab_amount="\t"):
     #blue and purple ninjas + baxster
     baxster_cr = get_cr_from_precise_monster_search(param_type=SpreadsheetKeysEnums.NAME.value,
                                                     string="Baxster Stockman",
-                                                    path_to_csv_file=intro_the_turtle_hideout_path_to_monster_csv_file,
+                                                    path_to_monsters_csv_file=intro_the_turtle_hideout_path_to_monster_csv_file,
                                                     tab_amount=tab_amount)
     baxster_xp = get_xp_from_single_enemy_cr(cr=baxster_cr,tab_amount=tab_amount)
     turtle_hideout_lvl_3_monster_xps = \

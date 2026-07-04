@@ -29,7 +29,7 @@ def intro_the_magic_spire_lvl_1(tab_amount="\t"):
     hag_green_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Hag, Green",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     hags_smoke_break_cr_values = \
@@ -47,19 +47,19 @@ def intro_the_magic_spire_lvl_1(tab_amount="\t"):
     calculus_monster_limit_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Calculus Monster, Limit",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     calculus_monster_derivative_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Calculus Monster, Derivative",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     withering_gnoll_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Gnoll Witherling",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     mainframe_room_cr_values = \
@@ -89,7 +89,7 @@ def intro_the_magic_spire_lvl_1(tab_amount="\t"):
     embrald_gemstone_guy_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Golem, Gemstone, Emerald",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     office_room_cr_values = \
@@ -135,13 +135,13 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     troll_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Troll",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     derro_savant_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Derro Savant",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     break_room_cr_values = \
@@ -160,13 +160,13 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     animated_armour_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Animated Object, Armor",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     bulette_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Bulette",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     dining_room_monster_cr_values = \
@@ -193,13 +193,13 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     giant_lizard_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Misc. Creature, Giant Lizard",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     lizard_monarch_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Lizard King/Queen",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     kitchen_cr_values = \
@@ -220,7 +220,7 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     tri_flower_frond_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Tri-Flower Frond",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     """
@@ -247,13 +247,13 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     drop_bear_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Drop Bear",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     hunting_cactus_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Cactus, Hunting",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     bottom_left_conference_room_cr_values = \
@@ -272,7 +272,7 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     spectator_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Beholder, Spectator",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     teal_key_cr_values = \
@@ -298,7 +298,7 @@ def intro_the_magic_spire_lvl_2(tab_amount="\t"):
     dire_wolf_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Misc. Creature, Dire Wolf",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     movie_room_cr_values = \
@@ -348,7 +348,7 @@ def intro_the_magic_spire_lvl_3(tab_amount="\t"):
     polar_bear_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="Misc. Creature, Polar Bear",
-        path_to_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
+        path_to_monsters_csv_file=intro_the_magic_spire_path_to_monsters_csv_file,
         tab_amount=tab_amount
     )
     barracks_cr_value = \
