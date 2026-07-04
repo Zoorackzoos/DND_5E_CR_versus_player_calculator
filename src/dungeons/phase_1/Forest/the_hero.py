@@ -40,6 +40,7 @@ def phase_1_the_hero_lvl_1(tab_amount="\t"):
     phase_1_the_hero_lvl_1_the_airlock_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=phase_1_the_hero_the_airlock_cr_values,
+        encounter_name="phase_1_the_hero_lvl_1_the_airlock_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -61,6 +62,7 @@ def phase_1_the_hero_lvl_1(tab_amount="\t"):
     phase_1_the_hero_lvl_1_the_pot_room_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=phase_1_the_hero_the_pot_room_cr_values,
+        encounter_name="phase_1_the_hero_lvl_1_the_pot_room_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -90,6 +92,7 @@ def phase_1_the_hero_lvl_1(tab_amount="\t"):
     phase_1_the_hero_lvl_1_the_false_wall_room_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=phase_1_the_hero_the_false_wall_room_cr_values,
+        encounter_name="phase_1_the_hero_lvl_1_the_false_wall_room_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -101,9 +104,10 @@ def phase_1_the_hero_lvl_1(tab_amount="\t"):
     [
         continuity_cr,continuity_cr,continuity_cr
     ]
-    phase_1_the_hero_lvl_1_boulder_room_encounter_dict = get_encounter_difficulty_from_cr_values(
+    phase_1_the_hero_lvl_1_the_boulder_room_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=phase_1_boulder_room_cr_values,
+        encounter_name="phase_1_the_hero_lvl_1_the_boulder_room_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -121,9 +125,10 @@ def phase_1_the_hero_lvl_1(tab_amount="\t"):
     [
         mimic_cr
     ]
-    phase_1_the_hero_lvl_1_the_treasure_room = get_encounter_difficulty_from_cr_values(
+    phase_1_the_hero_lvl_1_the_treasure_room_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=phase_1_the_hero_cr_values,
+        encounter_name="phase_1_the_hero_lvl_1_the_treasure_room_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -132,7 +137,6 @@ def phase_1_the_hero_lvl_1(tab_amount="\t"):
     2 polynomials
     1 CRA
     """
-    #TODO: kill old bebop in the database
     cra_cr = get_cr_from_precise_monster_search(
         param_type=spreadsheet_enums.SpreadsheetKeysEnums.NAME.value,
         string="calculus monster, CRA",
@@ -144,9 +148,10 @@ def phase_1_the_hero_lvl_1(tab_amount="\t"):
             polynomial_cr, polynomial_cr,
             cra_cr
         ]
-    phase_1_the_hero_lvl_1_cra_encounter_dict = get_encounter_difficulty_from_cr_values(
+    phase_1_the_hero_lvl_1_the_cra_room_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=phase_1_the_hero_cra_room_cr_values,
+        encounter_name="phase_1_the_hero_lvl_1_the_cra_room_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -167,6 +172,7 @@ def phase_1_the_hero_lvl_1(tab_amount="\t"):
     phase_1_the_hero_lvl_1_the_bowling_alley_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=phase_1_the_hero_the_bowling_alley_cr_values,
+        encounter_name="phase_1_the_hero_lvl_1_the_bowling_alley_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -175,9 +181,9 @@ def phase_1_the_hero_lvl_1(tab_amount="\t"):
         phase_1_the_hero_lvl_1_the_airlock_encounter_dict,
         phase_1_the_hero_lvl_1_the_pot_room_encounter_dict,
         phase_1_the_hero_lvl_1_the_false_wall_room_encounter_dict,
-        phase_1_the_hero_lvl_1_boulder_room_encounter_dict,
-        phase_1_the_hero_lvl_1_the_treasure_room,
-        phase_1_the_hero_lvl_1_cra_encounter_dict,
+        phase_1_the_hero_lvl_1_the_boulder_room_encounter_dict,
+        phase_1_the_hero_lvl_1_the_treasure_room_encounter_dict,
+        phase_1_the_hero_lvl_1_the_cra_room_encounter_dict,
         phase_1_the_hero_lvl_1_the_bowling_alley_encounter_dict
     ]
     for encounter_dict in total_encounter_list:
@@ -227,6 +233,7 @@ def phase_1_the_hero_lvl_2(tab_amount="\t"):
     phase_1_the_hero_lvl_2_the_east_intersection_room_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=phase_1_the_hero_the_east_intersection_room_cr_values,
+        encounter_name="phase_1_the_hero_lvl_2_the_east_intersection_room_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -251,6 +258,7 @@ def phase_1_the_hero_lvl_2(tab_amount="\t"):
     phase_1_the_hero_lvl_2_the_tube_room_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=phase_1_the_hero_the_tube_room_cr_values,
+        encounter_name="phase_1_the_hero_lvl_2_the_tube_room_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -265,6 +273,7 @@ def phase_1_the_hero_lvl_2(tab_amount="\t"):
     phase_1_the_hero_lvl_2_the_tiny_center_room_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=the_hero_the_tiny_center_room_cr_values,
+        encounter_name="phase_1_the_hero_lvl_2_the_tiny_center_room_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -279,6 +288,7 @@ def phase_1_the_hero_lvl_2(tab_amount="\t"):
     phase_1_the_hero_lvl_2_the_central_treasure_room_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=the_hero_the_central_treasure_room_cr_values,
+        encounter_name="phase_1_the_hero_lvl_2_the_central_treasure_room_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -299,6 +309,7 @@ def phase_1_the_hero_lvl_2(tab_amount="\t"):
     phase_1_the_hero_lvl_2_the_contained_midterm_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=the_hero_the_contained_midterm_cr_values,
+        encounter_name="phase_1_the_hero_lvl_2_the_contained_midterm_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -327,6 +338,7 @@ def phase_1_the_hero_lvl_2(tab_amount="\t"):
     phase_1_the_hero_lvl_2_the_evil_church_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=the_hero_the_evil_church_cr_values,
+        encounter_name="phase_1_the_hero_lvl_2_the_evil_church_encounter_dict",
         tab_amount=tab_amount
     )
 
@@ -371,6 +383,7 @@ def phase_1_the_hero_lvl_3(tab_amount="\t"):
     phase_1_the_hero_lvl_3_the_inflamed_cra_encounter_dict = get_encounter_difficulty_from_cr_values(
         player_levels=player_levels,
         monster_cr_values=phase_1_the_hero_lvl_3_the_inflamed_cra_cr_values,
+        encounter_name="phase_1_the_hero_lvl_3_the_inflamed_cra_encounter_dict",
         tab_amount=tab_amount
     )
     update_encounter_feedback_spreadsheet(

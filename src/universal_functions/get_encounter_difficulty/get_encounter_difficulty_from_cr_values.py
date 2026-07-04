@@ -11,7 +11,7 @@ def get_encounter_difficulty_from_cr_values(player_levels,
     """
     main end goal of this repo.
     The actual function takes in xp values, so this is a helper function that takes Cr values instead
-    #TODO: make the encounter name paramater auto-fill with the variable that contains the result of this function. consult a clanker because that sounds impossible.
+    #TODO: make the encounter name parameter auto-fill with the variable that contains the result of this function. consult a clanker because that sounds impossible.
 
     :param player_levels: list of integers
     :param monster_cr_values: list of doubles

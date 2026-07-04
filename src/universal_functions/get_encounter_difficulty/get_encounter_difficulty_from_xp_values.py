@@ -29,9 +29,10 @@ def get_encounter_difficulty_from_xp_values(player_levels,
 
     print(encounter_difficulty(players, monsters))
 
-    :param player_levels:
-    :param monster_xp_values:
-    :param tab_amount
+    :param player_levels: list of integers
+    :param monster_xp_values: list of integers proportional to CR (challenge rating). it doesn't explicitly have to be, but that's what it's intended to be.
+    :param encounter_name: string
+    :param tab_amount: variations of "\t".
     :return:
     """
     print(tab_amount, "get_encounter_difficulty")
