@@ -253,7 +253,6 @@ def phase_1_michelangelo_the_dmv_lvl_3(tab_amount="\t"):
     )
     phase_1_michelangelo_the_dmv_lvl_3_lab_cr_values = \
     [
-        roadkill_rodney_cr, roadkill_rodney_cr, roadkill_rodney_cr,
         roadkill_rodney_cr, roadkill_rodney_cr
     ]
     phase_1_michelangelo_the_dmv_lvl_3_lab_encounter_dict = get_encounter_difficulty_from_cr_values(
@@ -331,5 +330,5 @@ def phase_1_michelangelo_the_dmv_lvl_3(tab_amount="\t"):
 if __name__ == "__main__":
     tab_amount="\t"
     #phase_1_michelangelo_the_dmv_lvl_1(tab_amount=tab_amount)
-    phase_1_michelangelo_the_dmv_lvl_2(tab_amount=tab_amount)
-    #phase_1_michelangelo_the_dmv_lvl_3(tab_amount=tab_amount)
+    #phase_1_michelangelo_the_dmv_lvl_2(tab_amount=tab_amount)
+    phase_1_michelangelo_the_dmv_lvl_3(tab_amount=tab_amount)
