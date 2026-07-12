@@ -61,13 +61,13 @@ if __name__ == "__main__":
     tab_amount = "\t"
     dice_dict = \
         {
-            4 : 0,
-            6 : 0,
+            4 : 2,
+            6 : 2,
             8 : 0,
             10 : 0,
             12 : 2,
             20 : 0,
-            "constant" : 0
+            "constant" : 2
         }
 
     average_damage = (get_average_damage
