@@ -12,7 +12,7 @@ path_to_encounter_feedback_csv_file = \
 
 player_levels = \
 [
-    7,7,7,7
+    8,8,8,8
 ]
 
 def phase_1_the_hero_lvl_1(tab_amount="\t"):

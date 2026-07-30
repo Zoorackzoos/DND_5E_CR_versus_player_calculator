@@ -1,5 +1,25 @@
 # DND 5e CR versus player calculator
 
+## cataclysmic TODO
+```pycon
+#TODO: i'm discontinuing the encounter difficulty calculator becuase of the following reasons 1. it's not accurage, things rated as deadly ahve been easy for ages now. 2. it's not sustainable. 3. fuck piss dick fuck piss dick fuck.
+"""
+while the encounters themselves are not going to be
+ updated unless i'm neurotic enough to update them
+  and their master spreadsheet anyway. i will still 
+  have combat calculators and some comptuer minigames 
+  if i have free time.
+  
+in this edict there's the issue that i'm gonna be updateing the mosnter statblock haphazordly
+ergo- ad-hacally. 
+    fucking tech bro vocab...
+so in that i'm going to have to make a descion if there's gonna be phase 1 or phase 2 calculus monsters.
+and as of now, i'd rather give myself a punch in the face that make decisions
+
+so again. haphazard updating. 
+"""
+```
+
 ## description
 used to calculate combat difficulty in dungeons
 
