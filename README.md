@@ -7,13 +7,13 @@
 while the encounters themselves are not going to be
  updated unless i'm neurotic enough to update them
   and their master spreadsheet anyway. i will still 
-  have combat calculators and some comptuer minigames 
+  have combat calculators and some computer minigames 
   if i have free time.
   
-in this edict there's the issue that i'm gonna be updateing the mosnter statblock haphazordly
+in this edict there's the issue that i'm gonna be updating the monster stat block haphazardly
 ergo- ad-hacally. 
     fucking tech bro vocab...
-so in that i'm going to have to make a descion if there's gonna be phase 1 or phase 2 calculus monsters.
+so in that i'm going to have to make a decision if there's gonna be phase 1 or phase 2 calculus monsters.
 and as of now, i'd rather give myself a punch in the face that make decisions
 
 so again. haphazard updating. 
@@ -53,10 +53,17 @@ used to calculate combat difficulty in dungeons
 
 ## major TODOS
 ```pycon
-#TODO: make the databse be in .tsv instead of .csv
+#TODO: make the database be in .tsv instead of .csv
 #TODO: consult a clanker on if that would be a good idea or not
 ```
 to plug cells from pycharm into google sheets withotu making  
 a whole new file you need the file to be separated by tabs, not commas.  
 
 so that has me thinking we just have it one way. just .tsv.
+
+```pycon
+#TODO: make a more advanced combat simulator that takes in-game difficulty statistics for me so i can manually and algorithmically analyzer encounters.
+```
+technically i discontinued the whole prediction of difficulty encounters feature but if i were want to start it again i would need data to create the algorithm with. 
+Currently the one i have was vibe coded by Codex and it says it got the idea from teh wizards of the coast algorithm from their book.
+Idk if it's having a clanker moment and i don't care to find out :-/ 
