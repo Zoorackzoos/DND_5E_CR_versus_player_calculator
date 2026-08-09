@@ -1,7 +1,6 @@
 from src.universal_functions.display.print_dictionary_nicely import print_dictionary_nicely
 from src.universal_functions.stats.get_numeric_stat_from_modifier import get_numeric_stat_from_modifier
 
-
 def convert_monster_modifiers_to_stats(monster_dict,tab_amount="\t"):
     """
     this converts all the modifier stats in a monster dict
