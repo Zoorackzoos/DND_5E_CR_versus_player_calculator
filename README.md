@@ -41,7 +41,7 @@ used to calculate combat difficulty in dungeons
 2. download stat block as .md file
 3. go to ```interpret_markdown_stat_block.py``` and code it to hook up and "dictionar-ify" your Markdown file
    1. this will come with it's own ```if __name__ == "__main__"``` helper function that updates it's cr and cr helper values
-   2. run the file to update the CR and the CR helper values
+   2. run the file to update the CR and the CR helper values by copying and pasting it in it's own file
 4. run ```convert_csv_file_into_tsv_file.py```
 5. open file explorer to the .tsv file
 6. cntrl + A 

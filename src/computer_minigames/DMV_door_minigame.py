@@ -3,6 +3,7 @@ import os
 import random
 import time
 
+from pip._internal.utils import subprocess
 from sympy import true
 
 BUFFER_TIME_MAX = 2
@@ -25,7 +26,7 @@ def print_2d_list_with_decreasing_buffer\
 
     """
     the intended effect here is that the systems stutters a bit and then shits out the aray
-    after the array is shidded then it "solves itself". so it turns into 1s or 0s.
+    after the array is shielded then it "solves itself". so it turns into 1s or 0s.
     """
     for row in list_in_question:
         for element in row:
@@ -53,20 +54,22 @@ def universal_terminal_clear(tab_amount=""):
     #detect the os so we can clear the terminal
     if os.name == 'nt':
         #print("Windows-based system")
-        os.system("cls")
+        #os.system("cls")
+        subprocess.runner_with_spinner_message("cls")
     elif os.name == 'posix' :
         #print("Unix-based system (Linux, macOS, etc.)")
-        os.system("clear")
+        #os.system("clear")
+        subprocess.runner_with_spinner_message("cls")
 
 """
 =============================================
-          random number shananagins
+          random number shenanigans
 =============================================
 """
 
 def get_random_numbers_array(tab_amount=""):
     """
-    1. make a array that semi depends on the terminal
+    1. make an array that semi depends on the terminal
     2. put random numbers in that array
     3. return
 
@@ -199,7 +202,7 @@ def print_starting_noise(tab_amount=""):
 
 def get_if_credentials_match(username_try, password_try, available_usernames, available_passwords):
     if username_try in available_usernames and password_try in available_passwords:
-        if     ((username_try == available_usernames[0] and password_try == available_passwords[0])\
+        if     ((username_try == available_usernames[0] and password_try == available_passwords[0])
                 or
                 (username_try == available_usernames[1] and password_try == available_passwords[1])
                 or
