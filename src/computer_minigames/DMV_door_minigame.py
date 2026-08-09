@@ -1,9 +1,8 @@
 import copy
-import os
 import random
 import time
-
-from pip._internal.utils import subprocess
+import os
+import subprocess
 from sympy import true
 
 BUFFER_TIME_MAX = 2
@@ -51,15 +50,18 @@ def print_2d_list_with_buffer(list_in_question,
         print()
 
 def universal_terminal_clear(tab_amount=""):
-    #detect the os so we can clear the terminal
+    """
+    detect the OS so we can clear the terminal.
+    subprocess is a bastard and requires shell.
+    """
     if os.name == 'nt':
         #print("Windows-based system")
         #os.system("cls")
-        subprocess.runner_with_spinner_message("cls")
-    elif os.name == 'posix' :
+        subprocess.run("cls", shell=True)
+    else: #elif os.name == 'posix' :
         #print("Unix-based system (Linux, macOS, etc.)")
         #os.system("clear")
-        subprocess.runner_with_spinner_message("cls")
+        subprocess.run("clear", shell=True)
 
 """
 =============================================
