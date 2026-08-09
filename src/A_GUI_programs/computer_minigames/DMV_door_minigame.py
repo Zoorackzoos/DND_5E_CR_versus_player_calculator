@@ -4,6 +4,8 @@ import random
 import time
 from sympy import true
 
+from A_GUI_programs.universal_terminal_clear import universal_terminal_clear
+
 BUFFER_TIME_MAX = 2
 BUFFER_TIME_MIN = 0.001
 

@@ -1,5 +1,5 @@
+from A_GUI_programs.universal_terminal_clear import universal_terminal_clear
 from get_damage_and_get_chance_to_hit import get_damage, get_chance_to_hit
-from src.computer_minigames.DMV_door_minigame import universal_terminal_clear
 
 if __name__ == "__main__":
     tab_amount=""
