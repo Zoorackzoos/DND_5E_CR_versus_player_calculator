@@ -35,50 +35,6 @@ def ask_to_run_combat_sim_master():
         else:
             print("Invalid input. Must be 'y' or 'n'")
 
-initiative_roles_dictionary = \
-{
-    "Mikey" : None,
-    "Forest" : None,
-    "Thalis" : None,
-    "Micheal" : None,
-    "Evil" : None, #these are the monsters, AKA the bad guys.
-    "Good" : None #these are DM controlled allies. They're not always there so this can be Null.
-}
-
-def take_initiative_roles():
-    """
-    # this takes in 4 integers.
-
-    ## if players get the same integer
-    in situations in which 2 players get the same integer,
-    they roll again and whoever gets the bigger number gets higher integrative by a half.
-    represented by a ++ or a -- penning on if you won or lost the roll off.
-
-    for example.
-        Mikey and Forest both get 10
-        they roll off, Mikey gets 12, Forest gets 9
-        Mikey is 10++, Forest is 10--
-
-    ## GUI statement
-    this is supposed to emulate google docs very minorly.
-    * you cannot edit the text where it says the character's names
-    * if you enter letters or poor integer syntax the system asks for initiative roles again.
-    * "Good" can be None, but "Evil" and the other 4 inputs cannot be None.
-    * you can swap from character input to character input freely using the arrow keys
-    * press enter on the keyboard or the rightward arrow key to continue through the combat sim
-    :return:
-    """
-    universal_terminal_clear(tab_amount=tab_amount)
-    print("take_initiative_roles")
-    print("\tWe need to take intative roles")
-    print("\tuse the up and down arrow keys to swap from input to input")
-    print("\tpress enter or the right arrow key on the keyboard to continue through the combat sim")
-    input("\t\tMikey: ")
-    print("\t\tForest: ")
-    print("\t\tThalis: ")
-    print("\t\tMicheal: ")
-    print("\t\tEvil: ")
-    print("\t\tGood: ") #this is allowed to be None
 
 
 if __name__ == "__main__":
