@@ -1,4 +1,42 @@
+"""
+the goal of this file is to:
+1. calculate intative and use a step system to tell you who's intative it is
+2. take in damage against monsters and tell if they're dead or not. hp stored as a variable
+3. take in healing against monsters and tell they're new hp value. hp stored as a variable
+4. have monster dictionaries stored in a array.
+    a. instead of crafting markdown files that contain the stat block for every new monster
+       so this program is normalized...
+       instead i will put in values to the spreadsheet from the "update_homebrew_monster.py"
+       keys.
+    b. from there i can craft temp dictionaries and put the min the array. or something similar.
+    c. the monster list will be modified in the source code, not via the GUI.
+5. smooth GUi interface. interaction instructions top,
+   get_damage_and_chance_to_hit.py stuff middle, verbose bullshit below that.
+"""
 import curses
+import time
+
+from A_GUI_programs.universal_terminal_clear import universal_terminal_clear
+
+
+def ask_to_run_combat_sim_master():
+    print("You've ran \"combat_sim_master.py\" . Would you like to continue? (y/n)")
+    userInput = input()
+    while userInput not in ("y", "n"):
+        print("Invalid input. Must be 'y' or 'n'")
+        userInput = input()
+
+    if userInput == "y":
+        print("running program...")
+        time.sleep(1)  # just give me some breathing thinking room
+    else:
+        print("exiting program.")
+        exit(0)
+
+
+# ---------------------------------------------------------------------------
+# take_initiative_roles and its curses helpers
+# ---------------------------------------------------------------------------
 
 FIELDS = ["Mikey", "Forest", "Thalis", "Micheal", "Evil", "Good"]
 OPTIONAL_FIELDS = {"Good"}  # allowed to be left blank -> None
@@ -14,7 +52,6 @@ def _draw_form(stdscr, values, cursor_row, error_msg=""):
     for i, name in enumerate(FIELDS):
         row = 5 + i
         prefix = f"{name}: "
-        # character's name label is never editable - just draw it fresh every time
         stdscr.addstr(row, 4, prefix)
         val = values[name]
         if i == cursor_row:
@@ -40,8 +77,7 @@ def _validate(values):
             continue
         if raw == "":
             return f"{name} cannot be blank."
-        # reject "poor integer syntax": allow optional leading -, digits only after that
-        if not (raw.lstrip("-").isdigit()):
+        if not raw.lstrip("-").isdigit():
             return f"{name} must be a whole number, got '{raw}'."
     return None
 
@@ -75,19 +111,11 @@ def _initiative_form(stdscr):
                 for name in FIELDS
             }
         elif 48 <= key <= 57 or (key == ord('-') and values[FIELDS[cursor_row]] == ""):
-            # digits, and a leading '-' for negative rolls if you ever need it
             name = FIELDS[cursor_row]
             values[name] += chr(key)
-        # any other key (letters etc.) is silently ignored -> "asks again" is
-        # enforced at validation time instead of blocking keystrokes
 
 
 def _roll_off(stdscr, tied_names):
-    """
-    Given a list of >=2 names tied on the same initiative value, prompt a
-    single-number roll-off input for each, then recursively resolve.
-    Returns dict name -> "++" or "--" (or "" if not part of a decisive pair).
-    """
     rolls = {}
     for name in tied_names:
         curses.echo()
@@ -102,8 +130,6 @@ def _roll_off(stdscr, tied_names):
             raw = stdscr.getstr(3, 0, 10).decode("utf-8").strip()
         rolls[name] = int(raw)
 
-    # highest roll gets "++", lowest gets "--"; if the roll-off itself ties,
-    # recurse on just that subgroup until it breaks
     ordered = sorted(tied_names, key=lambda n: rolls[n], reverse=True)
     result = {name: "" for name in tied_names}
     top_val = rolls[ordered[0]]
@@ -127,14 +153,8 @@ def _roll_off(stdscr, tied_names):
 
 
 def take_initiative_roles():
-    """
-    Runs a curses-based form for entering DnD 5e initiative rolls, resolves
-    ties among the named player characters with a roll-off, and returns
-    the finished initiative_roles_dictionary.
-    """
     raw_values = curses.wrapper(_initiative_form)
 
-    # tie resolution only applies to the four named players, not Evil/Good
     player_names = ["Mikey", "Forest", "Thalis", "Micheal"]
     by_value = {}
     for name in player_names:
@@ -142,7 +162,7 @@ def take_initiative_roles():
 
     ties_to_resolve = [names for names in by_value.values() if len(names) > 1]
 
-    final = dict(raw_values)  # start with ints/None
+    final = dict(raw_values)
     if ties_to_resolve:
         def _run_roll_offs(stdscr):
             suffixes = {}
@@ -159,5 +179,8 @@ def take_initiative_roles():
 
 
 if __name__ == "__main__":
+    tab_amount = ""
+    universal_terminal_clear(tab_amount=tab_amount)
+    ask_to_run_combat_sim_master()
     result = take_initiative_roles()
     print(result)
