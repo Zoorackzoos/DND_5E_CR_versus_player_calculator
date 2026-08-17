@@ -42,4 +42,3 @@ if __name__ == "__main__":
     tab_amount=""
     universal_terminal_clear(tab_amount=tab_amount)
     ask_to_run_combat_sim_master()
-    take_initiative_roles()
