@@ -18,6 +18,7 @@ from asyncio.windows_events import NULL
 
 from sympy.parsing.sympy_parser import null
 
+from A_GUI_programs.combat_sim.take_initiative_rolls import take_initiative_roles
 from A_GUI_programs.universal_terminal_clear import universal_terminal_clear
 from get_damage_and_get_chance_to_hit import get_damage, get_chance_to_hit
 
