@@ -2,7 +2,7 @@
 
 ## cataclysmic TODO
 ```pycon
-#TODO: i'm discontinuing the encounter difficulty calculator becuase of the following reasons 1. it's not accurage, things rated as deadly ahve been easy for ages now. 2. it's not sustainable. 3. fuck piss dick fuck piss dick fuck.
+#TODO: i'm discontinuing the encounter difficulty calculator because of the following reasons 1. it's not accurage, things rated as deadly ahve been easy for ages now. 2. it's not sustainable. 3. fuck piss dick fuck piss dick fuck.
 """
 while the encounters themselves are not going to be
  updated unless i'm neurotic enough to update them
