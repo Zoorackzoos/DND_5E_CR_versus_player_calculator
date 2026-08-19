@@ -89,8 +89,8 @@ def update_initiative_roles_screen_and_return_user_input(
 take_initiative_roles
     we need to take initiative roles
     use the UP and DOWN arrow keys to swap from input to input
-    press ENTER to register a integer in a initiative role
-    press the RIGHT ARROW key to continue
+    press RIGHT ARROW to register a integer in a initiative role
+    press the ENTER key to continue
         if a player is absent, or there's no good or bad NPCs
         controlled by the DM, leave that parameter blank
 """
@@ -105,7 +105,7 @@ take_initiative_roles
 
 def take_initiative_roles():
     """
-    # this takes in 4 integers.
+    # this takes in integers.
 
     ## if players get the same integer
     in situations in which 2 players get the same integer,
@@ -164,6 +164,7 @@ def take_initiative_roles():
         event = keyboard.read_event()
         if event.event_type == keyboard.KEY_DOWN:
 
+            #the arrow keys
             if keyboard.is_pressed("up"):
                 modifier = -1
                 if get_if_selected_roll_taker_index_is_beyond_limits(selected_roll_taker_index=selected_roll_taker_index,
@@ -190,9 +191,48 @@ def take_initiative_roles():
                     print("selected_roll_taker_index :", selected_roll_taker_index)
                     print("modifier :", modifier)
                 """
-            elif keyboard.is_pressed("right"):
+            elif keyboard.is_pressed("enter"):
                 keep_program_running_bool = False
+
+            #actually inputting initative values
+            elif keyboard.is_pressed("right"):
+                selected_dictionary_key = list(initiative_rolls_dictionary.keys())[selected_roll_taker_index]
+
+                initiative_input_clarification_text = (
+                        "\t → " + selected_dictionary_key + " : "
+                )
+
+                initiative_value = ""
+
+                print(initiative_input_clarification_text, end="", flush=True)
+
+                while True:
+                    event = keyboard.read_event()
+
+                    if event.event_type == keyboard.KEY_DOWN:
+
+                        # Numbers
+                        if event.name.isdigit():
+                            initiative_value += event.name
+                            print(event.name, end="", flush=True)
+
+                        # Backspace
+                        elif event.name == "backspace":
+                            if initiative_value:
+                                initiative_value = initiative_value[:-1]
+                                print("\b \b", end="", flush=True)
+
+                        # Enter = finish entering this initiative
+                        elif event.name == "enter":
+                            break
+
+                initiative_rolls_dictionary[selected_dictionary_key] = initiative_value
+
+                update_initiative_roles_screen_and_return_user_input(
+                    selected_roll_taker_index=selected_roll_taker_index
+                )
 
     if get_if_all_rolls_in_initiative_rolls_are_all_none():
         print("all of the values in the intiative_rolls_dictionary is blank. That's bad.")
+
     return initiative_rolls_dictionary
