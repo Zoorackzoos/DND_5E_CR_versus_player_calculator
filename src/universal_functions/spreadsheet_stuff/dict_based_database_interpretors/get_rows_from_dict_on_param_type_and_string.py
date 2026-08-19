@@ -7,7 +7,7 @@ def get_rows_from_dict_on_param_type_and_string(dict_in_question, param_type, st
     """
     everything in the .tsv and .csv spreadsheet is a string. so there's no type errors when
     i compare the string variable, and the spreadsheet's cell values.
-        This funciton has to be fed a dictionary. just a big ahh dictionary.
+        This function has to be fed a dictionary. just a big ahh dictionary.
             the way you get that is from calling "get_dict_from_csv_file"
             function in the file beforehand
 

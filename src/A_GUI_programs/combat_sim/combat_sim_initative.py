@@ -90,6 +90,8 @@ def update_initiative_roles_screen_and_return_user_input(
         roll_off_respected_bool,
         selected_roll_taker_index=0
 ):
+    universal_terminal_clear(tab_amount="")
+
     take_initiative_roles_intro_text = """
 take_initiative_roles
     we need to take initiative roles.

@@ -27,7 +27,7 @@ def get_dict_from_csv_file(path_to_csv_file, tab_amount="\t"):
             reader = csv.DictReader(file)
             return list(reader)
     except FileNotFoundError:
-        print(tab_amount,"path_to_csv_file = \n", path_to_csv_file)
+        print(tab_amount,"path_to_csv_file = \n",tab_amount, path_to_csv_file)
         exit("ERROR: get_dict_from_csv: shit path_to_csv_file. please put the path to it given the nested dungeon file.")
 
 if __name__ == "__main__":

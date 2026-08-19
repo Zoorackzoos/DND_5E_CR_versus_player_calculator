@@ -9,7 +9,7 @@ the goal of this file is to:
        so this program is normalized...
        instead i will put in values to the spreadsheet from the "update_homebrew_monster.py"
        keys.
-    b. from there i can craft temp dictionaries and put the min the array. or something similar.
+    b. from there i can craft temp dictionaries and put them in the array. or something similar.
     c. the monster list will be modified in the source code, not via the GUI.
 5. ❌smooth GUi interface. interaction instructions top,
    get_damage_and_chance_to_hit.py stuff middle, verbose bullshit below that.
@@ -28,7 +28,6 @@ def ask_to_run_combat_sim_master():
         if user_info == "y":
             print("running program...")
             time.sleep(0.5) #just give me some breathing thinking room
-            universal_terminal_clear(tab_amount="")
             return None
         elif user_info == "n":
             print("exiting program.")
@@ -63,7 +62,13 @@ def combat_sim_master():
     else:
         initiative_rolls_dictionary = take_initiative_roles()
 
-    combat_sim_cycle_combat(initiative_rolls_dictionary=initiative_rolls_dictionary)
+    combat_sim_master_path_to_monsters_all_stats_homebrew_csv_file = \
+    "../../../sheets/monsters_all_stats_homebrew/monsters_all_stats_homebrew.csv"
+
+    combat_sim_cycle_combat(
+        initiative_rolls_dictionary=initiative_rolls_dictionary,
+        path_to_monsters_csv_file=combat_sim_master_path_to_monsters_all_stats_homebrew_csv_file
+    )
 
 if __name__ == "__main__":
    combat_sim_master()
