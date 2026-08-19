@@ -1,5 +1,4 @@
 import keyboard
-from sympy import true
 
 from A_GUI_programs.universal_terminal_clear import universal_terminal_clear
 
@@ -13,8 +12,8 @@ initiative_rolls_dictionary = \
         "Good": None  # these are DM controlled allies. They're not always there so this can be Null.
     }
 
-def get_if_all_rolls_in_initiative_rolls_are_all_none(initative_rolls_dictionary=initiative_rolls_dictionary):
-    for i in list(initative_rolls_dictionary.values()):
+def get_if_all_rolls_in_initiative_rolls_are_all_none(initiative_rolls_dictionary=initiative_rolls_dictionary):
+    for i in list(initiative_rolls_dictionary.values()):
         if i != None:
             return False
     return True
@@ -63,6 +62,9 @@ def get_if_initiative_input_is_failed_input(user_input):
     so the bastard thing i'm gonna do is make a list of acceptable answers.
     and if our user_input is not in the array, throw a hissy fit.
 
+    false = acceptable input
+    true = NOT acceptable input
+
     :param user_input:
     :return:
     """
@@ -79,18 +81,20 @@ def get_if_selected_roll_taker_index_is_beyond_limits(selected_roll_taker_index,
     return least_limit <= modified_selected_roll_taker_index < greatest_limit
 
 def update_initiative_roles_screen_and_return_user_input(
-        selected_roll_taker_index=0,
-        failed_input_bool=False,
-        user_input=None,
+        failed_initiative_input_bool,
+        duplicate_initiative_input_bool,
+        roll_off_respected_bool,
+        selected_roll_taker_index=0
 ):
     universal_terminal_clear(tab_amount="")
 
     take_initiative_roles_intro_text = """
 take_initiative_roles
-    we need to take initiative roles
-    use the UP and DOWN arrow keys to swap from input to input
-    press RIGHT ARROW to register a integer in a initiative role
-    press the ENTER key to continue
+    we need to take initiative roles.
+    use the UP and DOWN arrow keys to swap from PC / NPC.
+    press RIGHT ARROW to register a integer in a initiative role.
+        press it again when you're done putting the integer in to register it.
+    press the ENTER key to finalize the initiative rolls.
         if a player is absent, or there's no good or bad NPCs
         controlled by the DM, leave that parameter blank
 """
@@ -102,6 +106,73 @@ take_initiative_roles
             print("\t →", key, ": ",value)
         else:
             print("\t  ", key, ": ",value)
+
+    if roll_off_respected_bool == True:
+        print("you have a non- ++ or -- and a ++ or -- value of the same integer at the same time. this cannot be. one must be ++ and the other --. ")
+    if duplicate_initiative_input_bool == True:
+        print("your input was a duplicate of another, you must change one. if someone won the roll off make them X++, and the loser X--.")
+    if failed_initiative_input_bool == True:
+        print("your input wasn't in the acceptable_user_input_list. please try again.")
+
+def get_if_initiative_input_is_duplicate_input(initiative_value):
+    for value in initiative_rolls_dictionary.values():
+        if value == initiative_value:
+            return True
+    return False
+
+def get_roll_off_respected_bool(initiative_value):
+    """
+    detect if there is a ++ or a -- and if the incoming value, initiative_value is a normal integer
+
+    1. scan the present values for ++es or --es that match the initiative value
+        a. if there's both a ++ and a -- for the initiative value then just return value because both the values are taken.
+        b. if there's only one, then see if the initiative value is a normie. if it's a normie return false
+        c. if there's only one, then see if the initiative matches the persisting ++ or --.
+
+    :param initiative_value:
+    :return: roll_off_respected_bool, true = bad, false = good
+    """
+    plus_plus_present = False
+    minus_minus_present = False
+
+    #check if pre-existing ++ and -- pair
+    for value in initiative_rolls_dictionary.values():
+        if value is not None and len(value) ==2:
+            if list(value)[1] == "+":
+                plus_plus_present = True
+                for value_two in initiative_rolls_dictionary.values():
+                    if value_two is not None:
+                        if list(value_two)[1] == "-" and list(value_two)[0] == list(value)[0]:
+                            minus_minus_present = True
+            if list(value)[1] == "-":
+                minus_minus_present = True
+                for value_two in initiative_rolls_dictionary.values():
+                    if value_two is not None:
+                        if list(value_two)[1] == "+" and list(value_two)[0] == list(value)[0]:
+                            plus_plus_present = True
+
+    #if there are no ++ or --es then just return false
+    if plus_plus_present == False and minus_minus_present == False:
+        return False
+
+    if len(list(initiative_value)) == 1:
+        if plus_plus_present == True or minus_minus_present == True:
+            return True
+
+    #if the intuitive doesn't match the current ++ or --
+    if plus_plus_present == True and list(initiative_value)[1] == "+":
+        return True
+    if minus_minus_present == True and list(initiative_value)[1] == "-":
+        return True
+
+    return False
+
+def get_if_some_of_player_or_evil_values_are_not_present():
+    for key,value in initiative_rolls_dictionary.items():
+        if (value is None and
+            key != "Good"):
+            return True
+    return False
 
 def take_initiative_roles():
     """
@@ -155,11 +226,18 @@ def take_initiative_roles():
     """
     selected_roll_taker_index = 0
     update_initiative_roles_screen_and_return_user_input(
+        failed_initiative_input_bool=False,
+        duplicate_initiative_input_bool=False,
+        roll_off_respected_bool=False,
         selected_roll_taker_index=selected_roll_taker_index
     )
     keep_program_running_bool = True
 
     while keep_program_running_bool:
+        in_loop_failed_initiative_input_bool = False
+        in_loop_duplicate_initiative_input_bool = False
+        in_loop_roll_off_respected_bool = False
+
         #these 2 lines are so duplicate inputs aren't recorded / holding down the key does nothing
         event = keyboard.read_event()
         if event.event_type == keyboard.KEY_DOWN:
@@ -171,6 +249,9 @@ def take_initiative_roles():
                                                                      modifier=modifier):
                     selected_roll_taker_index += modifier
                     update_initiative_roles_screen_and_return_user_input(
+                        duplicate_initiative_input_bool=in_loop_duplicate_initiative_input_bool,
+                        failed_initiative_input_bool=in_loop_failed_initiative_input_bool,
+                        roll_off_respected_bool=in_loop_roll_off_respected_bool,
                         selected_roll_taker_index=selected_roll_taker_index
                     )
                 """
@@ -184,6 +265,9 @@ def take_initiative_roles():
                                                                      modifier=modifier):
                     selected_roll_taker_index += modifier
                     update_initiative_roles_screen_and_return_user_input(
+                        failed_initiative_input_bool=in_loop_failed_initiative_input_bool,
+                        duplicate_initiative_input_bool=in_loop_duplicate_initiative_input_bool,
+                        roll_off_respected_bool=in_loop_roll_off_respected_bool,
                         selected_roll_taker_index=selected_roll_taker_index
                     )
                 """
@@ -196,6 +280,11 @@ def take_initiative_roles():
 
             #actually inputting initative values
             elif keyboard.is_pressed("right"):
+                """
+                what it did here instead of doing input()
+                chat did keyboard library shit instead.
+                    wow :DDDD
+                """
                 selected_dictionary_key = list(initiative_rolls_dictionary.keys())[selected_roll_taker_index]
 
                 initiative_input_clarification_text = (
@@ -212,7 +301,9 @@ def take_initiative_roles():
                     if event.event_type == keyboard.KEY_DOWN:
 
                         # Numbers
-                        if event.name.isdigit():
+                        if (event.name.isdigit() or
+                                event.name == "+" or
+                                event.name == "-"):
                             initiative_value += event.name
                             print(event.name, end="", flush=True)
 
@@ -223,16 +314,35 @@ def take_initiative_roles():
                                 print("\b \b", end="", flush=True)
 
                         # Enter = finish entering this initiative
-                        elif event.name == "enter":
-                            break
+                        elif event.name == "right":
+                            if get_if_initiative_input_is_failed_input(initiative_value):
+                                initiative_value = None
+                                in_loop_failed_initiative_input_bool = True
+                                break
+                            elif get_if_initiative_input_is_duplicate_input(initiative_value):
+                                initiative_value = None
+                                in_loop_duplicate_initiative_input_bool = True
+                                break
+                            elif get_roll_off_respected_bool(initiative_value):
+                                initiative_value = None
+                                in_loop_roll_off_respected_bool = True
+                                break
+                            else:
+                                break
 
                 initiative_rolls_dictionary[selected_dictionary_key] = initiative_value
 
                 update_initiative_roles_screen_and_return_user_input(
+                    duplicate_initiative_input_bool=in_loop_duplicate_initiative_input_bool,
+                    failed_initiative_input_bool=in_loop_failed_initiative_input_bool,
+                    roll_off_respected_bool=in_loop_roll_off_respected_bool,
                     selected_roll_taker_index=selected_roll_taker_index
                 )
 
     if get_if_all_rolls_in_initiative_rolls_are_all_none():
         print("all of the values in the intiative_rolls_dictionary is blank. That's bad.")
+    if get_if_some_of_player_or_evil_values_are_not_present():
+        print("some of the values in the initiative_rolls_dictionary are blank. That's questionable, i hope you know what you're doing.")
 
+    print(initiative_rolls_dictionary)
     return initiative_rolls_dictionary
