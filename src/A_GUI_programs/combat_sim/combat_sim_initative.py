@@ -2,6 +2,10 @@ import keyboard
 
 from A_GUI_programs.universal_terminal_clear import universal_terminal_clear
 
+"""
+i'm not so sure this is a good data structure for what is is,
+considering the amount of times i have to convert this into a array like structure.
+"""
 initiative_rolls_dictionary = \
     {
         "Mikey": None,
@@ -344,5 +348,5 @@ def take_initiative_roles():
     if get_if_some_of_player_or_evil_values_are_not_present():
         print("some of the values in the initiative_rolls_dictionary are blank. That's questionable, i hope you know what you're doing.")
 
-    print(initiative_rolls_dictionary)
+    #print(initiative_rolls_dictionary)
     return initiative_rolls_dictionary

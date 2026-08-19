@@ -16,30 +16,54 @@ the goal of this file is to:
 """
 import time
 
+from Demos.win32cred_demo import user_info_4
+
+from A_GUI_programs.combat_sim.combat_sim_cycle_combat import combat_sim_cycle_combat
 from A_GUI_programs.combat_sim.combat_sim_initative import take_initiative_roles
 from A_GUI_programs.universal_terminal_clear import universal_terminal_clear
 
 
 def ask_to_run_combat_sim_master():
     print("You've ran \"combat_sim_master.py\" . Would you like to continue? (y/n)")
-    userInput = input()
-    while userInput != ["y", "n"]:
-        if userInput == "y":
+    user_info = input()
+    while user_info != ["y", "n", "skip_i"]:
+        if user_info == "y":
             print("running program...")
             time.sleep(0.5) #just give me some breathing thinking room
-            break
-        elif userInput == "n":
+            return None
+        elif user_info == "n":
             print("exiting program.")
             exit(0)
+        elif user_info == "skip_i":
+            print("you're skipping the initiative setting with default values.")
+            time.sleep(0.5)
+            return "skip_i"
         else:
             print("Invalid input. Must be 'y' or 'n'")
 
 
 def combat_sim_master():
     universal_terminal_clear()
-    ask_to_run_combat_sim_master()
-    initiative_rolls_dictionary = take_initiative_roles()
+    possible_skip_code = ask_to_run_combat_sim_master()
 
+    #these are default values, they get pasted over by "take_initiative_roles()"
+    initiative_rolls_dictionary = \
+    {
+        "Mikey": 1,
+        "Forest": 2,
+        "Thalis": 3,
+        "Micheal": 4,
+        "Evil": 5,  # these are the monsters, AKA the bad guys.
+        "Good": None  # these are DM controlled allies. They're not always there so this can be Null.
+    }
+
+    if possible_skip_code == "skip_i":
+        #skipping initative inputs
+        pass
+    else:
+        initiative_rolls_dictionary = take_initiative_roles()
+
+    combat_sim_cycle_combat(initiative_rolls_dictionary=initiative_rolls_dictionary)
 
 if __name__ == "__main__":
    combat_sim_master()
