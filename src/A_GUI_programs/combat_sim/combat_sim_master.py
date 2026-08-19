@@ -1,7 +1,7 @@
 """
 the goal of this file is to:
-1. ✅ calculate intative and use a step system
-   ❌ to tell you who's intative it is
+1. ✅ calculate initiative and use a step system
+   ❌ to tell you who's initiative it is
 2. ❌take in damage against monsters and tell if they're dead or not. hp stored as a variable
 3. ❌take in healing against monsters and tell they're new hp value. hp stored as a variable
 4. ❌have monster dictionaries stored in a array.
@@ -16,8 +16,6 @@ the goal of this file is to:
 """
 import time
 
-from Demos.win32cred_demo import user_info_4
-
 from A_GUI_programs.combat_sim.combat_sim_cycle_combat import combat_sim_cycle_combat
 from A_GUI_programs.combat_sim.combat_sim_initative import take_initiative_roles
 from A_GUI_programs.universal_terminal_clear import universal_terminal_clear
@@ -30,6 +28,7 @@ def ask_to_run_combat_sim_master():
         if user_info == "y":
             print("running program...")
             time.sleep(0.5) #just give me some breathing thinking room
+            universal_terminal_clear(tab_amount="")
             return None
         elif user_info == "n":
             print("exiting program.")
@@ -37,6 +36,7 @@ def ask_to_run_combat_sim_master():
         elif user_info == "skip_i":
             print("you're skipping the initiative setting with default values.")
             time.sleep(0.5)
+            universal_terminal_clear(tab_amount="")
             return "skip_i"
         else:
             print("Invalid input. Must be 'y' or 'n'")
