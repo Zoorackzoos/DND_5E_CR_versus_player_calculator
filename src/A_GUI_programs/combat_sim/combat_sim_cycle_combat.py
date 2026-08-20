@@ -76,10 +76,10 @@ def update_combat_sim_cycle_combat_interface(
         Use the 'T" button to cycle through turns once the selected one has ended. (T for turn)
 
         !→ Evil: 5
-            name : hp
-            goblin : 10
-            skeleton : 15
-            Dragon, Chromatic, Black, Young : 130
+            name : hp : ac
+            goblin : 10 : 15
+            skeleton : 15 : 13
+            Dragon, Chromatic, Black, Young : 130 : 18
           Micheal: 4
           Thalis: 3
           Forest: 2
@@ -113,29 +113,33 @@ update_combat_sim_cycle_combat_interface
                 and
             sub_list[0] == system_selected_initiative_roll[0]):
           print("\t!→",sub_list[0],":",sub_list[1])
-          if sub_list[0].toLower() == "evil":
+          if sub_list[0].lower() == "evil":
+              print("\t\t","name : hp : ac")
               for monster_dict in monster_list_that_contains_dictionaries:
-                  print("\t\t",monster_dict["Name"],":",monster_dict["HP"])
+                  print("\t\t",monster_dict["Name"],":",monster_dict["HP"],":",monster_dict["AC"])
 
         # is a system selected initiative roll
         elif sub_list[0] == user_selected_initiative_roll[0]:
             print("\t! ", sub_list[0], ":", sub_list[1])
-            if sub_list[0].toLower() == "evil":
+            if sub_list[0].lower() == "evil":
+                print("\t\t", "name : hp : ac")
                 for monster_dict in monster_list_that_contains_dictionaries:
-                    print("\t\t", monster_dict["Name"], ":", monster_dict["HP"])
+                    print("\t\t", monster_dict["Name"], ":", monster_dict["HP"], ":", monster_dict["AC"])
 
         # is a user selected initiative roll
         elif sub_list[0] == user_selected_initiative_roll[0]:
             print("\t →", sub_list[0], ":", sub_list[1])
-            if sub_list[0].toLower() == "evil":
+            if sub_list[0].lower() == "evil":
+                print("\t\t", "name : hp : ac")
                 for monster_dict in monster_list_that_contains_dictionaries:
-                    print("\t\t", monster_dict["Name"], ":", monster_dict["HP"])
+                    print("\t\t", monster_dict["Name"], ":", monster_dict["HP"], ":", monster_dict["AC"])
 
         else:
             print("\t  ", sub_list[0], ":", sub_list[1])
-            if sub_list[0].toLower() == "evil":
+            if sub_list[0].lower() == "evil":
+                print("\t\t", "name : hp : ac")
                 for monster_dict in monster_list_that_contains_dictionaries:
-                    print("\t\t", monster_dict["Name"], ":", monster_dict["HP"])
+                    print("\t\t", monster_dict["Name"], ":", monster_dict["HP"], ":", monster_dict["AC"])
 
 def combat_sim_cycle_combat(
         initiative_rolls_dictionary,
