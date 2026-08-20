@@ -50,7 +50,11 @@ def get_sorted_initiative_rolls_from_greatest_to_least(unsorted_initiative_rolls
 
     return sorted_initiative_rolls_list
 
-
+def detect_if_evil_and_display_monster_if_yes(sub_list, monster_list_that_contains_dictionaries):
+    if sub_list[0].lower() == "evil":
+        print("\t\t", "name : hp : ac")
+        for monster_dict in monster_list_that_contains_dictionaries:
+            print("\t\t", monster_dict["Name"], ":", monster_dict["HP"], ":", monster_dict["AC"])
 
 def update_combat_sim_cycle_combat_interface(
         sorted_initiative_rolls_list,
@@ -113,37 +117,36 @@ update_combat_sim_cycle_combat_interface
                 and
             sub_list[0] == system_selected_initiative_roll[0]):
           print("\t!→",sub_list[0],":",sub_list[1])
-          if sub_list[0].lower() == "evil":
-              print("\t\t","name : hp : ac")
-              for monster_dict in monster_list_that_contains_dictionaries:
-                  print("\t\t",monster_dict["Name"],":",monster_dict["HP"],":",monster_dict["AC"])
+          detect_if_evil_and_display_monster_if_yes(
+              sub_list=sub_list,
+              monster_list_that_contains_dictionaries=monster_list_that_contains_dictionaries
+          )
 
         # is a system selected initiative roll
         elif sub_list[0] == user_selected_initiative_roll[0]:
             print("\t! ", sub_list[0], ":", sub_list[1])
-            if sub_list[0].lower() == "evil":
-                print("\t\t", "name : hp : ac")
-                for monster_dict in monster_list_that_contains_dictionaries:
-                    print("\t\t", monster_dict["Name"], ":", monster_dict["HP"], ":", monster_dict["AC"])
+            detect_if_evil_and_display_monster_if_yes(
+                sub_list=sub_list,
+                monster_list_that_contains_dictionaries=monster_list_that_contains_dictionaries
+            )
 
         # is a user selected initiative roll
         elif sub_list[0] == user_selected_initiative_roll[0]:
             print("\t →", sub_list[0], ":", sub_list[1])
-            if sub_list[0].lower() == "evil":
-                print("\t\t", "name : hp : ac")
-                for monster_dict in monster_list_that_contains_dictionaries:
-                    print("\t\t", monster_dict["Name"], ":", monster_dict["HP"], ":", monster_dict["AC"])
+            detect_if_evil_and_display_monster_if_yes(
+                sub_list=sub_list,
+                monster_list_that_contains_dictionaries=monster_list_that_contains_dictionaries
+            )
 
         else:
             print("\t  ", sub_list[0], ":", sub_list[1])
-            if sub_list[0].lower() == "evil":
-                print("\t\t", "name : hp : ac")
-                for monster_dict in monster_list_that_contains_dictionaries:
-                    print("\t\t", monster_dict["Name"], ":", monster_dict["HP"], ":", monster_dict["AC"])
+            detect_if_evil_and_display_monster_if_yes(
+                sub_list=sub_list,
+                monster_list_that_contains_dictionaries=monster_list_that_contains_dictionaries
+            )
 
 def combat_sim_cycle_combat(
         initiative_rolls_dictionary,
-        path_to_monsters_csv_file
 ):
     if initiative_rolls_dictionary is None:
         exit("ERR: combat_sim_cycle_combat: initative_roles_dict is None.")

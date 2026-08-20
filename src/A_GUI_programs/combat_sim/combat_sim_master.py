@@ -67,7 +67,6 @@ def combat_sim_master():
 
     combat_sim_cycle_combat(
         initiative_rolls_dictionary=initiative_rolls_dictionary,
-        path_to_monsters_csv_file=combat_sim_master_path_to_monsters_all_stats_homebrew_csv_file
     )
 
 if __name__ == "__main__":
