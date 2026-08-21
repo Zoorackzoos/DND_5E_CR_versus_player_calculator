@@ -35,10 +35,15 @@ def ask_to_run_combat_sim_master():
         elif user_info == "skip_i":
             print("you're skipping the initiative setting with default values.")
             time.sleep(0.5)
-            universal_terminal_clear(tab_amount="")
+            universal_terminal_clear()
             return "skip_i"
         else:
-            print("Invalid input. Must be 'y' or 'n'")
+            universal_terminal_clear()
+            print("You've ran \"combat_sim_master.py\" . Would you like to continue? (y/n)")
+            user_info = input("Invalid input. Must be 'y' or 'n'\n")
+
+    print("ERROR: ask_to_run_combat_sim_master: broke out of while user_info loop. shidding pants and returning None.")
+    return None
 
 
 def combat_sim_master():

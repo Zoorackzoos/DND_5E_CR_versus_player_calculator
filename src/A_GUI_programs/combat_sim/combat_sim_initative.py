@@ -1,5 +1,6 @@
 import keyboard
 
+from A_GUI_programs.combat_sim.combat_sim_cycle_combat import confirm_quit_via_keyboard
 from A_GUI_programs.universal_terminal_clear import universal_terminal_clear
 
 """
@@ -245,6 +246,10 @@ def take_initiative_roles():
         #these 2 lines are so duplicate inputs aren't recorded / holding down the key does nothing
         event = keyboard.read_event()
         if event.event_type == keyboard.KEY_DOWN:
+
+            if keyboard.is_pressed("q"):
+                if confirm_quit_via_keyboard():
+                    initiative_keep_program_running_bool = False
 
             #the arrow keys
             if keyboard.is_pressed("up"):
