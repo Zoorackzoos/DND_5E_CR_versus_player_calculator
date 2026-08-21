@@ -11,6 +11,21 @@ from universal_functions.spreadsheet_stuff.dict_based_database_interpretors.get_
     get_rows_from_dict_on_param_type_and_string
 from universal_functions.vars.spreadsheet_enums import SpreadsheetKeysEnums
 
+def confirm_quit_via_keyboard():
+    """
+    Blocks and listens for y/n using the keyboard module directly,
+    instead of input() -- avoids the stdin-buffer collision that happens
+    when input() is called from inside a keyboard.read_event() loop.
+    """
+    print("you're about to quit? are you sure? (y/n)")
+    while True:
+        event = keyboard.read_event()
+        if event.event_type == keyboard.KEY_DOWN:
+            if event.name == "y":
+                return True
+            elif event.name == "n":
+                return False
+            # anything else: keep waiting, don't fall through
 
 def get_sorted_initiative_rolls_from_greatest_to_least(unsorted_initiative_rolls_list):
     sorted_initiative_rolls_list = deepcopy(unsorted_initiative_rolls_list)
@@ -125,6 +140,7 @@ def update_combat_sim_cycle_combat_interface(
 
     update_combat_sim_cycle_combat_interface_start = """update_combat_sim_cycle_combat_interface
     you are in combat now.
+    Press 'q' to quit.
     the '→' character indicates which PC / NPC 's you've selected.
     the '!" character indicates which PC / NPC 's turn it is to play.
     Use the UP and DOWN arrow key to go between PCs or NPCs.
@@ -286,6 +302,9 @@ def combat_sim_cycle_combat(
         #these 2 lines are so duplicate inputs aren't recorded / holding down the key does nothing
         event = keyboard.read_event()
         if event.event_type == keyboard.KEY_DOWN:
+            if keyboard.is_pressed("q"):
+                if confirm_quit_via_keyboard():
+                    combat_cycle_keep_program_running_bool = False
             if selected_npc_bool == False:
                 if keyboard.is_pressed("up"):
                     if user_initiative_roll_index > 0:
