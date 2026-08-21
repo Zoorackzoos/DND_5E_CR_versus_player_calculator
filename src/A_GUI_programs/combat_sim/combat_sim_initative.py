@@ -92,8 +92,7 @@ def update_initiative_roles_screen_and_return_user_input(
 ):
     universal_terminal_clear(tab_amount="")
 
-    take_initiative_roles_intro_text = """
-take_initiative_roles
+    take_initiative_roles_intro_text = """take_initiative_roles
     we need to take initiative roles.
     the '→' character indicates which PC / NPC you have selected.
     use the UP and DOWN arrow keys to swap from PC / NPC.
@@ -236,9 +235,9 @@ def take_initiative_roles():
         roll_off_respected_bool=False,
         selected_roll_taker_index=selected_roll_taker_index
     )
-    keep_program_running_bool = True
+    initiative_keep_program_running_bool = True
 
-    while keep_program_running_bool:
+    while initiative_keep_program_running_bool:
         in_loop_failed_initiative_input_bool = False
         in_loop_duplicate_initiative_input_bool = False
         in_loop_roll_off_respected_bool = False
@@ -281,7 +280,7 @@ def take_initiative_roles():
                     print("modifier :", modifier)
                 """
             elif keyboard.is_pressed("enter"):
-                keep_program_running_bool = False
+                initiative_keep_program_running_bool = False
 
             #actually inputting initative values
             elif keyboard.is_pressed("right"):
