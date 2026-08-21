@@ -248,6 +248,11 @@ def combat_sim_cycle_combat(
     a goblin
     a skeleton
     a "Dragon, Chromatic, Black, Young"
+    
+    the reason they're called monster_name[0] in the dictionary delcartion
+    is becuase this funciton "get_rows..." retruns a list of dictionaries.
+        since my query is specfici enough were it returns a list with 1 dictionary
+        we just use list[0] to get that 1 monster.
     """
     goblin_list_that_contains_dict = get_rows_from_dict_on_param_type_and_string(
         dict_in_question=monsters_all_stats_homebrew_dict,
@@ -276,6 +281,15 @@ def combat_sim_cycle_combat(
         skeleton_list_that_contains_dict[0],
         chromatic_blank_young_dragon_list_that_contains_dict[0]
     ]
+
+    #adding the "life_status" key to the dictionary we just made above.
+    for monster_dict in list_that_contains_dictionaries_that_are_monsters:
+        #True = alive.
+        #False = dead.
+        #   computer has to eat less.
+        monster_dict["life_status"] = True
+
+    #TODO: update GUI to represent life_status then implement take damage.
 
     """
     originally i had it as "sorted_initiative_rolls_list[0]" which stored those
