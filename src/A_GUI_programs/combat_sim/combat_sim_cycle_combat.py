@@ -52,7 +52,9 @@ def get_sorted_initiative_rolls_from_greatest_to_least(unsorted_initiative_rolls
 
 def detect_if_NPC_and_display_monster_if_yes(
         sub_list,
-        list_that_contains_dictionaries_that_are_monsters
+        list_that_contains_dictionaries_that_are_monsters,
+        selected_npc_bool,
+        selected_npc_index
 ):
     """
     used to be called "detect_if_evil_and_display_monster_if_yes"
@@ -67,10 +69,20 @@ def detect_if_NPC_and_display_monster_if_yes(
          if it's any other integer, then a monster is selected.
     :return:
     """
-    if (sub_list[0].lower() == "evil" or sub_list[0].lower() == "good"):
+    if sub_list[0].lower() == "evil" or sub_list[0].lower() == "good":
         print("\t\t", "name : hp : ac")
-        for monster_dict in list_that_contains_dictionaries_that_are_monsters:
-            print("\t\t", monster_dict["Name"], ":", monster_dict["HP"], ":", monster_dict["AC"])
+        if selected_npc_bool:
+            monster_dict_index = 0
+            for monster_dict in list_that_contains_dictionaries_that_are_monsters:
+                #monster and npc are the same thing. they're just a dictionary with monster information.
+                if monster_dict_index == selected_npc_index:
+                    print("\t\t →", monster_dict["Name"], ":", monster_dict["HP"], ":", monster_dict["AC"])
+                else:
+                    print("\t\t  ", monster_dict["Name"], ":", monster_dict["HP"], ":", monster_dict["AC"])
+                monster_dict_index += 1
+        else:
+            for monster_dict in list_that_contains_dictionaries_that_are_monsters:
+                print("\t\t  ", monster_dict["Name"], ":", monster_dict["HP"], ":", monster_dict["AC"])
 
 def update_combat_sim_cycle_combat_interface(
         sorted_initiative_rolls_list,
@@ -78,6 +90,7 @@ def update_combat_sim_cycle_combat_interface(
         system_selected_initiative_roll,
         list_that_contains_dictionaries_that_are_monsters,
         selected_npc_bool,
+        selected_npc_index
 ):
     """
 
@@ -136,27 +149,35 @@ def update_combat_sim_cycle_combat_interface(
           print("\t!→",sub_list[0],":",sub_list[1])
           detect_if_NPC_and_display_monster_if_yes(
               sub_list=sub_list,
-              list_that_contains_dictionaries_that_are_monsters=list_that_contains_dictionaries_that_are_monsters
+              list_that_contains_dictionaries_that_are_monsters=list_that_contains_dictionaries_that_are_monsters,
+              selected_npc_bool=selected_npc_bool,
+              selected_npc_index=selected_npc_index
           )
         # is a system selected initiative roll
         elif sub_list[0] == system_selected_initiative_roll[0]:
             print("\t! ", sub_list[0], ":", sub_list[1])
             detect_if_NPC_and_display_monster_if_yes(
                 sub_list=sub_list,
-                list_that_contains_dictionaries_that_are_monsters=list_that_contains_dictionaries_that_are_monsters
+                list_that_contains_dictionaries_that_are_monsters=list_that_contains_dictionaries_that_are_monsters,
+              selected_npc_bool=selected_npc_bool,
+              selected_npc_index=selected_npc_index
             )
         # is a user selected initiative roll
         elif sub_list[0] == user_selected_initiative_roll[0]:
             print("\t →", sub_list[0], ":", sub_list[1])
             detect_if_NPC_and_display_monster_if_yes(
                 sub_list=sub_list,
-                list_that_contains_dictionaries_that_are_monsters=list_that_contains_dictionaries_that_are_monsters
+                list_that_contains_dictionaries_that_are_monsters=list_that_contains_dictionaries_that_are_monsters,
+              selected_npc_bool=selected_npc_bool,
+              selected_npc_index=selected_npc_index
             )
         else:
             print("\t  ", sub_list[0], ":", sub_list[1])
             detect_if_NPC_and_display_monster_if_yes(
                 sub_list=sub_list,
-                list_that_contains_dictionaries_that_are_monsters=list_that_contains_dictionaries_that_are_monsters
+                list_that_contains_dictionaries_that_are_monsters=list_that_contains_dictionaries_that_are_monsters,
+              selected_npc_bool=selected_npc_bool,
+              selected_npc_index=selected_npc_index
             )
 
 def combat_sim_cycle_combat(
@@ -235,6 +256,12 @@ def combat_sim_cycle_combat(
     selected_npc_bool = False
 
     """
+    #starts at 0, ends at whatever the NPC, either evil or good, length's is.
+    #this is for the child menu
+    """
+    selected_npc_index = 0
+
+    """
     there's probably a less shit way to do this in order to save lines but considering the 
     variables involved update so frequently within this scope. IDK. 
         if only chris born was here to mock me wand program a function 
@@ -246,7 +273,8 @@ def combat_sim_cycle_combat(
             user_selected_initiative_roll=sorted_initiative_rolls_list[user_initiative_roll_index],
             system_selected_initiative_roll=sorted_initiative_rolls_list[system_initiative_roll_index],
             list_that_contains_dictionaries_that_are_monsters=list_that_contains_dictionaries_that_are_monsters,
-            selected_npc_bool=selected_npc_bool
+            selected_npc_bool=selected_npc_bool,
+            selected_npc_index=selected_npc_index
         )
 
     # do this once with the starter indexes.
@@ -258,31 +286,38 @@ def combat_sim_cycle_combat(
         #these 2 lines are so duplicate inputs aren't recorded / holding down the key does nothing
         event = keyboard.read_event()
         if event.event_type == keyboard.KEY_DOWN:
-            if keyboard.is_pressed("up"):
-                if user_initiative_roll_index > 0:
-                    user_initiative_roll_index += -1
+            if selected_npc_bool == False:
+                if keyboard.is_pressed("up"):
+                    if user_initiative_roll_index > 0:
+                        user_initiative_roll_index += -1
+                        default_input_update_combat_sim_cycle_combat_interface()
+                elif keyboard.is_pressed("down"):
+                    if user_initiative_roll_index < len(sorted_initiative_rolls_list)-1:
+                        user_initiative_roll_index += 1
+                        default_input_update_combat_sim_cycle_combat_interface()
+                elif keyboard.is_pressed("right"):
+                    name_of_selected_npc_or_pc = sorted_initiative_rolls_list[user_initiative_roll_index][0].lower()
+                    if name_of_selected_npc_or_pc == "evil" or name_of_selected_npc_or_pc == "good":
+                        selected_npc_bool = True
+                    else:
+                        #TODO: make update GUI function say "no interactions with PCs implemented yet"
+                        pass
                     default_input_update_combat_sim_cycle_combat_interface()
-                else:
-                    #do nothing
-                    pass
-            elif keyboard.is_pressed("down"):
-                if user_initiative_roll_index < len(sorted_initiative_rolls_list)-1:
-                    user_initiative_roll_index += 1
-                    default_input_update_combat_sim_cycle_combat_interface()
-                else:
-                    # do nothing
-                    pass
-            elif keyboard.is_pressed("right"):
-                name_of_selected_npc_or_pc = sorted_initiative_rolls_list[user_initiative_roll_index][0].lower()
-                if name_of_selected_npc_or_pc == "evil" or name_of_selected_npc_or_pc == "good":
-                    selected_npc_bool = True
-                else:
-                    #TODO: make update GUI function say "no interactions with PCs implemented yet"
-                    pass
-                update_combat_sim_cycle_combat_interface(
-                    sorted_initiative_rolls_list=sorted_initiative_rolls_list,
-                    user_selected_initiative_roll=sorted_initiative_rolls_list[user_initiative_roll_index],
-                    system_selected_initiative_roll=sorted_initiative_rolls_list[system_initiative_roll_index],
-                    list_that_contains_dictionaries_that_are_monsters=list_that_contains_dictionaries_that_are_monsters,
-                    selected_npc_bool=selected_npc_bool
-                )
+            else: #selected_npc_bool == True:
+                #basically the same functionality in the if statement
+                #except instead of in the parent NPC or PC menu
+                #you're in the NPC's child monster menu.
+                #from which you can make them do an attack, take damage or heal damage.
+                if keyboard.is_pressed("up"):
+                    if selected_npc_index > 0:
+                        selected_npc_index -= 1
+                        default_input_update_combat_sim_cycle_combat_interface()
+                elif keyboard.is_pressed("down"):
+                    if selected_npc_index < len(list_that_contains_dictionaries_that_are_monsters)-1:
+                        selected_npc_index += 1
+                        default_input_update_combat_sim_cycle_combat_interface()
+                elif keyboard.is_pressed("right"):
+                    print("good fuck")
+                    exit(999)
+
+
